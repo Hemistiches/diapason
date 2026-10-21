@@ -15,7 +15,7 @@ Site d'une seule page : le test, les formules, les mentions légales et la polit
 
 ## Publication
 
-Toute modification enregistrée sur la branche `main` est publiée automatiquement par Netlify.
+Toute modification enregistrée sur la branche `main` est publiée automatiquement par Netlify (projet `diapason-site`), en une minute environ.
 
 Le formulaire `rapport-diapason` est reçu par Netlify Forms ; une notification est envoyée à chaque demande.
 
