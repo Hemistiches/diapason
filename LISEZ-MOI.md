@@ -8,14 +8,15 @@ Site d'une seule page : le test, les formules, les mentions légales et la polit
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Le site complet (textes, test, calcul, mentions légales et confidentialité) |
+| `index.html` | Le site complet en français (textes, test, calcul, mentions légales et confidentialité) |
+| `en/index.html` | La version anglaise, servie à l'adresse /en/ (même moteur de test, même formulaire) |
 | `netlify.toml` | Configuration de publication Netlify |
 | `robots.txt` | Autorise l'indexation |
 | `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png` | Icônes reprises de hemistiches.com |
 
 ## Publication
 
-Toute modification enregistrée sur la branche `main` est publiée automatiquement par Netlify (projet `diapason-site`), en une minute environ.
+Toute modification de fond se reporte dans les deux langues. Toute modification enregistrée sur la branche `main` est publiée automatiquement par Netlify (projet `diapason-site`), en une minute environ.
 
 Le formulaire `rapport-diapason` est reçu par Netlify Forms ; une notification est envoyée à chaque demande.
 
