@@ -17,6 +17,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="Diapason, par Hémistiches : le test de conformité RGPD des données de santé. Délégué à la protection des données, registre, analyses d'impact, recherches, hébergement : un résultat immédiat, puis un avocat si votre situation le demande.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LegalService", "name": "Diapason, par Hémistiches", "url": "https://diapason.hemistiches.com/", "inLanguage": "fr", "description": "Conformité RGPD des données de santé : consultation d'orientation, diagnostic, mise en place, conformité des études et délégué à la protection des données externalisé, avec un test d'orientation gratuit.", "provider": {"@type": "Attorney", "name": "François Césure", "url": "https://www.hemistiches.com", "address": {"@type": "PostalAddress", "streetAddress": "33, avenue Mac-Mahon", "postalCode": "75017", "addressLocality": "Paris", "addressCountry": "FR"}, "telephone": "+33647888025", "email": "francois.cesure@hemistiches.com"}, "areaServed": "FR", "priceRange": "€€", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Tarifs HT", "itemListElement": [{"@type": "Offer", "name": "Consultation d'orientation", "description": "Entretien de 45 minutes et synthèse par courriel", "priceSpecification": {"@type": "PriceSpecification", "price": 350, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Diagnostic du dispositif existant", "priceSpecification": {"@type": "PriceSpecification", "price": 1200, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Mise en place simple, diagnostic compris", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 2500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Mise en place étendue", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 4500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Conformité d'une étude française simple", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 2500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Conformité approfondie d'une étude", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 4500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Extension à un pays supplémentaire, hors honoraires du conseil local", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 750, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Délégué externalisé, suivi limité", "description": "3 heures par mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 490, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Délégué externalisé, suivi régulier", "description": "6 heures par mois", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 990, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Délégué externalisé, suivi renforcé", "description": "10 heures par mois au niveau d'entrée", "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 1490, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Revue de la désignation", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 1200, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}]}}</script>
 <style>
 /* Charte reprise de hemistiches.com : noir et blanc, Avenir Next léger, filets plutôt que cartes, angles droits, césure verticale. */
 :root{
@@ -378,6 +379,60 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .print-foot{margin-top:18px;border-top:1px solid #999;padding-top:8px;font-size:8.5pt;color:#444}
 }
 .foot nav a{color:#8a8a8a;padding:10px 0}.foot nav a:hover{color:#fff}
+/* Grille du 26 octobre 2026 : composants repris de Cadence (sous-titres, règles, FAQ, tableau) */
+.sub-h3{font-size:clamp(20px,1.8vw,26px);font-weight:400;margin-top:clamp(56px,7vw,96px)}
+.sub-h3 + .three,.sub-h3 + .tbl-wrap,.sub-h3 + .rules{margin-top:22px}
+.three.duo{grid-template-columns:repeat(2,minmax(0,1fr))}
+.three.duo p{max-width:52ch}
+.three article{padding-bottom:clamp(20px,2.4vw,28px)}
+details.more{border-top:1px solid var(--rule);margin-top:auto}
+details.more summary{cursor:pointer;list-style:none;padding:12px 28px 12px 0;position:relative;font-size:15px;color:var(--ink)}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";position:absolute;right:2px;top:9px;font-weight:300;font-size:20px;line-height:1}
+details.more[open] summary::after{content:"–"}
+details.more summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+details.more > div{padding:0 0 6px}
+details.more > div p{font-size:15px;color:var(--ink-2);max-width:none}
+details.more > div p + p{margin-top:8px}
+details.more b{font-weight:600;color:var(--ink)}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:16px}
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px;min-width:560px}
+.tbl caption{text-align:left;font-size:14px;color:var(--mute);padding-bottom:10px;caption-side:top}
+.tbl th,.tbl td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);font-weight:400;vertical-align:top}
+.tbl thead th{border-bottom:1px solid var(--ink);color:var(--mute);font-size:14px}
+.tbl tbody th{color:var(--ink)}
+.tbl td{color:var(--ink-2)}
+.tbl td:last-child{white-space:nowrap;color:var(--ink)}
+.rules{list-style:none;margin:clamp(32px,4vw,48px) 0 0;padding:0;border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px)}
+.rules li{padding:18px 0;border-bottom:1px solid var(--rule);min-width:0}
+.rules b{display:block;font-weight:400;font-size:clamp(17px,1.4vw,19px)}
+.rules > li > span{display:block;font-size:15px;color:var(--ink-2);margin-top:4px}
+.rules a{color:inherit;border-bottom:1px solid var(--rule)}
+.faq-s{padding-block:clamp(72px,9vw,120px)}
+.faq{margin-top:clamp(28px,3.5vw,48px);border-top:1px solid var(--ink);max-width:900px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 32px 18px 0;position:relative;font-size:clamp(17px,1.4vw,20px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font-weight:300;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.faq details > div{padding:0 0 20px;font-size:16px;color:var(--ink-2);max-width:70ch}
+.faq details > div p + p{margin-top:10px}
+.conviction{background:var(--card)}
+.parcours li{grid-template-columns:minmax(0,1fr)}
+.parcours .pr{text-align:left;color:var(--ink-2)}
+.parcours .hyp{font-size:14px;color:var(--mute);margin-top:-2px}
+.budget{margin-top:20px;border:1px solid var(--rule);padding:18px 20px}
+.budget h5{font-family:var(--font);font-weight:400;font-size:clamp(18px,1.5vw,20px);margin:0}
+.budget dl{margin:10px 0 0;display:grid;gap:6px}
+.budget dl div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rule);padding:6px 0}
+.budget dt{color:var(--ink-2);font-size:15px}
+.budget dd{margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.budget p{font-size:14px;color:var(--mute);margin-top:10px;max-width:72ch}
+@media (max-width:860px){.rules{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:720px){.three,.three.duo{grid-template-columns:minmax(0,1fr)}.three article{padding:28px 0}.three article + article{padding-left:0;border-left:0;border-top:1px solid var(--rule)}}
+@media print{.faq-s{display:none!important}.budget,.parcours li{break-inside:avoid}}
+.three .amount small{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -389,8 +444,9 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="right">
     <nav class="nav" aria-label="Navigation principale">
       <a href="#fonction">Le périmètre</a>
-      <a href="#delegue">Les étapes</a>
-      <a href="#formules">Formules</a>
+      <a href="#parcours">Les besoins</a>
+      <a href="#formules">Tarifs</a>
+      <a href="#faq">Questions</a>
       <a href="#cadre">Le cadre</a>
       <a class="cta" href="#test">Faire le test</a>
     </nav>
@@ -412,8 +468,9 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   <nav aria-label="Navigation mobile">
     <a href="#fonction">Le périmètre</a>
     <a href="#test">Faire le test</a>
-    <a href="#delegue">Les étapes</a>
-    <a href="#formules">Formules</a>
+    <a href="#parcours">Les besoins</a>
+    <a href="#formules">Tarifs</a>
+    <a href="#faq">Questions</a>
     <a href="#cadre">Le cadre</a>
     <a href="#contact">Échanger</a>
   </nav>
@@ -429,12 +486,12 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="wrap">
       <p class="who"><strong>Diapason</strong><span>Conformité RGPD des données de santé, par Hémistiches</span></p>
       <h1 id="titre">Vos données de santé<span class="cesure" aria-hidden="true"></span> sont-elles au diapason du RGPD ?</h1>
-      <p class="lede">Faites le test de votre dispositif. De dix à seize questions selon votre situation, et votre résultat sur trois axes : l'obligation qui vous incombe, la fragilité de ce que vous avez en place, votre exposition en cas de contrôle ou d'incident.</p>
+      <p class="lede">Faites le test de votre dispositif. De quatorze à vingt questions factuelles selon votre situation, et un résultat en deux temps : trois indicateurs (l'obligation qui vous incombe, la fragilité de ce que vous avez en place, votre exposition en cas de contrôle ou d'incident), puis une orientation, avec les prix d'entrée et leurs hypothèses.</p>
       <div class="actions">
         <a class="btn btn-light" href="#test">Faire le test</a>
-        <a class="link-quiet" href="#formules">Voir les formules</a>
+        <a class="link-quiet" href="#formules">Voir les tarifs</a>
       </div>
-      <p class="facts"><span>Moins de six minutes</span><span>Gratuit</span><span>Vos réponses restent dans votre navigateur</span><span>Prix hors taxes</span></p>
+      <p class="facts"><span>Environ six minutes</span><span>Gratuit</span><span>Vos réponses restent dans votre navigateur</span><span>Prix hors taxes</span></p>
     </div>
   </section>
 
@@ -472,147 +529,227 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
       <h2 class="sec-h2" id="t-test">Votre dispositif est-il au diapason ?</h2>
-      <p class="intro">Des questions sur des faits que vous connaissez. Le parcours s'adapte à votre activité et à ce que vous avez déjà en place.</p>
+      <p class="intro">Des questions sur des faits que vous connaissez : votre organisation, ce que vous avez en place, vos études, le rythme de vos projets. Le parcours s'adapte à vos réponses et ne vous demande ni document ni détail de dossier.</p>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">Le test fonctionne dans votre navigateur et nécessite JavaScript. Vous pouvez aussi écrire directement à francois.cesure@hemistiches.com.</p></noscript></div>
     </div>
   </section>
 
-  <section class="delegue-s" id="delegue" aria-labelledby="t-dpo">
+  <section class="delegue-s" id="parcours" aria-labelledby="t-parcours">
     <div class="wrap">
-      <p class="label">Comment s'articulent les formules</p>
-      <h2 class="sec-h2" id="t-dpo">Construire d'abord, tenir ensuite</h2>
-      <p class="intro">La fonction de délégué ne se tient que sur un dispositif déjà construit. Les trois formules s'enchaînent, chacune a son prix, et aucune ne comprend les autres.</p>
+      <p class="label">Comment travailler ensemble</p>
+      <h2 class="sec-h2" id="t-parcours">Trois besoins distincts, chacun à son prix</h2>
+      <p class="intro">Selon votre situation, vous n'aurez peut-être besoin que de l'un d'eux. Aucun n'est un passage obligé : une étude peut être confiée seule, et un abonnement de délégué peut démarrer directement sur un dispositif qui tient déjà.</p>
       <ol class="steps3">
         <li>
-          <span class="when">Étape 1 · une fois, au démarrage</span>
-          <h3>Mise en place de la fonction</h3>
-          <p class="amt"><span class="pre">À partir de</span>4 500 € <small>HT, une fois</small></p>
-          <p>Le registre, les procédures, la méthode d'analyse d'impact, la gouvernance, la désignation du délégué et sa communication à la CNIL.</p>
-          <a href="#offre-fonction">Le détail</a>
+          <span class="when">Si nécessaire · une fois</span>
+          <h3>Construire ou remettre à niveau le dispositif</h3>
+          <p class="amt"><span class="pre">À partir de</span><span data-p="diag">1 200 €</span> <small>HT pour un diagnostic, <span data-p="mes">2 500 €</span> HT pour une mise en place simple, diagnostic compris</small></p>
+          <p>Registre, procédures essentielles, gouvernance et, si une désignation est retenue, sa préparation. Si votre dispositif est déjà exploitable, cette étape n'a pas lieu.</p>
+          <a href="#tarifs-dispositif">Le détail</a>
         </li>
         <li>
-          <span class="when">Étape 2 · pour chaque étude</span>
-          <h3>Conformité d'une étude</h3>
-          <p class="amt"><span class="pre">À partir de</span>4 500 € <small>HT par étude, + 1 500 à 2 500 € HT par pays d'investigation hors de France</small></p>
-          <p>Chaque étude a son forfait : deux études, deux forfaits. Une étude se déroule le plus souvent dans plusieurs pays de l'Union : chaque pays ajoute son supplément.</p>
-          <a href="#offre-etude">Le détail</a>
+          <span class="when">Pour chaque étude</span>
+          <h3>Mettre une étude en conformité</h3>
+          <p class="amt"><span class="pre">À partir de</span><span data-p="es">2 500 €</span> <small>HT par étude, + <span data-p="pays">750 €</span> HT par pays supplémentaire, hors conseil local</small></p>
+          <p>Qualification du cadre, information des participants, analyse d'impact, contrat relatif aux données. Avec ou sans abonnement.</p>
+          <a href="#tarifs-etudes">Le détail</a>
         </li>
         <li>
-          <span class="when">Étape 3 · chaque mois, ensuite</span>
-          <h3>Délégué externalisé</h3>
-          <p class="amt"><span class="pre">À partir de</span>650 € <small>HT par mois</small></p>
-          <p>La fonction de délégué, tenue dans la durée, sur le dispositif construit aux étapes 1 et 2.</p>
-          <a href="#offre-dpo">Le détail</a>
+          <span class="when">Chaque mois, si vous le souhaitez</span>
+          <h3>Tenir la fonction de délégué</h3>
+          <p class="amt"><span class="pre">À partir de</span><span data-p="d:limite">490 €</span> <small>HT par mois pour trois heures</small></p>
+          <p>Un volume d'heures réservé chaque mois, trois, six ou dix heures, sur un dispositif construit avec moi ou déjà en place chez vous.</p>
+          <a href="#tarifs-delegue">Le détail</a>
         </li>
       </ol>
-
-      <p class="warn"><strong>L'abonnement de délégué ne comprend ni la mise en place de la fonction, ni la conformité de vos études.</strong> Il commence une fois l'étape 1 réalisée. Si votre registre et vos procédures existent déjà, leur reprise est vérifiée au préalable, sur devis.</p>
-
-      <div class="dpo-grid">
-        <div>
-          <h3>Ce que comprend l'abonnement de délégué</h3>
-          <ul class="dpo-list">
-            <li>Tenue et mise à jour du registre des traitements</li>
-            <li>Avis sur vos nouveaux traitements et sur la nécessité d'une analyse d'impact</li>
-            <li>Réponse aux demandes des personnes concernées</li>
-            <li>Qualification et notification des violations de données</li>
-            <li>Point d'avancement périodique et rapport annuel</li>
-            <li>Interlocuteur de la CNIL, assistance en cas de contrôle incluse dans la limite de trois jours par an</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Ce qu'il ne comprend pas</h3>
-          <ul class="dpo-list out">
-            <li>La mise en place de la fonction, désignation comprise : étape 1</li>
-            <li>La conformité de chaque étude, y compris son analyse d'impact et ses pays d'investigation : étape 2, un forfait par étude et un supplément par pays</li>
-            <li>La rédaction des analyses d'impact et des contrats hors étude : sur devis</li>
-            <li>L'assistance au-delà de trois jours par an, et la procédure de sanction : sur devis</li>
-          </ul>
-        </div>
-      </div>
-
-      <ul class="paliers">
-        <li><b>650 € HT par mois</b><span>Jusqu'à une étude en cours</span></li>
-        <li><b>1 200 € HT par mois</b><span>De deux à cinq études en cours</span></li>
-        <li><b>2 000 € HT par mois</b><span>Au-delà de cinq études en cours</span></li>
-      </ul>
-      <p class="dpo-note">Le palier mesure la charge de la fonction de délégué : chaque étude en cours ajoute des traitements à suivre, des demandes et des échanges. Une étude menée dans plusieurs pays compte pour une étude. Le palier ne paie aucun travail sur les études elles-mêmes, qui relève de l'étape 2. Durée initiale de douze mois.</p>
-
-      <div class="example">
-        <h3>Un exemple, la première année</h3>
-        <p>Un promoteur sans registre lance sa première étude, en France et dans deux autres pays de l'Union : le cas le plus fréquent.</p>
-        <table>
-          <caption class="sr">Coût de la première année pour un promoteur qui lance une étude dans trois pays</caption>
-          <tbody>
-            <tr><th scope="row">Étape 1 · mise en place de la fonction</th><td>4 500 €</td></tr>
-            <tr><th scope="row">Étape 2 · conformité de l'étude</th><td>4 500 à 8 000 €</td></tr>
-            <tr><th scope="row">Étape 2 · deux pays d'investigation hors de France</th><td>3 000 à 5 000 €</td></tr>
-            <tr><th scope="row">Étape 3 · délégué, 650 € × 12 mois</th><td>7 800 €</td></tr>
-          </tbody>
-          <tfoot><tr><th scope="row">Première année</th><td>19 800 à 25 300 € HT</td></tr></tfoot>
-        </table>
-        <p class="dpo-note">S'y ajoutent les honoraires des correspondants locaux, refacturés à l'identique. Une deuxième étude ajoute son propre forfait de conformité, et fait passer l'abonnement au palier de 1 200 € HT par mois.</p>
-      </div>
+      <p class="warn"><strong>L'abonnement tient la fonction de délégué. Il ne comprend ni la construction du dispositif, ni la mise en conformité documentaire de vos études.</strong> Ce sont des missions distinctes, chacune au forfait, que vous engagez seulement si votre situation le demande.</p>
     </div>
   </section>
 
   <section class="formules-s" id="formules" aria-labelledby="t-form">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-form">Formules</h2>
-      <p class="intro">Chaque forfait est défini par écrit : ce qu'il couvre, ce qu'il exclut, le nombre de réunions et de tours de commentaires. Les trois premiers s'enchaînent ; les trois suivants répondent à une situation particulière.</p>
-      <div class="six">
-        <article id="offre-fonction">
-          <p class="kind">Étape 1 · une fois, au démarrage</p>
-          <h3>Mise en place de la fonction</h3>
-          <div><p class="from">À partir de</p><p class="amount">4 500 € <small>HT</small></p></div>
-          <p>Doter la fonction de ce qui lui manque : le registre, les procédures, la méthode d'analyse d'impact, la gouvernance.</p>
-          <ul><li>Registre des traitements établi ou repris (art. 30)</li><li>Procédure de violation et méthode d'analyse d'impact</li><li>Désignation du délégué et communication à la CNIL</li><li>Lettre de mission du délégué et ligne de compte rendu</li></ul>
-          <p class="limite">4 500 € HT jusqu'à dix traitements, 7 500 € HT de onze à vingt-cinq, au-delà sur devis. Hors études et hors audit technique de sécurité.</p>
+      <h2 class="sec-h2" id="t-form">Tarifs</h2>
+      <p class="intro">Tous les prix s'entendent hors taxes. Chaque forfait repose sur un périmètre convenu par écrit, des informations fournies dans un format exploitable, un nombre défini de réunions et de versions, et la réutilisation d'outils éprouvés. Un dossier qui sort de ces hypothèses fait l'objet d'un devis, arrêté avant toute intervention.</p>
+
+      <h3 class="sub-h3" id="tarifs-debut">Pour commencer</h3>
+      <div class="three duo">
+        <article id="offre-consultation">
+          <h3>Consultation d'orientation</h3>
+          <div><p class="amount"><span data-p="c">350 €</span> <small>HT</small></p></div>
+          <p>Quarante-cinq minutes pour situer votre dispositif et savoir par où commencer.</p>
+          <ul><li>Lecture du résultat de votre test, s'il existe</li><li>Lecture de quelques informations et pièces courtes convenues</li><li>Entretien de quarante-cinq minutes, en visio</li><li>Synthèse écrite des priorités et des prochaines étapes, par courriel</li></ul>
+          <details class="more"><summary>Le détail</summary><div>
+            <p>La consultation éclaire vos priorités et la suite à donner ; une analyse documentaire approfondie, un audit ou une question complexe appelant une recherche ou une opinion développée relèvent d'une autre mission, chiffrée au préalable.</p>
+            <p>Facultative : aucune mission ne l'exige. Lorsqu'elle prépare directement un forfait engagé dans les trente jours, ses <span data-p="c">350 €</span> HT en sont déduits, une seule fois, et le travail réalisé est repris dans la mission.</p>
+          </div></details>
         </article>
-        <article id="offre-etude">
-          <p class="kind">Étape 2 · pour chaque étude</p>
-          <h3>Conformité d'une étude</h3>
-          <div><p class="from">À partir de</p><p class="amount">4 500 € <small>HT par étude</small></p><p class="from">+ 1 500 à 2 500 € HT par pays d'investigation hors de France</p></div>
-          <p>Placer une étude sur le bon fondement avant son lancement, et documenter ce que l'autorité, les centres et vos partenaires vous demanderont.</p>
-          <ul><li>Qualification : méthodologie de référence ou autorisation</li><li>Note d'information des participants, volet données</li><li>Clauses avec la société de recherche, les centres et les prestataires (art. 28)</li><li>Analyse d'impact de l'étude</li></ul>
-          <p class="limite">De 4 500 à 8 000 € HT par étude, pour la France et la coordination d'ensemble. Chaque pays d'investigation hors de France : 1 500 à 2 500 € HT ; les règles locales y sont vérifiées par un correspondant du pays, dont les honoraires sont refacturés à l'identique. Un forfait par étude.</p>
-        </article>
-        <article id="offre-dpo" class="dpo">
-          <p class="kind">Étape 3 · chaque mois, ensuite</p>
-          <h3>Délégué à la protection des données externalisé</h3>
-          <div><p class="from">À partir de</p><p class="amount">650 € <small>HT par mois</small></p></div>
-          <p>La fonction de délégué, tenue dans la durée, une fois la fonction mise en place.</p>
-          <ul><li>Registre tenu à jour, avis sur vos nouveaux traitements</li><li>Demandes des personnes, violations de données</li><li>Assistance en cas de contrôle de la CNIL, trois jours par an inclus</li></ul>
-          <p class="limite"><strong style="color:#fff;font-weight:600">Ne comprend ni la mise en place (étape 1) ni les études (étape 2).</strong> 650 € jusqu'à une étude en cours, 1 200 € de deux à cinq, 2 000 € au-delà ; une étude multi-pays compte pour une. Durée initiale de douze mois. <a href="#delegue" style="border-bottom:1px solid #5a5a5a">Le détail</a></p>
-        </article>
-        <article id="offre-flash">
-          <p class="kind">Pour commencer</p>
-          <h3>Consultation flash</h3>
-          <div><p class="amount">490 € <small>HT</small></p><p class="from">Déductible du forfait souscrit ensuite</p></div>
-          <p>Une heure avec un avocat pour comprendre où en est votre dispositif et savoir par quelle étape commencer.</p>
-          <ul><li>Lecture préalable de votre résultat</li><li>Visio de soixante minutes</li><li>Note d'orientation écrite : vigilances, priorités, étapes suivantes</li></ul>
-          <p class="limite">Visio sous dix jours. Hors analyse de documents et avis écrit engageant une position juridique.</p>
-        </article>
-        <article id="offre-revue">
-          <p class="kind">Si vous avez déjà un délégué</p>
-          <h3>Revue de la désignation</h3>
-          <div><p class="from">À partir de</p><p class="amount">1 900 € <small>HT</small></p></div>
-          <p>Savoir si la désignation de votre délégué interne tient : la personne, ses fonctions, ses moyens, sa visibilité auprès de l'autorité, et ce qu'il faut corriger.</p>
-          <ul><li>Examen de la désignation et de sa communication à la CNIL</li><li>Analyse des cumuls de fonctions (art. 38, § 6)</li><li>Note signée, corrections par ordre de priorité</li></ul>
-          <p class="limite">De 1 900 à 2 900 € HT selon le nombre de fonctions cumulées. Hors registre et analyses d'impact.</p>
-        </article>
-        <article id="offre-controle">
-          <p class="kind">Si une situation est ouverte</p>
-          <h3>Contrôle, plainte ou violation</h3>
-          <div><p class="amount">Sur devis</p><p class="from">Inclus dans l'abonnement de délégué, dans la limite de trois jours par an</p></div>
-          <p>Une situation ouverte se traite tôt, avant que les positions ne se figent.</p>
-          <ul><li>Assistance lors d'un contrôle ou d'une demande de la CNIL</li><li>Qualification et notification d'une violation</li><li>Réponse à une plainte ou à une demande d'exercice de droits</li></ul>
-          <p class="limite">Engagement de moyens : aucun résultat ne peut être garanti. Il ne s'agit pas d'une représentation en justice.</p>
+        <article id="offre-diagnostic">
+          <h3>Diagnostic du dispositif existant</h3>
+          <div><p class="amount"><span data-p="diag">1 200 €</span> <small>HT</small></p></div>
+          <p>Savoir ce que vaut le dispositif que vous avez, et ce qu'il faut corriger en premier.</p>
+          <ul><li>Questionnaire préalable</li><li>Examen ciblé d'un ensemble de documents défini à l'avance</li><li>Entretien</li><li>Principaux écarts, plan d'action hiérarchisé et restitution courte</li></ul>
+          <details class="more"><summary>Le détail</summary><div>
+            <p>Pour une entité. Ce n'est ni un audit exhaustif ni une vérification technique de la sécurité, et les corrections ne sont pas comprises.</p>
+            <p>Si une mise en place simple suit, le diagnostic est imputé sur son prix global : seul le complément, soit <span data-p="compl">1 300 €</span> HT, est facturé.</p>
+          </div></details>
         </article>
       </div>
-      <p class="cadre"><strong>Prix hors taxes.</strong> La taxe sur la valeur ajoutée au taux de 20 % s'y ajoute pour les clients établis en France ; pour un client professionnel établi dans un autre État membre, elle est autoliquidée par le preneur. En cas d'accord, la formule retenue fait l'objet d'une convention d'honoraires signée avant toute intervention, qui fixe le périmètre, ses exclusions et les modalités de détermination du prix. Elle est précédée d'une vérification des conflits d'intérêts.</p>
-      <p class="cadre"><strong>Périmètre du conseil.</strong> Le cabinet intervient en droit français et en droit de l'Union européenne tel qu'il est applicable en France. Il n'émet pas d'avis sur les droits nationaux des autres États membres ni sur les droits non européens ; une question relevant d'un droit étranger est traitée, le cas échéant, avec un correspondant local, sur devis distinct.</p>
-      <p class="cadre"><strong>Et pour toute votre fonction juridique ?</strong> Diapason couvre la protection des données de santé. Pour les contrats, la vie sociale, la réglementation et le reste de la fonction juridique : <a href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a>, la direction juridique externalisée d'Hémistiches.</p>
+
+      <h3 class="sub-h3" id="tarifs-dispositif">Construire le dispositif</h3>
+      <div class="three duo">
+        <article id="offre-fonction">
+          <h3>Mise en place simple</h3>
+          <div><p class="from">À partir de</p><p class="amount"><span data-p="mes">2 500 €</span> <small>HT au total, diagnostic compris</small></p></div>
+          <p>Pour une entité qui part de peu, avec des traitements simples.</p>
+          <ul><li>Cadrage et diagnostic</li><li>Registre des traitements sur le périmètre convenu</li><li>Procédures essentielles adaptées : violations, demandes des personnes, sous-traitants, méthode d'analyse d'impact</li><li>Gouvernance et, si une désignation est retenue, sa préparation et sa communication à la CNIL</li></ul>
+          <details class="more"><summary>Le détail</summary><div>
+            <p><b>Le prix d'entrée suppose</b> une entité, jusqu'à dix traitements simples à titre indicatif, un interlocuteur disponible chez vous, des informations fournies dans un format exploitable et un dispositif construit par adaptation d'outils existants.</p>
+            <p><b>Compris :</b> deux réunions au total et un tour de commentaires consolidés. <b>Non compris :</b> la conformité documentaire propre à une étude, une analyse d'impact complète et l'audit technique.</p>
+          </div></details>
+        </article>
+        <article id="offre-etendue">
+          <h3>Mise en place étendue</h3>
+          <div><p class="from">À partir de</p><p class="amount"><span data-p="mee">4 500 €</span> <small>HT</small></p></div>
+          <p>Pour une documentation plus importante ou un dispositif à personnaliser davantage.</p>
+          <ul><li>Le même contenu, sur un périmètre plus large</li><li>Davantage de traitements et de flux à documenter</li><li>Procédures et gouvernance adaptées à votre organisation</li></ul>
+          <details class="more"><summary>Le détail</summary><div>
+            <p>Le forfait est arrêté avant l'intervention, selon le travail prévu ; le nombre de traitements n'est qu'un indicateur. Groupes, flux complexes, informations à reconstruire et périmètres importants : sur devis.</p>
+            <p>Un dispositif existant et exploitable permet de commencer directement l'abonnement de délégué, sans diagnostic payant ni nouvelle mise en place.</p>
+          </div></details>
+        </article>
+      </div>
+
+      <h3 class="sub-h3" id="tarifs-etudes">Vos études</h3>
+      <div class="three">
+        <article id="offre-etude">
+          <h3>Étude française simple</h3>
+          <div><p class="from">À partir de</p><p class="amount"><span data-p="es">2 500 €</span> <small>HT par étude</small></p></div>
+          <p>Pour une étude au schéma simple, dont les pièces sont disponibles et peu de documents à adapter.</p>
+          <ul><li>Qualification du cadre applicable</li><li>Information des participants, volet données</li><li>Analyse d'impact proportionnée au dossier</li><li>Revue d'un document contractuel relatif aux données</li><li>Restitution et un retour consolidé</li></ul>
+          <details class="more"><summary>Le détail</summary><div>
+            <p>Le périmètre est convenu par écrit. L'analyse d'impact n'est pas une formalité : si le dossier en demande davantage, je vous le dis avant d'aller plus loin, et la mission passe en étude approfondie avec votre accord.</p>
+            <p>L'inscription de l'étude au registre fait partie de la mission ; sa mise à jour ensuite relève de l'abonnement, s'il existe.</p>
+          </div></details>
+        </article>
+        <article id="offre-etude-approfondie">
+          <h3>Étude approfondie</h3>
+          <div><p class="from">À partir de</p><p class="amount"><span data-p="ea">4 500 €</span> <small>HT par étude</small></p></div>
+          <p>Pour une documentation à construire, une analyse d'impact complexe, plusieurs contrats ou des flux particuliers.</p>
+          <ul><li>Documentation construite ou largement reprise</li><li>Analyse d'impact approfondie</li><li>Plusieurs contrats, négociations comprises dans la limite convenue</li></ul>
+          <details class="more"><summary>Le détail</summary><div>
+            <p>Le devis fixe les documents, les réunions, les versions et les négociations compris. Les échanges avec l'autorité et une éventuelle procédure d'autorisation y sont soit expressément inclus, soit chiffrés à part. Une modification substantielle du projet ensuite fait l'objet d'un accord complémentaire.</p>
+          </div></details>
+        </article>
+        <article id="offre-pays">
+          <h3>Chaque pays supplémentaire</h3>
+          <div><p class="from">À partir de</p><p class="amount"><span data-p="pays">750 €</span> <small>HT par pays</small></p><p class="from">Hors honoraires du conseil local</p></div>
+          <p>Lorsque l'étude se déroule aussi dans d'autres pays, sur une documentation commune largement réutilisable.</p>
+          <ul><li>Adaptation des documents communs</li><li>Coordination du conseil local</li><li>Articulation des exigences et intégration de ses observations</li></ul>
+          <details class="more"><summary>Le détail</summary><div>
+            <p>Le droit de chaque pays est vérifié par un conseil local, dont les honoraires sont distincts, arrêtés ou estimés avant le lancement. Une adaptation importante ou un dispositif local complexe donne lieu à un devis ; une simple transmission au correspondant n'appelle pas un supplément complet.</p>
+            <p>Avant de commencer, vous recevez un budget consolidé : forfait de base, suppléments par pays, honoraires locaux arrêtés ou estimés, hypothèses et conditions de dépassement.</p>
+          </div></details>
+        </article>
+      </div>
+      <p class="cadre">Une étude peut être confiée seule, sans abonnement ni mise en place. Le cabinet conseille en droit français et en droit de l'Union européenne tel qu'il est applicable en France ; un montant affiché hors conseil local n'est jamais le coût total d'une étude menée dans plusieurs pays.</p>
+
+      <h3 class="sub-h3" id="tarifs-delegue">Le délégué dans la durée</h3>
+      <div class="three">
+        <article id="offre-dpo">
+          <h3>Suivi limité</h3>
+          <div><p class="from">Trois heures par mois</p><p class="amount"><span data-p="d:limite">490 €</span> <small>HT par mois</small></p></div>
+          <p>Pour une entité au dispositif stable, avec peu de sollicitations et un relais interne efficace.</p>
+          <ul><li>Un point trimestriel</li><li>Report d'une heure au plus sur le mois suivant</li></ul>
+        </article>
+        <article id="offre-dpo-regulier">
+          <h3>Suivi régulier</h3>
+          <div><p class="from">Six heures par mois</p><p class="amount"><span data-p="d:regulier">990 €</span> <small>HT par mois</small></p></div>
+          <p>Pour des projets, des évolutions et des sollicitations plus fréquents.</p>
+          <ul><li>Un point mensuel</li><li>Report de deux heures au plus sur le mois suivant</li></ul>
+        </article>
+        <article id="offre-dpo-renforce">
+          <h3>Suivi renforcé</h3>
+          <div><p class="from">À partir de dix heures par mois</p><p class="amount"><span data-p="d:renforce">1 490 €</span> <small>HT par mois</small></p><p class="from">Prix du niveau d'entrée</p></div>
+          <p>Pour une activité soutenue : plusieurs études, projets ou entités. Au-delà de dix heures, dimensionnement sur proposition.</p>
+          <ul><li>Un rythme adapté à votre activité</li><li>Report de trois heures au plus au niveau d'entrée</li></ul>
+        </article>
+      </div>
+
+      <ul class="rules">
+        <li><b>Les mêmes missions aux trois niveaux</b><span>Information et conseils courants, suivi et actualisation du registre à partir des informations que vous communiquez, suivi des priorités, vérifications ciblées, avis sur les nouveaux projets et les analyses d'impact, orientation et suivi des demandes des personnes, échanges de gouvernance, rapport annuel proportionné. Seuls le volume et le rythme changent.</span></li>
+        <li><b>Ce qui consomme les heures</b><span>Tout le temps propre à votre dossier : préparation, recherches spécifiques, réunions et points périodiques, courriels substantiels, actualisation, vérifications et rapport annuel, dont la préparation est planifiée dans le volume. La veille générale du cabinet n'est pas décomptée.</span></li>
+        <li><b>Un suivi simple</b><span>Un relevé des heures chaque mois, et une alerte avant l'épuisement du volume.</span></li>
+        <li><b>Report limité</b><span>Une, deux ou trois heures au plus selon le niveau, sur le mois suivant uniquement, utilisées en premier, jamais reportées deux fois ni au-delà de la fin de la mission. Si une prestation demandée dans le cadre convenu n'a pas pu être assurée par le cabinet, les heures correspondantes sont traitées à part.</span></li>
+        <li><b>Dépassements</b><span><span data-p="taux">180 €</span> HT de l'heure, après estimation et accord préalable de votre part, sous réserve de disponibilité ; un projet substantiel fait l'objet d'un forfait distinct. Un dépassement ponctuel ne change pas de niveau ; une charge durablement supérieure conduit à redimensionner la mission.</span></li>
+        <li><b>Volume épuisé</b><span>La fonction de délégué n'est pas suspendue. Ce qui ne peut attendre, une violation ou une demande de l'autorité, est traité et vous en êtes informé ; le reste est reprogrammé ou fait l'objet d'un accord.</span></li>
+        <li><b>Contrôles et violations</b><span>Le délégué reste le point de contact de la CNIL et coopère avec elle ; l'orientation et le conseil initial entrent dans le volume. Une mobilisation exceptionnelle (préparation intensive, réponses circonstanciées, assistance aux opérations, gestion de crise, investigations) fait l'objet d'un budget complémentaire. Ni permanence ni disponibilité immédiate garanties ; une enveloppe d'heures préautorisée peut être prévue pour agir sans attendre.</span></li>
+        <li><b>Durée</b><span>Durée initiale proposée de six mois, le temps d'installer le programme, puis durée indéterminée avec un mois de préavis. Seuls les mois exécutés, préavis compris, sont dus. <a href="#faq-duree">Le détail</a></span></li>
+      </ul>
+
+      <h3 class="sub-h3" id="tarifs-particuliers">Besoins particuliers</h3>
+      <ul class="rules">
+        <li id="offre-revue"><b>Revue de la désignation · à partir de <span data-p="revue">1 200 €</span> HT</b><span>Pour vérifier que la désignation de votre délégué interne tient, dans une situation simple : examen d'un ensemble défini de pièces, entretien, analyse de la désignation, de la position et des moyens, synthèse écrite des risques et des corrections, restitution. Cumuls complexes, groupe ou investigations importantes : sur devis. La mise en œuvre des corrections est distincte.</span></li>
+        <li id="offre-controle"><b>Contrôle, incident important ou procédure · sur devis</b><span>Une situation ouverte se traite tôt, avant que les positions ne se figent. Le budget est arrêté avec vous, au besoin par étapes. Une éventuelle défense dans une procédure de sanction est une mission distincte, acceptée après vérification de sa compatibilité avec la fonction de délégué exercée pour vous.</span></li>
+      </ul>
+
+      <h3 class="sub-h3" id="budgets">Quelques budgets, à titre d'illustration</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <caption>Douze mois complets, situations simples, sans prestation exceptionnelle. Montants HT.</caption>
+        <thead><tr><th scope="col">Situation</th><th scope="col">Calcul</th><th scope="col">Total</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Dispositif déjà exploitable, suivi limité</th><td><span data-p="d:limite">490 €</span> × 12</td><td><span data-p="b:1">5 880 €</span></td></tr>
+          <tr><th scope="row">Mise en place simple, puis suivi limité</th><td><span data-p="mes">2 500 €</span> + <span data-p="d:limite">490 €</span> × 12</td><td><span data-p="b:2">8 380 €</span></td></tr>
+          <tr><th scope="row">Mise en place simple, une étude française simple, suivi limité</th><td><span data-p="mes">2 500 €</span> + <span data-p="es">2 500 €</span> + <span data-p="d:limite">490 €</span> × 12</td><td><span data-p="b:3">10 880 €</span></td></tr>
+          <tr><th scope="row">La même étude dans deux autres pays, suivi régulier</th><td><span data-p="mes">2 500 €</span> + <span data-p="es">2 500 €</span> + 2 × <span data-p="pays">750 €</span> + <span data-p="d:regulier">990 €</span> × 12</td><td><span data-p="b:5">18 380 €</span>, hors conseils locaux</td></tr>
+        </tbody>
+      </table></div>
+      <p class="cadre">Ces budgets illustrent une année ; ils ne fixent ni une durée d'engagement de douze mois, ni une somme due à la signature. Le niveau de suivi se confirme selon votre situation : une étude menée dans plusieurs pays n'entre pas d'office dans le suivi limité. Si un diagnostic a déjà été réglé, la mise en place simple n'appelle que son complément ; une consultation imputable n'est jamais ajoutée une seconde fois ; la reprise d'un dispositif exploitable ne donne lieu à aucune nouvelle mise en place.</p>
+
+      <p class="cadre"><strong>Prix hors taxes.</strong> La taxe sur la valeur ajoutée au taux de 20 % s'y ajoute pour les clients établis en France ; pour un client professionnel établi dans un autre État membre, elle est autoliquidée par le preneur. En cas d'accord, la mission fait l'objet d'une convention d'honoraires signée avant toute intervention, qui fixe le périmètre, ses exclusions et les modalités de détermination du prix. Elle est précédée d'une vérification des conflits d'intérêts.</p>
+      <p class="cadre"><strong>Et pour le reste de votre fonction juridique ?</strong> Diapason couvre la protection des données de santé ; <a href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a> la direction juridique externalisée ; <a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a> la conformité des dispositifs médicaux. C'est le même avocat : les écarts de prix tiennent au volume, à la durée et à l'organisation de chaque offre. Une désignation comme délégué n'est pas comprise dans Cadence ou Concordance, et un travail déjà accompli pour vous dans l'une est réutilisé, jamais facturé deux fois.</p>
+    </div>
+  </section>
+
+  <section class="faq-s" id="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <h2 class="sec-h2" id="t-faq">Questions fréquentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Dois-je commencer par une consultation ou un diagnostic ?</summary>
+          <div><p>Non. La consultation d'orientation est utile si vous ne savez pas par où commencer ; elle n'est jamais exigée. Le diagnostic sert lorsque votre dispositif existe mais que sa solidité est incertaine. Si votre registre et vos procédures tiennent déjà, l'abonnement de délégué peut démarrer directement.</p></div>
+        </details>
+        <details>
+          <summary>Puis-je confier une étude sans prendre d'abonnement ?</summary>
+          <div><p>Oui. Chaque étude est une mission au forfait, indépendante. Si un abonnement existe ou commence ensuite, le travail fait sur l'étude est repris : l'inscription au registre relève de la mission d'étude, sa mise à jour de l'abonnement, sans double facturation.</p></div>
+        </details>
+        <details>
+          <summary>Comment le niveau d'abonnement est-il choisi ?</summary>
+          <div><p>D'après la charge réelle : fréquence des nouveaux projets, demandes des personnes, études en cours et leur complexité, nombre d'entités, disponibilité d'un relais chez vous. Ni le nombre d'études, ni celui de salariés ou de pays ne le fixe à lui seul. Le test en donne une première indication, confirmée lors d'un échange. Un dépassement ponctuel ne change pas de niveau.</p></div>
+        </details>
+        <details>
+          <summary>Comment les heures sont-elles comptées et reportées ?</summary>
+          <div><p>Chaque diligence faite pour vous consomme le volume du mois, y compris les points périodiques et la préparation du rapport annuel. Vous recevez un relevé mensuel et une alerte avant l'épuisement du volume. Une, deux ou trois heures non utilisées selon le niveau passent sur le mois suivant, sont utilisées en premier et expirent à la fin de ce mois. Au-delà, un dépassement n'est réalisé qu'avec votre accord, à <span data-p="taux">180 €</span> HT de l'heure.</p></div>
+        </details>
+        <details>
+          <summary>Que se passe-t-il en cas de contrôle de la CNIL ou de violation de données ?</summary>
+          <div><p>Le délégué reste le point de contact de la CNIL et coopère avec elle ; le premier conseil et l'orientation entrent dans le volume de l'abonnement. Si la situation demande une mobilisation exceptionnelle, je vous propose un budget complémentaire, au besoin par étapes. Une enveloppe d'heures préautorisée, prévue dans la convention, permet d'agir sans attendre votre accord ponctuel. Je ne garantis ni permanence ni disponibilité immédiate.</p></div>
+        </details>
+        <details id="faq-duree">
+          <summary>Combien de temps suis-je engagé ?</summary>
+          <div>
+            <p>La durée initiale proposée est de six mois, le temps d'installer le programme de suivi ; la mission se poursuit ensuite pour une durée indéterminée, avec un mois de préavis de part et d'autre. Vous restez libre d'y mettre fin plus tôt : sont alors dus les mois exécutés, préavis compris, et les dépassements que vous avez acceptés. Aucune mensualité n'est due au-delà, et aucun tarif n'est recalculé.</p>
+            <p>À la fin de la mission, je vous remets le registre et les documents à jour, et vous déclarez la fin de la désignation, ou le nouveau délégué, sur le téléservice de la CNIL. Les conditions exactes figurent dans la convention d'honoraires.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Le délégué peut-il aussi vous défendre devant la CNIL ?</summary>
+          <div><p>C'est une mission distincte de la fonction de délégué. Elle n'est acceptée qu'après vérification de sa compatibilité avec cette fonction et de l'absence de conflit d'intérêts, au vu de votre dossier.</p></div>
+        </details>
+        <details>
+          <summary>Le résultat du test m'engage-t-il ?</summary>
+          <div><p>Non. C'est une orientation indicative, établie à partir de vos seules réponses : ni une consultation juridique, ni une offre contractuelle. Le périmètre et le prix sont confirmés lors d'un échange, puis dans une convention d'honoraires signée.</p></div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -638,9 +775,9 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <h2 class="sec-h2" id="t-cadre">Ce qui est posé avant toute mission</h2>
       <ul class="eng">
         <li><b>Le test n'est pas une consultation</b><span>Le résultat est une pré-analyse indicative, établie à partir de vos seules réponses. Il n'établit pas le régime juridique applicable à vos traitements. La consultation commence avec l'avocat, dans le cadre d'une convention d'honoraires.</span></li>
-        <li><b>Un seul interlocuteur</b><span>La fonction de délégué, le conseil et l'assistance en cas de contrôle de la CNIL sont assurés par le même avocat, qui connaît vos traitements.</span></li>
+        <li><b>Un seul interlocuteur</b><span>La fonction de délégué et le conseil sont assurés par le même avocat, qui connaît vos traitements.</span></li>
         <li><b>Une obligation de moyens</b><span>Aucun résultat n'est garanti, et en particulier pas la conformité elle-même, qui dépend aussi de vos traitements, de vos équipes et de vos prestataires. L'engagement porte sur un périmètre, une méthode et des délais convenus par écrit.</span></li>
-        <li><b>Un prix par étape, confirmé par écrit</b><span>Mise en place, études, abonnement de délégué : chaque étape a son prix et son périmètre, écrits avant de commencer. Aucun travail supplémentaire sans votre accord.</span></li>
+        <li><b>Un prix par mission, confirmé par écrit</b><span>Diagnostic, mise en place, études, abonnement de délégué : chaque mission a son prix, son périmètre et ses hypothèses, écrits avant de commencer. Aucun travail supplémentaire sans votre accord.</span></li>
         <li><b>Vérification des conflits d'intérêts</b><span>Avant toute mission. S'il en existe un, vous le savez, et le dossier n'est pas ouvert.</span></li>
         <li><b>Vos réponses restent chez vous</b><span>Le questionnaire fonctionne dans votre navigateur. Seuls votre adresse électronique et le résumé de votre résultat me sont transmis.</span></li>
       </ul>
@@ -653,7 +790,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="wrap">
       <button class="backlink" type="button" data-view="home">Retour au site</button>
       <h1 style="margin-top:28px">Mentions légales et confidentialité</h1>
-      <p class="label" style="margin-top:12px">Dernière mise à jour : 21 octobre 2026</p>
+      <p class="label" style="margin-top:12px">Dernière mise à jour : 26 octobre 2026</p>
       <div class="doc">
         <section>
           <h2>Éditeur du site</h2>
@@ -667,7 +804,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         </section>
         <section>
           <h2>Profession réglementée</h2>
-          <p>Avocat inscrit au barreau de Paris (Ordre des avocats de Paris, Maison du Barreau, 2, rue de Harlay, 75001 Paris). La profession d'avocat est régie notamment par la loi n° 71-1130 du 31 décembre 1971, le décret n° 91-1197 du 27 novembre 1991 et le Règlement intérieur national de la profession d'avocat. Assurance de responsabilité civile professionnelle souscrite dans le cadre de la police collective du barreau de Paris.</p>
+          <p>Avocat inscrit au barreau de Paris (Ordre des avocats de Paris, Maison du Barreau, 2, rue de Harlay, 75001 Paris). La profession d'avocat est régie notamment par la loi n° 71-1130 du 31 décembre 1971, le décret n° 91-1197 du 27 novembre 1991, le décret n° 2023-552 du 30 juin 2023 portant code de déontologie des avocats et le Règlement intérieur national de la profession d'avocat. Assurance de responsabilité civile professionnelle souscrite dans le cadre de la police collective du barreau de Paris.</p>
         </section>
         <section>
           <h2>Nature des contenus</h2>
@@ -737,164 +874,127 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   <input name="bot-field"><input name="email"><input name="opposition"><input name="profil"><input name="score_obligation"><input name="score_fragilite"><input name="score_exposition"><input name="points_vigilance"><input name="offres_suggerees"><input name="horodatage"><input name="version_information">
 </form>
 
+<script src="/regles.js"></script>
 <script>
 (function(){
 "use strict";
-var VERSION = "diapason-2026-10-21";
+var D = window.DIAPASON, TF = D.TARIFS;
+var VERSION = "diapason-" + TF.version;
 var CONTACT = "francois.cesure@hemistiches.com";
 
 /* ---------- Typographie française : espaces fines et insécables (repris de Cadence) ---------- */
-var NB = " ", FN = " ";
+var NB = " ", FN = " ";
 function fr(s){ return String(s).replace(/'/g,"’").replace(/ ([?;!»])/g, FN+"$1").replace(/ :/g, NB+":").replace(/« /g, "«"+FN).replace(/(\d) (€|%)/g, "$1"+NB+"$2").replace(/(\d) (\d{3})/g, "$1"+NB+"$2"); }
 function frDom(root){
   var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
   while((n = w.nextNode())){ var p = n.parentNode; if(p && /SCRIPT|STYLE|CODE/.test(p.nodeName)) continue; var t = fr(n.nodeValue); if(t !== n.nodeValue) n.nodeValue = t; }
 }
 function esc(s){ return fr(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function eur(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €"; }
 
-/* ============================================================
-   Moteur du diagnostic.
-   Trois axes : obl (obligation), frag (fragilité du dispositif),
-   expo (exposition en cas de contrôle ou d'incident).
-   Chaque réponse porte des pondérations w sur les trois axes.
-   ============================================================ */
+/* ---------- Prix affichés : toujours recalculés depuis regles.js ---------- */
+var EX = {
+  1: {dpo:"limite"},
+  2: {miseEnPlace:"simple", dpo:"limite"},
+  3: {miseEnPlace:"simple", etudes:[{niveau:"simple"}], dpo:"limite"},
+  4: {miseEnPlace:"simple", etudes:[{niveau:"simple", pays:2}], dpo:"limite"},
+  5: {miseEnPlace:"simple", etudes:[{niveau:"simple", pays:2}], dpo:"regulier"}
+};
+function prixAttr(k){
+  var p = k.split(":");
+  switch(p[0]){
+    case "c": return eur(TF.consultation.prix);
+    case "diag": return eur(TF.diagnostic);
+    case "compl": return eur(D.complementMiseEnPlace(true));
+    case "mes": return eur(TF.miseEnPlace.simple);
+    case "mee": return eur(TF.miseEnPlace.etendue);
+    case "es": return eur(TF.etude.simple);
+    case "ea": return eur(TF.etude.approfondie);
+    case "pays": return eur(TF.etude.paysSupp);
+    case "d": return eur(D.palier(p[1]).prix);
+    case "taux": return eur(TF.tauxDepassement);
+    case "revue": return eur(TF.revueDesignation);
+    case "b": return eur(D.budget12(EX[p[1]]).total);
+  }
+  return null;
+}
+document.querySelectorAll("[data-p]").forEach(function(el){ var v = prixAttr(el.getAttribute("data-p")); if(v) el.textContent = v; });
 
-var Q_ACTIVITE = {id:"activite", kicker:"Votre organisation", title:"Quelle est votre activité ?", opts:[
-  {t:"Fabricant de dispositifs médicaux ou éditeur de logiciel de santé", w:{obl:2}, flags:["rech_possible"], profil:"Fabricant de dispositifs ou éditeur de logiciel de santé"},
-  {t:"Laboratoire pharmaceutique ou biotechnologie", w:{obl:3}, flags:["rech_possible"], profil:"Laboratoire ou biotechnologie"},
-  {t:"Promoteur d'études cliniques", w:{obl:3}, flags:["rech_possible"], profil:"Promoteur d'études cliniques"},
-  {t:"Établissement ou structure de soins", w:{obl:3}, flags:["rech_possible"], profil:"Établissement ou structure de soins"},
-  {t:"Prestataire de services de santé", d:"Recherche sous contrat, télésurveillance, e-santé", w:{obl:3}, flags:["rech_possible"], profil:"Prestataire de services de santé"},
-  {t:"Autre acteur traitant des données de santé", w:{obl:2}, profil:"Autre acteur traitant des données de santé"}
-]};
+/* ---------- Textes du questionnaire (structure, pondérations et embranchements : regles.js) ---------- */
+var T = {
+  activite:{kicker:"Votre organisation", title:"Quelle est votre activité ?", o:{
+    dm:["Fabricant de dispositifs médicaux ou éditeur de logiciel de santé"], labo:["Laboratoire pharmaceutique ou biotechnologie"],
+    promoteur:["Promoteur d'études cliniques"], soins:["Établissement ou structure de soins"],
+    presta:["Prestataire de services de santé","Recherche sous contrat, télésurveillance, e-santé : vous traitez souvent pour le compte de clients"],
+    autre:["Autre acteur traitant des données de santé"]}},
+  echelle:{kicker:"Votre organisation", title:"Combien de personnes sont concernées par vos traitements de données de santé ?", o:{
+    dizaines:["Quelques dizaines"], centaines:["Quelques centaines"], milliers:["Plusieurs milliers ou davantage"], nsp:["Nous ne sommes pas en mesure de le chiffrer"]}},
+  entites:{kicker:"Votre organisation", title:"Quelles entités le dispositif doit-il couvrir ?", o:{
+    fr:["Une entité, établie en France"], ue:["Une entité, établie dans un autre État membre de l'Union"],
+    deux_trois:["Deux ou trois entités dans l'Union"], groupe:["Plus de trois entités, ou un groupe"],
+    hors_ue_etab:["Une organisation établie hors de l'Union, avec un établissement dans l'Union"],
+    hors_ue:["Une organisation établie hors de l'Union, sans établissement dans l'Union"]}},
+  flux:{kicker:"Vos traitements", title:"Vos traitements comportent-ils l'une de ces situations ?", hint:"Plusieurs réponses possibles.", o:{
+    genetique:["Données génétiques ou échantillons biologiques"], distance:["Suivi à distance, dispositif connecté ou application"],
+    ia:["Algorithme ou intelligence artificielle appliqué aux données"],
+    reutilisation:["Réutilisation ou croisement de bases existantes","Entrepôt de données, données de vie réelle"],
+    vulnerables:["Données de mineurs ou de personnes vulnérables"], aucune:["Aucune de ces situations"]}},
+  designation:{kicker:"Délégué à la protection des données", title:"Avez-vous désigné un délégué à la protection des données ?", o:{
+    salarie:["Oui, un salarié dont c'est la seule mission"], cumul:["Oui, un salarié qui exerce aussi d'autres fonctions"],
+    externe:["Oui, un prestataire externe"], groupe:["Oui, un délégué commun à notre groupe"],
+    non:["Non"], non_nsp:["Non, et nous ne savons pas si nous y sommes tenus"]}},
+  fonctions:{kicker:"Délégué à la protection des données", title:"Quelles autres fonctions cette personne exerce-t-elle ?", o:{
+    sans_lien:["Une fonction sans lien avec les traitements de données"], dsi:["Direction des systèmes d'information"],
+    direction:["Direction générale, administrative ou financière"], medical:["Direction médicale ou des opérations cliniques"],
+    qualite:["Qualité ou affaires réglementaires"], juridique:["Direction juridique"], rh:["Ressources humaines"]}},
+  notif:{kicker:"Délégué à la protection des données", title:"Les coordonnées du délégué ont-elles été communiquées à la CNIL ?", o:{
+    oui:["Oui, et nous en conservons la preuve"], incertain:["Nous le pensons, sans certitude"], non:["Non"]}},
+  temps:{kicker:"Délégué à la protection des données", title:"Quel temps est consacré à la fonction de délégué ?", o:{
+    plein:["L'équivalent d'un temps plein, ou presque"], partiel:["Entre un quart et un mi-temps"], heures:["Quelques heures par mois"], aucun:["Aucun temps défini"]}},
+  registre:{kicker:"Registre des traitements", title:"Où en est votre registre des traitements ?", o:{
+    tenu:["Tenu et mis à jour dans les douze derniers mois"], ancien:["Existant, mais non actualisé récemment"],
+    construction:["En cours de construction"], absent:["Inexistant ou introuvable"]}},
+  aipd:{kicker:"Analyses d'impact", title:"Où en sont vos analyses d'impact relatives à la protection des données ?", o:{
+    toutes:["Réalisées pour tous les traitements qui le requièrent"], certaines:["Réalisées pour certains seulement"],
+    aucune_estime:["Aucune, nous estimons qu'aucun traitement ne le requiert"], nsp:["Nous ne savons pas lesquels le requièrent"], aucune:["Aucune"]}},
+  hebergement:{kicker:"Hébergement", title:"Où sont hébergées vos données de santé ?", o:{
+    certifie:["Chez un prestataire certifié, certification vérifiée"], interne:["Sur nos propres infrastructures"],
+    non_verifie:["Chez un prestataire dont nous n'avons pas vérifié la certification"], nsp:["Nous ne savons pas"]}},
+  transferts:{kicker:"Prestataires et transferts", title:"Des données sortent-elles de l'Union européenne ?", o:{
+    aucun:["Aucun transfert hors de l'Union"], adequat:["Oui, vers un pays reconnu adéquat par la Commission européenne"],
+    cct_analyse:["Oui, avec clauses contractuelles types et analyse des garanties du pays de destination"],
+    cct_sans:["Oui, avec clauses contractuelles types, sans analyse de ces garanties"],
+    non_doc:["Oui, sans que nous les ayons documentés"], nsp:["Nous ne savons pas"]}},
+  violations:{kicker:"Demandes et incidents", title:"Avez-vous connu des violations de données, et comment les avez-vous traitées ?", o:{
+    aucune_proc:["Aucune à ce jour, et une procédure est en place"], notifiees:["Une ou plusieurs, notifiées dans les délais"],
+    non_notif_doc:["Une ou plusieurs, non notifiées, avec une décision documentée"], sans_analyse:["Une ou plusieurs, sans analyse documentée"],
+    pas_proc:["Aucune procédure ne nous permet de les détecter et de les traiter"]}},
+  recherches:{kicker:"Recherches et études", title:"Menez-vous des recherches ou des études, en cours ou prévues dans les douze mois ?", o:{
+    aucune:["Aucune"], une:["Une étude"], deux_trois:["Deux ou trois"], plus:["Plus de trois"]}},
+  regime:{kicker:"Recherches et études", title:"Sur quel fondement vos traitements de recherche reposent-ils ?", o:{
+    mr:["Une déclaration de conformité à une méthodologie de référence de la CNIL"], autorisation:["Une autorisation de la CNIL"],
+    selon:["Selon les études, l'un ou l'autre"], nsp:["Nous ne savons pas où nous nous situons"], pas_pose:["La question ne s'est pas encore posée"]}},
+  pays:{kicker:"Recherches et études", title:"Ces études comptent-elles des centres d'investigation hors de France ?", o:{
+    france:["Non, en France uniquement"], un:["Oui, dans un autre pays de l'Union"], deux_trois:["Oui, dans deux ou trois autres pays de l'Union"],
+    quatre:["Oui, dans quatre autres pays de l'Union ou davantage"], hors_ue:["Oui, y compris hors de l'Union"]}},
+  pieces:{kicker:"Recherches et études", title:"Pour la prochaine étude, où en sont les documents ?", hint:"Protocole, information des participants, contrats.", o:{
+    standard:["Disponibles, sur un schéma classique, peu à adapter"], adapter:["Disponibles, mais à adapter sensiblement"],
+    construire:["À construire"], complexe:["Plusieurs partenaires, des contrats à négocier ou des flux de données particuliers"],
+    lancee:["L'étude est lancée et ses documents sont en place"]}},
+  projets:{kicker:"Le suivi", title:"À quelle fréquence lancez-vous un nouvel outil, prestataire ou projet impliquant des données de santé ?", o:{
+    rare:["Une ou deux fois par an"], trimestre:["Chaque trimestre environ"], mois:["Chaque mois ou davantage"], nsp:["Nous ne savons pas"]}},
+  demandes:{kicker:"Le suivi", title:"Combien de demandes recevez-vous de la part des personnes concernées ?", hint:"Accès, effacement, opposition.", o:{
+    aucune:["Aucune ou presque"], quelques:["Quelques-unes par an"], plusieurs:["Plusieurs par mois"]}},
+  relais:{kicker:"Le suivi", title:"Une personne, chez vous, peut-elle réunir les informations et servir de relais au délégué ?", o:{
+    oui:["Oui, disponible et au fait des traitements"], peu:["Oui, mais peu disponible"], non:["Non, personne pour l'instant"]}},
+  declencheur:{kicker:"Ce qui vous amène", title:"Qu'est-ce qui vous amène aujourd'hui ?", o:{
+    designer:["Nous devons désigner un délégué, ou en changer"], remplacer:["La personne en place va partir ou n'est plus disponible"],
+    etude:["Nous lançons une étude ou une recherche"], verifier:["Nous voulons vérifier que notre dispositif tient"],
+    ponctuel:["Une question précise, sans besoin de suivi"],
+    externe:["Une échéance externe nous l'impose","Levée de fonds, appel d'offres, audit d'un partenaire"],
+    controle:["Un contrôle, une plainte, une violation ou une demande de l'autorité est en cours"]}}
+};
 
-/* L'échelle du traitement est le critère même de l'article 37, paragraphe 1, sous c. */
-var Q_ECHELLE = {id:"echelle", kicker:"Votre organisation", title:"Combien de personnes sont concernées par vos traitements de données de santé ?", opts:[
-  {t:"Quelques dizaines", w:{obl:1}},
-  {t:"Quelques centaines", w:{obl:2}},
-  {t:"Plusieurs milliers ou davantage", w:{obl:3}, flags:["echelle_forte"]},
-  {t:"Nous ne sommes pas en mesure de le chiffrer", w:{obl:2,frag:2}, flags:["echelle_inconnue"]}
-]};
-
-var Q_ETAB = {id:"etab", kicker:"Votre organisation", title:"Où votre organisation est-elle établie ?", opts:[
-  {t:"En France", w:{}},
-  {t:"Dans un autre État membre de l'Union européenne", w:{}},
-  {t:"Hors de l'Union, avec un établissement dans l'Union", w:{}},
-  {t:"Hors de l'Union, sans établissement dans l'Union", w:{frag:2,expo:1}, flags:["hors_ue","pas_etab"]}
-]};
-
-var Q_DESIGNATION = {id:"designation", kicker:"Délégué à la protection des données", title:"Avez-vous désigné un délégué à la protection des données ?", opts:[
-  {t:"Oui, un salarié dont c'est la seule mission", w:{}, flags:["designe"]},
-  {t:"Oui, un salarié qui exerce aussi d'autres fonctions", w:{frag:2}, flags:["designe","cumul"]},
-  {t:"Oui, un prestataire externe", w:{}, flags:["designe","externe"]},
-  {t:"Oui, un délégué commun à notre groupe", w:{}, flags:["designe"]},
-  {t:"Non", w:{frag:3,expo:2}, flags:["pas_designe"]},
-  {t:"Non, et nous ne savons pas si nous y sommes tenus", w:{frag:3,expo:1}, flags:["pas_designe","obl_inconnue"]}
-]};
-
-/* Conditionnelle : seulement si un cumul de fonctions est déclaré. */
-var Q_FONCTIONS = {id:"fonctions", kicker:"Délégué à la protection des données", title:"Quelles autres fonctions cette personne exerce-t-elle ?", opts:[
-  {t:"Une fonction sans lien avec les traitements de données", w:{}},
-  {t:"Direction des systèmes d'information", w:{frag:3}, flags:["conflit"]},
-  {t:"Direction générale, administrative ou financière", w:{frag:3}, flags:["conflit"]},
-  {t:"Direction médicale ou des opérations cliniques", w:{frag:3}, flags:["conflit"]},
-  {t:"Qualité ou affaires réglementaires", w:{frag:2}, flags:["conflit_possible"]},
-  {t:"Direction juridique", w:{frag:1}, flags:["conflit_possible"]},
-  {t:"Ressources humaines", w:{frag:2}, flags:["conflit_possible"]}
-]};
-
-/* Conditionnelle : seulement si une personne est désignée. */
-var Q_NOTIF = {id:"notif", kicker:"Délégué à la protection des données", title:"Les coordonnées du délégué ont-elles été communiquées à la CNIL ?", opts:[
-  {t:"Oui, et nous en conservons la preuve", w:{}},
-  {t:"Nous le pensons, sans certitude", w:{frag:2}, flags:["notif"]},
-  {t:"Non", w:{frag:3,expo:1}, flags:["notif"]}
-]};
-
-/* Conditionnelle : seulement si une personne est désignée. */
-var Q_TEMPS = {id:"temps", kicker:"Délégué à la protection des données", title:"Quel temps est consacré à la fonction de délégué ?", opts:[
-  {t:"L'équivalent d'un temps plein, ou presque", w:{}},
-  {t:"Entre un quart et un mi-temps", w:{frag:1}},
-  {t:"Quelques heures par mois", w:{frag:2}, flags:["moyens"]},
-  {t:"Aucun temps défini", w:{frag:3}, flags:["moyens"]}
-]};
-
-var Q_REGISTRE = {id:"registre", kicker:"Registre des traitements", title:"Où en est votre registre des traitements ?", opts:[
-  {t:"Tenu et mis à jour dans les douze derniers mois", w:{}},
-  {t:"Existant, mais non actualisé récemment", w:{frag:2}, flags:["registre"]},
-  {t:"En cours de construction", w:{frag:2,expo:1}, flags:["registre"]},
-  {t:"Inexistant ou introuvable", w:{frag:3,expo:2}, flags:["registre"]}
-]};
-
-var Q_AIPD = {id:"aipd", kicker:"Analyses d'impact", title:"Où en sont vos analyses d'impact relatives à la protection des données ?", opts:[
-  {t:"Réalisées pour tous les traitements qui le requièrent", w:{}},
-  {t:"Réalisées pour certains seulement", w:{frag:1}, flags:["aipd"]},
-  {t:"Aucune, nous estimons qu'aucun traitement ne le requiert", w:{frag:1}, flags:["aipd"]},
-  {t:"Nous ne savons pas lesquels le requièrent", w:{frag:3}, flags:["aipd"]},
-  {t:"Aucune", w:{frag:2,expo:2}, flags:["aipd"]}
-]};
-
-/* Conditionnelle : profils susceptibles de mener des recherches. */
-var Q_RECHERCHES = {id:"recherches", kicker:"Recherches et études", title:"Menez-vous des recherches ou des études ?", opts:[
-  {t:"Des recherches impliquant la personne humaine", w:{obl:1}, flags:["rech"]},
-  {t:"Des études sur des données déjà collectées", w:{obl:1}, flags:["rech"]},
-  {t:"Les deux", w:{obl:2}, flags:["rech"]},
-  {t:"Aucune actuellement", w:{}}
-]};
-
-/* Conditionnelle : seulement si des recherches sont déclarées. */
-var Q_REGIME = {id:"regime", kicker:"Recherches et études", title:"Sur quel fondement vos traitements de recherche reposent-ils ?", opts:[
-  {t:"Une déclaration de conformité à une méthodologie de référence de la CNIL", w:{}},
-  {t:"Une autorisation de la CNIL", w:{}},
-  {t:"Selon les études, l'un ou l'autre", w:{}},
-  {t:"Nous ne savons pas où nous nous situons", w:{frag:3,expo:2}, flags:["regime"]},
-  {t:"La question ne s'est pas encore posée", w:{frag:2,expo:1}, flags:["regime"]}
-]};
-
-/* Conditionnelle : seulement si des recherches sont déclarées. */
-var Q_PAYS = {id:"pays", kicker:"Recherches et études", title:"Vos études comptent-elles des centres d'investigation hors de France ?", opts:[
-  {t:"Non, en France uniquement", w:{}},
-  {t:"Oui, dans d'autres États membres de l'Union", w:{obl:1}, flags:["multi_pays"]},
-  {t:"Oui, y compris hors de l'Union", w:{obl:2,expo:1}, flags:["multi_pays"]}
-]};
-
-var Q_HEBERGEMENT = {id:"hebergement", kicker:"Hébergement", title:"Où sont hébergées vos données de santé ?", opts:[
-  {t:"Chez un prestataire certifié, certification vérifiée", w:{}},
-  {t:"Sur nos propres infrastructures", w:{expo:1}, flags:["hds_interne"]},
-  {t:"Chez un prestataire dont nous n'avons pas vérifié la certification", w:{frag:2,expo:2}, flags:["hds"]},
-  {t:"Nous ne savons pas", w:{frag:2,expo:2}, flags:["hds"]}
-]};
-
-var Q_TRANSFERTS = {id:"transferts", kicker:"Transferts", title:"Des données sortent-elles de l'Union européenne ?", opts:[
-  {t:"Aucun transfert hors de l'Union", w:{}},
-  {t:"Oui, vers un pays reconnu adéquat par la Commission européenne", w:{}},
-  {t:"Oui, avec clauses contractuelles types et analyse des garanties du pays de destination", w:{}},
-  {t:"Oui, avec clauses contractuelles types, sans analyse de ces garanties", w:{frag:1,expo:1}, flags:["transferts"]},
-  {t:"Oui, sans que nous les ayons documentés", w:{frag:2,expo:2}, flags:["transferts"]},
-  {t:"Nous ne savons pas", w:{frag:2,expo:2}, flags:["transferts"]}
-]};
-
-var Q_VIOLATIONS = {id:"violations", kicker:"Violations de données", title:"Avez-vous connu des violations de données, et comment les avez-vous traitées ?", opts:[
-  {t:"Aucune à ce jour, et une procédure est en place", w:{}},
-  {t:"Une ou plusieurs, notifiées dans les délais", w:{}},
-  {t:"Une ou plusieurs, non notifiées, avec une décision documentée", w:{}},
-  {t:"Une ou plusieurs, sans analyse documentée", w:{frag:2,expo:3}, flags:["violation"]},
-  {t:"Aucune procédure ne nous permet de les détecter et de les traiter", w:{frag:2,expo:3}, flags:["procedure"]}
-]};
-
-var Q_DECLENCHEUR = {id:"declencheur", kicker:"Ce qui vous amène", title:"Qu'est-ce qui vous amène aujourd'hui ?", opts:[
-  {t:"Nous devons désigner un délégué et ne savons pas comment nous y prendre", w:{}, flags:["int_designer"]},
-  {t:"La personne en place va partir ou n'est plus disponible", w:{frag:2}, flags:["int_remplacer"]},
-  {t:"Nous lançons une étude ou une recherche", w:{}, flags:["int_etude"]},
-  {t:"Nous voulons vérifier que notre dispositif tient", w:{}, flags:["int_verifier"]},
-  {t:"Une échéance externe nous l'impose", d:"Levée de fonds, appel d'offres, audit d'un partenaire", w:{expo:2}, flags:["int_externe"]},
-  {t:"Un contrôle, une plainte ou une demande d'exercice de droits est en cours", w:{frag:1,expo:3}, flags:["int_controle","urgent"]}
-]};
-
-var BASE = [Q_ACTIVITE,Q_ECHELLE,Q_ETAB,Q_DESIGNATION,Q_REGISTRE,Q_AIPD,Q_HEBERGEMENT,Q_TRANSFERTS,Q_VIOLATIONS,Q_DECLENCHEUR];
-var ALL  = BASE.concat([Q_FONCTIONS,Q_NOTIF,Q_TEMPS,Q_RECHERCHES,Q_REGIME,Q_PAYS]);
-
-/* ---------- Points de vigilance : clé → [titre, corps, classe] ----------
-   classe "" : manque constaté ; "info" : point de méthode ; "good" : aucun manque déclaré. */
 var VIG = {
   urgent:["Situation en cours.","Un contrôle, une plainte ou une demande d'exercice de droits se traite tôt, avant que les positions ne se figent. C'est aussi le moment où l'on vous demandera vos pièces : registre, analyses d'impact, procédure de violation.",""],
   pas_designe:["Aucun délégué désigné.","Le règlement impose cette désignation lorsque l'activité de base implique un traitement à grande échelle de données concernant la santé (article 37, paragraphe 1, sous c). Savoir si votre organisation entre dans ce cas se vérifie — cela ne se présume ni dans un sens ni dans l'autre. Tant que la question n'est pas tranchée, l'absence de désignation est un défaut qui se constate en une question lors d'un contrôle.",""],
@@ -920,124 +1020,22 @@ var VIG = {
   reserve:["Ce que ce rapport ne fait pas.","Il n'établit pas le régime juridique applicable à vos traitements, ni si vous êtes tenu de désigner un délégué, ni sous quel fondement vos recherches se placent. Ces qualifications dépendent de la nature exacte de vos activités, de l'échelle réelle des traitements et des pièces qui les documentent — que des réponses fermées ne permettent pas d'apprécier. Il énonce les questions que soulève votre situation, non des réponses.","info"]
 };
 
-/* ---------- Formules : clé → [intitulé, promesse, prix, ancre] ---------- */
-var OFF = {
-  flash:["Consultation flash","Une heure avec un avocat pour comprendre où en est votre dispositif et savoir quoi faire ensuite, avec une note d'orientation écrite.","490 € HT, déductible du forfait souscrit ensuite.","offre-flash"],
-  revue:["Revue de la désignation","Savoir si votre désignation tient : la personne, ses fonctions, ses moyens, sa visibilité auprès de l'autorité, et ce qu'il faut corriger.","De 1 900 à 2 900 € HT, selon le nombre de fonctions cumulées par la personne désignée.","offre-revue"],
-  fonction:["Mise en place de la fonction","Le registre, les procédures, la méthode d'analyse d'impact, la gouvernance, la désignation du délégué et sa communication à la CNIL.","4 500 € HT jusqu'à dix traitements, 7 500 € HT de onze à vingt-cinq, au-delà sur devis. Une fois, au démarrage.","offre-fonction"],
-  etude:["Conformité d'une étude","Placer une étude sur le bon fondement avant son lancement, et documenter ce que l'autorité, les centres et vos partenaires vous demanderont.","De 4 500 à 8 000 € HT par étude, un forfait par étude ; chaque pays d'investigation hors de France, de 1 500 à 2 500 € HT, honoraires du correspondant local refacturés à l'identique.","offre-etude"],
-  dpo:["Délégué à la protection des données externalisé","La fonction de délégué, tenue dans la durée, une fois la fonction mise en place : registre tenu à jour, avis sur vos nouveaux traitements, demandes des personnes, violations, interlocuteur de la CNIL.","À partir de 650 € HT par mois, durée initiale de douze mois. Ne comprend ni la mise en place ni les études.","offre-dpo"],
-  controle:["Contrôle, plainte ou violation","Une situation ouverte se traite tôt, avant que les positions ne se figent.","Sur devis ; incluse dans l'abonnement de délégué, dans la limite de trois jours par an.","offre-controle"]
-};
+var NIV = {eleve:"élevé", modere:"modéré", limite:"limité"};
+var CHARGE = {projets:"la fréquence de vos nouveaux projets", demandes:"les demandes des personnes", etudes:"vos études en cours", pays:"leurs pays d'investigation",
+  pieces:"des documents d'étude à construire", flux:"plusieurs traitements à risque", entites:"plusieurs entités", relais:"la disponibilité du relais interne",
+  incident:"un incident ou l'absence de procédure", echelle:"le nombre de personnes concernées"};
+var PAL = {limite:["Suivi limité","trois heures","un point trimestriel"], regulier:["Suivi régulier","six heures","un point mensuel"],
+  renforce:["Suivi renforcé","dix heures au niveau d'entrée","un rythme adapté à votre activité"]};
+var NB_H = {1:"une heure", 2:"deux heures", 3:"trois heures"};
 
-/* ---------- État ----------
-   answers est indexé par identifiant de question, pas par rang :
-   insérer ou retirer une conditionnelle ne décale donc aucune réponse. */
+/* ---------- État ---------- */
 var questions = [], answers = {}, idx = -1;
+function rebuild(){ questions = D.parcours(answers); }
+function posOf(id){ return questions.indexOf(id); }
+function answered(id){ var v = answers[id]; return D.Q[id].multi ? (v && v.length>0) : v !== undefined; }
+function profilLabel(){ var k = answers.activite; return k ? T.activite.o[k][0] : ""; }
 
-function flagsOf(list){
-  var f = {};
-  list.forEach(function(q){ var o = q.opts[answers[q.id]]; if(o && o.flags) o.flags.forEach(function(x){ f[x] = true; }); });
-  return f;
-}
-function posOf(id){ for(var i=0;i<questions.length;i++){ if(questions[i].id===id) return i; } return -1; }
-
-/* Recompose la liste des questions à partir des réponses déjà données. */
-function rebuild(){
-  var f = flagsOf(ALL), list = [];
-  BASE.forEach(function(q){
-    list.push(q);
-    if(q.id==="designation"){
-      if(f.cumul) list.push(Q_FONCTIONS);
-      if(f.designe){ list.push(Q_NOTIF); list.push(Q_TEMPS); }
-    }
-    if(q.id==="aipd" && f.rech_possible){
-      list.push(Q_RECHERCHES);
-      if(f.rech){ list.push(Q_REGIME); list.push(Q_PAYS); }
-    }
-  });
-  questions = list;
-}
-
-function collect(){
-  var w = {obl:0,frag:0,expo:0}, max = {obl:0,frag:0,expo:0};
-  questions.forEach(function(q){
-    var mx = {obl:0,frag:0,expo:0};
-    q.opts.forEach(function(o){ if(o.w){ ["obl","frag","expo"].forEach(function(k){ if(o.w[k] && o.w[k]>mx[k]) mx[k] = o.w[k]; }); } });
-    ["obl","frag","expo"].forEach(function(k){ max[k] += mx[k]; });
-    var o = q.opts[answers[q.id]];
-    if(o && o.w){ ["obl","frag","expo"].forEach(function(k){ if(o.w[k]) w[k] += o.w[k]; }); }
-  });
-  var norm = function(k){ if(!max[k]) return 15; return Math.max(15, Math.round(w[k]/max[k]*100)); };
-  var f = flagsOf(questions);
-  /* Règle de plancher : un défaut isolé mais sérieux ne doit pas se diluer dans le dénominateur. */
-  var GRAVE_FRAG = ["pas_designe","conflit","notif","regime","procedure","violation"];
-  var GRAVE_EXPO = ["urgent","procedure","violation","regime"];
-  var count = function(keys){ var n = 0; keys.forEach(function(k){ if(f[k]) n++; }); return n; };
-  var floor = function(v,n){ if(n>=3) return Math.max(v,70); if(n>=1) return Math.max(v,45); return v; };
-  return {obl:norm("obl"), frag:floor(norm("frag"), count(GRAVE_FRAG)), expo:floor(norm("expo"), count(GRAVE_EXPO)), flags:f};
-}
-
-function scoreLabel(v){ return v>=70?"élevé":(v>=40?"modéré":"limité"); }
-function offerCount(frag){ return frag>=70?2:(frag>=40?1:0); }
-function profilLabel(){ var o = Q_ACTIVITE.opts[answers["activite"]]; return o && o.profil ? o.profil : ""; }
-
-/* Liste ordonnée des clés de vigilance. */
-function vigKeys(f){
-  var k = [];
-  if(f.urgent) k.push("urgent");
-  if(f.pas_designe) k.push("pas_designe");
-  if(f.obl_inconnue) k.push("obl_inconnue");
-  if(f.echelle_inconnue) k.push("echelle_inconnue");
-  if(f.conflit) k.push("conflit"); else if(f.conflit_possible) k.push("conflit_possible");
-  if(f.notif) k.push("notif");
-  if(f.moyens) k.push("moyens");
-  if(f.registre) k.push("registre");
-  if(f.aipd) k.push("aipd");
-  if(f.regime) k.push("regime");
-  if(f.multi_pays) k.push("multi_pays");
-  if(f.hds) k.push("hds"); else if(f.hds_interne) k.push("hds_interne");
-  if(f.transferts) k.push("transferts");
-  if(f.procedure) k.push("procedure"); else if(f.violation) k.push("violation");
-  if(f.hors_ue) k.push("hors_ue");
-  if(f.int_externe) k.push("int_externe");
-  if(f.int_remplacer) k.push("int_remplacer");
-  if(k.length===0) k.push("maitrise");
-  k.push("reserve");
-  return k;
-}
-
-/* Formules recommandées. Une situation ouverte passe avant tout le reste. */
-function offKeys(s){
-  var f = s.flags, r = [];
-  if(f.urgent || f.violation) r.push("controle");
-  var intent = 0;
-  if(f.int_etude){ r.push("etude"); intent = 1; }
-  if(f.int_designer || f.int_remplacer){ r.push("dpo"); intent = 1; }
-  if(f.urgent) intent = 1;
-  if(f.pas_designe) r.push("dpo");
-  if(f.conflit || f.conflit_possible || f.notif) r.push("revue");
-  if(f.regime || f.int_etude || f.multi_pays) r.push("etude");
-  if(f.moyens) r.push("dpo");
-  if(f.rech) r.push("etude");
-  if(f.registre || f.aipd || f.procedure || f.regime || f.hds || f.transferts || f.echelle_inconnue) r.push("fonction");
-  var seen = {}, uniq = [];
-  r.forEach(function(k){ if(!seen[k]){ seen[k] = true; uniq.push(k); } });
-  var res = uniq.slice(0, Math.max(offerCount(s.frag), intent));
-  /* Le délégué externalisé vient après la mise en place, et après la conformité des études :
-     il n'est jamais recommandé seul. */
-  if(res.indexOf("dpo")>-1){
-    var head = res.indexOf("controle")>-1 ? ["controle"] : [];
-    var path = ["fonction"].concat((f.rech || f.int_etude) ? ["etude"] : []).concat(["dpo"]);
-    var rest = res.filter(function(k){ return head.indexOf(k)<0 && path.indexOf(k)<0; });
-    res = head.concat(path, rest);
-  }
-  return ["flash"].concat(res);
-}
-var STEP = {fonction:"Étape 1 · une fois, au démarrage", etude:"Étape 2 · pour chaque étude", dpo:"Étape 3 · chaque mois, ensuite"};
-function isPath(reco){ return reco.indexOf("dpo")>-1; }
-
-/* ---------- Rendu du test (gabarit Cadence) ---------- */
+/* ---------- Rendu du test ---------- */
 var box = document.getElementById("diagbox");
 
 function intro(){
@@ -1045,52 +1043,60 @@ function intro(){
   box.innerHTML =
     '<p class="label">Avant de commencer</p>'+
     '<h3 class="qtitle">'+esc("Répondez pour votre organisation telle qu'elle est aujourd'hui, pas telle qu'elle devrait être.")+'</h3>'+
-    '<p class="qhint">'+esc("Vos réponses restent dans votre navigateur. À la fin, votre adresse électronique vous est demandée pour afficher votre résultat ; seuls cette adresse et le résumé de ce résultat me sont transmis, jamais vos réponses.")+'</p>'+
+    '<p class="qhint">'+esc("Des faits que vous connaissez, sans document ni détail de dossier. Vos réponses restent dans votre navigateur. À la fin, votre adresse électronique vous est demandée pour afficher votre résultat ; seuls cette adresse et le résumé de ce résultat me sont transmis, jamais vos réponses.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button class="btn btn-ink" type="button" id="start">Commencer le test</button></div>'+
-    '<p class="notice">'+esc("Le résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces. C'est une information indicative : il ne constitue ni une consultation juridique ni un avis, et ne crée aucune relation entre vous et le cabinet. Il n'établit pas le régime juridique applicable à vos traitements.")+'</p>';
+    '<p class="notice">'+esc("Le résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces. Il distingue des indicateurs de situation et une orientation indicative : il ne constitue ni une consultation juridique ni un avis, ne crée aucune relation entre vous et le cabinet et n'établit pas le régime juridique applicable à vos traitements.")+'</p>';
   document.getElementById("start").onclick = function(){ answers = {}; rebuild(); go(0); };
 }
 
 function render(){
-  var q = questions[idx];
+  var id = questions[idx], q = D.Q[id], t = T[id], multi = !!q.multi, cur = answers[id];
   var bars = questions.map(function(s,i){ return '<i class="'+(i<=idx?'on':'')+'"></i>'; }).join("");
   var html = '<div class="progress" aria-hidden="true">'+bars+'</div>'+
-    '<div class="qmeta"><span>'+esc(q.kicker)+'</span><span>'+(idx+1)+' / '+questions.length+'</span></div>'+
-    '<h3 class="qtitle" id="qt" tabindex="-1">'+esc(q.title)+'</h3>'+
-    '<div class="qgroup"><div class="opts" role="radiogroup" aria-labelledby="qt">'+
-    q.opts.map(function(o,i){
-      var on = answers[q.id]===i;
-      return '<button type="button" class="opt" role="radio" aria-checked="'+on+'" data-i="'+i+'"><span class="mk"></span><span>'+esc(o.t)+(o.d?'<small>'+esc(o.d)+'</small>':'')+'</span></button>';
+    '<div class="qmeta"><span>'+esc(t.kicker)+'</span><span>'+(idx+1)+' / '+questions.length+'</span></div>'+
+    '<h3 class="qtitle" id="qt" tabindex="-1">'+esc(t.title)+'</h3>'+(t.hint?'<p class="qhint" id="qh">'+esc(t.hint)+'</p>':'')+
+    '<div class="qgroup"><div class="opts" role="'+(multi?'group':'radiogroup')+'" aria-labelledby="qt"'+(t.hint?' aria-describedby="qh"':'')+'>'+
+    q.opts.map(function(o){
+      var on = multi ? (cur||[]).indexOf(o.k)>-1 : cur===o.k, L = t.o[o.k];
+      return '<button type="button" class="opt'+(multi?' multi':'')+'" role="'+(multi?'checkbox':'radio')+'" aria-checked="'+on+'" data-k="'+o.k+'"><span class="mk"></span><span>'+esc(L[0])+(L[1]?'<small>'+esc(L[1])+'</small>':'')+'</span></button>';
     }).join("")+'</div></div>'+
-    '<div class="dnav"><button type="button" class="linkbtn" id="prev">Précédent</button><button type="button" class="btn btn-ink" id="next"'+(answers[q.id]===undefined?' disabled':'')+'>'+(idx===questions.length-1?'Voir mon résultat':'Suivant')+'</button></div>';
+    '<div class="dnav"><button type="button" class="linkbtn" id="prev">Précédent</button><button type="button" class="btn btn-ink" id="next"'+(answered(id)?'':' disabled')+'>'+(idx===questions.length-1?'Voir mon résultat':'Suivant')+'</button></div>';
   box.innerHTML = html;
-  box.querySelectorAll(".opt").forEach(function(b){ b.onclick = function(){ answers[q.id] = parseInt(b.getAttribute("data-i"),10); var y = window.scrollY; rebuild(); idx = posOf(q.id); render(); window.scrollTo(0,y); }; });
+  box.querySelectorAll(".opt").forEach(function(b){ b.onclick = function(){
+    var k = b.getAttribute("data-k");
+    if(multi){
+      var s = (answers[id]||[]).slice(), i = s.indexOf(k);
+      if(i>-1) s.splice(i,1); else { if(k===q.exclusive) s = []; else s = s.filter(function(x){ return x!==q.exclusive; }); s.push(k); }
+      answers[id] = s;
+    } else answers[id] = k;
+    var y = window.scrollY; rebuild(); idx = posOf(id); render(); window.scrollTo(0,y);
+    var nb = box.querySelector('.opt[data-k="'+k+'"]'); if(nb){ try{ nb.focus({preventScroll:true}); }catch(e){} }
+  }; });
   document.getElementById("prev").onclick = function(){ if(idx===0) intro(); else go(idx-1); };
   document.getElementById("next").onclick = next;
 }
 
 function next(){
-  var q = questions[idx];
-  if(answers[q.id]===undefined) return;
+  var id = questions[idx];
+  if(!answered(id)) return;
   rebuild();
-  var pos = posOf(q.id);
+  var pos = posOf(id);
   if(pos < questions.length-1) go(pos+1); else gate();
 }
-
 function toBox(){ var top = box.getBoundingClientRect().top + window.scrollY - 120; if(window.scrollY > top) window.scrollTo(0, top); }
 function go(i){ idx = i; render(); var t = document.getElementById("qt"); if(t){ try{ t.focus({preventScroll:true}); }catch(e){} } toBox(); }
 
 /* ---------- Adresse électronique, puis résultat ---------- */
 var RESULT = null;
 function gate(){
-  RESULT = collect();
+  RESULT = {ind: D.indicateurs(answers), ori: D.orienter(answers)};
   box.innerHTML =
     '<p class="label">Dernière étape</p>'+
     '<h3 class="qtitle">Votre résultat est prêt</h3>'+
     '<p class="qhint">'+esc("Indiquez votre adresse électronique professionnelle : votre résultat s'affiche aussitôt.")+'</p>'+
     '<form class="gate" id="gateform" novalidate>'+
       '<label for="email">Adresse électronique professionnelle</label>'+
-      '<input type="email" id="email" name="email" autocomplete="email" required placeholder="prenom.nom@entreprise.fr">'+
+      '<input type="email" id="email" name="email" autocomplete="email" required aria-describedby="emailerr" placeholder="prenom.nom@entreprise.fr">'+
       '<p class="err" id="emailerr" hidden>'+esc("Indiquez une adresse électronique valide, par exemple prenom.nom@entreprise.fr.")+'</p>'+
       '<div class="check"><input type="checkbox" id="opposition" name="opposition"><label for="opposition" style="margin:0">'+esc("Je ne souhaite pas recevoir d'informations sur les services du cabinet et sur l'actualité de la protection des données de santé.")+'</label></div>'+
       '<input type="text" name="bot-field" id="botfield" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'+
@@ -1104,23 +1110,23 @@ function gate(){
     var em = document.getElementById("email").value.trim();
     var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em);
     document.getElementById("emailerr").hidden = ok;
+    document.getElementById("email").setAttribute("aria-invalid", ok ? "false" : "true");
     if(!ok){ document.getElementById("email").focus(); return; }
-    var s = RESULT;
+    var s = RESULT.ind;
     var data = {
       "form-name":"rapport-diapason", "bot-field":document.getElementById("botfield").value, email:em,
       opposition: document.getElementById("opposition").checked ? "oui" : "non",
       profil: profilLabel(), score_obligation: String(s.obl), score_fragilite: String(s.frag), score_exposition: String(s.expo),
-      points_vigilance: vigKeys(s.flags).join(","), offres_suggerees: offKeys(s).join(","),
+      points_vigilance: D.vigilance(s.flags).join(","), offres_suggerees: D.cles(RESULT.ori).join(","),
       horodatage: new Date().toISOString(), version_information: VERSION
     };
     var body = Object.keys(data).map(function(k){ return encodeURIComponent(k)+"="+encodeURIComponent(data[k]); }).join("&");
     try{ fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:body}).catch(function(){}); }catch(e){}
-    report(s);
+    report();
   });
 }
 
 function meter(v){ var n = Math.max(1, Math.round(v/20)), h = '<div class="meter" aria-hidden="true">'; for(var i=0;i<5;i++) h += '<i class="'+(i<n?'on':'')+'"></i>'; return h+'</div>'; }
-
 function verdict(s){
   var m = Math.max(s.frag, s.expo);
   if(m>=70) return ["Un dispositif désaccordé","Plusieurs points demandent une correction avant qu'une autorité, un partenaire ou un incident ne les révèle."];
@@ -1128,23 +1134,64 @@ function verdict(s){
   return ["Au diapason, d'après vos réponses","Vos déclarations ne font pas ressortir de manque. Il reste à vérifier que les pièces sont produisibles en l'état."];
 }
 
-function report(s){
-  var f = s.flags, keys = vigKeys(f), reco = offKeys(s), V = verdict(s);
+/* Orientation : chaque élément dit pourquoi, le prix d'entrée et ses hypothèses. */
+function plan(r, f){
+  var P = [], tf = TF;
+  if(r.prioritaire) P.push({k:"prioritaire", titre:"Un échange prioritaire sur la situation en cours", prix:"Sur devis, après un premier échange",
+    pourquoi: f.urgent ? "Un contrôle, une plainte ou une demande est en cours : elle se traite tôt, avant que les positions ne se figent." : "Une violation sans analyse documentée appelle une décision rapide sur sa qualification et, le cas échéant, sa notification.",
+    hyp:"Le budget est arrêté avec vous, au besoin par étapes. Le reste de l'orientation ci-dessous vient ensuite.", a:"offre-controle"});
+  if(r.consultation==="principale") P.push({k:"consultation", titre:"Consultation d'orientation", prix:eur(tf.consultation.prix)+" HT",
+    pourquoi: f.int_ponctuel ? "Votre besoin est ponctuel : quarante-cinq minutes suffisent souvent à situer la question et la suite à donner." : "Vos réponses ne font pas ressortir de mission qui s'impose : un échange permet de le vérifier.",
+    hyp:"Lecture de votre résultat et de quelques pièces courtes, entretien de quarante-cinq minutes, synthèse par courriel. Déduite d'un forfait engagé dans les trente jours.", a:"offre-consultation"});
+  if(r.initial==="diagnostic") P.push({k:"diagnostic", titre:"Diagnostic du dispositif existant", prix:eur(tf.diagnostic)+" HT",
+    pourquoi: r.etat==="a_verifier" ? "Votre dispositif existe, mais certains éléments sont à vérifier avant de s'y appuyer." : "Vous souhaitez vérifier que votre dispositif tient ; vos réponses ne font pas ressortir de manque à corriger d'abord.",
+    hyp:"Une entité, un ensemble de documents défini à l'avance. Si une mise en place simple suit, seul le complément de "+eur(D.complementMiseEnPlace(true))+" HT est facturé.", a:"offre-diagnostic"});
+  if(r.initial==="simple") P.push({k:"simple", titre:"Mise en place simple", prix:"À partir de "+eur(tf.miseEnPlace.simple)+" HT au total, diagnostic compris",
+    pourquoi:"Des pièces essentielles manquent : registre, procédures ou analyses d'impact.",
+    hyp:"Une entité, jusqu'à dix traitements simples à titre indicatif, un interlocuteur disponible, des informations exploitables ; deux réunions et un tour de commentaires consolidés.", a:"offre-fonction"});
+  if(r.initial==="etendue") P.push({k:"etendue", titre:"Mise en place étendue", prix:"À partir de "+eur(tf.miseEnPlace.etendue)+" HT",
+    pourquoi:"Des pièces essentielles manquent, sur un périmètre plus large : plusieurs entités, des traitements à risque ou de nombreux points à reprendre.",
+    hyp:"Le forfait est arrêté avant l'intervention, selon le travail prévu.", a:"offre-etendue"});
+  if(r.initial==="devis") P.push({k:"mes_devis", titre:"Construction du dispositif, sur devis", prix:"Sur devis",
+    pourquoi:"Un groupe ou un périmètre important ne se chiffre pas sur des hypothèses simples.", hyp:"Le devis est arrêté avant toute intervention.", a:"offre-etendue"});
+  if(r.revue) P.push({k:"revue", titre:"Revue de la désignation", prix:"À partir de "+eur(tf.revueDesignation)+" HT",
+    pourquoi:"Votre délégué interne est en place, mais sa désignation présente un point de fragilité : cumul de fonctions, communication à la CNIL ou moyens.",
+    hyp:"Situation simple, ensemble de pièces défini ; la mise en œuvre des corrections est distincte. Si vous préférez confier la fonction à l'extérieur, l'abonnement de délégué prend le relais.", a:"offre-revue"});
+  if(r.etudes){
+    var e = r.etudes, px;
+    if(e.niveau==="devis") px = "Sur devis";
+    else px = "À partir de "+eur(tf.etude[e.niveau])+" HT par étude";
+    if(e.pays && e.niveau!=="devis") px += ", + "+eur(tf.etude.paysSupp)+" HT par pays supplémentaire ("+(e.paysAuMoins?"au moins ":"")+e.pays+" pays)";
+    P.push({k:"etude", titre:(e.niveau==="simple"?"Conformité d'une étude française simple":(e.niveau==="approfondie"?"Conformité approfondie d'une étude":"Conformité de vos études, sur devis"))+(e.plusieurs?", une mission par étude":""), prix:px,
+      pourquoi: e.niveau==="simple" ? "Votre étude suit un schéma simple, ses pièces sont disponibles et son fondement est identifié." :
+        (e.niveau==="approfondie" ? "Les documents sont à adapter ou à construire, le fondement reste à établir, ou les traitements comportent plusieurs situations à risque." : "Un schéma complexe, sur plusieurs pays ou de nombreuses études, demande un devis."),
+      hyp:(e.pays||e.horsUE ? "Honoraires des conseils locaux en sus, arrêtés ou estimés avant le lancement"+(e.horsUE?" ; les pays hors de l'Union sont chiffrés sur devis":"")+". " : "")+"Avec ou sans abonnement. L'inscription au registre fait partie de la mission.", a: e.pays?"offre-pays":"offre-etude"});
+  }
+  if(r.dpo){
+    var d = r.dpo, pl = d.palier==="devis" ? "renforce" : d.palier, pp = D.palier(pl), L = PAL[pl];
+    var src = d.charge.sources.slice(0,3).map(function(s){ return CHARGE[s.cle]; }).filter(Boolean);
+    P.push({k:"dpo", titre:"Abonnement de délégué : "+L[0].toLowerCase()+(d.palier==="devis"?", dimensionné sur proposition":""),
+      prix:(pp.aPartirDe||d.palier==="devis"?"À partir de ":"")+eur(pp.prix)+" HT par mois pour "+L[1],
+      pourquoi:(d.priseDeFonction ? "Votre dispositif paraît exploitable : la fonction peut démarrer sans diagnostic ni nouvelle mise en place. " : "La fonction de délégué démarre une fois les travaux initiaux engagés ; l'abonnement ne les comprend pas. ")+
+        (src.length ? "Ce niveau tient compte de "+src.join(", ")+"." : "Vos réponses décrivent une charge réduite.")+
+        (d.designationAExaminer ? " Si une désignation est retenue : son caractère obligatoire se vérifie d'abord." : ""),
+      hyp:L[2].charAt(0).toUpperCase()+L[2].slice(1)+", report de "+NB_H[pp.report]+" au plus sur le mois suivant, dépassements à "+eur(tf.tauxDepassement)+" HT de l'heure après votre accord. Durée initiale proposée de six mois, puis un mois de préavis.", a:"tarifs-delegue"});
+  }
+  return P;
+}
+
+function report(){
+  var s = RESULT.ind, r = RESULT.ori, f = s.flags, keys = D.vigilance(f), V = verdict(s), P = plan(r, f);
   var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-  var subj;
-  if(f.urgent) subj = "situation en cours";
-  else if(f.int_etude) subj = "conformité d'une étude";
-  else if(f.pas_designe) subj = "désignation d'un délégué";
-  else if(f.int_remplacer) subj = "continuité de la fonction";
-  else if(f.int_externe) subj = "échéance externe";
-  else subj = "échanger sur mon résultat";
+  var subj = f.urgent ? "situation en cours" : (f.int_etude ? "conformité d'une étude" : (f.pas_designe ? "désignation d'un délégué" : (f.int_remplacer ? "continuité de la fonction" : (f.int_externe ? "échéance externe" : "échanger sur mon résultat"))));
 
   var html = '<div class="report-head"><p class="label">Votre résultat</p><h3>'+esc(V[0])+'</h3>'+
     '<p class="price">'+esc(V[1])+'</p>'+
+    '<p class="meta" style="margin-top:22px">'+esc("Indicateurs de situation")+'</p>'+
     '<div class="levels">'+
-      '<div class="lv"><b>Fragilité du dispositif</b><span>'+esc(cap(scoreLabel(s.frag)))+'</span>'+meter(s.frag)+'<p>'+esc("Désignation, moyens, registre, analyses d'impact.")+'</p></div>'+
-      '<div class="lv"><b>Exposition</b><span>'+esc(cap(scoreLabel(s.expo)))+'</span>'+meter(s.expo)+'<p>'+esc("Ce qui se passe le jour d'un contrôle ou d'un incident.")+'</p></div>'+
-      '<div class="lv"><b>Obligation</b><span>'+esc(cap(scoreLabel(s.obl)))+'</span>'+meter(s.obl)+'<p>'+esc("Indicatif, au regard de votre activité et du nombre de personnes concernées, sous réserve de la qualification de vos traitements.")+'</p></div>'+
+      '<div class="lv"><b>Fragilité du dispositif</b><span>'+esc(cap(NIV[D.niveau(s.frag)]))+'</span>'+meter(s.frag)+'<p>'+esc("Désignation, moyens, registre, analyses d'impact.")+'</p></div>'+
+      '<div class="lv"><b>Exposition</b><span>'+esc(cap(NIV[D.niveau(s.expo)]))+'</span>'+meter(s.expo)+'<p>'+esc("Ce qui se passe le jour d'un contrôle ou d'un incident.")+'</p></div>'+
+      '<div class="lv"><b>Obligation</b><span>'+esc(cap(NIV[D.niveau(s.obl)]))+'</span>'+meter(s.obl)+'<p>'+esc("Indicatif, au regard de votre activité et du nombre de personnes concernées, sous réserve de la qualification de vos traitements.")+'</p></div>'+
     '</div>'+
     '<p class="meta">'+esc("Arrêté le "+today+(profilLabel()?" · "+profilLabel():""))+'</p></div>';
 
@@ -1156,36 +1203,39 @@ function report(s){
   });
   html += '</ul></div>';
 
-  var main = reco.length>1 ? reco[1] : reco[0], O = OFF[main];
-  if(isPath(reco)){
-    var steps = reco.filter(function(k){ return STEP[k]; });
-    html += '<div class="rsec"><h4>'+esc("Votre parcours, dans l'ordre")+'</h4><ol class="parcours">'+steps.map(function(k){ var o = OFF[k];
-        return '<li><span class="when">'+esc(STEP[k])+'</span><b><a href="#'+o[3]+'">'+esc(o[0])+'</a></b><span class="pr">'+esc(k==="fonction"?"à partir de 4 500 € HT":(k==="etude"?"à partir de 4 500 € HT par étude, + 1 500 à 2 500 € HT par pays hors de France":"à partir de 650 € HT par mois"))+'</span><p>'+esc(o[1])+'</p></li>'; }).join("")+'</ol>'+
-      (steps.indexOf("etude")<0 ? '<p class="compl">'+esc("Sans étude en cours, l'étape 2 ne vous concerne pas pour l'instant. Chaque étude que vous lancerez aura son propre forfait de conformité.")+'</p>' : '')+
-      '<p class="reco-warn">'+esc("L'abonnement de délégué commence une fois la fonction mise en place. Il ne comprend ni la mise en place, ni la conformité de vos études : chaque étape a son prix.")+'</p>'+
-      '<p class="compl">'+esc("En cas d'accord, une convention d'honoraires signée fixe, pour chaque étape, le périmètre, ses exclusions, le prix et ce qui déclenche un devis.")+' <a class="linkbtn" href="#delegue">'+esc("Comment s'articulent les formules")+'</a></p>';
-    main = "dpo";
-  } else {
-    html += '<div class="rsec"><h4>Ce que je vous recommande</h4><div class="offer-reco"><h5>'+esc(O[0])+'</h5><p>'+esc(O[1])+'</p><p class="p">'+esc(O[2])+'</p>'+
-      '<p class="compl">'+esc("En cas d'accord, une convention d'honoraires signée fixe le périmètre, ses exclusions, le prix et ce qui déclenche un devis.")+' <a class="linkbtn" href="#'+O[3]+'">'+esc("Voir la formule")+'</a></p></div>';
-  }
-  var others = reco.filter(function(k){ return isPath(reco) ? !STEP[k] : k!==main; });
-  if(others.length){
-    html += '<ul class="also">'+others.map(function(k){ var o = OFF[k]; return '<li><a href="#'+o[3]+'">'+esc(o[0])+'</a> : '+esc(o[2])+'</li>'; }).join("")+'</ul>';
-  }
-  html += '</div>';
+  html += '<div class="rsec"><h4>Ce que je vous propose</h4><p class="compl">'+esc(r.ponctuel && !r.dpo ? "Une mission ponctuelle, sans abonnement." : "Des missions distinctes, chacune à son prix : vous n'engagez que celles dont vous avez besoin.")+'</p><ol class="parcours">'+
+    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+esc(p.pourquoi)+'</p><p class="hyp">'+esc(p.hyp)+'</p></li>'; }).join("")+'</ol>';
+  if(r.dpo) html += '<p class="reco-warn">'+esc("L'abonnement tient la fonction de délégué. Il ne comprend ni la construction du dispositif, ni la mise en conformité documentaire de vos études.")+'</p>';
+  if(r.consultation!=="principale") html += '<p class="compl">'+esc("Si vous préférez commencer par en parler : consultation d'orientation, "+eur(TF.consultation.prix)+" HT, déduite d'un forfait engagé dans les trente jours. Elle reste facultative.")+'</p>';
+
+  /* Budget indicatif : prix d'entrée seulement, hors éléments sur devis. */
+  var init = 0, hasDevis = r.devis.length>0 || r.prioritaire, nPays = 0;
+  if(r.initial==="diagnostic") init += TF.diagnostic;
+  if(r.initial==="simple"||r.initial==="etendue") init += TF.miseEnPlace[r.initial];
+  if(r.revue) init += TF.revueDesignation;
+  if(r.etudes && r.etudes.niveau!=="devis"){ nPays = r.etudes.pays; init += TF.etude[r.etudes.niveau] + nPays*TF.etude.paysSupp; }
+  if(r.consultation==="principale" && !init) init += TF.consultation.prix;
+  var mens = r.dpo ? D.palier(r.dpo.palier==="devis"?"renforce":r.dpo.palier).prix : 0;
+  html += '<div class="budget"><h5>'+esc("Ordre de grandeur, à confirmer")+'</h5><dl>'+
+    (init ? '<div><dt>'+esc(r.dpo?"Missions ponctuelles et frais initiaux, à partir de":"Mission, à partir de")+'</dt><dd>'+esc(eur(init))+' HT</dd></div>' : '')+
+    (mens ? '<div><dt>'+esc("Abonnement, par mois"+(r.dpo.palier==="devis"||r.dpo.palier==="renforce"?", à partir de":""))+'</dt><dd>'+esc(eur(mens))+' HT</dd></div>' : '')+
+    (mens ? '<div><dt>'+esc("Illustration sur douze mois")+'</dt><dd>'+esc(eur(init+12*mens))+' HT</dd></div>' : '')+
+    '</dl><p>'+esc((mens?"Douze mois complets, prix d'entrée : ce n'est ni une durée d'engagement, ni une somme due à la signature. ":"Prix d'entrée, sur les hypothèses indiquées. ")+
+      (r.initial==="diagnostic"?"Si le diagnostic conduit à une mise en place simple, seul le complément de "+eur(D.complementMiseEnPlace(true))+" HT s'y ajoute. ":"")+
+      "Non compris"+(nPays||(r.etudes&&r.etudes.horsUE)?" : honoraires des conseils locaux, ":" : ")+"éléments sur devis"+(hasDevis?" (signalés ci-dessus)":"")+", mobilisation exceptionnelle en cas de contrôle ou d'incident.")+'</p></div>';
+  html += '<p class="compl">'+esc("Cette orientation est une estimation automatique : le périmètre, le niveau de suivi et le prix sont confirmés lors d'un échange, puis dans une convention d'honoraires signée.")+' <a class="linkbtn" href="#parcours">'+esc("Comment s'articulent les missions")+'</a></p></div>';
 
   html += '<div class="rsec no-print"><h4>Conserver ce résultat</h4><div class="keep"><p class="compare">'+esc("Enregistrez-le en PDF, ou envoyez-le dans votre propre messagerie. Il n'est conservé ni sur ce site ni par le cabinet.")+'</p>'+
-    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon résultat Diapason")+'&body='+encodeURIComponent(summary(s, keys, main))+'">'+esc("M'envoyer le résultat")+'</a></div></div></div>';
+    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon résultat Diapason")+'&body='+encodeURIComponent(summary(s, keys, P))+'">'+esc("M'envoyer le résultat")+'</a></div></div></div>';
 
   html += '<div class="rsec"><h4>Échanger sur votre résultat</h4><p class="compare">'+esc("Un premier échange de vingt minutes, gratuit et sans engagement, pour vérifier ce résultat sur votre situation réelle. Écrivez-moi en indiquant vos trois niveaux :")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Diapason : "+subj)+'&body='+encodeURIComponent("Bonjour,\n\nJe souhaite échanger sur mon résultat Diapason.\n\n"+summary(s, keys, main))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason : "+subj))+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon résultat Diapason.\n\n")+summary(s, keys, P))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
 
-  html += '<p class="notice">'+esc("Ce résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêté à la date de sa génération. Il constitue une information indicative et ne vaut ni consultation juridique ni avis. Les montants s'entendent hors taxes ; toute mission fait l'objet d'une convention d'honoraires précisant le périmètre et les modalités de détermination du prix, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
+  html += '<p class="notice">'+esc("Ce résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêté à la date de sa génération. Il constitue une information indicative et ne vaut ni consultation juridique ni avis. Les montants sont des prix d'entrée hors taxes, sur les hypothèses indiquées ; toute mission fait l'objet d'une convention d'honoraires précisant le périmètre et les modalités de détermination du prix, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
     '<p class="sources">'+esc("Sources des obligations citées : règlement (UE) 2016/679, articles 9, 27, 30, 33, 35, 37 et 38 ; article L. 1111-8 du code de la santé publique, dans sa version en vigueur depuis le 1er juillet 2025. Les régimes applicables aux traitements de recherche dans le domaine de la santé relèvent de la loi n° 78-17 du 6 janvier 1978 modifiée et des méthodologies de référence homologuées par la CNIL.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Refaire le test</button></div>';
   html = '<div class="print-only print-head"><span><b>Diapason</b>, par Hémistiches</span><span>'+esc("Résultat établi le "+today)+'</span></div>'+html+
-    '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Pré-analyse indicative, sous réserve de l'échange préalable et de la signature d'une convention d'honoraires.")+'</div>';
+    '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Orientation indicative, sous réserve de l'échange préalable et de la signature d'une convention d'honoraires.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
   document.getElementById("copy").onclick = function(){
@@ -1195,23 +1245,17 @@ function report(s){
   document.getElementById("restart").onclick = function(){ answers = {}; intro(); toBox(); };
   toBox();
 }
-function summary(s, keys, main){
-  var O = OFF[main], L = [];
-  var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
+function summary(s, keys, P){
+  var L = [], today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
   L.push("Résultat Diapason du "+today+(profilLabel()?" · "+profilLabel():""));
   L.push("Résultat : "+verdict(s)[0].charAt(0).toLowerCase()+verdict(s)[0].slice(1)+".");
-  L.push("Niveaux : fragilité du dispositif, "+scoreLabel(s.frag)+" ; exposition, "+scoreLabel(s.expo)+" ; obligation, "+scoreLabel(s.obl)+".");
+  L.push("Indicateurs de situation : fragilité du dispositif, "+NIV[D.niveau(s.frag)]+" ; exposition, "+NIV[D.niveau(s.expo)]+" ; obligation, "+NIV[D.niveau(s.obl)]+".");
   var v = keys.filter(function(k){ return k!=="reserve" && k!=="maitrise"; }).map(function(k){ return VIG[k][0].replace(/\.$/,""); });
   if(v.length) L.push("Points de vigilance : "+v.join(" ; ")+".");
-  var reco = offKeys(s);
-  if(isPath(reco)){
-    var n = 0;
-    L.push("Parcours recommandé, dans l'ordre :");
-    reco.filter(function(k){ return STEP[k]; }).forEach(function(k){ n++; L.push(n+". "+OFF[k][0]+" ("+STEP[k].split(" · ")[1]+") : "+OFF[k][2]); });
-    L.push("L'abonnement de délégué ne comprend ni la mise en place ni la conformité des études.");
-  } else L.push("Formule recommandée : "+O[0]+". "+O[2]);
+  L.push("Orientation proposée, missions distinctes :");
+  P.forEach(function(p, i){ L.push((i+1)+". "+p.titre+" : "+p.prix+"."); });
   L.push("");
-  L.push("Pré-analyse indicative, établie à partir de mes seules réponses, sans examen de pièces, sous réserve d'un échange préalable et de la signature d'une convention d'honoraires. Montants hors taxes.");
+  L.push("Orientation indicative, établie à partir de mes seules réponses, sans examen de pièces, sous réserve d'un échange préalable et de la signature d'une convention d'honoraires. Prix d'entrée hors taxes, hors honoraires de conseils locaux et éléments sur devis.");
   L.push("Hémistiches, Mᵉ François Césure, avocat au barreau de Paris. "+CONTACT+" · +33 6 47 88 80 25");
   return fr(L.join("\n"));
 }
@@ -1228,7 +1272,11 @@ function show(view, anchor){
 function bindView(el){ el.addEventListener("click", function(ev){ ev.preventDefault(); show(el.getAttribute("data-view"), el.getAttribute("data-anchor")); }); }
 document.querySelectorAll("[data-view]").forEach(bindView);
 document.querySelectorAll('.nav a, .drawer nav a, .hero a').forEach(function(a){ a.addEventListener("click", function(){ if(!document.getElementById("home").hidden) return; document.getElementById("home").hidden = false; document.getElementById("mentions").hidden = true; }); });
-if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#confidentialite") show("mentions","confidentialite");
+/* Un lien vers une ancre de détail ouvre le volet correspondant. */
+function openDetail(id){ var el = id && document.getElementById(id); if(!el) return; var d = el.tagName==="DETAILS" ? el : el.querySelector("details.more"); if(d) d.open = true; }
+window.addEventListener("hashchange", function(){ openDetail(location.hash.slice(1)); });
+document.addEventListener("click", function(ev){ var a = ev.target.closest && ev.target.closest('a[href^="#"]'); if(a) openDetail(a.getAttribute("href").slice(1)); });
+if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#confidentialite") show("mentions","confidentialite"); else openDetail(location.hash.slice(1));
 
 /* ---------- Menu mobile ---------- */
 (function(){
@@ -1241,7 +1289,7 @@ if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#conf
 })();
 
 /* Exposé pour les contrôles hors ligne uniquement. */
-window.__diapason = {ALL:ALL, BASE:BASE, VIG:VIG, OFF:OFF, rebuild:rebuild, collect:collect, vigKeys:vigKeys, offKeys:offKeys, setAnswers:function(a){ answers = a; }, getQuestions:function(){ return questions; }};
+window.__diapason = {T:T, VIG:VIG, plan:plan, setAnswers:function(a){ answers = a; }, getQuestions:function(){ return questions; }};
 
 frDom(document.body);
 intro();
