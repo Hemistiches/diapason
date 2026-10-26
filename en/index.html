@@ -17,6 +17,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="description" content="Diapason, by Hémistiches: the GDPR compliance test for health data. Data protection officer, record of processing, impact assessments, research, hosting: an immediate result, then a lawyer if your situation calls for one.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LegalService", "name": "Diapason, by Hémistiches", "url": "https://diapason.hemistiches.com/en/", "inLanguage": "en", "description": "GDPR compliance for health data: orientation consultation, assessment, set-up, study compliance and outsourced data protection officer, with a free orientation test.", "provider": {"@type": "Attorney", "name": "François Césure", "url": "https://www.hemistiches.com", "address": {"@type": "PostalAddress", "streetAddress": "33, avenue Mac-Mahon", "postalCode": "75017", "addressLocality": "Paris", "addressCountry": "FR"}, "telephone": "+33647888025", "email": "francois.cesure@hemistiches.com"}, "areaServed": "FR", "priceRange": "€€", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Fees excluding VAT", "itemListElement": [{"@type": "Offer", "name": "Orientation consultation", "description": "45-minute call and summary by email", "priceSpecification": {"@type": "PriceSpecification", "price": 350, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Assessment of the existing set-up", "priceSpecification": {"@type": "PriceSpecification", "price": 1200, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Simple set-up, assessment included", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 2500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Extended set-up", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 4500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Compliance of a simple French study", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 2500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "In-depth study compliance", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 4500, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Extension to an additional country, excluding local counsel's fees", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 750, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Outsourced data protection officer, limited follow-up", "description": "3 hours per month", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 490, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Outsourced data protection officer, regular follow-up", "description": "6 hours per month", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 990, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Outsourced data protection officer, enhanced follow-up", "description": "10 hours per month at entry level", "priceSpecification": {"@type": "UnitPriceSpecification", "minPrice": 1490, "priceCurrency": "EUR", "unitText": "MON", "valueAddedTaxIncluded": false}}, {"@type": "Offer", "name": "Review of the appointment", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 1200, "priceCurrency": "EUR", "valueAddedTaxIncluded": false}}]}}</script>
 <style>
 /* Charte reprise de hemistiches.com : noir et blanc, Avenir Next léger, filets plutôt que cartes, angles droits, césure verticale. */
 :root{
@@ -378,6 +379,60 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .print-foot{margin-top:18px;border-top:1px solid #999;padding-top:8px;font-size:8.5pt;color:#444}
 }
 .foot nav a{color:#8a8a8a;padding:10px 0}.foot nav a:hover{color:#fff}
+/* Grille du 26 octobre 2026 : composants repris de Cadence (sous-titres, règles, FAQ, tableau) */
+.sub-h3{font-size:clamp(20px,1.8vw,26px);font-weight:400;margin-top:clamp(56px,7vw,96px)}
+.sub-h3 + .three,.sub-h3 + .tbl-wrap,.sub-h3 + .rules{margin-top:22px}
+.three.duo{grid-template-columns:repeat(2,minmax(0,1fr))}
+.three.duo p{max-width:52ch}
+.three article{padding-bottom:clamp(20px,2.4vw,28px)}
+details.more{border-top:1px solid var(--rule);margin-top:auto}
+details.more summary{cursor:pointer;list-style:none;padding:12px 28px 12px 0;position:relative;font-size:15px;color:var(--ink)}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";position:absolute;right:2px;top:9px;font-weight:300;font-size:20px;line-height:1}
+details.more[open] summary::after{content:"–"}
+details.more summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+details.more > div{padding:0 0 6px}
+details.more > div p{font-size:15px;color:var(--ink-2);max-width:none}
+details.more > div p + p{margin-top:8px}
+details.more b{font-weight:600;color:var(--ink)}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:16px}
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px;min-width:560px}
+.tbl caption{text-align:left;font-size:14px;color:var(--mute);padding-bottom:10px;caption-side:top}
+.tbl th,.tbl td{text-align:left;padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);font-weight:400;vertical-align:top}
+.tbl thead th{border-bottom:1px solid var(--ink);color:var(--mute);font-size:14px}
+.tbl tbody th{color:var(--ink)}
+.tbl td{color:var(--ink-2)}
+.tbl td:last-child{white-space:nowrap;color:var(--ink)}
+.rules{list-style:none;margin:clamp(32px,4vw,48px) 0 0;padding:0;border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px)}
+.rules li{padding:18px 0;border-bottom:1px solid var(--rule);min-width:0}
+.rules b{display:block;font-weight:400;font-size:clamp(17px,1.4vw,19px)}
+.rules > li > span{display:block;font-size:15px;color:var(--ink-2);margin-top:4px}
+.rules a{color:inherit;border-bottom:1px solid var(--rule)}
+.faq-s{padding-block:clamp(72px,9vw,120px)}
+.faq{margin-top:clamp(28px,3.5vw,48px);border-top:1px solid var(--ink);max-width:900px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 32px 18px 0;position:relative;font-size:clamp(17px,1.4vw,20px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font-weight:300;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.faq details > div{padding:0 0 20px;font-size:16px;color:var(--ink-2);max-width:70ch}
+.faq details > div p + p{margin-top:10px}
+.conviction{background:var(--card)}
+.parcours li{grid-template-columns:minmax(0,1fr)}
+.parcours .pr{text-align:left;color:var(--ink-2)}
+.parcours .hyp{font-size:14px;color:var(--mute);margin-top:-2px}
+.budget{margin-top:20px;border:1px solid var(--rule);padding:18px 20px}
+.budget h5{font-family:var(--font);font-weight:400;font-size:clamp(18px,1.5vw,20px);margin:0}
+.budget dl{margin:10px 0 0;display:grid;gap:6px}
+.budget dl div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rule);padding:6px 0}
+.budget dt{color:var(--ink-2);font-size:15px}
+.budget dd{margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.budget p{font-size:14px;color:var(--mute);margin-top:10px;max-width:72ch}
+@media (max-width:860px){.rules{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:720px){.three,.three.duo{grid-template-columns:minmax(0,1fr)}.three article{padding:28px 0}.three article + article{padding-left:0;border-left:0;border-top:1px solid var(--rule)}}
+@media print{.faq-s{display:none!important}.budget,.parcours li{break-inside:avoid}}
+.three .amount small{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -389,8 +444,9 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="right">
     <nav class="nav" aria-label="Main navigation">
       <a href="#fonction">Scope</a>
-      <a href="#delegue">The steps</a>
-      <a href="#formules">Services</a>
+      <a href="#parcours">Your needs</a>
+      <a href="#formules">Fees</a>
+      <a href="#faq">Questions</a>
       <a href="#cadre">Terms</a>
       <a class="cta" href="#test">Take the test</a>
     </nav>
@@ -412,8 +468,9 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   <nav aria-label="Mobile navigation">
     <a href="#fonction">Scope</a>
     <a href="#test">Take the test</a>
-    <a href="#delegue">The steps</a>
-    <a href="#formules">Services</a>
+    <a href="#parcours">Your needs</a>
+    <a href="#formules">Fees</a>
+    <a href="#faq">Questions</a>
     <a href="#cadre">Terms</a>
     <a href="#contact">Get in touch</a>
   </nav>
@@ -429,12 +486,12 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="wrap">
       <p class="who"><strong>Diapason</strong><span>GDPR compliance for health data, by Hémistiches</span></p>
       <h1 id="titre">Is your health data<span class="cesure" aria-hidden="true"></span> in tune with the GDPR?</h1>
-      <p class="lede">Test your set-up. Ten to sixteen questions depending on your situation, and a result on three axes: the obligation that applies to you, the fragility of what you have in place, and your exposure in the event of an inspection or an incident.</p>
+      <p class="lede">Test your set-up. Fourteen to twenty factual questions depending on your situation, and a result in two parts: three indicators (the obligation that applies to you, the fragility of what you have in place, your exposure in the event of an inspection or an incident), then an orientation, with entry prices and their assumptions.</p>
       <div class="actions">
         <a class="btn btn-light" href="#test">Take the test</a>
-        <a class="link-quiet" href="#formules">See the services</a>
+        <a class="link-quiet" href="#formules">See the fees</a>
       </div>
-      <p class="facts"><span>Under six minutes</span><span>Free</span><span>Your answers stay in your browser</span><span>Prices exclude VAT</span></p>
+      <p class="facts"><span>About six minutes</span><span>Free</span><span>Your answers stay in your browser</span><span>Prices exclude VAT</span></p>
     </div>
   </section>
 
@@ -472,147 +529,227 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
       <h2 class="sec-h2" id="t-test">Is your set-up in tune?</h2>
-      <p class="intro">Questions about facts you know. The path adapts to your activity and to what you already have in place.</p>
+      <p class="intro">Questions about facts you know: your organisation, what you have in place, your studies, the pace of your projects. The path adapts to your answers and asks for no documents or file details.</p>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">The test runs in your browser and requires JavaScript. You can also write directly to francois.cesure@hemistiches.com.</p></noscript></div>
     </div>
   </section>
 
-  <section class="delegue-s" id="delegue" aria-labelledby="t-dpo">
+  <section class="delegue-s" id="parcours" aria-labelledby="t-parcours">
     <div class="wrap">
-      <p class="label">How the services fit together</p>
-      <h2 class="sec-h2" id="t-dpo">Build first, then maintain</h2>
-      <p class="intro">The data protection officer role only holds on a set-up that has already been built. The three services follow one another; each has its own price, and none includes the others.</p>
+      <p class="label">How we can work together</p>
+      <h2 class="sec-h2" id="t-parcours">Three distinct needs, each with its own price</h2>
+      <p class="intro">Depending on your situation, you may need only one of them. None is a compulsory step: a study can be entrusted on its own, and a data protection officer subscription can start directly on a set-up that already holds.</p>
       <ol class="steps3">
         <li>
-          <span class="when">Step 1 · once, at the start</span>
-          <h3>Setting up the function</h3>
-          <p class="amt"><span class="pre">From</span>€4,500 <small>excl. VAT, one-off</small></p>
-          <p>The record of processing, the procedures, the impact assessment method, the governance, the appointment of the officer and its notification to the CNIL.</p>
-          <a href="#offre-fonction">Details</a>
+          <span class="when">If needed · once</span>
+          <h3>Building or upgrading the set-up</h3>
+          <p class="amt"><span class="pre">From</span><span data-p="diag">€1,200</span> <small>excl. VAT for an assessment, <span data-p="mes">€2,500</span> excl. VAT for a simple set-up, assessment included</small></p>
+          <p>Record of processing, essential procedures, governance and, if an appointment is decided, its preparation. If your set-up is already workable, this step does not take place.</p>
+          <a href="#tarifs-dispositif">Details</a>
         </li>
         <li>
-          <span class="when">Step 2 · for each study</span>
-          <h3>Compliance of a study</h3>
-          <p class="amt"><span class="pre">From</span>€4,500 <small>excl. VAT per study, + €1,500 to €2,500 excl. VAT per investigation country outside France</small></p>
-          <p>Each study has its own fixed fee: two studies, two fees. A study most often runs in several EU countries: each country adds its own supplement.</p>
-          <a href="#offre-etude">Details</a>
+          <span class="when">For each study</span>
+          <h3>Bringing a study into compliance</h3>
+          <p class="amt"><span class="pre">From</span><span data-p="es">€2,500</span> <small>excl. VAT per study, + <span data-p="pays">€750</span> excl. VAT per additional country, excluding local counsel</small></p>
+          <p>Qualification of the framework, participant information, impact assessment, data agreement. With or without a subscription.</p>
+          <a href="#tarifs-etudes">Details</a>
         </li>
         <li>
-          <span class="when">Step 3 · every month, afterwards</span>
-          <h3>Outsourced data protection officer</h3>
-          <p class="amt"><span class="pre">From</span>€650 <small>excl. VAT per month</small></p>
-          <p>The data protection officer role, held over time, on the set-up built in steps 1 and 2.</p>
-          <a href="#offre-dpo">Details</a>
+          <span class="when">Every month, if you wish</span>
+          <h3>Holding the data protection officer role</h3>
+          <p class="amt"><span class="pre">From</span><span data-p="d:limite">€490</span> <small>excl. VAT per month for three hours</small></p>
+          <p>A volume of hours reserved every month, three, six or ten, on a set-up built with me or already in place in your organisation.</p>
+          <a href="#tarifs-delegue">Details</a>
         </li>
       </ol>
-
-      <p class="warn"><strong>The data protection officer subscription includes neither the setting up of the function nor the compliance of your studies.</strong> It starts once step 1 has been completed. If your record and procedures already exist, they are reviewed beforehand, on quotation.</p>
-
-      <div class="dpo-grid">
-        <div>
-          <h3>What the subscription includes</h3>
-          <ul class="dpo-list">
-            <li>Keeping the record of processing activities up to date</li>
-            <li>Advice on your new processing operations and on whether an impact assessment is needed</li>
-            <li>Responses to requests from data subjects</li>
-            <li>Assessment and notification of personal data breaches</li>
-            <li>Periodic progress review and annual report</li>
-            <li>Point of contact for the CNIL, with assistance during an inspection included up to three days per year</li>
-          </ul>
-        </div>
-        <div>
-          <h3>What it does not include</h3>
-          <ul class="dpo-list out">
-            <li>Setting up the function, including the appointment: step 1</li>
-            <li>The compliance of each study, including its impact assessment and its investigation countries: step 2, one fee per study and a supplement per country</li>
-            <li>Drafting impact assessments and contracts outside a study: on quotation</li>
-            <li>Assistance beyond three days per year, and sanction proceedings: on quotation</li>
-          </ul>
-        </div>
-      </div>
-
-      <ul class="paliers">
-        <li><b>€650 excl. VAT per month</b><span>Up to one ongoing study</span></li>
-        <li><b>€1,200 excl. VAT per month</b><span>Two to five ongoing studies</span></li>
-        <li><b>€2,000 excl. VAT per month</b><span>More than five ongoing studies</span></li>
-      </ul>
-      <p class="dpo-note">The tier reflects the workload of the data protection officer role: each ongoing study adds processing operations to monitor, requests and exchanges. A study conducted in several countries counts as one study. The tier pays for no work on the studies themselves, which falls under step 2. Initial term of twelve months.</p>
-
-      <div class="example">
-        <h3>An example, the first year</h3>
-        <p>A sponsor with no record of processing launches its first study, in France and two other EU countries: the most common case.</p>
-        <table>
-          <caption class="sr">First-year cost for a sponsor launching a study in three countries</caption>
-          <tbody>
-            <tr><th scope="row">Step 1 · setting up the function</th><td>€4,500</td></tr>
-            <tr><th scope="row">Step 2 · compliance of the study</th><td>€4,500 to €8,000</td></tr>
-            <tr><th scope="row">Step 2 · two investigation countries outside France</th><td>€3,000 to €5,000</td></tr>
-            <tr><th scope="row">Step 3 · data protection officer, €650 × 12 months</th><td>€7,800</td></tr>
-          </tbody>
-          <tfoot><tr><th scope="row">First year</th><td>€19,800 to €25,300 excl. VAT</td></tr></tfoot>
-        </table>
-        <p class="dpo-note">Local correspondents' fees are added, recharged at cost. A second study adds its own compliance fee and moves the subscription to the €1,200 excl. VAT per month tier.</p>
-      </div>
+      <p class="warn"><strong>The subscription covers the data protection officer role. It includes neither building the set-up nor bringing the documentation of your studies into compliance.</strong> These are separate engagements, each at a fixed fee, which you take up only if your situation calls for them.</p>
     </div>
   </section>
 
   <section class="formules-s" id="formules" aria-labelledby="t-form">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-form">Services</h2>
-      <p class="intro">Each fixed fee is defined in writing: what it covers, what it excludes, the number of meetings and rounds of comments. The first three follow one another; the next three answer a specific situation.</p>
-      <div class="six">
-        <article id="offre-fonction">
-          <p class="kind">Step 1 · once, at the start</p>
-          <h3>Setting up the function</h3>
-          <div><p class="from">From</p><p class="amount">€4,500 <small>excl. VAT</small></p></div>
-          <p>Giving the function what it lacks: the record of processing, the procedures, the impact assessment method, the governance.</p>
-          <ul><li>Record of processing activities drawn up or taken over (Art. 30)</li><li>Breach procedure and impact assessment method</li><li>Appointment of the officer and notification to the CNIL</li><li>Officer's engagement letter and reporting line</li></ul>
-          <p class="limite">€4,500 excl. VAT up to ten processing operations, €7,500 excl. VAT from eleven to twenty-five, above that on quotation. Excludes studies and technical security audits.</p>
+      <h2 class="sec-h2" id="t-form">Fees</h2>
+      <p class="intro">All prices exclude VAT. Each fixed fee rests on a scope agreed in writing, information provided in a usable format, a set number of meetings and drafts, and the reuse of proven tools. A matter that falls outside these assumptions is quoted separately, before any work begins.</p>
+
+      <h3 class="sub-h3" id="tarifs-debut">To get started</h3>
+      <div class="three duo">
+        <article id="offre-consultation">
+          <h3>Orientation consultation</h3>
+          <div><p class="amount"><span data-p="c">€350</span> <small>excl. VAT</small></p></div>
+          <p>Forty-five minutes to situate your set-up and know where to start.</p>
+          <ul><li>Reading of your test result, if you have one</li><li>Reading of a few short items of information and documents agreed in advance</li><li>Forty-five-minute video call</li><li>Written summary of priorities and next steps, by email</li></ul>
+          <details class="more"><summary>Details</summary><div>
+            <p>The consultation clarifies your priorities and what to do next; an in-depth document review, an audit or a complex question calling for research or a developed opinion falls under another engagement, quoted beforehand.</p>
+            <p>Optional: no engagement requires it. Where it directly prepares a fixed-fee engagement taken up within thirty days, its <span data-p="c">€350</span> excl. VAT is deducted from it, once, and the work done is carried into the engagement.</p>
+          </div></details>
         </article>
-        <article id="offre-etude">
-          <p class="kind">Step 2 · for each study</p>
-          <h3>Compliance of a study</h3>
-          <div><p class="from">From</p><p class="amount">€4,500 <small>excl. VAT per study</small></p><p class="from">+ €1,500 to €2,500 excl. VAT per investigation country outside France</p></div>
-          <p>Placing a study on the right legal basis before it starts, and documenting what the authority, the sites and your partners will ask of you.</p>
-          <ul><li>Qualification: reference methodology or authorisation</li><li>Participant information notice, data section</li><li>Clauses with the contract research organisation, the sites and the service providers (Art. 28)</li><li>Impact assessment of the study</li></ul>
-          <p class="limite">€4,500 to €8,000 excl. VAT per study, for France and overall coordination. Each investigation country outside France: €1,500 to €2,500 excl. VAT; local rules are checked there by a correspondent in that country, whose fees are recharged at cost. One fee per study.</p>
-        </article>
-        <article id="offre-dpo" class="dpo">
-          <p class="kind">Step 3 · every month, afterwards</p>
-          <h3>Outsourced data protection officer</h3>
-          <div><p class="from">From</p><p class="amount">€650 <small>excl. VAT per month</small></p></div>
-          <p>The data protection officer role, held over time, once the function has been set up.</p>
-          <ul><li>Record kept up to date, advice on your new processing operations</li><li>Data subject requests, personal data breaches</li><li>Assistance during a CNIL inspection, three days per year included</li></ul>
-          <p class="limite"><strong style="color:#fff;font-weight:600">Includes neither the set-up (step 1) nor the studies (step 2).</strong> €650 up to one ongoing study, €1,200 from two to five, €2,000 above that; a multi-country study counts as one. Initial term of twelve months. <a href="#delegue" style="border-bottom:1px solid #5a5a5a">Details</a></p>
-        </article>
-        <article id="offre-flash">
-          <p class="kind">To get started</p>
-          <h3>Flash consultation</h3>
-          <div><p class="amount">€490 <small>excl. VAT</small></p><p class="from">Deductible from the fee for the service taken up next</p></div>
-          <p>One hour with a lawyer to understand where your set-up stands and which step to start with.</p>
-          <ul><li>Prior reading of your result</li><li>Sixty-minute video call</li><li>Written guidance note: points of attention, priorities, next steps</li></ul>
-          <p class="limite">Video call within ten days. Excludes document review and written opinions taking a legal position.</p>
-        </article>
-        <article id="offre-revue">
-          <p class="kind">If you already have an officer</p>
-          <h3>Review of the appointment</h3>
-          <div><p class="from">From</p><p class="amount">€1,900 <small>excl. VAT</small></p></div>
-          <p>Finding out whether the appointment of your in-house officer holds: the person, their other duties, their resources, their visibility to the authority, and what needs correcting.</p>
-          <ul><li>Review of the appointment and its notification to the CNIL</li><li>Analysis of combined duties (Art. 38(6))</li><li>Signed note, corrections in order of priority</li></ul>
-          <p class="limite">€1,900 to €2,900 excl. VAT depending on the number of combined duties. Excludes the record and impact assessments.</p>
-        </article>
-        <article id="offre-controle">
-          <p class="kind">If a matter is open</p>
-          <h3>Inspection, complaint or breach</h3>
-          <div><p class="amount">On quotation</p><p class="from">Included in the data protection officer subscription, up to three days per year</p></div>
-          <p>An open matter is best handled early, before positions harden.</p>
-          <ul><li>Assistance during a CNIL inspection or request</li><li>Assessment and notification of a breach</li><li>Response to a complaint or to a data subject request</li></ul>
-          <p class="limite">Best-efforts obligation: no outcome can be guaranteed. This is not representation in court.</p>
+        <article id="offre-diagnostic">
+          <h3>Assessment of the existing set-up</h3>
+          <div><p class="amount"><span data-p="diag">€1,200</span> <small>excl. VAT</small></p></div>
+          <p>Finding out what your current set-up is worth, and what to correct first.</p>
+          <ul><li>Preliminary questionnaire</li><li>Targeted review of a set of documents defined in advance</li><li>Interview</li><li>Main gaps, prioritised action plan and short debrief</li></ul>
+          <details class="more"><summary>Details</summary><div>
+            <p>For one entity. This is neither an exhaustive audit nor a technical security review, and corrections are not included.</p>
+            <p>If a simple set-up follows, the assessment counts towards its overall price: only the balance, <span data-p="compl">€1,300</span> excl. VAT, is invoiced.</p>
+          </div></details>
         </article>
       </div>
-      <p class="cadre"><strong>Prices exclude VAT.</strong> French VAT at 20% is added for clients established in France; for a business client established in another Member State, VAT is self-accounted for by the client under the reverse-charge mechanism. If we agree to work together, the chosen service is set out in a fee agreement signed before any work begins, which defines the scope, its exclusions and how the price is determined. It is preceded by a conflict-of-interest check.</p>
-      <p class="cadre"><strong>Scope of advice.</strong> The firm advises on French law and on European Union law as applicable in France. It gives no opinion on the national laws of other Member States or on non-EU laws; a question governed by a foreign law is handled, where appropriate, with a local correspondent, under a separate quotation.</p>
-      <p class="cadre"><strong>And for your whole legal function?</strong> Diapason covers the protection of health data. For contracts, corporate housekeeping, regulatory matters and the rest of the legal function: <a href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a>, Hémistiches' outsourced legal department (site in French).</p>
+
+      <h3 class="sub-h3" id="tarifs-dispositif">Building the set-up</h3>
+      <div class="three duo">
+        <article id="offre-fonction">
+          <h3>Simple set-up</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="mes">€2,500</span> <small>excl. VAT in total, assessment included</small></p></div>
+          <p>For one entity starting from little, with simple processing operations.</p>
+          <ul><li>Scoping and assessment</li><li>Record of processing activities within the agreed scope</li><li>Essential procedures adapted: breaches, data subject requests, processors, impact assessment method</li><li>Governance and, if an appointment is decided, its preparation and notification to the CNIL</li></ul>
+          <details class="more"><summary>Details</summary><div>
+            <p><b>The entry price assumes</b> one entity, up to ten simple processing operations as a guide, a contact person available in your organisation, information provided in a usable format and a set-up built by adapting existing tools.</p>
+            <p><b>Included:</b> two meetings in total and one round of consolidated comments. <b>Not included:</b> the documentation specific to a study, a full impact assessment and technical audits.</p>
+          </div></details>
+        </article>
+        <article id="offre-etendue">
+          <h3>Extended set-up</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="mee">€4,500</span> <small>excl. VAT</small></p></div>
+          <p>For more extensive documentation or a set-up requiring more customisation.</p>
+          <ul><li>The same content, on a wider scope</li><li>More processing operations and data flows to document</li><li>Procedures and governance adapted to your organisation</li></ul>
+          <details class="more"><summary>Details</summary><div>
+            <p>The fee is set before work begins, according to the work planned; the number of processing operations is only a guide. Groups, complex flows, information to be reconstructed and large scopes: on quotation.</p>
+            <p>An existing, workable set-up allows the data protection officer subscription to start directly, with no paid assessment and no new set-up.</p>
+          </div></details>
+        </article>
+      </div>
+
+      <h3 class="sub-h3" id="tarifs-etudes">Your studies</h3>
+      <div class="three">
+        <article id="offre-etude">
+          <h3>Simple French study</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="es">€2,500</span> <small>excl. VAT per study</small></p></div>
+          <p>For a study with a simple design, whose documents are available and need little adaptation.</p>
+          <ul><li>Qualification of the applicable framework</li><li>Participant information, data section</li><li>Impact assessment proportionate to the file</li><li>Review of one contractual document relating to data</li><li>Debrief and one consolidated round of comments</li></ul>
+          <details class="more"><summary>Details</summary><div>
+            <p>The scope is agreed in writing. The impact assessment is not a formality: if the file calls for more, I tell you before going further, and the engagement becomes an in-depth study with your agreement.</p>
+            <p>Entering the study in the record of processing is part of the engagement; keeping it up to date afterwards falls under the subscription, if there is one.</p>
+          </div></details>
+        </article>
+        <article id="offre-etude-approfondie">
+          <h3>In-depth study</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="ea">€4,500</span> <small>excl. VAT per study</small></p></div>
+          <p>For documentation to be built, a complex impact assessment, several contracts or particular data flows.</p>
+          <ul><li>Documentation built or largely reworked</li><li>In-depth impact assessment</li><li>Several contracts, negotiations included within the agreed limit</li></ul>
+          <details class="more"><summary>Details</summary><div>
+            <p>The quotation sets out the documents, meetings, drafts and negotiations included. Exchanges with the authority and any authorisation procedure are either expressly included or priced separately. A substantial change to the project afterwards requires a supplementary agreement.</p>
+          </div></details>
+        </article>
+        <article id="offre-pays">
+          <h3>Each additional country</h3>
+          <div><p class="from">From</p><p class="amount"><span data-p="pays">€750</span> <small>excl. VAT per country</small></p><p class="from">Excluding local counsel's fees</p></div>
+          <p>Where the study also runs in other countries, on common documentation that can largely be reused.</p>
+          <ul><li>Adaptation of the common documents</li><li>Coordination of local counsel</li><li>Alignment of requirements and integration of their comments</li></ul>
+          <details class="more"><summary>Details</summary><div>
+            <p>The law of each country is checked by local counsel, whose fees are separate and agreed or estimated before launch. Substantial adaptation or a complex local set-up is quoted separately; simply passing documents on to the correspondent does not call for a full supplement.</p>
+            <p>Before work begins, you receive a consolidated budget: base fee, supplements per country, local fees agreed or estimated, assumptions and conditions for overruns.</p>
+          </div></details>
+        </article>
+      </div>
+      <p class="cadre">A study can be entrusted on its own, with no subscription or set-up. The firm advises on French law and on European Union law as applicable in France; an amount shown excluding local counsel is never the total cost of a study conducted in several countries.</p>
+
+      <h3 class="sub-h3" id="tarifs-delegue">The data protection officer over time</h3>
+      <div class="three">
+        <article id="offre-dpo">
+          <h3>Limited follow-up</h3>
+          <div><p class="from">Three hours per month</p><p class="amount"><span data-p="d:limite">€490</span> <small>excl. VAT per month</small></p></div>
+          <p>For one entity with a stable set-up, few requests and an effective internal relay.</p>
+          <ul><li>A quarterly review</li><li>Up to one hour carried over to the next month</li></ul>
+        </article>
+        <article id="offre-dpo-regulier">
+          <h3>Regular follow-up</h3>
+          <div><p class="from">Six hours per month</p><p class="amount"><span data-p="d:regulier">€990</span> <small>excl. VAT per month</small></p></div>
+          <p>For more frequent projects, changes and requests.</p>
+          <ul><li>A monthly review</li><li>Up to two hours carried over to the next month</li></ul>
+        </article>
+        <article id="offre-dpo-renforce">
+          <h3>Enhanced follow-up</h3>
+          <div><p class="from">From ten hours per month</p><p class="amount"><span data-p="d:renforce">€1,490</span> <small>excl. VAT per month</small></p><p class="from">Entry-level price</p></div>
+          <p>For sustained activity: several studies, projects or entities. Beyond ten hours, sized on proposal.</p>
+          <ul><li>A rhythm suited to your activity</li><li>Up to three hours carried over at entry level</li></ul>
+        </article>
+      </div>
+
+      <ul class="rules">
+        <li><b>The same tasks at all three levels</b><span>Day-to-day information and advice, monitoring and updating of the record based on the information you provide, follow-up of priorities, targeted checks, opinions on new projects and impact assessments, routing and follow-up of data subject requests, governance exchanges, a proportionate annual report. Only the volume and rhythm change.</span></li>
+        <li><b>What uses up the hours</b><span>All time specific to your file: preparation, specific research, meetings and periodic reviews, substantive emails, updates, checks and the annual report, whose preparation is planned within the volume. The firm's general legal watch is not counted.</span></li>
+        <li><b>Simple tracking</b><span>A statement of hours every month, and an alert before the volume runs out.</span></li>
+        <li><b>Limited carry-over</b><span>Up to one, two or three hours depending on the level, to the next month only, used first, never carried over twice nor beyond the end of the engagement. If a service requested within the agreed framework could not be provided by the firm, the corresponding hours are dealt with separately.</span></li>
+        <li><b>Overruns</b><span><span data-p="taux">€180</span> excl. VAT per hour, after an estimate and your prior agreement, subject to availability; a substantial project is covered by a separate fixed fee. A one-off overrun does not change the level; a lastingly higher workload leads to resizing the engagement.</span></li>
+        <li><b>Volume used up</b><span>The data protection officer role is not suspended. What cannot wait, a breach or a request from the authority, is handled and you are informed; the rest is rescheduled or agreed with you.</span></li>
+        <li><b>Inspections and breaches</b><span>The officer remains the CNIL's point of contact and cooperates with it; guidance and initial advice fall within the volume. Exceptional mobilisation (intensive preparation, detailed responses, assistance during inspection operations, crisis management, investigations) is covered by an additional budget. No standby service and no guaranteed immediate availability; a pre-authorised envelope of hours can be provided for to act without delay.</span></li>
+        <li><b>Term</b><span>Proposed initial term of six months, the time needed to set up the programme, then an indefinite term with one month's notice. Only the months performed, notice included, are payable. <a href="#faq-duree">Details</a></span></li>
+      </ul>
+
+      <h3 class="sub-h3" id="tarifs-particuliers">Specific needs</h3>
+      <ul class="rules">
+        <li id="offre-revue"><b>Review of the appointment · from <span data-p="revue">€1,200</span> excl. VAT</b><span>To check that the appointment of your in-house officer holds, in a simple situation: review of a defined set of documents, interview, analysis of the appointment, position and resources, written summary of risks and corrections, debrief. Complex combinations of duties, groups or substantial investigations: on quotation. Implementing the corrections is separate.</span></li>
+        <li id="offre-controle"><b>Inspection, major incident or proceedings · on quotation</b><span>An open matter is best handled early, before positions harden. The budget is agreed with you, in stages if need be. Any defence in sanction proceedings is a separate engagement, accepted after checking that it is compatible with the data protection officer role held for you.</span></li>
+      </ul>
+
+      <h3 class="sub-h3" id="budgets">A few budgets, by way of illustration</h3>
+      <div class="tbl-wrap"><table class="tbl">
+        <caption>Twelve full months, simple situations, no exceptional services. Amounts exclude VAT.</caption>
+        <thead><tr><th scope="col">Situation</th><th scope="col">Calculation</th><th scope="col">Total</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Set-up already workable, limited follow-up</th><td><span data-p="d:limite">€490</span> × 12</td><td><span data-p="b:1">€5,880</span></td></tr>
+          <tr><th scope="row">Simple set-up, then limited follow-up</th><td><span data-p="mes">€2,500</span> + <span data-p="d:limite">€490</span> × 12</td><td><span data-p="b:2">€8,380</span></td></tr>
+          <tr><th scope="row">Simple set-up, one simple French study, limited follow-up</th><td><span data-p="mes">€2,500</span> + <span data-p="es">€2,500</span> + <span data-p="d:limite">€490</span> × 12</td><td><span data-p="b:3">€10,880</span></td></tr>
+          <tr><th scope="row">The same study in two other countries, regular follow-up</th><td><span data-p="mes">€2,500</span> + <span data-p="es">€2,500</span> + 2 × <span data-p="pays">€750</span> + <span data-p="d:regulier">€990</span> × 12</td><td><span data-p="b:5">€18,380</span>, excluding local counsel</td></tr>
+        </tbody>
+      </table></div>
+      <p class="cadre">These budgets illustrate one year; they set neither a twelve-month commitment nor a sum due on signature. The follow-up level is confirmed according to your situation: a study conducted in several countries does not automatically fit the limited follow-up. If an assessment has already been paid, a simple set-up only calls for the balance; a deductible consultation is never added a second time; taking over a workable set-up gives rise to no new set-up.</p>
+
+      <p class="cadre"><strong>Prices exclude VAT.</strong> French VAT at 20% is added for clients established in France; for a business client established in another Member State, VAT is self-accounted for by the client under the reverse-charge mechanism. If we agree to work together, the engagement is set out in a fee agreement signed before any work begins, which defines the scope, its exclusions and how the price is determined. It is preceded by a conflict-of-interest check.</p>
+      <p class="cadre"><strong>And for the rest of your legal function?</strong> Diapason covers the protection of health data; <a href="https://cadence.hemistiches.com/en/" target="_blank" rel="noopener">Cadence</a> the outsourced legal department; <a href="https://concordance.hemistiches.com/en/" target="_blank" rel="noopener">Concordance</a> medical device compliance. It is the same lawyer: price differences reflect the volume, duration and organisation of each offer. An appointment as data protection officer is not included in Cadence or Concordance, and work already done for you in one is reused, never invoiced twice.</p>
+    </div>
+  </section>
+
+  <section class="faq-s" id="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <h2 class="sec-h2" id="t-faq">Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Do I have to start with a consultation or an assessment?</summary>
+          <div><p>No. The orientation consultation is useful if you do not know where to start; it is never required. The assessment is for when your set-up exists but its soundness is uncertain. If your record and procedures already hold, the data protection officer subscription can start directly.</p></div>
+        </details>
+        <details>
+          <summary>Can I entrust a study without taking a subscription?</summary>
+          <div><p>Yes. Each study is a separate fixed-fee engagement. If a subscription exists or starts later, the work done on the study is carried over: entering it in the record falls under the study engagement, updating it under the subscription, with no double invoicing.</p></div>
+        </details>
+        <details>
+          <summary>How is the subscription level chosen?</summary>
+          <div><p>According to the actual workload: how often new projects start, data subject requests, ongoing studies and their complexity, the number of entities, whether someone in your organisation can act as relay. Neither the number of studies, nor that of employees or countries, sets it on its own. The test gives a first indication, confirmed in a conversation. A one-off overrun does not change the level.</p></div>
+        </details>
+        <details>
+          <summary>How are hours counted and carried over?</summary>
+          <div><p>Every task carried out for you uses up the month's volume, including periodic reviews and preparation of the annual report. You receive a monthly statement and an alert before the volume runs out. One, two or three unused hours depending on the level move to the next month, are used first and expire at the end of that month. Beyond that, an overrun is carried out only with your agreement, at <span data-p="taux">€180</span> excl. VAT per hour.</p></div>
+        </details>
+        <details>
+          <summary>What happens in the event of a CNIL inspection or a data breach?</summary>
+          <div><p>The officer remains the CNIL's point of contact and cooperates with it; initial advice and guidance fall within the subscription volume. If the situation calls for exceptional mobilisation, I propose an additional budget, in stages if need be. A pre-authorised envelope of hours, provided for in the fee agreement, makes it possible to act without waiting for your one-off agreement. I guarantee neither a standby service nor immediate availability.</p></div>
+        </details>
+        <details id="faq-duree">
+          <summary>How long am I committed for?</summary>
+          <div>
+            <p>The proposed initial term is six months, the time needed to set up the follow-up programme; the engagement then continues for an indefinite term, with one month's notice on either side. You remain free to end it earlier: the months performed, notice included, and the overruns you accepted are then payable. No monthly fee is due beyond that, and no rate is recalculated.</p>
+            <p>At the end of the engagement, I hand over the record and documents, up to date, and you declare the end of the appointment, or the new officer, on the CNIL's online service. The exact terms are set out in the fee agreement.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Can the data protection officer also defend you before the CNIL?</summary>
+          <div><p>That is an engagement separate from the data protection officer role. It is accepted only after checking that it is compatible with that role and that there is no conflict of interests, in light of your file.</p></div>
+        </details>
+        <details>
+          <summary>Does the test result commit me?</summary>
+          <div><p>No. It is an indicative orientation, based solely on your answers: neither legal advice nor a contractual offer. The scope and price are confirmed in a conversation, then in a signed fee agreement.</p></div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -638,9 +775,9 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
       <h2 class="sec-h2" id="t-cadre">What is settled before any engagement</h2>
       <ul class="eng">
         <li><b>The test is not legal advice</b><span>The result is an indicative preliminary analysis, based solely on your answers. It does not determine the legal regime applicable to your processing. Legal advice begins with the lawyer, under a fee agreement.</span></li>
-        <li><b>A single point of contact</b><span>The data protection officer role, legal advice and assistance during a CNIL inspection are all provided by the same lawyer, who knows your processing operations.</span></li>
+        <li><b>A single point of contact</b><span>The data protection officer role and legal advice are provided by the same lawyer, who knows your processing operations.</span></li>
         <li><b>A best-efforts obligation</b><span>No outcome is guaranteed, in particular not compliance itself, which also depends on your processing, your teams and your service providers. The commitment covers a scope, a method and timelines agreed in writing.</span></li>
-        <li><b>A price per step, confirmed in writing</b><span>Set-up, studies, data protection officer subscription: each step has its price and scope, written down before work begins. No additional work without your agreement.</span></li>
+        <li><b>A price per engagement, confirmed in writing</b><span>Assessment, set-up, studies, data protection officer subscription: each engagement has its price, scope and assumptions, written down before work begins. No additional work without your agreement.</span></li>
         <li><b>Conflict-of-interest check</b><span>Before any engagement. If there is one, you are told, and the file is not opened.</span></li>
         <li><b>Your answers stay with you</b><span>The questionnaire runs in your browser. Only your email address and the summary of your result are sent to me.</span></li>
       </ul>
@@ -653,7 +790,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
     <div class="wrap">
       <button class="backlink" type="button" data-view="home">Back to the site</button>
       <h1 style="margin-top:28px">Legal notice and privacy</h1>
-      <p class="label" style="margin-top:12px">Last updated: 21 October 2026</p>
+      <p class="label" style="margin-top:12px">Last updated: 26 October 2026</p>
       <div class="doc">
         <section>
           <p>This English version is provided for convenience. In the event of any discrepancy, the <a href="/#mentions" hreflang="fr" lang="fr">French version</a> prevails.</p>
@@ -670,7 +807,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
         </section>
         <section>
           <h2>Regulated profession</h2>
-          <p>Avocat registered with the Paris Bar (Ordre des avocats de Paris, Maison du Barreau, 2, rue de Harlay, 75001 Paris, France). The legal profession is governed in particular by Law No. 71-1130 of 31 December 1971, Decree No. 91-1197 of 27 November 1991 and the National Internal Rules of the legal profession (Règlement intérieur national). Professional liability insurance under the Paris Bar's collective policy.</p>
+          <p>Avocat registered with the Paris Bar (Ordre des avocats de Paris, Maison du Barreau, 2, rue de Harlay, 75001 Paris, France). The legal profession is governed in particular by Law No. 71-1130 of 31 December 1971, Decree No. 91-1197 of 27 November 1991, Decree No. 2023-552 of 30 June 2023 establishing the code of professional conduct for avocats and the National Internal Rules of the legal profession (Règlement intérieur national). Professional liability insurance under the Paris Bar's collective policy.</p>
         </section>
         <section>
           <h2>Nature of the content</h2>
@@ -740,10 +877,12 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   <input name="bot-field"><input name="email"><input name="opposition"><input name="profil"><input name="score_obligation"><input name="score_fragilite"><input name="score_exposition"><input name="points_vigilance"><input name="offres_suggerees"><input name="horodatage"><input name="version_information">
 </form>
 
+<script src="/regles.js"></script>
 <script>
 (function(){
 "use strict";
-var VERSION = "diapason-2026-10-21-en";
+var D = window.DIAPASON, TF = D.TARIFS;
+var VERSION = "diapason-" + TF.version + "-en";
 var CONTACT = "francois.cesure@hemistiches.com";
 
 /* ---------- Typography: curly apostrophes only (English page) ---------- */
@@ -753,148 +892,111 @@ function frDom(root){
   while((n = w.nextNode())){ var p = n.parentNode; if(p && /SCRIPT|STYLE|CODE/.test(p.nodeName)) continue; var t = fr(n.nodeValue); if(t !== n.nodeValue) n.nodeValue = t; }
 }
 function esc(s){ return fr(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function eur(n){ return "€" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
 
-/* ============================================================
-   Diagnostic engine (identical to the French page).
-   Three axes: obl (obligation), frag (fragility of the set-up),
-   expo (exposure in the event of an inspection or incident).
-   ============================================================ */
+/* ---------- Displayed prices: always recalculated from regles.js ---------- */
+var EX = {
+  1: {dpo:"limite"},
+  2: {miseEnPlace:"simple", dpo:"limite"},
+  3: {miseEnPlace:"simple", etudes:[{niveau:"simple"}], dpo:"limite"},
+  4: {miseEnPlace:"simple", etudes:[{niveau:"simple", pays:2}], dpo:"limite"},
+  5: {miseEnPlace:"simple", etudes:[{niveau:"simple", pays:2}], dpo:"regulier"}
+};
+function prixAttr(k){
+  var p = k.split(":");
+  switch(p[0]){
+    case "c": return eur(TF.consultation.prix);
+    case "diag": return eur(TF.diagnostic);
+    case "compl": return eur(D.complementMiseEnPlace(true));
+    case "mes": return eur(TF.miseEnPlace.simple);
+    case "mee": return eur(TF.miseEnPlace.etendue);
+    case "es": return eur(TF.etude.simple);
+    case "ea": return eur(TF.etude.approfondie);
+    case "pays": return eur(TF.etude.paysSupp);
+    case "d": return eur(D.palier(p[1]).prix);
+    case "taux": return eur(TF.tauxDepassement);
+    case "revue": return eur(TF.revueDesignation);
+    case "b": return eur(D.budget12(EX[p[1]]).total);
+  }
+  return null;
+}
+document.querySelectorAll("[data-p]").forEach(function(el){ var v = prixAttr(el.getAttribute("data-p")); if(v) el.textContent = v; });
 
-var Q_ACTIVITE = {id:"activite", kicker:"Your organisation", title:"What is your activity?", opts:[
-  {t:"Medical device manufacturer or health software publisher", w:{obl:2}, flags:["rech_possible"], profil:"Medical device manufacturer or health software publisher"},
-  {t:"Pharmaceutical or biotechnology company", w:{obl:3}, flags:["rech_possible"], profil:"Pharmaceutical or biotechnology company"},
-  {t:"Clinical study sponsor", w:{obl:3}, flags:["rech_possible"], profil:"Clinical study sponsor"},
-  {t:"Healthcare establishment or care provider", w:{obl:3}, flags:["rech_possible"], profil:"Healthcare establishment or care provider"},
-  {t:"Healthcare service provider", d:"Contract research, remote monitoring, e-health", w:{obl:3}, flags:["rech_possible"], profil:"Healthcare service provider"},
-  {t:"Other organisation processing health data", w:{obl:2}, profil:"Other organisation processing health data"}
-]};
+/* ---------- Questionnaire texts (structure, weights and branching: regles.js) ---------- */
+var T = {
+  activite:{kicker:"Your organisation", title:"What is your activity?", o:{
+    dm:["Medical device manufacturer or health software publisher"], labo:["Pharmaceutical or biotechnology company"],
+    promoteur:["Clinical study sponsor"], soins:["Healthcare establishment or care provider"],
+    presta:["Healthcare service provider","Contract research, remote monitoring, e-health: you often process data on behalf of clients"],
+    autre:["Other organisation processing health data"]}},
+  echelle:{kicker:"Your organisation", title:"How many people are concerned by your processing of health data?", o:{
+    dizaines:["A few dozen"], centaines:["A few hundred"], milliers:["Several thousand or more"], nsp:["We are unable to put a figure on it"]}},
+  entites:{kicker:"Your organisation", title:"Which entities must the set-up cover?", o:{
+    fr:["One entity, established in France"], ue:["One entity, established in another EU Member State"],
+    deux_trois:["Two or three entities in the EU"], groupe:["More than three entities, or a group"],
+    hors_ue_etab:["An organisation established outside the EU, with an establishment in the EU"],
+    hors_ue:["An organisation established outside the EU, with no establishment in the EU"]}},
+  flux:{kicker:"Your processing", title:"Does your processing involve any of these situations?", hint:"Several answers possible.", o:{
+    genetique:["Genetic data or biological samples"], distance:["Remote monitoring, connected device or app"],
+    ia:["Algorithm or artificial intelligence applied to the data"],
+    reutilisation:["Reuse or cross-referencing of existing databases","Data warehouse, real-world data"],
+    vulnerables:["Data of minors or vulnerable people"], aucune:["None of these situations"]}},
+  designation:{kicker:"Data protection officer", title:"Have you appointed a data protection officer?", o:{
+    salarie:["Yes, an employee whose sole role this is"], cumul:["Yes, an employee who also has other duties"],
+    externe:["Yes, an external provider"], groupe:["Yes, a single officer shared across our group"],
+    non:["No"], non_nsp:["No, and we do not know whether we are required to"]}},
+  fonctions:{kicker:"Data protection officer", title:"What other duties does this person have?", o:{
+    sans_lien:["A role unrelated to data processing"], dsi:["Head of IT"],
+    direction:["General, administrative or financial management"], medical:["Medical affairs or clinical operations management"],
+    qualite:["Quality or regulatory affairs"], juridique:["Legal department"], rh:["Human resources"]}},
+  notif:{kicker:"Data protection officer", title:"Have the officer's contact details been communicated to the CNIL?", o:{
+    oui:["Yes, and we keep proof of it"], incertain:["We believe so, without certainty"], non:["No"]}},
+  temps:{kicker:"Data protection officer", title:"How much time is devoted to the data protection officer role?", o:{
+    plein:["Full time, or nearly"], partiel:["Between a quarter and half time"], heures:["A few hours a month"], aucun:["No defined time"]}},
+  registre:{kicker:"Record of processing", title:"Where does your record of processing activities stand?", o:{
+    tenu:["Kept and updated within the last twelve months"], ancien:["Exists, but not updated recently"],
+    construction:["Being built"], absent:["Non-existent or cannot be found"]}},
+  aipd:{kicker:"Impact assessments", title:"Where do your data protection impact assessments stand?", o:{
+    toutes:["Carried out for every processing operation that requires one"], certaines:["Carried out for some only"],
+    aucune_estime:["None, we consider that no processing requires one"], nsp:["We do not know which ones require one"], aucune:["None"]}},
+  hebergement:{kicker:"Hosting", title:"Where is your health data hosted?", o:{
+    certifie:["With a certified provider, certification checked"], interne:["On our own infrastructure"],
+    non_verifie:["With a provider whose certification we have not checked"], nsp:["We do not know"]}},
+  transferts:{kicker:"Providers and transfers", title:"Does any data leave the European Union?", o:{
+    aucun:["No transfers outside the EU"], adequat:["Yes, to a country recognised as adequate by the European Commission"],
+    cct_analyse:["Yes, with standard contractual clauses and an assessment of the destination country's safeguards"],
+    cct_sans:["Yes, with standard contractual clauses, without assessing those safeguards"],
+    non_doc:["Yes, without our having documented them"], nsp:["We do not know"]}},
+  violations:{kicker:"Requests and incidents", title:"Have you experienced personal data breaches, and how did you handle them?", o:{
+    aucune_proc:["None to date, and a procedure is in place"], notifiees:["One or more, notified within the deadlines"],
+    non_notif_doc:["One or more, not notified, with a documented decision"], sans_analyse:["One or more, without documented analysis"],
+    pas_proc:["No procedure allows us to detect and handle them"]}},
+  recherches:{kicker:"Research and studies", title:"Do you conduct research or studies, ongoing or planned within the next twelve months?", o:{
+    aucune:["None"], une:["One study"], deux_trois:["Two or three"], plus:["More than three"]}},
+  regime:{kicker:"Research and studies", title:"On what basis does your research processing rest?", o:{
+    mr:["A declaration of conformity with a CNIL reference methodology"], autorisation:["An authorisation from the CNIL"],
+    selon:["One or the other, depending on the study"], nsp:["We do not know where we stand"], pas_pose:["The question has not yet arisen"]}},
+  pays:{kicker:"Research and studies", title:"Do these studies include investigation sites outside France?", o:{
+    france:["No, in France only"], un:["Yes, in one other EU country"], deux_trois:["Yes, in two or three other EU countries"],
+    quatre:["Yes, in four or more other EU countries"], hors_ue:["Yes, including outside the EU"]}},
+  pieces:{kicker:"Research and studies", title:"For the next study, where do the documents stand?", hint:"Protocol, participant information, contracts.", o:{
+    standard:["Available, on a standard design, little to adapt"], adapter:["Available, but needing substantial adaptation"],
+    construire:["To be built"], complexe:["Several partners, contracts to negotiate or particular data flows"],
+    lancee:["The study is under way and its documents are in place"]}},
+  projets:{kicker:"Ongoing follow-up", title:"How often do you launch a new tool, provider or project involving health data?", o:{
+    rare:["Once or twice a year"], trimestre:["Roughly every quarter"], mois:["Every month or more often"], nsp:["We do not know"]}},
+  demandes:{kicker:"Ongoing follow-up", title:"How many requests do you receive from data subjects?", hint:"Access, erasure, objection.", o:{
+    aucune:["None or almost none"], quelques:["A few a year"], plusieurs:["Several a month"]}},
+  relais:{kicker:"Ongoing follow-up", title:"Can someone in your organisation gather information and act as relay for the officer?", o:{
+    oui:["Yes, available and familiar with the processing"], peu:["Yes, but with little availability"], non:["No, nobody for now"]}},
+  declencheur:{kicker:"What brings you here", title:"What brings you here today?", o:{
+    designer:["We need to appoint an officer, or change officer"], remplacer:["The current officer is leaving or no longer available"],
+    etude:["We are launching a study or research project"], verifier:["We want to check that our set-up holds"],
+    ponctuel:["A specific question, with no need for follow-up"],
+    externe:["An external deadline requires it","Fundraising, tender, partner audit"],
+    controle:["An inspection, a complaint, a breach or a request from the authority is under way"]}}
+};
 
-/* The scale of processing is the very criterion of Article 37(1)(c). */
-var Q_ECHELLE = {id:"echelle", kicker:"Your organisation", title:"How many people are concerned by your processing of health data?", opts:[
-  {t:"A few dozen", w:{obl:1}},
-  {t:"A few hundred", w:{obl:2}},
-  {t:"Several thousand or more", w:{obl:3}, flags:["echelle_forte"]},
-  {t:"We are unable to put a figure on it", w:{obl:2,frag:2}, flags:["echelle_inconnue"]}
-]};
-
-var Q_ETAB = {id:"etab", kicker:"Your organisation", title:"Where is your organisation established?", opts:[
-  {t:"In France", w:{}},
-  {t:"In another Member State of the European Union", w:{}},
-  {t:"Outside the EU, with an establishment in the EU", w:{}},
-  {t:"Outside the EU, with no establishment in the EU", w:{frag:2,expo:1}, flags:["hors_ue","pas_etab"]}
-]};
-
-var Q_DESIGNATION = {id:"designation", kicker:"Data protection officer", title:"Have you appointed a data protection officer?", opts:[
-  {t:"Yes, an employee whose sole role this is", w:{}, flags:["designe"]},
-  {t:"Yes, an employee who also has other duties", w:{frag:2}, flags:["designe","cumul"]},
-  {t:"Yes, an external provider", w:{}, flags:["designe","externe"]},
-  {t:"Yes, a single officer shared across our group", w:{}, flags:["designe"]},
-  {t:"No", w:{frag:3,expo:2}, flags:["pas_designe"]},
-  {t:"No, and we do not know whether we are required to", w:{frag:3,expo:1}, flags:["pas_designe","obl_inconnue"]}
-]};
-
-/* Conditional: only if combined duties are declared. */
-var Q_FONCTIONS = {id:"fonctions", kicker:"Data protection officer", title:"What other duties does this person have?", opts:[
-  {t:"A role unrelated to data processing", w:{}},
-  {t:"Head of IT", w:{frag:3}, flags:["conflit"]},
-  {t:"General, administrative or financial management", w:{frag:3}, flags:["conflit"]},
-  {t:"Medical affairs or clinical operations management", w:{frag:3}, flags:["conflit"]},
-  {t:"Quality or regulatory affairs", w:{frag:2}, flags:["conflit_possible"]},
-  {t:"Legal department", w:{frag:1}, flags:["conflit_possible"]},
-  {t:"Human resources", w:{frag:2}, flags:["conflit_possible"]}
-]};
-
-/* Conditional: only if someone has been appointed. */
-var Q_NOTIF = {id:"notif", kicker:"Data protection officer", title:"Have the officer's contact details been communicated to the CNIL?", opts:[
-  {t:"Yes, and we keep proof of it", w:{}},
-  {t:"We believe so, without certainty", w:{frag:2}, flags:["notif"]},
-  {t:"No", w:{frag:3,expo:1}, flags:["notif"]}
-]};
-
-/* Conditional: only if someone has been appointed. */
-var Q_TEMPS = {id:"temps", kicker:"Data protection officer", title:"How much time is devoted to the data protection officer role?", opts:[
-  {t:"Full time, or nearly", w:{}},
-  {t:"Between a quarter and half time", w:{frag:1}},
-  {t:"A few hours a month", w:{frag:2}, flags:["moyens"]},
-  {t:"No defined time", w:{frag:3}, flags:["moyens"]}
-]};
-
-var Q_REGISTRE = {id:"registre", kicker:"Record of processing", title:"Where does your record of processing activities stand?", opts:[
-  {t:"Kept and updated within the last twelve months", w:{}},
-  {t:"Exists, but not updated recently", w:{frag:2}, flags:["registre"]},
-  {t:"Being built", w:{frag:2,expo:1}, flags:["registre"]},
-  {t:"Non-existent or cannot be found", w:{frag:3,expo:2}, flags:["registre"]}
-]};
-
-var Q_AIPD = {id:"aipd", kicker:"Impact assessments", title:"Where do your data protection impact assessments stand?", opts:[
-  {t:"Carried out for every processing operation that requires one", w:{}},
-  {t:"Carried out for some only", w:{frag:1}, flags:["aipd"]},
-  {t:"None, we consider that no processing requires one", w:{frag:1}, flags:["aipd"]},
-  {t:"We do not know which ones require one", w:{frag:3}, flags:["aipd"]},
-  {t:"None", w:{frag:2,expo:2}, flags:["aipd"]}
-]};
-
-/* Conditional: profiles likely to conduct research. */
-var Q_RECHERCHES = {id:"recherches", kicker:"Research and studies", title:"Do you conduct research or studies?", opts:[
-  {t:"Research involving human participants", w:{obl:1}, flags:["rech"]},
-  {t:"Studies on data already collected", w:{obl:1}, flags:["rech"]},
-  {t:"Both", w:{obl:2}, flags:["rech"]},
-  {t:"None at present", w:{}}
-]};
-
-/* Conditional: only if research is declared. */
-var Q_REGIME = {id:"regime", kicker:"Research and studies", title:"On what basis does your research processing rest?", opts:[
-  {t:"A declaration of conformity with a CNIL reference methodology", w:{}},
-  {t:"An authorisation from the CNIL", w:{}},
-  {t:"One or the other, depending on the study", w:{}},
-  {t:"We do not know where we stand", w:{frag:3,expo:2}, flags:["regime"]},
-  {t:"The question has not yet arisen", w:{frag:2,expo:1}, flags:["regime"]}
-]};
-
-/* Conditional: only if research is declared. */
-var Q_PAYS = {id:"pays", kicker:"Research and studies", title:"Do your studies include investigation sites outside France?", opts:[
-  {t:"No, in France only", w:{}},
-  {t:"Yes, in other EU Member States", w:{obl:1}, flags:["multi_pays"]},
-  {t:"Yes, including outside the EU", w:{obl:2,expo:1}, flags:["multi_pays"]}
-]};
-
-var Q_HEBERGEMENT = {id:"hebergement", kicker:"Hosting", title:"Where is your health data hosted?", opts:[
-  {t:"With a certified provider, certification checked", w:{}},
-  {t:"On our own infrastructure", w:{expo:1}, flags:["hds_interne"]},
-  {t:"With a provider whose certification we have not checked", w:{frag:2,expo:2}, flags:["hds"]},
-  {t:"We do not know", w:{frag:2,expo:2}, flags:["hds"]}
-]};
-
-var Q_TRANSFERTS = {id:"transferts", kicker:"Transfers", title:"Does any data leave the European Union?", opts:[
-  {t:"No transfers outside the EU", w:{}},
-  {t:"Yes, to a country recognised as adequate by the European Commission", w:{}},
-  {t:"Yes, with standard contractual clauses and an assessment of the destination country's safeguards", w:{}},
-  {t:"Yes, with standard contractual clauses, without assessing those safeguards", w:{frag:1,expo:1}, flags:["transferts"]},
-  {t:"Yes, without our having documented them", w:{frag:2,expo:2}, flags:["transferts"]},
-  {t:"We do not know", w:{frag:2,expo:2}, flags:["transferts"]}
-]};
-
-var Q_VIOLATIONS = {id:"violations", kicker:"Personal data breaches", title:"Have you experienced personal data breaches, and how did you handle them?", opts:[
-  {t:"None to date, and a procedure is in place", w:{}},
-  {t:"One or more, notified within the deadlines", w:{}},
-  {t:"One or more, not notified, with a documented decision", w:{}},
-  {t:"One or more, without documented analysis", w:{frag:2,expo:3}, flags:["violation"]},
-  {t:"No procedure allows us to detect and handle them", w:{frag:2,expo:3}, flags:["procedure"]}
-]};
-
-var Q_DECLENCHEUR = {id:"declencheur", kicker:"What brings you here", title:"What brings you here today?", opts:[
-  {t:"We need to appoint an officer and do not know how to go about it", w:{}, flags:["int_designer"]},
-  {t:"The current officer is leaving or no longer available", w:{frag:2}, flags:["int_remplacer"]},
-  {t:"We are launching a study or research project", w:{}, flags:["int_etude"]},
-  {t:"We want to check that our set-up holds", w:{}, flags:["int_verifier"]},
-  {t:"An external deadline requires it", d:"Fundraising, tender, partner audit", w:{expo:2}, flags:["int_externe"]},
-  {t:"An inspection, a complaint or a data subject request is under way", w:{frag:1,expo:3}, flags:["int_controle","urgent"]}
-]};
-
-var BASE = [Q_ACTIVITE,Q_ECHELLE,Q_ETAB,Q_DESIGNATION,Q_REGISTRE,Q_AIPD,Q_HEBERGEMENT,Q_TRANSFERTS,Q_VIOLATIONS,Q_DECLENCHEUR];
-var ALL  = BASE.concat([Q_FONCTIONS,Q_NOTIF,Q_TEMPS,Q_RECHERCHES,Q_REGIME,Q_PAYS]);
-
-/* ---------- Points of attention: key → [title, body, class] ---------- */
 var VIG = {
   urgent:["A matter is under way.","An inspection, a complaint or a data subject request is best handled early, before positions harden. It is also when you will be asked for your documents: record of processing, impact assessments, breach procedure.",""],
   pas_designe:["No officer appointed.","The Regulation requires this appointment where the core activities involve large-scale processing of data concerning health (Article 37(1)(c)). Whether your organisation falls within this case must be checked; it cannot be presumed either way. Until the question is settled, the absence of an appointment is a gap that can be established with a single question during an inspection.",""],
@@ -920,115 +1022,20 @@ var VIG = {
   reserve:["What this report does not do.","It does not determine the legal regime applicable to your processing, nor whether you must appoint an officer, nor under which legal basis your research falls. These qualifications depend on the exact nature of your activities, the actual scale of processing and the documents that support them, which closed answers cannot assess. It sets out the questions your situation raises, not answers.","info"]
 };
 
-/* ---------- Services: key → [name, promise, price, anchor] ---------- */
-var OFF = {
-  flash:["Flash consultation","One hour with a lawyer to understand where your set-up stands and what to do next, with a written guidance note.","€490 excl. VAT, deductible from the fee for the service taken up next.","offre-flash"],
-  revue:["Review of the appointment","Finding out whether your appointment holds: the person, their other duties, their resources, their visibility to the authority, and what needs correcting.","€1,900 to €2,900 excl. VAT, depending on the number of duties combined by the appointed person.","offre-revue"],
-  fonction:["Setting up the function","The record of processing, the procedures, the impact assessment method, the governance, the appointment of the officer and its notification to the CNIL.","€4,500 excl. VAT up to ten processing operations, €7,500 excl. VAT from eleven to twenty-five, above that on quotation. Once, at the start.","offre-fonction"],
-  etude:["Compliance of a study","Placing a study on the right legal basis before it starts, and documenting what the authority, the sites and your partners will ask of you.","€4,500 to €8,000 excl. VAT per study, one fee per study; each investigation country outside France, €1,500 to €2,500 excl. VAT, local correspondent's fees recharged at cost.","offre-etude"],
-  dpo:["Outsourced data protection officer","The data protection officer role, held over time, once the function has been set up: record kept up to date, advice on your new processing operations, data subject requests, breaches, point of contact for the CNIL.","From €650 excl. VAT per month, initial term of twelve months. Includes neither the set-up nor the studies.","offre-dpo"],
-  controle:["Inspection, complaint or breach","An open matter is best handled early, before positions harden.","On quotation; included in the data protection officer subscription, up to three days per year.","offre-controle"]
-};
+var NIV = {eleve:"high", modere:"moderate", limite:"limited"};
+var CHARGE = {projets:"how often you start new projects", demandes:"data subject requests", etudes:"your ongoing studies", pays:"their investigation countries",
+  pieces:"study documents to be built", flux:"several higher-risk processing operations", entites:"several entities", relais:"the availability of an internal relay",
+  incident:"an incident or the lack of a procedure", echelle:"the number of people concerned"};
+var PAL = {limite:["Limited follow-up","three hours","a quarterly review"], regulier:["Regular follow-up","six hours","a monthly review"],
+  renforce:["Enhanced follow-up","ten hours at entry level","a rhythm suited to your activity"]};
+var NB_H = {1:"one hour", 2:"two hours", 3:"three hours"};
 
 /* ---------- State ---------- */
 var questions = [], answers = {}, idx = -1;
-
-function flagsOf(list){
-  var f = {};
-  list.forEach(function(q){ var o = q.opts[answers[q.id]]; if(o && o.flags) o.flags.forEach(function(x){ f[x] = true; }); });
-  return f;
-}
-function posOf(id){ for(var i=0;i<questions.length;i++){ if(questions[i].id===id) return i; } return -1; }
-
-function rebuild(){
-  var f = flagsOf(ALL), list = [];
-  BASE.forEach(function(q){
-    list.push(q);
-    if(q.id==="designation"){
-      if(f.cumul) list.push(Q_FONCTIONS);
-      if(f.designe){ list.push(Q_NOTIF); list.push(Q_TEMPS); }
-    }
-    if(q.id==="aipd" && f.rech_possible){
-      list.push(Q_RECHERCHES);
-      if(f.rech){ list.push(Q_REGIME); list.push(Q_PAYS); }
-    }
-  });
-  questions = list;
-}
-
-function collect(){
-  var w = {obl:0,frag:0,expo:0}, max = {obl:0,frag:0,expo:0};
-  questions.forEach(function(q){
-    var mx = {obl:0,frag:0,expo:0};
-    q.opts.forEach(function(o){ if(o.w){ ["obl","frag","expo"].forEach(function(k){ if(o.w[k] && o.w[k]>mx[k]) mx[k] = o.w[k]; }); } });
-    ["obl","frag","expo"].forEach(function(k){ max[k] += mx[k]; });
-    var o = q.opts[answers[q.id]];
-    if(o && o.w){ ["obl","frag","expo"].forEach(function(k){ if(o.w[k]) w[k] += o.w[k]; }); }
-  });
-  var norm = function(k){ if(!max[k]) return 15; return Math.max(15, Math.round(w[k]/max[k]*100)); };
-  var f = flagsOf(questions);
-  var GRAVE_FRAG = ["pas_designe","conflit","notif","regime","procedure","violation"];
-  var GRAVE_EXPO = ["urgent","procedure","violation","regime"];
-  var count = function(keys){ var n = 0; keys.forEach(function(k){ if(f[k]) n++; }); return n; };
-  var floor = function(v,n){ if(n>=3) return Math.max(v,70); if(n>=1) return Math.max(v,45); return v; };
-  return {obl:norm("obl"), frag:floor(norm("frag"), count(GRAVE_FRAG)), expo:floor(norm("expo"), count(GRAVE_EXPO)), flags:f};
-}
-
-function scoreLabel(v){ return v>=70?"high":(v>=40?"moderate":"limited"); }
-function offerCount(frag){ return frag>=70?2:(frag>=40?1:0); }
-function profilLabel(){ var o = Q_ACTIVITE.opts[answers["activite"]]; return o && o.profil ? o.profil : ""; }
-
-function vigKeys(f){
-  var k = [];
-  if(f.urgent) k.push("urgent");
-  if(f.pas_designe) k.push("pas_designe");
-  if(f.obl_inconnue) k.push("obl_inconnue");
-  if(f.echelle_inconnue) k.push("echelle_inconnue");
-  if(f.conflit) k.push("conflit"); else if(f.conflit_possible) k.push("conflit_possible");
-  if(f.notif) k.push("notif");
-  if(f.moyens) k.push("moyens");
-  if(f.registre) k.push("registre");
-  if(f.aipd) k.push("aipd");
-  if(f.regime) k.push("regime");
-  if(f.multi_pays) k.push("multi_pays");
-  if(f.hds) k.push("hds"); else if(f.hds_interne) k.push("hds_interne");
-  if(f.transferts) k.push("transferts");
-  if(f.procedure) k.push("procedure"); else if(f.violation) k.push("violation");
-  if(f.hors_ue) k.push("hors_ue");
-  if(f.int_externe) k.push("int_externe");
-  if(f.int_remplacer) k.push("int_remplacer");
-  if(k.length===0) k.push("maitrise");
-  k.push("reserve");
-  return k;
-}
-
-function offKeys(s){
-  var f = s.flags, r = [];
-  if(f.urgent || f.violation) r.push("controle");
-  var intent = 0;
-  if(f.int_etude){ r.push("etude"); intent = 1; }
-  if(f.int_designer || f.int_remplacer){ r.push("dpo"); intent = 1; }
-  if(f.urgent) intent = 1;
-  if(f.pas_designe) r.push("dpo");
-  if(f.conflit || f.conflit_possible || f.notif) r.push("revue");
-  if(f.regime || f.int_etude || f.multi_pays) r.push("etude");
-  if(f.moyens) r.push("dpo");
-  if(f.rech) r.push("etude");
-  if(f.registre || f.aipd || f.procedure || f.regime || f.hds || f.transferts || f.echelle_inconnue) r.push("fonction");
-  var seen = {}, uniq = [];
-  r.forEach(function(k){ if(!seen[k]){ seen[k] = true; uniq.push(k); } });
-  var res = uniq.slice(0, Math.max(offerCount(s.frag), intent));
-  /* The outsourced officer comes after the set-up and after study compliance: never recommended alone. */
-  if(res.indexOf("dpo")>-1){
-    var head = res.indexOf("controle")>-1 ? ["controle"] : [];
-    var path = ["fonction"].concat((f.rech || f.int_etude) ? ["etude"] : []).concat(["dpo"]);
-    var rest = res.filter(function(k){ return head.indexOf(k)<0 && path.indexOf(k)<0; });
-    res = head.concat(path, rest);
-  }
-  return ["flash"].concat(res);
-}
-var STEP = {fonction:"Step 1 · once, at the start", etude:"Step 2 · for each study", dpo:"Step 3 · every month, afterwards"};
-function isPath(reco){ return reco.indexOf("dpo")>-1; }
+function rebuild(){ questions = D.parcours(answers); }
+function posOf(id){ return questions.indexOf(id); }
+function answered(id){ var v = answers[id]; return D.Q[id].multi ? (v && v.length>0) : v !== undefined; }
+function profilLabel(){ var k = answers.activite; return k ? T.activite.o[k][0] : ""; }
 
 /* ---------- Test rendering ---------- */
 var box = document.getElementById("diagbox");
@@ -1038,52 +1045,60 @@ function intro(){
   box.innerHTML =
     '<p class="label">Before you start</p>'+
     '<h3 class="qtitle">'+esc("Answer for your organisation as it is today, not as it ought to be.")+'</h3>'+
-    '<p class="qhint">'+esc("Your answers stay in your browser. At the end, you are asked for your email address to display your result; only that address and the summary of the result are sent to me, never your answers.")+'</p>'+
+    '<p class="qhint">'+esc("Facts you know, with no documents and no file details. Your answers stay in your browser. At the end, you are asked for your email address to display your result; only that address and the summary of the result are sent to me, never your answers.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button class="btn btn-ink" type="button" id="start">Start the test</button></div>'+
-    '<p class="notice">'+esc("The result is generated automatically from your answers alone, without verification or review of documents. It is indicative information: it constitutes neither legal advice nor an opinion, and creates no relationship between you and the firm. It does not determine the legal regime applicable to your processing.")+'</p>';
+    '<p class="notice">'+esc("The result is generated automatically from your answers alone, without verification or review of documents. It distinguishes situation indicators from an indicative orientation: it constitutes neither legal advice nor an opinion, creates no relationship between you and the firm and does not determine the legal regime applicable to your processing.")+'</p>';
   document.getElementById("start").onclick = function(){ answers = {}; rebuild(); go(0); };
 }
 
 function render(){
-  var q = questions[idx];
+  var id = questions[idx], q = D.Q[id], t = T[id], multi = !!q.multi, cur = answers[id];
   var bars = questions.map(function(s,i){ return '<i class="'+(i<=idx?'on':'')+'"></i>'; }).join("");
   var html = '<div class="progress" aria-hidden="true">'+bars+'</div>'+
-    '<div class="qmeta"><span>'+esc(q.kicker)+'</span><span>'+(idx+1)+' / '+questions.length+'</span></div>'+
-    '<h3 class="qtitle" id="qt" tabindex="-1">'+esc(q.title)+'</h3>'+
-    '<div class="qgroup"><div class="opts" role="radiogroup" aria-labelledby="qt">'+
-    q.opts.map(function(o,i){
-      var on = answers[q.id]===i;
-      return '<button type="button" class="opt" role="radio" aria-checked="'+on+'" data-i="'+i+'"><span class="mk"></span><span>'+esc(o.t)+(o.d?'<small>'+esc(o.d)+'</small>':'')+'</span></button>';
+    '<div class="qmeta"><span>'+esc(t.kicker)+'</span><span>'+(idx+1)+' / '+questions.length+'</span></div>'+
+    '<h3 class="qtitle" id="qt" tabindex="-1">'+esc(t.title)+'</h3>'+(t.hint?'<p class="qhint" id="qh">'+esc(t.hint)+'</p>':'')+
+    '<div class="qgroup"><div class="opts" role="'+(multi?'group':'radiogroup')+'" aria-labelledby="qt"'+(t.hint?' aria-describedby="qh"':'')+'>'+
+    q.opts.map(function(o){
+      var on = multi ? (cur||[]).indexOf(o.k)>-1 : cur===o.k, L = t.o[o.k];
+      return '<button type="button" class="opt'+(multi?' multi':'')+'" role="'+(multi?'checkbox':'radio')+'" aria-checked="'+on+'" data-k="'+o.k+'"><span class="mk"></span><span>'+esc(L[0])+(L[1]?'<small>'+esc(L[1])+'</small>':'')+'</span></button>';
     }).join("")+'</div></div>'+
-    '<div class="dnav"><button type="button" class="linkbtn" id="prev">Back</button><button type="button" class="btn btn-ink" id="next"'+(answers[q.id]===undefined?' disabled':'')+'>'+(idx===questions.length-1?'See my result':'Next')+'</button></div>';
+    '<div class="dnav"><button type="button" class="linkbtn" id="prev">Back</button><button type="button" class="btn btn-ink" id="next"'+(answered(id)?'':' disabled')+'>'+(idx===questions.length-1?'See my result':'Next')+'</button></div>';
   box.innerHTML = html;
-  box.querySelectorAll(".opt").forEach(function(b){ b.onclick = function(){ answers[q.id] = parseInt(b.getAttribute("data-i"),10); var y = window.scrollY; rebuild(); idx = posOf(q.id); render(); window.scrollTo(0,y); }; });
+  box.querySelectorAll(".opt").forEach(function(b){ b.onclick = function(){
+    var k = b.getAttribute("data-k");
+    if(multi){
+      var s = (answers[id]||[]).slice(), i = s.indexOf(k);
+      if(i>-1) s.splice(i,1); else { if(k===q.exclusive) s = []; else s = s.filter(function(x){ return x!==q.exclusive; }); s.push(k); }
+      answers[id] = s;
+    } else answers[id] = k;
+    var y = window.scrollY; rebuild(); idx = posOf(id); render(); window.scrollTo(0,y);
+    var nb = box.querySelector('.opt[data-k="'+k+'"]'); if(nb){ try{ nb.focus({preventScroll:true}); }catch(e){} }
+  }; });
   document.getElementById("prev").onclick = function(){ if(idx===0) intro(); else go(idx-1); };
   document.getElementById("next").onclick = next;
 }
 
 function next(){
-  var q = questions[idx];
-  if(answers[q.id]===undefined) return;
+  var id = questions[idx];
+  if(!answered(id)) return;
   rebuild();
-  var pos = posOf(q.id);
+  var pos = posOf(id);
   if(pos < questions.length-1) go(pos+1); else gate();
 }
-
 function toBox(){ var top = box.getBoundingClientRect().top + window.scrollY - 120; if(window.scrollY > top) window.scrollTo(0, top); }
 function go(i){ idx = i; render(); var t = document.getElementById("qt"); if(t){ try{ t.focus({preventScroll:true}); }catch(e){} } toBox(); }
 
 /* ---------- Email address, then result ---------- */
 var RESULT = null;
 function gate(){
-  RESULT = collect();
+  RESULT = {ind: D.indicateurs(answers), ori: D.orienter(answers)};
   box.innerHTML =
     '<p class="label">Last step</p>'+
     '<h3 class="qtitle">Your result is ready</h3>'+
     '<p class="qhint">'+esc("Enter your business email address: your result is displayed straight away.")+'</p>'+
     '<form class="gate" id="gateform" novalidate>'+
       '<label for="email">Business email address</label>'+
-      '<input type="email" id="email" name="email" autocomplete="email" required placeholder="firstname.lastname@company.com">'+
+      '<input type="email" id="email" name="email" autocomplete="email" required aria-describedby="emailerr" placeholder="firstname.lastname@company.com">'+
       '<p class="err" id="emailerr" hidden>'+esc("Enter a valid email address, for example firstname.lastname@company.com.")+'</p>'+
       '<div class="check"><input type="checkbox" id="opposition" name="opposition"><label for="opposition" style="margin:0">'+esc("I do not wish to receive information about the firm's services or about developments in health data protection.")+'</label></div>'+
       '<input type="text" name="bot-field" id="botfield" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">'+
@@ -1097,23 +1112,23 @@ function gate(){
     var em = document.getElementById("email").value.trim();
     var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em);
     document.getElementById("emailerr").hidden = ok;
+    document.getElementById("email").setAttribute("aria-invalid", ok ? "false" : "true");
     if(!ok){ document.getElementById("email").focus(); return; }
-    var s = RESULT;
+    var s = RESULT.ind;
     var data = {
       "form-name":"rapport-diapason", "bot-field":document.getElementById("botfield").value, email:em,
       opposition: document.getElementById("opposition").checked ? "oui" : "non",
       profil: profilLabel(), score_obligation: String(s.obl), score_fragilite: String(s.frag), score_exposition: String(s.expo),
-      points_vigilance: vigKeys(s.flags).join(","), offres_suggerees: offKeys(s).join(","),
+      points_vigilance: D.vigilance(s.flags).join(","), offres_suggerees: D.cles(RESULT.ori).join(","),
       horodatage: new Date().toISOString(), version_information: VERSION
     };
     var body = Object.keys(data).map(function(k){ return encodeURIComponent(k)+"="+encodeURIComponent(data[k]); }).join("&");
     try{ fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:body}).catch(function(){}); }catch(e){}
-    report(s);
+    report();
   });
 }
 
 function meter(v){ var n = Math.max(1, Math.round(v/20)), h = '<div class="meter" aria-hidden="true">'; for(var i=0;i<5;i++) h += '<i class="'+(i<n?'on':'')+'"></i>'; return h+'</div>'; }
-
 function verdict(s){
   var m = Math.max(s.frag, s.expo);
   if(m>=70) return ["A set-up out of tune","Several points need correcting before an authority, a partner or an incident reveals them."];
@@ -1121,23 +1136,64 @@ function verdict(s){
   return ["In tune, according to your answers","Your statements show no gap. It remains to check that the documents can be produced as they stand."];
 }
 
-function report(s){
-  var f = s.flags, keys = vigKeys(f), reco = offKeys(s), V = verdict(s);
+/* Orientation: each item states why, the entry price and its assumptions. */
+function plan(r, f){
+  var P = [], tf = TF;
+  if(r.prioritaire) P.push({k:"prioritaire", titre:"A priority conversation about the matter under way", prix:"On quotation, after an initial conversation",
+    pourquoi: f.urgent ? "An inspection, a complaint or a request is under way: it is best handled early, before positions harden." : "A breach without documented analysis calls for a prompt decision on how to qualify it and, where appropriate, notify it.",
+    hyp:"The budget is agreed with you, in stages if need be. The rest of the orientation below comes afterwards.", a:"offre-controle"});
+  if(r.consultation==="principale") P.push({k:"consultation", titre:"Orientation consultation", prix:eur(tf.consultation.prix)+" excl. VAT",
+    pourquoi: f.int_ponctuel ? "Your need is a one-off: forty-five minutes is often enough to situate the question and what to do next." : "Your answers do not point to an engagement that is clearly needed: a conversation makes it possible to check.",
+    hyp:"Reading of your result and a few short documents, forty-five-minute call, summary by email. Deducted from a fixed-fee engagement taken up within thirty days.", a:"offre-consultation"});
+  if(r.initial==="diagnostic") P.push({k:"diagnostic", titre:"Assessment of the existing set-up", prix:eur(tf.diagnostic)+" excl. VAT",
+    pourquoi: r.etat==="a_verifier" ? "Your set-up exists, but some elements need checking before you rely on it." : "You want to check that your set-up holds; your answers do not point to a gap to correct first.",
+    hyp:"One entity, a set of documents defined in advance. If a simple set-up follows, only the balance of "+eur(D.complementMiseEnPlace(true))+" excl. VAT is invoiced.", a:"offre-diagnostic"});
+  if(r.initial==="simple") P.push({k:"simple", titre:"Simple set-up", prix:"From "+eur(tf.miseEnPlace.simple)+" excl. VAT in total, assessment included",
+    pourquoi:"Essential documents are missing: record, procedures or impact assessments.",
+    hyp:"One entity, up to ten simple processing operations as a guide, an available contact person, usable information; two meetings and one round of consolidated comments.", a:"offre-fonction"});
+  if(r.initial==="etendue") P.push({k:"etendue", titre:"Extended set-up", prix:"From "+eur(tf.miseEnPlace.etendue)+" excl. VAT",
+    pourquoi:"Essential documents are missing, on a wider scope: several entities, higher-risk processing or many points to rework.",
+    hyp:"The fee is set before work begins, according to the work planned.", a:"offre-etendue"});
+  if(r.initial==="devis") P.push({k:"mes_devis", titre:"Building the set-up, on quotation", prix:"On quotation",
+    pourquoi:"A group or a large scope cannot be priced on simple assumptions.", hyp:"The quotation is agreed before any work begins.", a:"offre-etendue"});
+  if(r.revue) P.push({k:"revue", titre:"Review of the appointment", prix:"From "+eur(tf.revueDesignation)+" excl. VAT",
+    pourquoi:"Your in-house officer is in place, but the appointment has a weak point: combined duties, notification to the CNIL or resources.",
+    hyp:"Simple situation, defined set of documents; implementing the corrections is separate. If you prefer to outsource the role, the data protection officer subscription takes over.", a:"offre-revue"});
+  if(r.etudes){
+    var e = r.etudes, px;
+    if(e.niveau==="devis") px = "On quotation";
+    else px = "From "+eur(tf.etude[e.niveau])+" excl. VAT per study";
+    if(e.pays && e.niveau!=="devis") px += ", + "+eur(tf.etude.paysSupp)+" excl. VAT per additional country ("+(e.paysAuMoins?"at least ":"")+e.pays+" "+(e.pays>1?"countries":"country")+")";
+    P.push({k:"etude", titre:(e.niveau==="simple"?"Compliance of a simple French study":(e.niveau==="approfondie"?"In-depth study compliance":"Compliance of your studies, on quotation"))+(e.plusieurs?", one engagement per study":""), prix:px,
+      pourquoi: e.niveau==="simple" ? "Your study follows a simple design, its documents are available and its legal basis is identified." :
+        (e.niveau==="approfondie" ? "The documents need adapting or building, the legal basis remains to be established, or the processing involves several higher-risk situations." : "A complex design, across several countries or many studies, calls for a quotation."),
+      hyp:(e.pays||e.horsUE ? "Local counsel's fees in addition, agreed or estimated before launch"+(e.horsUE?"; countries outside the EU are quoted separately":"")+". " : "")+"With or without a subscription. Entry in the record is part of the engagement.", a: e.pays?"offre-pays":"offre-etude"});
+  }
+  if(r.dpo){
+    var d = r.dpo, pl = d.palier==="devis" ? "renforce" : d.palier, pp = D.palier(pl), L = PAL[pl];
+    var src = d.charge.sources.slice(0,3).map(function(s){ return CHARGE[s.cle]; }).filter(Boolean);
+    P.push({k:"dpo", titre:"Data protection officer subscription: "+L[0].toLowerCase()+(d.palier==="devis"?", sized on proposal":""),
+      prix:(pp.aPartirDe||d.palier==="devis"?"From ":"")+eur(pp.prix)+" excl. VAT per month for "+L[1],
+      pourquoi:(d.priseDeFonction ? "Your set-up appears workable: the role can start with no assessment and no new set-up. " : "The data protection officer role starts once the initial work is under way; the subscription does not include it. ")+
+        (src.length ? "This level takes account of "+src.join(", ")+"." : "Your answers describe a light workload.")+
+        (d.designationAExaminer ? " If an appointment is decided: whether it is mandatory is checked first." : ""),
+      hyp:L[2].charAt(0).toUpperCase()+L[2].slice(1)+", up to "+NB_H[pp.report]+" carried over to the next month, overruns at "+eur(tf.tauxDepassement)+" excl. VAT per hour after your agreement. Proposed initial term of six months, then one month's notice.", a:"tarifs-delegue"});
+  }
+  return P;
+}
+
+function report(){
+  var s = RESULT.ind, r = RESULT.ori, f = s.flags, keys = D.vigilance(f), V = verdict(s), P = plan(r, f);
   var today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
-  var subj;
-  if(f.urgent) subj = "matter under way";
-  else if(f.int_etude) subj = "compliance of a study";
-  else if(f.pas_designe) subj = "appointing an officer";
-  else if(f.int_remplacer) subj = "continuity of the role";
-  else if(f.int_externe) subj = "external deadline";
-  else subj = "discussing my result";
+  var subj = f.urgent ? "matter under way" : (f.int_etude ? "compliance of a study" : (f.pas_designe ? "appointing an officer" : (f.int_remplacer ? "continuity of the role" : (f.int_externe ? "external deadline" : "discussing my result"))));
 
   var html = '<div class="report-head"><p class="label">Your result</p><h3>'+esc(V[0])+'</h3>'+
     '<p class="price">'+esc(V[1])+'</p>'+
+    '<p class="meta" style="margin-top:22px">'+esc("Situation indicators")+'</p>'+
     '<div class="levels">'+
-      '<div class="lv"><b>Fragility of the set-up</b><span>'+esc(cap(scoreLabel(s.frag)))+'</span>'+meter(s.frag)+'<p>'+esc("Appointment, resources, record, impact assessments.")+'</p></div>'+
-      '<div class="lv"><b>Exposure</b><span>'+esc(cap(scoreLabel(s.expo)))+'</span>'+meter(s.expo)+'<p>'+esc("What happens on the day of an inspection or an incident.")+'</p></div>'+
-      '<div class="lv"><b>Obligation</b><span>'+esc(cap(scoreLabel(s.obl)))+'</span>'+meter(s.obl)+'<p>'+esc("Indicative, based on your activity and the number of people concerned, subject to the qualification of your processing.")+'</p></div>'+
+      '<div class="lv"><b>Fragility of the set-up</b><span>'+esc(cap(NIV[D.niveau(s.frag)]))+'</span>'+meter(s.frag)+'<p>'+esc("Appointment, resources, record, impact assessments.")+'</p></div>'+
+      '<div class="lv"><b>Exposure</b><span>'+esc(cap(NIV[D.niveau(s.expo)]))+'</span>'+meter(s.expo)+'<p>'+esc("What happens on the day of an inspection or an incident.")+'</p></div>'+
+      '<div class="lv"><b>Obligation</b><span>'+esc(cap(NIV[D.niveau(s.obl)]))+'</span>'+meter(s.obl)+'<p>'+esc("Indicative, based on your activity and the number of people concerned, subject to the qualification of your processing.")+'</p></div>'+
     '</div>'+
     '<p class="meta">'+esc("As at "+today+(profilLabel()?" · "+profilLabel():""))+'</p></div>';
 
@@ -1149,36 +1205,39 @@ function report(s){
   });
   html += '</ul></div>';
 
-  var main = reco.length>1 ? reco[1] : reco[0], O = OFF[main];
-  if(isPath(reco)){
-    var steps = reco.filter(function(k){ return STEP[k]; });
-    html += '<div class="rsec"><h4>'+esc("Your path, in order")+'</h4><ol class="parcours">'+steps.map(function(k){ var o = OFF[k];
-        return '<li><span class="when">'+esc(STEP[k])+'</span><b><a href="#'+o[3]+'">'+esc(o[0])+'</a></b><span class="pr">'+esc(k==="fonction"?"from €4,500 excl. VAT":(k==="etude"?"from €4,500 excl. VAT per study, + €1,500 to €2,500 excl. VAT per country outside France":"from €650 excl. VAT per month"))+'</span><p>'+esc(o[1])+'</p></li>'; }).join("")+'</ol>'+
-      (steps.indexOf("etude")<0 ? '<p class="compl">'+esc("With no ongoing study, step 2 does not concern you for now. Each study you launch will have its own compliance fee.")+'</p>' : '')+
-      '<p class="reco-warn">'+esc("The data protection officer subscription starts once the function has been set up. It includes neither the set-up nor the compliance of your studies: each step has its own price.")+'</p>'+
-      '<p class="compl">'+esc("If we agree to work together, a signed fee agreement sets out, for each step, the scope, its exclusions, the price and what triggers a quotation.")+' <a class="linkbtn" href="#delegue">'+esc("How the services fit together")+'</a></p>';
-    main = "dpo";
-  } else {
-    html += '<div class="rsec"><h4>What I recommend</h4><div class="offer-reco"><h5>'+esc(O[0])+'</h5><p>'+esc(O[1])+'</p><p class="p">'+esc(O[2])+'</p>'+
-      '<p class="compl">'+esc("If we agree to work together, a signed fee agreement sets out the scope, its exclusions, the price and what triggers a quotation.")+' <a class="linkbtn" href="#'+O[3]+'">'+esc("See the service")+'</a></p></div>';
-  }
-  var others = reco.filter(function(k){ return isPath(reco) ? !STEP[k] : k!==main; });
-  if(others.length){
-    html += '<ul class="also">'+others.map(function(k){ var o = OFF[k]; return '<li><a href="#'+o[3]+'">'+esc(o[0])+'</a>: '+esc(o[2])+'</li>'; }).join("")+'</ul>';
-  }
-  html += '</div>';
+  html += '<div class="rsec"><h4>What I propose</h4><p class="compl">'+esc(r.ponctuel && !r.dpo ? "A one-off engagement, with no subscription." : "Separate engagements, each with its own price: you take up only those you need.")+'</p><ol class="parcours">'+
+    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+esc(p.pourquoi)+'</p><p class="hyp">'+esc(p.hyp)+'</p></li>'; }).join("")+'</ol>';
+  if(r.dpo) html += '<p class="reco-warn">'+esc("The subscription covers the data protection officer role. It includes neither building the set-up nor bringing the documentation of your studies into compliance.")+'</p>';
+  if(r.consultation!=="principale") html += '<p class="compl">'+esc("If you would rather start by talking it through: orientation consultation, "+eur(TF.consultation.prix)+" excl. VAT, deducted from a fixed-fee engagement taken up within thirty days. It remains optional.")+'</p>';
+
+  /* Indicative budget: entry prices only, excluding items on quotation. */
+  var init = 0, hasDevis = r.devis.length>0 || r.prioritaire, nPays = 0;
+  if(r.initial==="diagnostic") init += TF.diagnostic;
+  if(r.initial==="simple"||r.initial==="etendue") init += TF.miseEnPlace[r.initial];
+  if(r.revue) init += TF.revueDesignation;
+  if(r.etudes && r.etudes.niveau!=="devis"){ nPays = r.etudes.pays; init += TF.etude[r.etudes.niveau] + nPays*TF.etude.paysSupp; }
+  if(r.consultation==="principale" && !init) init += TF.consultation.prix;
+  var mens = r.dpo ? D.palier(r.dpo.palier==="devis"?"renforce":r.dpo.palier).prix : 0;
+  html += '<div class="budget"><h5>'+esc("Order of magnitude, to be confirmed")+'</h5><dl>'+
+    (init ? '<div><dt>'+esc(r.dpo?"One-off engagements and initial fees, from":"Engagement, from")+'</dt><dd>'+esc(eur(init))+' excl. VAT</dd></div>' : '')+
+    (mens ? '<div><dt>'+esc("Subscription, per month"+(r.dpo.palier==="devis"||r.dpo.palier==="renforce"?", from":""))+'</dt><dd>'+esc(eur(mens))+' excl. VAT</dd></div>' : '')+
+    (mens ? '<div><dt>'+esc("Twelve-month illustration")+'</dt><dd>'+esc(eur(init+12*mens))+' excl. VAT</dd></div>' : '')+
+    '</dl><p>'+esc((mens?"Twelve full months, entry prices: this is neither a commitment period nor a sum due on signature. ":"Entry prices, on the assumptions stated. ")+
+      (r.initial==="diagnostic"?"If the assessment leads to a simple set-up, only the balance of "+eur(D.complementMiseEnPlace(true))+" excl. VAT is added. ":"")+
+      "Not included"+(nPays||(r.etudes&&r.etudes.horsUE)?": local counsel's fees, ":": ")+"items on quotation"+(hasDevis?" (flagged above)":"")+", exceptional mobilisation in the event of an inspection or incident.")+'</p></div>';
+  html += '<p class="compl">'+esc("This orientation is an automatic estimate: the scope, follow-up level and price are confirmed in a conversation, then in a signed fee agreement.")+' <a class="linkbtn" href="#parcours">'+esc("How the engagements fit together")+'</a></p></div>';
 
   html += '<div class="rsec no-print"><h4>Keep this result</h4><div class="keep"><p class="compare">'+esc("Save it as a PDF, or send it to your own mailbox. It is not stored on this site or by the firm.")+'</p>'+
-    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Save as PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("My Diapason result")+'&body='+encodeURIComponent(summary(s, keys, main))+'">'+esc("Email me the result")+'</a></div></div></div>';
+    '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Save as PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("My Diapason result")+'&body='+encodeURIComponent(summary(s, keys, P))+'">'+esc("Email me the result")+'</a></div></div></div>';
 
   html += '<div class="rsec"><h4>Discuss your result</h4><p class="compare">'+esc("A first twenty-minute conversation, free and without obligation, to check this result against your actual situation. Write to me stating your three levels:")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy the address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent("Diapason: "+subj)+'&body='+encodeURIComponent("Hello,\n\nI would like to discuss my Diapason result.\n\n"+summary(s, keys, main))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy the address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason: "+subj))+'&body='+encodeURIComponent(fr("Hello,\n\nI would like to discuss my Diapason result.\n\n")+summary(s, keys, P))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
 
-  html += '<p class="notice">'+esc("This result is generated automatically from your answers alone, without verification or review of documents, and is stated as at the date it was generated. It is indicative information and constitutes neither legal advice nor an opinion. Amounts exclude VAT; any engagement is subject to a fee agreement setting out the scope and how the price is determined, and to a prior conflict-of-interest check.")+'</p>'+
+  html += '<p class="notice">'+esc("This result is generated automatically from your answers alone, without verification or review of documents, and is stated as at the date it was generated. It is indicative information and constitutes neither legal advice nor an opinion. Amounts are entry prices excluding VAT, on the assumptions stated; any engagement is subject to a fee agreement setting out the scope and how the price is determined, and to a prior conflict-of-interest check.")+'</p>'+
     '<p class="sources">'+esc("Sources of the obligations cited: Regulation (EU) 2016/679, Articles 9, 27, 30, 33, 35, 37 and 38; Article L. 1111-8 of the French Public Health Code, as in force since 1 July 2025. The regimes applicable to research processing in the health sector derive from French Law No. 78-17 of 6 January 1978, as amended, and from the reference methodologies approved by the CNIL.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Take the test again</button></div>';
   html = '<div class="print-only print-head"><span><b>Diapason</b>, by Hémistiches</span><span>'+esc("Result issued on "+today)+'</span></div>'+html+
-    '<div class="print-only print-foot">'+esc("Maître François Césure, avocat, Paris Bar · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Indicative preliminary analysis, subject to a prior discussion and to the signature of a fee agreement.")+'</div>';
+    '<div class="print-only print-foot">'+esc("Maître François Césure, avocat, Paris Bar · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Indicative orientation, subject to a prior conversation and to the signature of a fee agreement.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
   document.getElementById("copy").onclick = function(){
@@ -1188,23 +1247,17 @@ function report(s){
   document.getElementById("restart").onclick = function(){ answers = {}; intro(); toBox(); };
   toBox();
 }
-function summary(s, keys, main){
-  var O = OFF[main], L = [];
-  var today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+function summary(s, keys, P){
+  var L = [], today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
   L.push("Diapason result of "+today+(profilLabel()?" · "+profilLabel():""));
   L.push("Result: "+verdict(s)[0].charAt(0).toLowerCase()+verdict(s)[0].slice(1)+".");
-  L.push("Levels: fragility of the set-up, "+scoreLabel(s.frag)+"; exposure, "+scoreLabel(s.expo)+"; obligation, "+scoreLabel(s.obl)+".");
+  L.push("Situation indicators: fragility of the set-up, "+NIV[D.niveau(s.frag)]+"; exposure, "+NIV[D.niveau(s.expo)]+"; obligation, "+NIV[D.niveau(s.obl)]+".");
   var v = keys.filter(function(k){ return k!=="reserve" && k!=="maitrise"; }).map(function(k){ return VIG[k][0].replace(/\.$/,""); });
   if(v.length) L.push("Points of attention: "+v.join("; ")+".");
-  var reco = offKeys(s);
-  if(isPath(reco)){
-    var n = 0;
-    L.push("Recommended path, in order:");
-    reco.filter(function(k){ return STEP[k]; }).forEach(function(k){ n++; L.push(n+". "+OFF[k][0]+" ("+STEP[k].split(" · ")[1]+"): "+OFF[k][2]); });
-    L.push("The data protection officer subscription includes neither the set-up nor the compliance of studies.");
-  } else L.push("Recommended service: "+O[0]+". "+O[2]);
+  L.push("Proposed orientation, separate engagements:");
+  P.forEach(function(p, i){ L.push((i+1)+". "+p.titre+": "+p.prix+"."); });
   L.push("");
-  L.push("Indicative preliminary analysis, based solely on my answers, without review of documents, subject to a prior discussion and to the signature of a fee agreement. Amounts exclude VAT.");
+  L.push("Indicative orientation, based solely on my answers, without review of documents, subject to a prior conversation and to the signature of a fee agreement. Entry prices excluding VAT, local counsel's fees and items on quotation.");
   L.push("Hémistiches, Maître François Césure, avocat, Paris Bar. "+CONTACT+" · +33 6 47 88 80 25");
   return fr(L.join("\n"));
 }
@@ -1221,7 +1274,11 @@ function show(view, anchor){
 function bindView(el){ el.addEventListener("click", function(ev){ ev.preventDefault(); show(el.getAttribute("data-view"), el.getAttribute("data-anchor")); }); }
 document.querySelectorAll("[data-view]").forEach(bindView);
 document.querySelectorAll('.nav a, .drawer nav a, .hero a').forEach(function(a){ a.addEventListener("click", function(){ if(!document.getElementById("home").hidden) return; document.getElementById("home").hidden = false; document.getElementById("mentions").hidden = true; }); });
-if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#confidentialite") show("mentions","confidentialite");
+/* A link to a detail anchor opens the corresponding panel. */
+function openDetail(id){ var el = id && document.getElementById(id); if(!el) return; var d = el.tagName==="DETAILS" ? el : el.querySelector("details.more"); if(d) d.open = true; }
+window.addEventListener("hashchange", function(){ openDetail(location.hash.slice(1)); });
+document.addEventListener("click", function(ev){ var a = ev.target.closest && ev.target.closest('a[href^="#"]'); if(a) openDetail(a.getAttribute("href").slice(1)); });
+if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#confidentialite") show("mentions","confidentialite"); else openDetail(location.hash.slice(1));
 
 /* ---------- Mobile menu ---------- */
 (function(){
@@ -1233,7 +1290,8 @@ if(location.hash==="#mentions") show("mentions"); else if(location.hash==="#conf
   d.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
 })();
 
-window.__diapason = {ALL:ALL, BASE:BASE, VIG:VIG, OFF:OFF, rebuild:rebuild, collect:collect, vigKeys:vigKeys, offKeys:offKeys, setAnswers:function(a){ answers = a; }, getQuestions:function(){ return questions; }};
+/* Exposed for offline checks only. */
+window.__diapason = {T:T, VIG:VIG, plan:plan, setAnswers:function(a){ answers = a; }, getQuestions:function(){ return questions; }};
 
 frDom(document.body);
 intro();
