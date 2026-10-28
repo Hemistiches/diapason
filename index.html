@@ -1291,6 +1291,17 @@ function report(){
   document.getElementById("restart").onclick = function(){ answers = {}; intro(); toBox(); };
   toBox();
 }
+function budgetOf(r){
+  var init = 0;
+  if(r.initial==="diagnostic") init += TF.diagnostic;
+  if(r.initial==="simple"||r.initial==="etendue") init += TF.miseEnPlace[r.initial];
+  if(r.revue) init += TF.revueDesignation;
+  if(r.ia && r.ia.niveau!=="devis") init += TF.dispositifIA;
+  if(r.etudes && r.etudes.niveau!=="devis") init += TF.etude[r.etudes.niveau] + r.etudes.pays*TF.etude.paysSupp;
+  if(r.consultation==="principale" && !init) init += TF.consultation.prix;
+  var mens = r.dpo ? D.palier(r.dpo.palier==="devis"?"renforce":r.dpo.palier).prix : 0;
+  return {init:init, mens:mens, aPartir: !!(r.dpo && (r.dpo.palier==="devis"||r.dpo.palier==="renforce"))};
+}
 function summary(s, keys, P, pourMoi){
   var L = [], today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"}), V = verdict(s);
   L.push("Diapason, par Hémistiches");
@@ -1310,6 +1321,16 @@ function summary(s, keys, P, pourMoi){
   L.push("");
   L.push("Orientation proposée (missions distinctes, chacune à son prix)");
   P.forEach(function(p, i){ L.push((i+1)+". "+p.titre); L.push("   "+p.prix); });
+  L.push("");
+  var B = budgetOf(RESULT.ori);
+  if(B.init || B.mens){
+    L.push("Ordre de grandeur, à confirmer");
+    if(B.init) L.push("– "+(B.mens?"Missions ponctuelles et frais initiaux":"Mission")+", à partir de "+eur(B.init)+" HT");
+    if(B.mens) L.push("– Abonnement de délégué : "+(B.aPartir?"à partir de ":"")+eur(B.mens)+" HT par mois");
+    if(B.mens) L.push("– Illustration sur douze mois : "+eur(B.init+12*B.mens)+" HT (ni durée d'engagement, ni somme due à la signature)");
+  }
+  L.push("");
+  L.push("Le rapport complet (points de vigilance détaillés, hypothèses de chaque prix, ce qui n'est pas compris) s'enregistre en PDF depuis la page du résultat, bouton « Enregistrer en PDF ». Il peut être joint à ce message avant l'envoi.");
   L.push("");
   L.push("Orientation indicative, établie à partir des seules réponses au test, sans examen de pièces. Prix d'entrée hors taxes, hors honoraires de conseils locaux et éléments sur devis, confirmés lors d'un échange puis dans une convention d'honoraires.");
   if(!pourMoi){

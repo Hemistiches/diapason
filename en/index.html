@@ -1293,6 +1293,17 @@ function report(){
   document.getElementById("restart").onclick = function(){ answers = {}; intro(); toBox(); };
   toBox();
 }
+function budgetOf(r){
+  var init = 0;
+  if(r.initial==="diagnostic") init += TF.diagnostic;
+  if(r.initial==="simple"||r.initial==="etendue") init += TF.miseEnPlace[r.initial];
+  if(r.revue) init += TF.revueDesignation;
+  if(r.ia && r.ia.niveau!=="devis") init += TF.dispositifIA;
+  if(r.etudes && r.etudes.niveau!=="devis") init += TF.etude[r.etudes.niveau] + r.etudes.pays*TF.etude.paysSupp;
+  if(r.consultation==="principale" && !init) init += TF.consultation.prix;
+  var mens = r.dpo ? D.palier(r.dpo.palier==="devis"?"renforce":r.dpo.palier).prix : 0;
+  return {init:init, mens:mens, aPartir: !!(r.dpo && (r.dpo.palier==="devis"||r.dpo.palier==="renforce"))};
+}
 function summary(s, keys, P, pourMoi){
   var L = [], today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"}), V = verdict(s);
   L.push("Diapason, by Hémistiches");
@@ -1312,6 +1323,16 @@ function summary(s, keys, P, pourMoi){
   L.push("");
   L.push("Proposed orientation (separate engagements, each with its own price)");
   P.forEach(function(p, i){ L.push((i+1)+". "+p.titre); L.push("   "+p.prix); });
+  L.push("");
+  var B = budgetOf(RESULT.ori);
+  if(B.init || B.mens){
+    L.push("Order of magnitude, to be confirmed");
+    if(B.init) L.push("– "+(B.mens?"One-off engagements and initial fees":"Engagement")+", from "+eur(B.init)+" excl. VAT");
+    if(B.mens) L.push("– Data protection officer subscription: "+(B.aPartir?"from ":"")+eur(B.mens)+" excl. VAT per month");
+    if(B.mens) L.push("– Twelve-month illustration: "+eur(B.init+12*B.mens)+" excl. VAT (neither a commitment period nor a sum due on signature)");
+  }
+  L.push("");
+  L.push("The full report (detailed points of attention, assumptions behind each price, what is not included) can be saved as a PDF from the result page, using the \"Save as PDF\" button. It can be attached to this message before sending.");
   L.push("");
   L.push("Indicative orientation, based solely on the answers to the test, without review of documents. Entry prices excluding VAT, local counsel's fees and items on quotation, confirmed in a conversation and then in a fee agreement.");
   if(!pourMoi){
