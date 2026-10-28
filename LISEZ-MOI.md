@@ -11,7 +11,7 @@ Deux pages, française (`index.html`) et anglaise (`en/index.html`), reliées pa
 | Fichier | Rôle |
 |---|---|
 | `index.html` | La version française (textes, test, résultat, mentions légales et confidentialité) |
-| `regles.js` | Tarifs, questionnaire, indicateurs et orientation, communs aux deux pages (dont la formule « données d'un dispositif intégrant de l'IA », depuis le 28 octobre 2026) |
+| `regles.js` | Tarifs, questionnaire, indicateurs et orientation, communs aux deux pages (dont la formule « données d'un dispositif intégrant de l'IA », et le socle à 2 750 € avec ses briques complémentaires, depuis le 28 octobre 2026) |
 | `en/index.html` | La version anglaise, même moteur et même formulaire ; les mentions indiquent que la version française prévaut |
 | `netlify.toml` | Configuration de publication Netlify |
 | `robots.txt` | Autorise l'indexation |
@@ -19,7 +19,7 @@ Deux pages, française (`index.html`) et anglaise (`en/index.html`), reliées pa
 
 ## Test d'orientation
 
-Quatre temps : la situation (activité, entités, traitements à risque), le dispositif existant (délégué, registre, analyses d'impact, hébergement, transferts, incidents), les études (nombre, fondement, pays, état des documents) et le suivi récurrent (projets, demandes, relais interne), puis ce qui amène le visiteur. Le résultat sépare des indicateurs de situation (obligation, fragilité, exposition) et une orientation commerciale : échange prioritaire, consultation, diagnostic, mise en place, mission par étude, revue de la désignation, abonnement de délégué et son niveau, ou devis. Le niveau d'abonnement se déduit de la charge décrite, jamais du seul nombre d'études, de salariés ou de pays.
+Quatre temps : la situation (activité, entités, traitements à risque), le dispositif existant (délégué, registre, analyses d'impact, hébergement, transferts, incidents), les études (nombre, fondement, pays, état des documents) et le suivi récurrent (projets, demandes, relais interne), puis ce qui amène le visiteur. Le résultat sépare des indicateurs de situation (obligation, fragilité, exposition) et une orientation commerciale : échange prioritaire, consultation, diagnostic, socle simple ou étendu, briques (analyse d'impact hors étude, hébergeur, transfert), mission par étude, revue de la désignation, abonnement de délégué et son niveau, ou devis. Le niveau d'abonnement se déduit de la charge décrite, jamais du seul nombre d'études, de salariés ou de pays.
 
 Champs transmis par le formulaire `rapport-diapason` (inchangés) : email, opposition, profil, score_obligation, score_fragilite, score_exposition, points_vigilance, offres_suggerees, horodatage, version_information (suffixe « -en » pour la page anglaise).
 
