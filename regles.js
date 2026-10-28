@@ -5,15 +5,26 @@
   "use strict";
 
   /* ============================================================
-     1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026.
+     1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026 ; socle et briques révisés le 28 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-10-28",
+    version: "2026-10-28b",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
-    miseEnPlace: { simple: 2500, etendue: 4500 },      // « simple » : diagnostic compris, prix global
+    miseEnPlace: { simple: 2750, etendue: 4500 },      // le socle ; « simple » : diagnostic compris, prix global (2 750 € depuis le 28 octobre 2026)
     etude: { simple: 2500, approfondie: 4500, paysSupp: 750 },
     dispositifIA: 3500,                                 // données d'un dispositif intégrant de l'IA, un modèle et une source (28 octobre 2026)
+    /* Briques qui complètent le socle de l'organisme (28 octobre 2026), jamais une étude : son forfait comprend déjà son analyse d'impact et ses contrats. */
+    briques: {
+      aipd: 1800,           // analyse d'impact hors étude, un traitement
+      contrat: 650,         // contrat de sous-traitance, un contrat ou avenant, un tour de négociation
+      hebergeur: 850,       // hébergement de données de santé : certificat et contrat
+      mentions: 450,        // mentions d'information, premier public
+      mentionsSupp: 250,    // chaque public supplémentaire
+      transfert: 1200,      // transfert hors de l'Union, un flux vers un destinataire
+      formation: 600,       // une session d'une heure trente et son support
+      secondRegistre: 500   // second registre lorsque l'organisme est à la fois responsable et sous-traitant
+    },
     dpo: [
       { cle: "limite",   prix: 490,  heures: 3,  report: 1, point: "trimestriel", aPartirDe: false },
       { cle: "regulier", prix: 990,  heures: 6,  report: 2, point: "mensuel",     aPartirDe: false },
@@ -42,6 +53,11 @@
     if (o.miseEnPlace) init += TARIFS.miseEnPlace[o.miseEnPlace];
     if (o.diagnostic) init += TARIFS.diagnostic;
     (o.etudes || []).forEach(function (e) { init += TARIFS.etude[e.niveau] + (e.pays || 0) * TARIFS.etude.paysSupp; });
+    var b = o.briques || {};
+    Object.keys(b).forEach(function (k) {
+      if (k === "mentions") init += b[k] > 0 ? TARIFS.briques.mentions + (b[k] - 1) * TARIFS.briques.mentionsSupp : 0;
+      else init += b[k] * TARIFS.briques[k];
+    });
     var p = o.dpo ? palier(o.dpo) : null;
     return { initial: init, mensuel: p ? p.prix : 0, total: init + (p ? 12 * p.prix : 0) };
   }
@@ -131,8 +147,8 @@
     ]},
     aipd: { bloc: "dispositif", opts: [
       O("toutes", {}),
-      O("certaines", { frag: 1 }, ["aipd"]),
-      O("aucune_estime", { frag: 1 }, ["aipd"]),
+      O("certaines", { frag: 1 }, ["aipd", "aipd_partiel"]),
+      O("aucune_estime", { frag: 1 }, ["aipd", "aipd_estime"]),
       O("nsp", { frag: 3 }, ["aipd", "aipd_nsp"]),
       O("aucune", { frag: 2, expo: 2 }, ["aipd", "aipd_absent"])
     ]},
@@ -346,26 +362,29 @@
 
   function orienter(a) {
     var ids = parcours(a), f = drapeaux(a, ids);
-    var r = { prioritaire: false, etat: null, initial: null, revue: false, etudes: null, ia: null, dpo: null,
+    var r = { prioritaire: false, etat: null, initial: null, revue: false, etudes: null, ia: null, dpo: null, briques: [], presta: !!f.presta,
               consultation: "option", devis: [], raisons: [], ponctuel: false };
 
     /* 1. Situation ouverte : échange prioritaire, contrôle ou incident sur devis. */
     if (f.urgent || f.violation) { r.prioritaire = true; r.raisons.push(f.urgent ? "urgent" : "violation"); }
 
     /* 2. État du dispositif et travaux initiaux éventuels. */
-    var majeurs = ["reg_absent", "procedure", "aipd_absent", "hds", "transf_grave", "violation"].filter(function (k) { return f[k]; }).length;
-    var mineurs = ["reg_ancien", "aipd", "transf_partiel", "notif", "echelle_inconnue", "aipd_nsp"].filter(function (k) { return f[k]; }).length;
-    r.etat = (f.reg_absent || majeurs >= 1) ? "a_construire" : (mineurs >= 1 ? "a_verifier" : "exploitable");
+    var mineurs = ["reg_ancien", "aipd_estime", "notif", "echelle_inconnue", "aipd_nsp"].filter(function (k) { return f[k]; }).length;
+    /* Le socle répond à l'absence de registre ou de procédure ; une analyse d'impact absente, un hébergeur non vérifié
+       ou des transferts non documentés appellent une brique, pas un nouveau socle. */
+    var socleManque = f.reg_absent || f.procedure || f.violation;
+    var briqueManque = f.aipd_absent || f.aipd_partiel || f.hds || f.transf_grave || f.transf_partiel;
+    r.etat = socleManque ? "a_construire" : (mineurs >= 1 ? "a_verifier" : (briqueManque ? "a_completer" : "exploitable"));
     if (f.e_groupe || f.pas_etab) { r.devis.push(f.e_groupe ? "groupe" : "hors_ue"); }
     if (r.etat === "a_construire") {
       if (f.e_groupe) r.initial = "devis";
-      else if (f.e_multi || f.hors_ue_etab || f.flux_n >= 2 || majeurs >= 3) r.initial = "etendue";
+      else if (f.e_multi || f.hors_ue_etab || f.flux_n >= 2) r.initial = "etendue";   // les manques couverts par des briques ne font pas passer au socle étendu
       else r.initial = "simple";
     } else if (r.etat === "a_verifier") {
       r.initial = f.e_groupe ? "devis" : "diagnostic";
-    } else if (f.int_verifier && !f.designe) {
+    } else if (r.etat === "exploitable" && f.int_verifier && !f.designe) {
       r.initial = "diagnostic";
-    } else if (f.int_verifier && f.designe && !f.int_designer && !f.int_remplacer) {
+    } else if (r.etat === "exploitable" && f.int_verifier && f.designe && !f.int_designer && !f.int_remplacer) {
       r.initial = "diagnostic";
     }
 
@@ -391,6 +410,13 @@
       if (lourd) r.devis.push("ia");
     }
 
+    /* 4 ter. Briques qui complètent le socle, proposées pour les manques déclarés (sauf groupe : devis d'ensemble). */
+    if (!f.e_groupe) {
+      if (f.aipd_absent || f.aipd_partiel) r.briques.push("aipd");
+      if (f.hds) r.briques.push("hebergeur");
+      if (f.transf_grave || f.transf_partiel) r.briques.push("transfert");
+    }
+
     /* 5. Suivi récurrent : besoin d'un délégué, puis intensité. */
     /* Un délégué interne fragile relève d'abord de la revue de sa désignation, non d'un abonnement. */
     var besoinDpo = f.pas_designe || f.int_designer || f.int_remplacer;
@@ -410,9 +436,9 @@
     }
 
     /* 6. Consultation : orientation principale seulement si rien d'autre ne s'impose, ou si la question est ponctuelle. */
-    var rien = !r.prioritaire && !r.initial && !r.revue && !r.etudes && !r.dpo && !r.ia;
+    var rien = !r.prioritaire && !r.initial && !r.revue && !r.etudes && !r.dpo && !r.ia && !r.briques.length;
     if (f.int_ponctuel || rien) { r.consultation = "principale"; r.ponctuel = true; }
-    if (!r.dpo && (r.initial || r.etudes || r.revue || r.ia)) r.ponctuel = true;   // mission ponctuelle sans abonnement
+    if (!r.dpo && (r.initial || r.etudes || r.revue || r.ia || r.briques.length)) r.ponctuel = true;   // mission ponctuelle sans abonnement
     return r;
   }
 
@@ -423,6 +449,7 @@
     if (r.initial) k.push("initial:" + r.initial);
     if (r.revue) k.push("revue");
     if (r.ia) k.push("ia:" + r.ia.niveau);
+    r.briques.forEach(function (b) { k.push("brique:" + b); });
     if (r.etudes) k.push("etude:" + r.etudes.niveau + (r.etudes.pays ? "+" + r.etudes.pays + "pays" : "") + (r.etudes.horsUE ? "+horsUE" : ""));
     if (r.dpo) k.push("dpo:" + r.dpo.palier + (r.dpo.priseDeFonction ? ":prise" : ""));
     k.push("consultation:" + r.consultation);
