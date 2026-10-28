@@ -55,6 +55,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark);color:var(--on-dark)}
 .top .wrap{height:clamp(64px,7.5vw,96px);display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand a{display:flex;align-items:center}
 .brand img{height:clamp(22px,2.2vw,30px);width:auto}
 .brand .sep{width:1px;height:22px;background:rgba(255,255,255,.4)}
 .brand span{font-size:clamp(17px,1.6vw,21px);color:#fff;letter-spacing:.01em}
@@ -456,7 +457,7 @@ details.more b{font-weight:600;color:var(--ink)}
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" data-view="home" aria-label="Diapason, par Hémistiches, accueil"><img src="/logo.png" alt="Hémistiches." width="181" height="30"><i class="sep" aria-hidden="true"></i><span>Diapason</span></a>
+    <div class="brand"><a class="brand-home" href="https://www.hemistiches.com/" aria-label="Hémistiches, site du cabinet"><img src="/logo.png" alt="Hémistiches." width="181" height="30"></a><i class="sep" aria-hidden="true"></i><a href="#top" data-view="home" aria-label="Diapason, par Hémistiches, accueil"><span>Diapason</span></a></div>
     <div class="right">
     <nav class="nav" aria-label="Navigation principale">
       <a href="#fonction">Le périmètre</a>
