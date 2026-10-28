@@ -1270,7 +1270,7 @@ function report(){
     '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Enregistrer en PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("Mon résultat Diapason")+'&body='+encodeURIComponent(summary(s, keys, P))+'">'+esc("M'envoyer le résultat")+'</a></div></div></div>';
 
   html += '<div class="rsec"><h4>Échanger sur votre résultat</h4><p class="compare">'+esc("Un premier échange de vingt minutes, gratuit et sans engagement, pour vérifier ce résultat sur votre situation réelle. Écrivez-moi en indiquant vos trois niveaux :")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason : "+subj))+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon résultat Diapason.\n\n")+summary(s, keys, P))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copier l'adresse")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason : "+subj))+'&body='+encodeURIComponent(fr("Bonjour,\n\nJe souhaite échanger sur mon résultat Diapason.\n\n")+summary(s, keys, P, true))+'">Écrire</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
 
   html += '<p class="notice">'+esc("Ce résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêté à la date de sa génération. Il constitue une information indicative et ne vaut ni consultation juridique ni avis. Les montants sont des prix d'entrée hors taxes, sur les hypothèses indiquées ; toute mission fait l'objet d'une convention d'honoraires précisant le périmètre et les modalités de détermination du prix, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
     '<p class="sources">'+esc("Sources des obligations citées : règlement (UE) 2016/679, articles 6, 9, 27, 30, 33, 35, 37 et 38 ; règlement (UE) 2024/1689 sur l'intelligence artificielle, article 10, modifié par le règlement (UE) 2026/1744 ; article L. 1111-8 du code de la santé publique, dans sa version en vigueur depuis le 1er juillet 2025. Les régimes applicables aux traitements de recherche dans le domaine de la santé relèvent de la loi n° 78-17 du 6 janvier 1978 modifiée et des méthodologies de référence homologuées par la CNIL.")+'</p>'+
@@ -1286,18 +1286,40 @@ function report(){
   document.getElementById("restart").onclick = function(){ answers = {}; intro(); toBox(); };
   toBox();
 }
-function summary(s, keys, P){
-  var L = [], today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
-  L.push("Résultat Diapason du "+today+(profilLabel()?" · "+profilLabel():""));
-  L.push("Résultat : "+verdict(s)[0].charAt(0).toLowerCase()+verdict(s)[0].slice(1)+".");
-  L.push("Indicateurs de situation : fragilité du dispositif, "+NIV[D.niveau(s.frag)]+" ; exposition, "+NIV[D.niveau(s.expo)]+" ; obligation, "+NIV[D.niveau(s.obl)]+".");
-  var v = keys.filter(function(k){ return k!=="reserve" && k!=="maitrise"; }).map(function(k){ return VIG[k][0].replace(/\.$/,""); });
-  if(v.length) L.push("Points de vigilance : "+v.join(" ; ")+".");
-  L.push("Orientation proposée, missions distinctes :");
-  P.forEach(function(p, i){ L.push((i+1)+". "+p.titre+" : "+p.prix+"."); });
+function summary(s, keys, P, pourMoi){
+  var L = [], today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"}), V = verdict(s);
+  L.push("Diapason, par Hémistiches");
+  L.push("Conformité RGPD des données de santé · diapason.hemistiches.com");
   L.push("");
-  L.push("Orientation indicative, établie à partir de mes seules réponses, sans examen de pièces, sous réserve d'un échange préalable et de la signature d'une convention d'honoraires. Prix d'entrée hors taxes, hors honoraires de conseils locaux et éléments sur devis.");
-  L.push("Hémistiches, Mᵉ François Césure, avocat au barreau de Paris. "+CONTACT+" · +33 6 47 88 80 25");
+  L.push("Résultat du "+today+(profilLabel()?"\nProfil : "+profilLabel():""));
+  L.push("");
+  L.push(V[0]+".");
+  L.push(V[1]);
+  L.push("");
+  L.push("Indicateurs de situation");
+  L.push("– Fragilité du dispositif : "+NIV[D.niveau(s.frag)]);
+  L.push("– Exposition : "+NIV[D.niveau(s.expo)]);
+  L.push("– Obligation : "+NIV[D.niveau(s.obl)]);
+  var v = keys.filter(function(k){ return k!=="reserve" && k!=="maitrise"; }).map(function(k){ return VIG[k][0].replace(/\.$/,""); });
+  if(v.length){ L.push(""); L.push("Points de vigilance"); v.forEach(function(x){ L.push("– "+x); }); }
+  L.push("");
+  L.push("Orientation proposée (missions distinctes, chacune à son prix)");
+  P.forEach(function(p, i){ L.push((i+1)+". "+p.titre); L.push("   "+p.prix); });
+  L.push("");
+  L.push("Orientation indicative, établie à partir des seules réponses au test, sans examen de pièces. Prix d'entrée hors taxes, hors honoraires de conseils locaux et éléments sur devis, confirmés lors d'un échange puis dans une convention d'honoraires.");
+  if(!pourMoi){
+    L.push("");
+    L.push("————————————");
+    L.push("Votre interlocuteur");
+    L.push("");
+    L.push("Mᵉ François Césure");
+    L.push("Avocat au barreau de Paris · délégué à la protection des données certifié");
+    L.push("Hémistiches · 33, avenue Mac-Mahon, 75017 Paris");
+    L.push("");
+    L.push(CONTACT);
+    L.push("+33 6 47 88 80 25 · +33 1 45 03 20 20");
+    L.push("www.hemistiches.com");
+  }
   return fr(L.join("\n"));
 }
 function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }

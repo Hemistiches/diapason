@@ -1272,7 +1272,7 @@ function report(){
     '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Save as PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("My Diapason result")+'&body='+encodeURIComponent(summary(s, keys, P))+'">'+esc("Email me the result")+'</a></div></div></div>';
 
   html += '<div class="rsec"><h4>Discuss your result</h4><p class="compare">'+esc("A first twenty-minute conversation, free and without obligation, to check this result against your actual situation. Write to me stating your three levels:")+'</p>'+
-    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy the address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason: "+subj))+'&body='+encodeURIComponent(fr("Hello,\n\nI would like to discuss my Diapason result.\n\n")+summary(s, keys, P))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
+    '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy the address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason: "+subj))+'&body='+encodeURIComponent(fr("Hello,\n\nI would like to discuss my Diapason result.\n\n")+summary(s, keys, P, true))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
 
   html += '<p class="notice">'+esc("This result is generated automatically from your answers alone, without verification or review of documents, and is stated as at the date it was generated. It is indicative information and constitutes neither legal advice nor an opinion. Amounts are entry prices excluding VAT, on the assumptions stated; any engagement is subject to a fee agreement setting out the scope and how the price is determined, and to a prior conflict-of-interest check.")+'</p>'+
     '<p class="sources">'+esc("Sources of the obligations cited: Regulation (EU) 2016/679, Articles 6, 9, 27, 30, 33, 35, 37 and 38; Regulation (EU) 2024/1689 on artificial intelligence, Article 10, as amended by Regulation (EU) 2026/1744; Article L. 1111-8 of the French Public Health Code, as in force since 1 July 2025. The regimes applicable to research processing in the health sector derive from French Law No. 78-17 of 6 January 1978, as amended, and from the reference methodologies approved by the CNIL.")+'</p>'+
@@ -1288,18 +1288,40 @@ function report(){
   document.getElementById("restart").onclick = function(){ answers = {}; intro(); toBox(); };
   toBox();
 }
-function summary(s, keys, P){
-  var L = [], today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
-  L.push("Diapason result of "+today+(profilLabel()?" · "+profilLabel():""));
-  L.push("Result: "+verdict(s)[0].charAt(0).toLowerCase()+verdict(s)[0].slice(1)+".");
-  L.push("Situation indicators: fragility of the set-up, "+NIV[D.niveau(s.frag)]+"; exposure, "+NIV[D.niveau(s.expo)]+"; obligation, "+NIV[D.niveau(s.obl)]+".");
-  var v = keys.filter(function(k){ return k!=="reserve" && k!=="maitrise"; }).map(function(k){ return VIG[k][0].replace(/\.$/,""); });
-  if(v.length) L.push("Points of attention: "+v.join("; ")+".");
-  L.push("Proposed orientation, separate engagements:");
-  P.forEach(function(p, i){ L.push((i+1)+". "+p.titre+": "+p.prix+"."); });
+function summary(s, keys, P, pourMoi){
+  var L = [], today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"}), V = verdict(s);
+  L.push("Diapason, by Hémistiches");
+  L.push("GDPR compliance for health data · diapason.hemistiches.com/en/");
   L.push("");
-  L.push("Indicative orientation, based solely on my answers, without review of documents, subject to a prior conversation and to the signature of a fee agreement. Entry prices excluding VAT, local counsel's fees and items on quotation.");
-  L.push("Hémistiches, Maître François Césure, avocat, Paris Bar. "+CONTACT+" · +33 6 47 88 80 25");
+  L.push("Result of "+today+(profilLabel()?"\nProfile: "+profilLabel():""));
+  L.push("");
+  L.push(V[0]+".");
+  L.push(V[1]);
+  L.push("");
+  L.push("Situation indicators");
+  L.push("– Fragility of the set-up: "+NIV[D.niveau(s.frag)]);
+  L.push("– Exposure: "+NIV[D.niveau(s.expo)]);
+  L.push("– Obligation: "+NIV[D.niveau(s.obl)]);
+  var v = keys.filter(function(k){ return k!=="reserve" && k!=="maitrise"; }).map(function(k){ return VIG[k][0].replace(/\.$/,""); });
+  if(v.length){ L.push(""); L.push("Points of attention"); v.forEach(function(x){ L.push("– "+x); }); }
+  L.push("");
+  L.push("Proposed orientation (separate engagements, each with its own price)");
+  P.forEach(function(p, i){ L.push((i+1)+". "+p.titre); L.push("   "+p.prix); });
+  L.push("");
+  L.push("Indicative orientation, based solely on the answers to the test, without review of documents. Entry prices excluding VAT, local counsel's fees and items on quotation, confirmed in a conversation and then in a fee agreement.");
+  if(!pourMoi){
+    L.push("");
+    L.push("————————————");
+    L.push("Your contact");
+    L.push("");
+    L.push("Maître François Césure");
+    L.push("Avocat, Paris Bar · certified data protection officer");
+    L.push("Hémistiches · 33, avenue Mac-Mahon, 75017 Paris, France");
+    L.push("");
+    L.push(CONTACT);
+    L.push("+33 6 47 88 80 25 · +33 1 45 03 20 20");
+    L.push("www.hemistiches.com");
+  }
   return fr(L.join("\n"));
 }
 function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
