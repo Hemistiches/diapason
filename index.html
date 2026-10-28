@@ -383,7 +383,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .print-card .co{font-size:10.5pt;color:#000;text-align:right;line-height:1.55}
   .print-card.end{margin:22px 0 0}
   .ph-logo{display:flex;align-items:center;gap:10px}
-  .ph-logo img{height:20px;width:auto;filter:invert(1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ph-logo img{height:20px;width:auto}
   .ph-logo i{width:0;height:18px;border-left:1px solid #000}
   .ph-logo span{font-size:14pt;color:#000}
   .print-foot{margin-top:18px;border-top:1px solid #999;padding-top:8px;font-size:8.5pt;color:#444}
@@ -1219,7 +1219,12 @@ function plan(r, f){
 }
 
 function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat au barreau de Paris · délégué à la protection des données certifié")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br>www.hemistiches.com</div></div>'; }
-var LOGO = (document.querySelector(".brand img")||{}).src || "";
+var LOGO = "";
+(function(){ var img = document.querySelector(".brand img"); if(!img) return;
+  function noir(){ try{ var c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight; var x = c.getContext("2d");
+    x.drawImage(img, 0, 0); x.globalCompositeOperation = "source-in"; x.fillStyle = "#000"; x.fillRect(0, 0, c.width, c.height); LOGO = c.toDataURL("image/png"); }
+    catch(e){ LOGO = ""; } }
+  if(img.complete && img.naturalWidth) noir(); else img.addEventListener("load", noir); })();
 function report(){
   var s = RESULT.ind, r = RESULT.ori, f = s.flags, keys = D.vigilance(f), V = verdict(s), P = plan(r, f);
   var today = new Date().toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"});
@@ -1275,7 +1280,7 @@ function report(){
   html += '<p class="notice">'+esc("Ce résultat est généré automatiquement à partir de vos seules réponses, sans vérification ni examen de pièces, et arrêté à la date de sa génération. Il constitue une information indicative et ne vaut ni consultation juridique ni avis. Les montants sont des prix d'entrée hors taxes, sur les hypothèses indiquées ; toute mission fait l'objet d'une convention d'honoraires précisant le périmètre et les modalités de détermination du prix, et d'une vérification préalable des conflits d'intérêts.")+'</p>'+
     '<p class="sources">'+esc("Sources des obligations citées : règlement (UE) 2016/679, articles 6, 9, 27, 30, 33, 35, 37 et 38 ; règlement (UE) 2024/1689 sur l'intelligence artificielle, article 10, modifié par le règlement (UE) 2026/1744 ; article L. 1111-8 du code de la santé publique, dans sa version en vigueur depuis le 1er juillet 2025. Les régimes applicables aux traitements de recherche dans le domaine de la santé relèvent de la loi n° 78-17 du 6 janvier 1978 modifiée et des méthodologies de référence homologuées par la CNIL.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Refaire le test</button></div>';
-  html = '<div class="print-only print-head"><span class="ph-logo"><img src="'+LOGO+'" alt="Hémistiches."><i aria-hidden="true"></i><span>Diapason</span></span><span>'+esc("Résultat établi le "+today)+'</span></div>'+carte('', "Votre interlocuteur")+html+carte(' end', "Pour échanger sur ce résultat")+
+  html = '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Diapason</span></span><span>'+esc("Résultat établi le "+today)+'</span></div>'+carte('', "Votre interlocuteur")+html+carte(' end', "Pour échanger sur ce résultat")+
     '<div class="print-only print-foot">'+esc("Mᵉ François Césure, avocat au barreau de Paris · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Orientation indicative, sous réserve de l'échange préalable et de la signature d'une convention d'honoraires.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };

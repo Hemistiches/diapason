@@ -383,7 +383,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   .print-card .co{font-size:10.5pt;color:#000;text-align:right;line-height:1.55}
   .print-card.end{margin:22px 0 0}
   .ph-logo{display:flex;align-items:center;gap:10px}
-  .ph-logo img{height:20px;width:auto;filter:invert(1);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ph-logo img{height:20px;width:auto}
   .ph-logo i{width:0;height:18px;border-left:1px solid #000}
   .ph-logo span{font-size:14pt;color:#000}
   .print-foot{margin-top:18px;border-top:1px solid #999;padding-top:8px;font-size:8.5pt;color:#444}
@@ -1221,7 +1221,12 @@ function plan(r, f){
 }
 
 function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Maître François Césure</div><div class="rl">'+esc("Avocat, Paris Bar · certified data protection officer")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br>www.hemistiches.com</div></div>'; }
-var LOGO = (document.querySelector(".brand img")||{}).src || "";
+var LOGO = "";
+(function(){ var img = document.querySelector(".brand img"); if(!img) return;
+  function noir(){ try{ var c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight; var x = c.getContext("2d");
+    x.drawImage(img, 0, 0); x.globalCompositeOperation = "source-in"; x.fillStyle = "#000"; x.fillRect(0, 0, c.width, c.height); LOGO = c.toDataURL("image/png"); }
+    catch(e){ LOGO = ""; } }
+  if(img.complete && img.naturalWidth) noir(); else img.addEventListener("load", noir); })();
 function report(){
   var s = RESULT.ind, r = RESULT.ori, f = s.flags, keys = D.vigilance(f), V = verdict(s), P = plan(r, f);
   var today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
@@ -1277,7 +1282,7 @@ function report(){
   html += '<p class="notice">'+esc("This result is generated automatically from your answers alone, without verification or review of documents, and is stated as at the date it was generated. It is indicative information and constitutes neither legal advice nor an opinion. Amounts are entry prices excluding VAT, on the assumptions stated; any engagement is subject to a fee agreement setting out the scope and how the price is determined, and to a prior conflict-of-interest check.")+'</p>'+
     '<p class="sources">'+esc("Sources of the obligations cited: Regulation (EU) 2016/679, Articles 6, 9, 27, 30, 33, 35, 37 and 38; Regulation (EU) 2024/1689 on artificial intelligence, Article 10, as amended by Regulation (EU) 2026/1744; Article L. 1111-8 of the French Public Health Code, as in force since 1 July 2025. The regimes applicable to research processing in the health sector derive from French Law No. 78-17 of 6 January 1978, as amended, and from the reference methodologies approved by the CNIL.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Take the test again</button></div>';
-  html = '<div class="print-only print-head"><span class="ph-logo"><img src="'+LOGO+'" alt="Hémistiches."><i aria-hidden="true"></i><span>Diapason</span></span><span>'+esc("Result issued on "+today)+'</span></div>'+carte('', "Your contact")+html+carte(' end', "To discuss this result")+
+  html = '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Diapason</span></span><span>'+esc("Result issued on "+today)+'</span></div>'+carte('', "Your contact")+html+carte(' end', "To discuss this result")+
     '<div class="print-only print-foot">'+esc("Maître François Césure, avocat, Paris Bar · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Indicative orientation, subject to a prior conversation and to the signature of a fee agreement.")+'</div>';
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
