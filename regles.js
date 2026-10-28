@@ -8,11 +8,12 @@
      1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-10-26",
+    version: "2026-10-28",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
     miseEnPlace: { simple: 2500, etendue: 4500 },      // « simple » : diagnostic compris, prix global
     etude: { simple: 2500, approfondie: 4500, paysSupp: 750 },
+    dispositifIA: 3500,                                 // données d'un dispositif intégrant de l'IA, un modèle et une source (28 octobre 2026)
     dpo: [
       { cle: "limite",   prix: 490,  heures: 3,  report: 1, point: "trimestriel", aPartirDe: false },
       { cle: "regulier", prix: 990,  heures: 6,  report: 2, point: "mensuel",     aPartirDe: false },
@@ -60,7 +61,7 @@
 
   var Q = {
     activite: { bloc: "situation", opts: [
-      O("dm", { obl: 2 }, ["rech_possible"]),
+      O("dm", { obl: 2 }, ["rech_possible", "fabricant"]),
       O("labo", { obl: 3 }, ["rech_possible"]),
       O("promoteur", { obl: 3 }, ["rech_possible"]),
       O("soins", { obl: 3 }, ["rech_possible"]),
@@ -156,6 +157,13 @@
       O("sans_analyse", { frag: 2, expo: 3 }, ["violation"]),
       O("pas_proc", { frag: 2, expo: 3 }, ["procedure"])
     ]},
+    /* Conditionnelle : seulement si « algorithme ou IA » est coché dans les traitements à risque. */
+    ia_donnees: { bloc: "situation", opts: [
+      O("nos_donnees", { obl: 1 }, ["ia_entrainement", "ia_mission"]),
+      O("partenaires", { obl: 1, frag: 1 }, ["ia_entrainement", "ia_partenaires", "ia_mission"]),
+      O("fournisseur", {}, ["ia_fournisseur", "ia_mission"]),
+      O("nsp", { frag: 1 }, ["ia_inconnu", "ia_mission"])
+    ]},
     /* Études : seulement pour les profils susceptibles d'en mener. */
     recherches: { bloc: "etudes", opts: [
       O("aucune", {}),
@@ -222,6 +230,7 @@
     var f = drapeaux(a), list = [];
     BASE.forEach(function (id) {
       list.push(id);
+      if (id === "flux" && (a.flux || []).indexOf("ia") > -1) list.push("ia_donnees");
       if (id === "designation") {
         if (f.cumul) list.push("fonctions");
         if (f.designe) list.push("notif");
@@ -278,6 +287,7 @@
     if (f.moyens) k.push("moyens");
     if (f.registre) k.push("registre");
     if (f.aipd) k.push("aipd");
+    if (f.ia_mission) k.push("ia");
     if (f.regime) k.push("regime");
     if (f.multi_pays) k.push("multi_pays");
     if (f.hds) k.push("hds"); else if (f.hds_interne) k.push("hds_interne");
@@ -305,6 +315,7 @@
     pays: { p1: 0.5, p2: 1, p4: 1, p_hors_ue: 1 },
     piecesLourdes: 1,       // documents à construire ou schéma complexe
     fluxMultiples: 1,       // deux situations à risque ou plus
+    iaEntrainement: 0.5,    // modèle entraîné ou réentraîné sur des données de patients
     entites: { e_multi: 1, hors_ue_etab: 1 },
     relais: { oui: 0, peu: 1, non: 2 },
     incident: 1,            // violation sans analyse ou absence de procédure
@@ -323,6 +334,7 @@
       if (f.et_construire || f.et_complexe) add("pieces", POIDS_CHARGE.piecesLourdes);
     }
     if (f.flux_n >= 2) add("flux", POIDS_CHARGE.fluxMultiples);
+    if (f.ia_entrainement) add("ia", POIDS_CHARGE.iaEntrainement);
     if (f.e_multi) add("entites", POIDS_CHARGE.entites.e_multi);
     if (f.hors_ue_etab) add("entites", POIDS_CHARGE.entites.hors_ue_etab);
     add("relais", POIDS_CHARGE.relais[a.relais] || 0);
@@ -334,7 +346,7 @@
 
   function orienter(a) {
     var ids = parcours(a), f = drapeaux(a, ids);
-    var r = { prioritaire: false, etat: null, initial: null, revue: false, etudes: null, dpo: null,
+    var r = { prioritaire: false, etat: null, initial: null, revue: false, etudes: null, ia: null, dpo: null,
               consultation: "option", devis: [], raisons: [], ponctuel: false };
 
     /* 1. Situation ouverte : échange prioritaire, contrôle ou incident sur devis. */
@@ -371,6 +383,14 @@
       if (niv === "devis") r.devis.push("etude");
     }
 
+    /* 4 bis. Données d'un dispositif ou d'un projet intégrant de l'IA, indépendant de l'abonnement. */
+    /* Proposé si le modèle est entraîné sur des données de patients, si on l'ignore, ou si l'organisation fabrique le dispositif. */
+    if (f.ia_mission && (f.ia_entrainement || f.ia_inconnu || f.fabricant)) {
+      var lourd = f.ia_partenaires && (f.multi_pays || f.e_multi || f.e_groupe || f.transf_grave || f.transf_partiel);
+      r.ia = { niveau: lourd ? "devis" : "forfait", fabricant: !!f.fabricant };
+      if (lourd) r.devis.push("ia");
+    }
+
     /* 5. Suivi récurrent : besoin d'un délégué, puis intensité. */
     /* Un délégué interne fragile relève d'abord de la revue de sa désignation, non d'un abonnement. */
     var besoinDpo = f.pas_designe || f.int_designer || f.int_remplacer;
@@ -390,9 +410,9 @@
     }
 
     /* 6. Consultation : orientation principale seulement si rien d'autre ne s'impose, ou si la question est ponctuelle. */
-    var rien = !r.prioritaire && !r.initial && !r.revue && !r.etudes && !r.dpo;
+    var rien = !r.prioritaire && !r.initial && !r.revue && !r.etudes && !r.dpo && !r.ia;
     if (f.int_ponctuel || rien) { r.consultation = "principale"; r.ponctuel = true; }
-    if (!r.dpo && (r.initial || r.etudes || r.revue)) r.ponctuel = true;   // mission ponctuelle sans abonnement
+    if (!r.dpo && (r.initial || r.etudes || r.revue || r.ia)) r.ponctuel = true;   // mission ponctuelle sans abonnement
     return r;
   }
 
@@ -402,6 +422,7 @@
     if (r.prioritaire) k.push("prioritaire");
     if (r.initial) k.push("initial:" + r.initial);
     if (r.revue) k.push("revue");
+    if (r.ia) k.push("ia:" + r.ia.niveau);
     if (r.etudes) k.push("etude:" + r.etudes.niveau + (r.etudes.pays ? "+" + r.etudes.pays + "pays" : "") + (r.etudes.horsUE ? "+horsUE" : ""));
     if (r.dpo) k.push("dpo:" + r.dpo.palier + (r.dpo.priseDeFonction ? ":prise" : ""));
     k.push("consultation:" + r.consultation);

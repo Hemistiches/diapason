@@ -11,7 +11,7 @@ Deux pages, française (`index.html`) et anglaise (`en/index.html`), reliées pa
 | Fichier | Rôle |
 |---|---|
 | `index.html` | La version française (textes, test, résultat, mentions légales et confidentialité) |
-| `regles.js` | Tarifs, questionnaire, indicateurs et orientation, communs aux deux pages |
+| `regles.js` | Tarifs, questionnaire, indicateurs et orientation, communs aux deux pages (dont la formule « données d'un dispositif intégrant de l'IA », depuis le 28 octobre 2026) |
 | `en/index.html` | La version anglaise, même moteur et même formulaire ; les mentions indiquent que la version française prévaut |
 | `netlify.toml` | Configuration de publication Netlify |
 | `robots.txt` | Autorise l'indexation |
