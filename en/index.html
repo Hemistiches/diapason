@@ -952,6 +952,8 @@ function frDom(root){
   var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
   while((n = w.nextNode())){ var p = n.parentNode; if(p && /SCRIPT|STYLE|CODE/.test(p.nodeName)) continue; var t = fr(n.nodeValue); if(t !== n.nodeValue) n.nodeValue = t; }
 }
+/* Renvois vers les autres offres du cabinet dans le résultat. */
+function liens(t){ return t.replace(/\b(Cadence|Concordance)\b/g, function(m){ return '<a class="fort" href="https://'+m.toLowerCase()+'.hemistiches.com/en/" target="_blank" rel="noopener">'+m+'</a>'; }); }
 function esc(s){ return fr(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function eur(n){ return "€" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
 
@@ -1302,7 +1304,7 @@ function report(){
   html += '</ul></div>';
 
   html += '<div class="rsec"><h4>What I propose</h4><p class="compl">'+esc(r.ponctuel && !r.dpo ? "A one-off engagement, with no subscription." : "Separate engagements, each with its own price: you take up only those you need.")+'</p><ol class="parcours">'+
-    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+esc(p.pourquoi)+'</p><p class="hyp">'+esc(p.hyp)+'</p></li>'; }).join("")+'</ol>';
+    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+liens(esc(p.pourquoi))+'</p><p class="hyp">'+liens(esc(p.hyp))+'</p></li>'; }).join("")+'</ol>';
   if(r.dpo) html += '<p class="reco-warn">'+esc("The subscription covers the data protection officer role. It includes neither building the set-up nor bringing the documentation of your studies into compliance.")+'</p>';
   if(r.consultation!=="principale") html += '<p class="compl">'+esc("If you would rather start by talking it through: orientation consultation, "+eur(TF.consultation.prix)+" excl. VAT, deducted from a fixed-fee engagement taken up within thirty days. It remains optional.")+'</p>';
 

@@ -950,6 +950,8 @@ function frDom(root){
   var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
   while((n = w.nextNode())){ var p = n.parentNode; if(p && /SCRIPT|STYLE|CODE/.test(p.nodeName)) continue; var t = fr(n.nodeValue); if(t !== n.nodeValue) n.nodeValue = t; }
 }
+/* Renvois vers les autres offres du cabinet dans le résultat. */
+function liens(t){ return t.replace(/\b(Cadence|Concordance)\b/g, function(m){ return '<a class="fort" href="https://'+m.toLowerCase()+'.hemistiches.com" target="_blank" rel="noopener">'+m+'</a>'; }); }
 function esc(s){ return fr(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function eur(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €"; }
 
@@ -1300,7 +1302,7 @@ function report(){
   html += '</ul></div>';
 
   html += '<div class="rsec"><h4>Ce que je vous propose</h4><p class="compl">'+esc(r.ponctuel && !r.dpo ? "Une mission ponctuelle, sans abonnement." : "Des missions distinctes, chacune à son prix : vous n'engagez que celles dont vous avez besoin.")+'</p><ol class="parcours">'+
-    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+esc(p.pourquoi)+'</p><p class="hyp">'+esc(p.hyp)+'</p></li>'; }).join("")+'</ol>';
+    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+liens(esc(p.pourquoi))+'</p><p class="hyp">'+liens(esc(p.hyp))+'</p></li>'; }).join("")+'</ol>';
   if(r.dpo) html += '<p class="reco-warn">'+esc("L'abonnement tient la fonction de délégué. Il ne comprend ni la construction du dispositif, ni la mise en conformité documentaire de vos études.")+'</p>';
   if(r.consultation!=="principale") html += '<p class="compl">'+esc("Si vous préférez commencer par en parler : consultation d'orientation, "+eur(TF.consultation.prix)+" HT, déduite d'un forfait engagé dans les trente jours. Elle reste facultative.")+'</p>';
 
