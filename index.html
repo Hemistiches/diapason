@@ -648,7 +648,7 @@ details.more b{font-weight:600;color:var(--ink)}
         <li id="brique-hebergeur"><b>Hébergement de données de santé · à partir de <span data-p="br:hebergeur">850 €</span> HT</b><span>Vérification du certificat de votre hébergeur et de son périmètre, revue du contrat d'hébergement (article L. 1111-8 du code de la santé publique).</span></li>
         <li id="brique-mentions"><b>Mentions d'information · à partir de <span data-p="br:mentions">450 €</span> HT</b><span>Pour un public : patients, utilisateurs, salariés ou visiteurs de votre site. <span data-p="br:mentionsSupp">250 €</span> HT par public supplémentaire.</span></li>
         <li id="brique-transfert"><b>Transfert hors de l'Union · à partir de <span data-p="br:transfert">1 200 €</span> HT</b><span>Un flux vers un destinataire : choix du mécanisme, clauses contractuelles types et annexes, analyse des garanties établie à partir des informations du destinataire. Un avis sur le droit du pays de destination relève d'un conseil qualifié dans ce droit.</span></li>
-        <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Pour un organisme qui n'en a pas, je propose <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, hébergé dans l'Union européenne, que j'utilise pour vous. Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel ; vos données restent les vôtres et vous les conservez si nous cessons de travailler ensemble. Le cabinet ne perçoit aucune rémunération de l'éditeur, et vous restez libre de choisir un autre outil.</span></li>
+        <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Je travaille de préférence dans un outil dédié, qui simplifie le travail de chacun. Pour un organisme qui n'en a pas, je propose <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, hébergé dans l'Union européenne, que j'utilise pour vous. Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel ; vos données restent les vôtres et vous les conservez si nous cessons de travailler ensemble. Le cabinet ne perçoit aucune rémunération de l'éditeur ; vous restez libre de choisir un autre outil, et je travaille aussi avec celui que vous utilisez déjà.</span></li>
         <li id="brique-formation"><b>Formation · à partir de <span data-p="br:formation">600 €</span> HT</b><span>Une session d'une heure trente en visio pour vos équipes, et son support.</span></li>
       </ul>
       <p class="cadre">Au-delà de ces volumes, ou pour une pièce qui n'est pas listée, le prix est arrêté sur devis avant toute intervention.</p>
@@ -1010,6 +1010,8 @@ var T = {
     oui:["Oui, et nous en conservons la preuve"], incertain:["Nous le pensons, sans certitude"], non:["Non"]}},
   temps:{kicker:"Délégué à la protection des données", title:"Quel temps est consacré à la fonction de délégué ?", o:{
     plein:["L'équivalent d'un temps plein, ou presque"], partiel:["Entre un quart et un mi-temps"], heures:["Quelques heures par mois"], aucun:["Aucun temps défini"]}},
+  outil:{kicker:"Registre des traitements", title:"Comment tenez-vous votre registre, vos analyses d'impact et le suivi des demandes ?", o:{
+    dedie:["Dans un outil dédié à la conformité"], tableur:["Dans des tableurs ou des documents"], rien:["Nous n'avons rien de structuré"]}},
   registre:{kicker:"Registre des traitements", title:"Où en est votre registre des traitements ?", o:{
     tenu:["Tenu et mis à jour dans les douze derniers mois"], ancien:["Existant, mais non actualisé récemment"],
     construction:["En cours de construction"], absent:["Inexistant ou introuvable"]}},
@@ -1216,8 +1218,8 @@ function plan(r, f){
   if(r.initial==="devis") P.push({k:"mes_devis", titre:"Construction du dispositif, sur devis", prix:"Sur devis",
     pourquoi:"Un groupe ou un périmètre important ne se chiffre pas sur des hypothèses simples.", hyp:"Le devis est arrêté avant toute intervention.", a:"offre-etendue"});
   if(r.outil) P.push({k:"outil", titre:"Outil de gestion de la conformité", prix:eur(tf.outil.prix)+" HT par an, facturé par l'éditeur",
-    pourquoi:"Vous n'avez pas encore de registre : le construire directement dans un outil évite de le reprendre ensuite.",
-    hyp:"Facultatif. "+tf.outil.editeur+", éditeur français, hébergement dans l'Union européenne ; souscription directe auprès de l'éditeur, aucune rémunération du cabinet. Non compris dans l'ordre de grandeur.", a:"outil"});
+    pourquoi:"Je travaille de préférence dans un outil dédié : registre, analyses d'impact et demandes au même endroit, à jour et partagés entre vous et moi. Cela simplifie le travail de chacun. Celui que je propose est "+tf.outil.editeur+", à un tarif préférentiel.",
+    hyp:"Facultatif : je travaille aussi avec l'outil ou les documents que vous utilisez déjà. Éditeur français, hébergement dans l'Union européenne ; souscription directe auprès de l'éditeur, aucune rémunération du cabinet. Non compris dans l'ordre de grandeur.", a:"outil"});
   (r.briques||[]).forEach(function(b){
     if(b==="aipd") P.push({k:"brique-aipd", titre:"Analyse d'impact hors étude", prix:"À partir de "+eur(tf.briques.aipd)+" HT par traitement",
       pourquoi: f.aipd_absent ? "Aucune analyse d'impact n'est réalisée ; sur des données de santé, elle est souvent requise." : "Certains traitements qui la requièrent n'ont pas encore leur analyse d'impact.",

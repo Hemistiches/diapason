@@ -648,7 +648,7 @@ details.more b{font-weight:600;color:var(--ink)}
         <li id="brique-hebergeur"><b>Health data hosting · from <span data-p="br:hebergeur">€850</span> excl. VAT</b><span>Checking your host's certificate and its scope, review of the hosting agreement (article L. 1111-8 of the French Public Health Code).</span></li>
         <li id="brique-mentions"><b>Privacy notices · from <span data-p="br:mentions">€450</span> excl. VAT</b><span>For one audience: patients, users, employees or visitors to your website. <span data-p="br:mentionsSupp">€250</span> excl. VAT per additional audience.</span></li>
         <li id="brique-transfert"><b>Transfer outside the Union · from <span data-p="br:transfert">€1,200</span> excl. VAT</b><span>One flow to one recipient: choice of mechanism, standard contractual clauses and annexes, assessment of safeguards based on the recipient's information. An opinion on the law of the destination country is a matter for counsel qualified in that law.</span></li>
-        <li id="outil"><b>Compliance management tool · <span data-p="outil">€1,500</span> excl. VAT per year, invoiced by the publisher</b><span>For an organisation without one, I suggest <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, a French publisher: record, impact assessments, requests and breaches kept in a single tool, hosted in the European Union, which I use on your behalf. You subscribe directly with the publisher, at this preferential rate; your data remains yours and you keep it if we stop working together. The firm receives no remuneration from the publisher, and you remain free to choose another tool.</span></li>
+        <li id="outil"><b>Compliance management tool · <span data-p="outil">€1,500</span> excl. VAT per year, invoiced by the publisher</b><span>I prefer to work in a dedicated tool, which makes everyone's work simpler. For an organisation without one, I suggest <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, a French publisher: record, impact assessments, requests and breaches kept in a single tool, hosted in the European Union, which I use on your behalf. You subscribe directly with the publisher, at this preferential rate; your data remains yours and you keep it if we stop working together. The firm receives no remuneration from the publisher; you remain free to choose another tool, and I also work with the one you already use.</span></li>
         <li id="brique-formation"><b>Training · from <span data-p="br:formation">€600</span> excl. VAT</b><span>One ninety-minute video session for your teams, with its materials.</span></li>
       </ul>
       <p class="cadre">Beyond these volumes, or for a document not listed, the price is set by quotation before any work begins.</p>
@@ -1012,6 +1012,8 @@ var T = {
     oui:["Yes, and we keep proof of it"], incertain:["We believe so, without certainty"], non:["No"]}},
   temps:{kicker:"Data protection officer", title:"How much time is devoted to the data protection officer role?", o:{
     plein:["Full time, or nearly"], partiel:["Between a quarter and half time"], heures:["A few hours a month"], aucun:["No defined time"]}},
+  outil:{kicker:"Record of processing", title:"How do you keep your record, impact assessments and request tracking?", o:{
+    dedie:["In a dedicated compliance tool"], tableur:["In spreadsheets or documents"], rien:["We have nothing structured"]}},
   registre:{kicker:"Record of processing", title:"Where does your record of processing activities stand?", o:{
     tenu:["Kept and updated within the last twelve months"], ancien:["Exists, but not updated recently"],
     construction:["Being built"], absent:["Non-existent or cannot be found"]}},
@@ -1218,8 +1220,8 @@ function plan(r, f){
   if(r.initial==="devis") P.push({k:"mes_devis", titre:"Building the set-up, on quotation", prix:"On quotation",
     pourquoi:"A group or a large scope cannot be priced on simple assumptions.", hyp:"The quotation is agreed before any work begins.", a:"offre-etendue"});
   if(r.outil) P.push({k:"outil", titre:"Compliance management tool", prix:eur(tf.outil.prix)+" excl. VAT per year, invoiced by the publisher",
-    pourquoi:"You do not yet have a record: building it directly in a tool avoids reworking it later.",
-    hyp:"Optional. "+tf.outil.editeur+", a French publisher, hosting in the European Union; direct subscription with the publisher, no remuneration for the firm. Not included in the order of magnitude.", a:"outil"});
+    pourquoi:"I prefer to work in a dedicated tool: record, impact assessments and requests in one place, up to date and shared between you and me. It makes everyone's work simpler. The one I suggest is "+tf.outil.editeur+", at a preferential rate.",
+    hyp:"Optional: I also work with the tool or documents you already use. French publisher, hosting in the European Union; direct subscription with the publisher, no remuneration for the firm. Not included in the order of magnitude.", a:"outil"});
   (r.briques||[]).forEach(function(b){
     if(b==="aipd") P.push({k:"brique-aipd", titre:"Impact assessment outside a study", prix:"From "+eur(tf.briques.aipd)+" excl. VAT per processing operation",
       pourquoi: f.aipd_absent ? "No impact assessment has been carried out; for health data, one is often required." : "Some processing operations that require one do not yet have their impact assessment.",
