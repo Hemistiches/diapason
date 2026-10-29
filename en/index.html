@@ -624,7 +624,7 @@ details.more b{font-weight:600;color:var(--ink)}
           <p class="nc"><b>Not included:</b> impact assessments, contracts, privacy notices, transfers and training, which are ordered as <a href="#tarifs-briques">add-ons</a>; information system security and studies.</p>
           <details class="more"><summary>Details</summary><div>
             <p><b>The entry price assumes</b> one entity, up to ten simple processing operations as a guide, a contact person available in your organisation, information provided in a usable format and a set-up built by adapting existing tools.</p>
-            <p><b>Included:</b> two meetings in total and one round of consolidated comments. For a provider processing data on behalf of its clients, the record is the processor's record; if it is also a controller, the second record adds <span data-p="br:secondRegistre">€500</span> excl. VAT. <b>Not included:</b> the documentation specific to a study, information system security and its technical audit.</p>
+            <p><b>Included:</b> two meetings in total and one round of consolidated comments. If you adopt the suggested <a href="#outil">management tool</a>, the record and procedures are set up directly in it. For a provider processing data on behalf of its clients, the record is the processor's record; if it is also a controller, the second record adds <span data-p="br:secondRegistre">€500</span> excl. VAT. <b>Not included:</b> the documentation specific to a study, information system security and its technical audit.</p>
           </div></details>
         </article>
         <article id="offre-etendue">
@@ -648,6 +648,7 @@ details.more b{font-weight:600;color:var(--ink)}
         <li id="brique-hebergeur"><b>Health data hosting · from <span data-p="br:hebergeur">€850</span> excl. VAT</b><span>Checking your host's certificate and its scope, review of the hosting agreement (article L. 1111-8 of the French Public Health Code).</span></li>
         <li id="brique-mentions"><b>Privacy notices · from <span data-p="br:mentions">€450</span> excl. VAT</b><span>For one audience: patients, users, employees or visitors to your website. <span data-p="br:mentionsSupp">€250</span> excl. VAT per additional audience.</span></li>
         <li id="brique-transfert"><b>Transfer outside the Union · from <span data-p="br:transfert">€1,200</span> excl. VAT</b><span>One flow to one recipient: choice of mechanism, standard contractual clauses and annexes, assessment of safeguards based on the recipient's information. An opinion on the law of the destination country is a matter for counsel qualified in that law.</span></li>
+        <li id="outil"><b>Compliance management tool · <span data-p="outil">€1,500</span> excl. VAT per year, invoiced by the publisher</b><span>For an organisation without one, I suggest Provacy, a French publisher: record, impact assessments, requests and breaches kept in a single tool, hosted in the European Union, which I use on your behalf. You subscribe directly with the publisher, at this preferential rate; your data remains yours and you keep it if we stop working together. The firm receives no remuneration from the publisher, and you remain free to choose another tool.</span></li>
         <li id="brique-formation"><b>Training · from <span data-p="br:formation">€600</span> excl. VAT</b><span>One ninety-minute video session for your teams, with its materials.</span></li>
       </ul>
       <p class="cadre">Beyond these volumes, or for a document not listed, the price is set by quotation before any work begins.</p>
@@ -841,7 +842,7 @@ details.more b{font-weight:600;color:var(--ink)}
     <div class="wrap">
       <button class="backlink" type="button" data-view="home">Back to the site</button>
       <h1 style="margin-top:28px">Legal notice and privacy</h1>
-      <p class="label" style="margin-top:12px">Last updated: 28 October 2026</p>
+      <p class="label" style="margin-top:12px">Last updated: 29 October 2026</p>
       <div class="doc">
         <section>
           <p>This English version is provided for convenience. In the event of any discrepancy, the <a href="/#mentions" hreflang="fr" lang="fr">French version</a> prevails.</p>
@@ -970,6 +971,7 @@ function prixAttr(k){
     case "taux": return eur(TF.tauxDepassement);
     case "revue": return eur(TF.revueDesignation);
     case "br": return eur(TF.briques[p[1]]);
+    case "outil": return eur(TF.outil.prix);
     case "b": return eur(D.budget12(EX[p[1]]).total);
   }
   return null;
@@ -1215,6 +1217,9 @@ function plan(r, f){
     hyp:"The fee is set before work begins, according to the work planned."+presta, a:"offre-etendue"});
   if(r.initial==="devis") P.push({k:"mes_devis", titre:"Building the set-up, on quotation", prix:"On quotation",
     pourquoi:"A group or a large scope cannot be priced on simple assumptions.", hyp:"The quotation is agreed before any work begins.", a:"offre-etendue"});
+  if(r.outil) P.push({k:"outil", titre:"Compliance management tool", prix:eur(tf.outil.prix)+" excl. VAT per year, invoiced by the publisher",
+    pourquoi:"You do not yet have a record: building it directly in a tool avoids reworking it later.",
+    hyp:"Optional. "+tf.outil.editeur+", a French publisher, hosting in the European Union; direct subscription with the publisher, no remuneration for the firm. Not included in the order of magnitude.", a:"outil"});
   (r.briques||[]).forEach(function(b){
     if(b==="aipd") P.push({k:"brique-aipd", titre:"Impact assessment outside a study", prix:"From "+eur(tf.briques.aipd)+" excl. VAT per processing operation",
       pourquoi: f.aipd_absent ? "No impact assessment has been carried out; for health data, one is often required." : "Some processing operations that require one do not yet have their impact assessment.",

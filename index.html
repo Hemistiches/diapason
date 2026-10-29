@@ -624,7 +624,7 @@ details.more b{font-weight:600;color:var(--ink)}
           <p class="nc"><b>Non compris :</b> analyses d'impact, contrats, mentions d'information, transferts et formation, qui se commandent en <a href="#tarifs-briques">briques</a> ; la sécurité des systèmes d'information et les études.</p>
           <details class="more"><summary>Le détail</summary><div>
             <p><b>Le prix d'entrée suppose</b> une entité, jusqu'à dix traitements simples à titre indicatif, un interlocuteur disponible chez vous, des informations fournies dans un format exploitable et un dispositif construit par adaptation d'outils existants.</p>
-            <p><b>Compris :</b> deux réunions au total et un tour de commentaires consolidés. Pour un prestataire qui traite des données pour le compte de ses clients, le registre est celui du sous-traitant ; s'il est aussi responsable de traitement, le second registre ajoute <span data-p="br:secondRegistre">500 €</span> HT. <b>Non compris :</b> la conformité documentaire propre à une étude, la sécurité des systèmes d'information et son audit technique.</p>
+            <p><b>Compris :</b> deux réunions au total et un tour de commentaires consolidés. Si vous adoptez l'<a href="#outil">outil de gestion</a> proposé, le registre et les procédures y sont établis directement. Pour un prestataire qui traite des données pour le compte de ses clients, le registre est celui du sous-traitant ; s'il est aussi responsable de traitement, le second registre ajoute <span data-p="br:secondRegistre">500 €</span> HT. <b>Non compris :</b> la conformité documentaire propre à une étude, la sécurité des systèmes d'information et son audit technique.</p>
           </div></details>
         </article>
         <article id="offre-etendue">
@@ -648,6 +648,7 @@ details.more b{font-weight:600;color:var(--ink)}
         <li id="brique-hebergeur"><b>Hébergement de données de santé · à partir de <span data-p="br:hebergeur">850 €</span> HT</b><span>Vérification du certificat de votre hébergeur et de son périmètre, revue du contrat d'hébergement (article L. 1111-8 du code de la santé publique).</span></li>
         <li id="brique-mentions"><b>Mentions d'information · à partir de <span data-p="br:mentions">450 €</span> HT</b><span>Pour un public : patients, utilisateurs, salariés ou visiteurs de votre site. <span data-p="br:mentionsSupp">250 €</span> HT par public supplémentaire.</span></li>
         <li id="brique-transfert"><b>Transfert hors de l'Union · à partir de <span data-p="br:transfert">1 200 €</span> HT</b><span>Un flux vers un destinataire : choix du mécanisme, clauses contractuelles types et annexes, analyse des garanties établie à partir des informations du destinataire. Un avis sur le droit du pays de destination relève d'un conseil qualifié dans ce droit.</span></li>
+        <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Pour un organisme qui n'en a pas, je propose Provacy, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, hébergé dans l'Union européenne, que j'utilise pour vous. Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel ; vos données restent les vôtres et vous les conservez si nous cessons de travailler ensemble. Le cabinet ne perçoit aucune rémunération de l'éditeur, et vous restez libre de choisir un autre outil.</span></li>
         <li id="brique-formation"><b>Formation · à partir de <span data-p="br:formation">600 €</span> HT</b><span>Une session d'une heure trente en visio pour vos équipes, et son support.</span></li>
       </ul>
       <p class="cadre">Au-delà de ces volumes, ou pour une pièce qui n'est pas listée, le prix est arrêté sur devis avant toute intervention.</p>
@@ -841,7 +842,7 @@ details.more b{font-weight:600;color:var(--ink)}
     <div class="wrap">
       <button class="backlink" type="button" data-view="home">Retour au site</button>
       <h1 style="margin-top:28px">Mentions légales et confidentialité</h1>
-      <p class="label" style="margin-top:12px">Dernière mise à jour : 28 octobre 2026</p>
+      <p class="label" style="margin-top:12px">Dernière mise à jour : 29 octobre 2026</p>
       <div class="doc">
         <section>
           <h2>Éditeur du site</h2>
@@ -968,6 +969,7 @@ function prixAttr(k){
     case "taux": return eur(TF.tauxDepassement);
     case "revue": return eur(TF.revueDesignation);
     case "br": return eur(TF.briques[p[1]]);
+    case "outil": return eur(TF.outil.prix);
     case "b": return eur(D.budget12(EX[p[1]]).total);
   }
   return null;
@@ -1213,6 +1215,9 @@ function plan(r, f){
     hyp:"Le forfait est arrêté avant l'intervention, selon le travail prévu."+presta, a:"offre-etendue"});
   if(r.initial==="devis") P.push({k:"mes_devis", titre:"Construction du dispositif, sur devis", prix:"Sur devis",
     pourquoi:"Un groupe ou un périmètre important ne se chiffre pas sur des hypothèses simples.", hyp:"Le devis est arrêté avant toute intervention.", a:"offre-etendue"});
+  if(r.outil) P.push({k:"outil", titre:"Outil de gestion de la conformité", prix:eur(tf.outil.prix)+" HT par an, facturé par l'éditeur",
+    pourquoi:"Vous n'avez pas encore de registre : le construire directement dans un outil évite de le reprendre ensuite.",
+    hyp:"Facultatif. "+tf.outil.editeur+", éditeur français, hébergement dans l'Union européenne ; souscription directe auprès de l'éditeur, aucune rémunération du cabinet. Non compris dans l'ordre de grandeur.", a:"outil"});
   (r.briques||[]).forEach(function(b){
     if(b==="aipd") P.push({k:"brique-aipd", titre:"Analyse d'impact hors étude", prix:"À partir de "+eur(tf.briques.aipd)+" HT par traitement",
       pourquoi: f.aipd_absent ? "Aucune analyse d'impact n'est réalisée ; sur des données de santé, elle est souvent requise." : "Certains traitements qui la requièrent n'ont pas encore leur analyse d'impact.",
