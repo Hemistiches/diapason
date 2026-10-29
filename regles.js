@@ -8,7 +8,7 @@
      1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026 ; socle et briques révisés le 28 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-10-28b",
+    version: "2026-10-29",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
     miseEnPlace: { simple: 2750, etendue: 4500 },      // le socle ; « simple » : diagnostic compris, prix global (2 750 € depuis le 28 octobre 2026)
@@ -25,6 +25,8 @@
       formation: 600,       // une session d'une heure trente et son support
       secondRegistre: 500   // second registre lorsque l'organisme est à la fois responsable et sous-traitant
     },
+    /* Outil de gestion de la conformité (Provacy) : facturé au client par l'éditeur, par an ; aucune rémunération du cabinet (29 octobre 2026). */
+    outil: { prix: 1500, editeur: "Provacy" },
     dpo: [
       { cle: "limite",   prix: 490,  heures: 3,  report: 1, point: "trimestriel", aPartirDe: false },
       { cle: "regulier", prix: 990,  heures: 6,  report: 2, point: "mensuel",     aPartirDe: false },
@@ -362,7 +364,7 @@
 
   function orienter(a) {
     var ids = parcours(a), f = drapeaux(a, ids);
-    var r = { prioritaire: false, etat: null, initial: null, revue: false, etudes: null, ia: null, dpo: null, briques: [], presta: !!f.presta,
+    var r = { prioritaire: false, etat: null, initial: null, revue: false, etudes: null, ia: null, dpo: null, briques: [], outil: false, presta: !!f.presta,
               consultation: "option", devis: [], raisons: [], ponctuel: false };
 
     /* 1. Situation ouverte : échange prioritaire, contrôle ou incident sur devis. */
@@ -411,6 +413,8 @@
     }
 
     /* 4 ter. Briques qui complètent le socle, proposées pour les manques déclarés (sauf groupe : devis d'ensemble). */
+    /* Outil de gestion proposé à l'organisme sans registre : il est alors construit directement dans l'outil. */
+    if (!f.e_groupe && f.reg_absent) r.outil = true;
     if (!f.e_groupe) {
       if (f.aipd_absent || f.aipd_partiel) r.briques.push("aipd");
       if (f.hds) r.briques.push("hebergeur");
@@ -450,6 +454,7 @@
     if (r.revue) k.push("revue");
     if (r.ia) k.push("ia:" + r.ia.niveau);
     r.briques.forEach(function (b) { k.push("brique:" + b); });
+    if (r.outil) k.push("outil");
     if (r.etudes) k.push("etude:" + r.etudes.niveau + (r.etudes.pays ? "+" + r.etudes.pays + "pays" : "") + (r.etudes.horsUE ? "+horsUE" : ""));
     if (r.dpo) k.push("dpo:" + r.dpo.palier + (r.dpo.priseDeFonction ? ":prise" : ""));
     k.push("consultation:" + r.consultation);
