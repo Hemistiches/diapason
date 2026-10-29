@@ -8,7 +8,7 @@
      1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026 ; socle et briques révisés le 28 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-10-29",
+    version: "2026-10-29b",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
     miseEnPlace: { simple: 2750, etendue: 4500 },      // le socle ; « simple » : diagnostic compris, prix global (2 750 € depuis le 28 octobre 2026)
@@ -147,6 +147,12 @@
       O("construction", { frag: 2, expo: 1 }, ["registre", "reg_absent"]),
       O("absent", { frag: 3, expo: 2 }, ["registre", "reg_absent"])
     ]},
+    /* Outil de tenue de la documentation (29 octobre 2026) : sans effet sur les indicateurs, sert à proposer l'outil de gestion. */
+    outil: { bloc: "dispositif", opts: [
+      O("dedie", {}, ["outil_dedie"]),
+      O("tableur", {}, ["outil_absent"]),
+      O("rien", {}, ["outil_absent"])
+    ]},
     aipd: { bloc: "dispositif", opts: [
       O("toutes", {}),
       O("certaines", { frag: 1 }, ["aipd", "aipd_partiel"]),
@@ -226,7 +232,7 @@
   };
   Object.keys(Q).forEach(function (id) { Q[id].id = id; });
 
-  var BASE = ["activite", "echelle", "entites", "flux", "designation", "registre", "aipd", "hebergement", "transferts", "violations", "projets", "demandes", "relais", "declencheur"];
+  var BASE = ["activite", "echelle", "entites", "flux", "designation", "registre", "outil", "aipd", "hebergement", "transferts", "violations", "projets", "demandes", "relais", "declencheur"];
 
   function optionsChoisies(id, a) {
     var q = Q[id], v = a[id];
@@ -413,8 +419,8 @@
     }
 
     /* 4 ter. Briques qui complètent le socle, proposées pour les manques déclarés (sauf groupe : devis d'ensemble). */
-    /* Outil de gestion proposé à l'organisme sans registre : il est alors construit directement dans l'outil. */
-    if (!f.e_groupe && f.reg_absent) r.outil = true;
+    /* Outil de gestion proposé à l'organisme qui n'en a pas (tableurs ou rien de structuré) ; groupe : devis d'ensemble. */
+    if (!f.e_groupe && f.outil_absent) r.outil = true;
     if (!f.e_groupe) {
       if (f.aipd_absent || f.aipd_partiel) r.briques.push("aipd");
       if (f.hds) r.briques.push("hebergeur");
