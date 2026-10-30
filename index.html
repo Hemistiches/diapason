@@ -423,6 +423,8 @@ details.more b{font-weight:600;color:var(--ink)}
 .rules b{display:block;font-weight:400;font-size:clamp(17px,1.4vw,19px)}
 .rules > li > span{display:block;font-size:15px;color:var(--ink-2);margin-top:4px}
 .rules a{color:inherit;border-bottom:1px solid var(--rule)}
+.rules > li > span + span{margin-top:10px}
+.rules .lab{font-style:normal;color:var(--ink)}
 .faq-s{padding-block:clamp(72px,9vw,120px)}
 .faq{margin-top:clamp(28px,3.5vw,48px);border-top:1px solid var(--ink);max-width:900px}
 .faq details{border-bottom:1px solid var(--rule)}
@@ -433,6 +435,8 @@ details.more b{font-weight:600;color:var(--ink)}
 .faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .faq details > div{padding:0 0 20px;font-size:16px;color:var(--ink-2);max-width:70ch}
 .faq details > div p + p{margin-top:10px}
+a.fort{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1px solid var(--rule)}
+a.fort:hover{border-bottom-color:var(--ink)}
 .conviction{background:var(--card)}
 .parcours li{grid-template-columns:minmax(0,1fr)}
 .parcours .pr{text-align:left;color:var(--ink-2)}
@@ -648,7 +652,7 @@ details.more b{font-weight:600;color:var(--ink)}
         <li id="brique-hebergeur"><b>Hébergement de données de santé · à partir de <span data-p="br:hebergeur">850 €</span> HT</b><span>Vérification du certificat de votre hébergeur et de son périmètre, revue du contrat d'hébergement (article L. 1111-8 du code de la santé publique).</span></li>
         <li id="brique-mentions"><b>Mentions d'information · à partir de <span data-p="br:mentions">450 €</span> HT</b><span>Pour un public : patients, utilisateurs, salariés ou visiteurs de votre site. <span data-p="br:mentionsSupp">250 €</span> HT par public supplémentaire.</span></li>
         <li id="brique-transfert"><b>Transfert hors de l'Union · à partir de <span data-p="br:transfert">1 200 €</span> HT</b><span>Un flux vers un destinataire : choix du mécanisme, clauses contractuelles types et annexes, analyse des garanties établie à partir des informations du destinataire. Un avis sur le droit du pays de destination relève d'un conseil qualifié dans ce droit.</span></li>
-        <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Je travaille de préférence dans un outil dédié, qui simplifie le travail de chacun. Pour un organisme qui n'en a pas, je propose <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, que j'utilise pour vous. Selon l'éditeur, l'hébergement principal est assuré en Allemagne par IONOS (certifié ISO 27001 et C5), avec un hébergement secondaire en France chez OVH ; les éléments de conformité s'exportent en PDF ou en Excel. L'hébergeur n'étant pas certifié pour les données de santé, l'outil ne reçoit que la documentation de conformité : aucune donnée de santé ni détail nominatif qui en révélerait, ces éléments restant dans vos propres systèmes. Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel, renouvelé chaque année ; vos données restent les vôtres et vous les conservez si nous cessons de travailler ensemble. Je vous accompagne dans la prise en main et le renseignement de l'outil : cette aide fait partie de ma mission, comprise dans le forfait, puis décomptée du volume de l'abonnement ; les questions techniques (accès, incidents) relèvent de l'éditeur. Le cabinet ne perçoit aucune rémunération de l'éditeur ; vous restez libre de choisir un autre outil, et je travaille aussi avec celui que vous utilisez déjà.</span></li>
+        <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Je travaille de préférence dans un outil dédié, qui simplifie le travail de chacun. Pour un organisme qui n'en a pas, je propose <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, que j'utilise pour vous.</span><span><i class="lab">Souscription.</i> Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel, renouvelé chaque année. Vos données restent les vôtres : elles s'exportent en PDF ou en Excel, et vous les conservez si nous cessons de travailler ensemble.</span><span><i class="lab">Hébergement.</i> Selon l'éditeur, en Allemagne chez IONOS (certifié ISO 27001 et C5), avec un hébergement secondaire en France chez OVH. Cet hébergement n'étant pas certifié pour les données de santé, l'outil ne reçoit que la documentation de conformité : aucune donnée de santé ni détail nominatif qui en révélerait, ces éléments restant dans vos propres systèmes.</span><span><i class="lab">Accompagnement.</i> Je vous aide à prendre en main l'outil et à le renseigner. Cette aide fait partie de ma mission : comprise dans le forfait, puis décomptée du volume de l'abonnement. Les questions techniques (accès, incidents) relèvent de l'éditeur.</span><span><i class="lab">Indépendance.</i> Le cabinet ne perçoit aucune rémunération de l'éditeur. Vous restez libre de choisir un autre outil, et je travaille aussi avec celui que vous utilisez déjà.</span></li>
         <li id="brique-formation"><b>Formation · à partir de <span data-p="br:formation">600 €</span> HT</b><span>Une session d'une heure trente en visio pour vos équipes, et son support.</span></li>
       </ul>
       <p class="cadre">Au-delà de ces volumes, ou pour une pièce qui n'est pas listée, le prix est arrêté sur devis avant toute intervention.</p>
@@ -693,7 +697,7 @@ details.more b{font-weight:600;color:var(--ink)}
           <ul><li>Rôles du fabricant, des établissements et du fournisseur du modèle</li><li>Fondement de l'entraînement et de l'usage, réutilisation des données</li><li>Analyse d'impact du dispositif et information des patients</li><li>Revue d'un contrat relatif aux données d'entraînement ou au modèle</li><li>Articulation avec la gouvernance des données du règlement sur l'IA</li></ul>
           <details class="more"><summary>Le détail</summary><div>
             <p>Le prix d'entrée vise un modèle et une source de données. Plusieurs sources ou pays, un réentraînement continu ou des transferts hors de l'Union : sur devis. Une modification substantielle du dispositif ou de ses sources de données ensuite fait l'objet d'un accord complémentaire.</p>
-            <p>Le marquage CE et la conformité au règlement sur l'intelligence artificielle relèvent de <a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>. C'est le même avocat : le travail fait pour l'une est repris dans l'autre, jamais facturé deux fois.</p>
+            <p>Le marquage CE et la conformité au règlement sur l'intelligence artificielle relèvent de <a class="fort" href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>. C'est le même avocat : le travail fait pour l'une est repris dans l'autre, jamais facturé deux fois.</p>
           </div></details>
         </article>
       </div>
@@ -755,7 +759,7 @@ details.more b{font-weight:600;color:var(--ink)}
       <p class="cadre">Ces budgets illustrent une année ; ils ne fixent ni une durée d'engagement de douze mois, ni une somme due à la signature. Le niveau de suivi se confirme selon votre situation : une étude menée dans plusieurs pays n'entre pas d'office dans le suivi limité. Si un diagnostic a déjà été réglé, le socle simple n'appelle que son complément ; une consultation imputable n'est jamais ajoutée une seconde fois ; la reprise d'un dispositif exploitable ne donne lieu à aucun nouveau socle.</p>
 
       <p class="cadre"><strong>Prix hors taxes.</strong> La taxe sur la valeur ajoutée au taux de 20 % s'y ajoute pour les clients établis en France ; pour un client professionnel établi dans un autre État membre, elle est autoliquidée par le preneur. En cas d'accord, la mission fait l'objet d'une convention d'honoraires signée avant toute intervention, qui fixe le périmètre, ses exclusions et les modalités de détermination du prix. Elle est précédée d'une vérification des conflits d'intérêts.</p>
-      <p class="cadre"><strong>Et pour le reste de votre fonction juridique ?</strong> Diapason couvre la protection des données de santé ; <a href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a> la direction juridique externalisée ; <a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a> la conformité des dispositifs médicaux ; <a href="https://unisson.hemistiches.com" target="_blank" rel="noopener">Unisson</a> les relations avec les professionnels de santé. C'est le même avocat : les écarts de prix tiennent au volume, à la durée et à l'organisation de chaque offre. Une désignation comme délégué n'est pas comprise dans Cadence, Concordance ou Unisson, et un travail déjà accompli pour vous dans l'une est réutilisé, jamais facturé deux fois.</p>
+      <p class="cadre"><strong>Et pour le reste de votre fonction juridique ?</strong> Diapason couvre la protection des données de santé ; <a class="fort" href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a> la direction juridique externalisée ; <a class="fort" href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a> la conformité des dispositifs médicaux ; <a class="fort" href="https://unisson.hemistiches.com" target="_blank" rel="noopener">Unisson</a> les relations avec les professionnels de santé. C'est le même avocat : les écarts de prix tiennent au volume, à la durée et à l'organisation de chaque offre. Une désignation comme délégué n'est pas comprise dans Cadence, Concordance ou Unisson, et un travail déjà accompli pour vous dans l'une est réutilisé, jamais facturé deux fois.</p>
     </div>
   </section>
 
@@ -777,7 +781,7 @@ details.more b{font-weight:600;color:var(--ink)}
         </details>
         <details>
           <summary>Notre dispositif intègre de l'IA : par où commencer ?</summary>
-          <div><p>Par les données. Entraîner ou faire fonctionner un algorithme sur des données de santé relève du RGPD dès aujourd'hui : fondement, réutilisation des données, analyse d'impact, information des patients, contrats avec les sources. Les obligations du règlement sur l'IA pour les systèmes à haut risque intégrés à un produit ont été reportées par le règlement (UE) 2026/1744 ; le marquage CE et ce volet réglementaire relèvent de <a href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>.</p></div>
+          <div><p>Par les données. Entraîner ou faire fonctionner un algorithme sur des données de santé relève du RGPD dès aujourd'hui : fondement, réutilisation des données, analyse d'impact, information des patients, contrats avec les sources. C'est le champ de Diapason.</p><p>Le dispositif lui-même relève d'une autre offre : <a class="fort" href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>, l'offre du cabinet consacrée à la conformité des dispositifs médicaux. Elle couvre le marquage CE et les obligations du règlement sur l'IA, dont celles applicables aux systèmes à haut risque intégrés à un produit, reportées par le règlement (UE) 2026/1744. C'est le même avocat : le travail fait pour l'une est repris dans l'autre, jamais facturé deux fois.</p></div>
         </details>
         <details>
           <summary>Comment le niveau d'abonnement est-il choisi ?</summary>
@@ -946,6 +950,8 @@ function frDom(root){
   var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
   while((n = w.nextNode())){ var p = n.parentNode; if(p && /SCRIPT|STYLE|CODE/.test(p.nodeName)) continue; var t = fr(n.nodeValue); if(t !== n.nodeValue) n.nodeValue = t; }
 }
+/* Renvois vers les autres offres du cabinet dans le résultat. */
+function liens(t){ return t.replace(/\b(Cadence|Concordance)\b/g, function(m){ return '<a class="fort" href="https://'+m.toLowerCase()+'.hemistiches.com" target="_blank" rel="noopener">'+m+'</a>'; }); }
 function esc(s){ return fr(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 function eur(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €"; }
 
@@ -1296,7 +1302,7 @@ function report(){
   html += '</ul></div>';
 
   html += '<div class="rsec"><h4>Ce que je vous propose</h4><p class="compl">'+esc(r.ponctuel && !r.dpo ? "Une mission ponctuelle, sans abonnement." : "Des missions distinctes, chacune à son prix : vous n'engagez que celles dont vous avez besoin.")+'</p><ol class="parcours">'+
-    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+esc(p.pourquoi)+'</p><p class="hyp">'+esc(p.hyp)+'</p></li>'; }).join("")+'</ol>';
+    P.map(function(p){ return '<li><b><a href="#'+p.a+'">'+esc(p.titre)+'</a></b><span class="pr">'+esc(p.prix)+'</span><p>'+liens(esc(p.pourquoi))+'</p><p class="hyp">'+liens(esc(p.hyp))+'</p></li>'; }).join("")+'</ol>';
   if(r.dpo) html += '<p class="reco-warn">'+esc("L'abonnement tient la fonction de délégué. Il ne comprend ni la construction du dispositif, ni la mise en conformité documentaire de vos études.")+'</p>';
   if(r.consultation!=="principale") html += '<p class="compl">'+esc("Si vous préférez commencer par en parler : consultation d'orientation, "+eur(TF.consultation.prix)+" HT, déduite d'un forfait engagé dans les trente jours. Elle reste facultative.")+'</p>';
 
