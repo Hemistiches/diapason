@@ -455,6 +455,14 @@ a.fort:hover{border-bottom-color:var(--ink)}
 .three.one{grid-template-columns:minmax(0,1fr)}
 .three.one p{max-width:70ch}
 .three.one ul,.three.one details.more{max-width:760px}
+/* Lisibilité (31 octobre 2026) : sur fond clair, rendu non aminci, gris secondaire plus soutenu, petits textes relevés ; fonds noirs inchangés */
+.coords a{overflow-wrap:anywhere} /* adresse électronique du pied : pas de débordement autour de 1 030 px */
+:root{--mute:#555555}
+body{-webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto}
+.top,.drawer,.hero,.report-head,.cadre-s,.contact,.six article.dpo,.delegue-s{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.notice,.qmeta,.opt small,.qnote,.copied,.three .from,.three .range,.parcours .hyp,.budget p{font-size:15px}
+.small,.sources,.prio .kind{font-size:14px}
+.prio p,.compl,.three li,.dates p,.parcours p,.budget dt,details.more > div p,.rules > li > span,.cadre,.creds,.fonctions span,.check,.qhint{font-size:16px}
 </style>
 </head>
 <body>
@@ -1273,7 +1281,7 @@ function plan(r, f){
   return P;
 }
 
-function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Maître François Césure</div><div class="rl">'+esc("Avocat, Paris Bar · certified data protection officer")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div></div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br>www.hemistiches.com</div></div>'; }
+function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Maître François Césure</div><div class="rl">'+esc("Avocat, Paris Bar · certified data protection officer")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div>'+(cls?'<div class=\"rl\">SIREN 833 468 358</div>':'')+'</div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br>www.hemistiches.com</div></div>'; }
 var LOGO = "";
 (function(){ var img = document.querySelector(".brand img"); if(!img) return;
   function noir(){ try{ var c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight; var x = c.getContext("2d");
@@ -1330,14 +1338,13 @@ function report(){
   html += '<div class="rsec no-print"><h4>Keep this result</h4><div class="keep"><p class="compare">'+esc("Save it as a PDF, or send it to your own mailbox. It is not stored on this site or by the firm.")+'</p>'+
     '<div class="actions"><button type="button" class="btn btn-ink" id="pdf">Save as PDF</button><a class="btn btn-line" id="selfmail" href="mailto:?subject='+encodeURIComponent("My Diapason result")+'&body='+encodeURIComponent(summary(s, keys, P))+'">'+esc("Email me the result")+'</a></div></div></div>';
 
-  html += '<div class="rsec"><h4>Discuss your result</h4><p class="compare">'+esc("A first twenty-minute conversation, free and without obligation, to check this result against your actual situation. Write to me stating your three levels:")+'</p>'+
+  html += '<div class="rsec no-print"><h4>Discuss your result</h4><p class="compare">'+esc("To check this result against your actual situation, write to me stating your three levels:")+'</p>'+
     '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy the address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason: "+subj))+'&body='+encodeURIComponent(fr("Hello,\n\nI would like to discuss my Diapason result.\n\n")+summary(s, keys, P, true))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
 
   html += '<p class="notice">'+esc("This result is generated automatically from your answers alone, without verification or review of documents, and is stated as at the date it was generated. It is indicative information and constitutes neither legal advice nor an opinion. Amounts are entry prices excluding VAT, on the assumptions stated; any engagement is subject to a fee agreement setting out the scope and how the price is determined, and to a prior conflict-of-interest check.")+'</p>'+
     '<p class="sources">'+esc("Sources of the obligations cited: Regulation (EU) 2016/679, Articles 6, 9, 27, 30, 33, 35, 37 and 38; Regulation (EU) 2024/1689 on artificial intelligence, Article 10, as amended by Regulation (EU) 2026/1744; Article L. 1111-8 of the French Public Health Code, as in force since 1 July 2025. The regimes applicable to research processing in the health sector derive from French Law No. 78-17 of 6 January 1978, as amended, and from the reference methodologies approved by the CNIL.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Take the test again</button></div>';
-  html = '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Diapason</span></span><span>'+esc("Result issued on "+today)+'</span></div>'+carte('', "Your contact")+html+carte(' end', "To discuss this result")+
-    '<div class="print-only print-foot">'+esc("Maître François Césure, avocat, Paris Bar · Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France · francois.cesure@hemistiches.com · +33 6 47 88 80 25 · SIREN 833 468 358. Indicative orientation, subject to a prior conversation and to the signature of a fee agreement.")+'</div>';
+  html = '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Diapason</span></span><span>'+esc("Result issued on "+today)+'</span></div>'+carte('', "Your contact")+html+carte(' end', "To discuss this result");
   box.innerHTML = html;
   document.getElementById("pdf").onclick = function(){ try{ window.print(); }catch(e){} };
   document.getElementById("copy").onclick = function(){
