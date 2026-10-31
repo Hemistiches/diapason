@@ -455,6 +455,14 @@ a.fort:hover{border-bottom-color:var(--ink)}
 .three.one{grid-template-columns:minmax(0,1fr)}
 .three.one p{max-width:70ch}
 .three.one ul,.three.one details.more{max-width:760px}
+/* Lisibilité (31 octobre 2026) : sur fond clair, rendu non aminci, gris secondaire plus soutenu, petits textes relevés ; fonds noirs inchangés */
+.coords a{overflow-wrap:anywhere} /* adresse électronique du pied : pas de débordement autour de 1 030 px */
+:root{--mute:#555555}
+body{-webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto}
+.top,.drawer,.hero,.report-head,.cadre-s,.contact,.six article.dpo,.delegue-s{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.notice,.qmeta,.opt small,.qnote,.copied,.three .from,.three .range,.parcours .hyp,.budget p{font-size:15px}
+.small,.sources,.prio .kind{font-size:14px}
+.prio p,.compl,.three li,.dates p,.parcours p,.budget dt,details.more > div p,.rules > li > span,.cadre,.creds,.fonctions span,.check,.qhint{font-size:16px}
 </style>
 </head>
 <body>
