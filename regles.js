@@ -8,7 +8,7 @@
      1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026 ; socle et briques révisés le 28 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-11-03",
+    version: "2026-11-03.1",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
     miseEnPlace: { simple: 2750, etendue: 4500 },      // le socle ; « simple » : diagnostic compris, prix global (2 750 € depuis le 28 octobre 2026)
@@ -453,20 +453,13 @@
     r.surMesure = !!(f.e_groupe || f.pas_etab || f.perimetre_important || f.perimetre_inconnu || f.n4 ||
       (f.e_multi && (f.flux_n >= 2 || f.et_complexe)));
     if (f.perimetre_developpe && r.initial === "simple") r.initial = "etendue";
-    if (r.surMesure) {
-      if (r.initial) r.initial = "devis";
-      if (r.etudes) r.etudes.niveau = "devis";
-      if (r.ia) r.ia.niveau = "devis";
-      if (r.dpo) r.dpo.palier = "devis";
-      r.revue = false; r.briques = []; r.outil = false;
-      r.devis.push("perimetre");
-    }
+    /* A complex scope qualifies the entry prices; it never removes the missions. */
+    if (r.surMesure) r.devis.push("perimetre");
 
     /* 6. Consultation : orientation principale seulement si rien d'autre ne s'impose, ou si la question est ponctuelle. */
     var rien = !r.prioritaire && !r.initial && !r.revue && !r.etudes && !r.dpo && !r.ia && !r.briques.length;
     if (f.int_ponctuel || rien) { r.consultation = "principale"; r.ponctuel = true; }
     if (!r.dpo && (r.initial || r.etudes || r.revue || r.ia || r.briques.length)) r.ponctuel = true;   // mission ponctuelle sans abonnement
-    if (r.surMesure) r.consultation = "option";
     return r;
   }
 

@@ -885,7 +885,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
     <div class="wrap">
       <button class="backlink" type="button" data-view="home">Back to the site</button>
       <h1 style="margin-top:28px">Legal notice and privacy</h1>
-      <p class="label" style="margin-top:12px">Last updated: 3 November 2026</p>
+      <p class="label" style="margin-top:12px">Last updated: 3 November 2026 (revision 1)</p>
       <div class="doc">
         <section>
           <p>This English version is provided for convenience. In the event of any discrepancy, the <a href="/#mentions" hreflang="fr" lang="fr">French version</a> prevails.</p>
@@ -1116,8 +1116,8 @@ var VIG = {
   registre:["Record of processing activities.","The record required by Article 30 is the first document requested in an inspection. A missing or outdated record immediately shifts the discussion: it is no longer about your processing, but about your ability to account for it.",""],
   aipd:["Impact assessments.","An assessment is required where processing is likely to result in a high risk, which is common with health data (Article 35). Not knowing which of your processing operations require one is an honest answer, and it is a bounded task: the list is built from the record.","info"],
   regime:["Legal basis of your research processing.","Depending on the nature of your work, it falls either under a declaration of conformity with a reference methodology approved by the CNIL, or under an authorisation. Determining which of these regimes applies requires qualifying the research itself: this report does not do so, and no questionnaire can. It is the first thing to settle, because it governs the formalities and the timetable.","info"],
-  ia:["Artificial intelligence and health data.","Training or running an algorithm on health data is processing in its own right: it needs a legal basis, information for the people concerned and, in most cases, an impact assessment (Article 35). Reusing data collected for another purpose, in your organisation or at a partner's, requires checking compatibility (Article 6(4)) and the rules specific to health data (Article 9). For a medical device, the AI Regulation adds its own data governance requirements (Article 10 of Regulation (EU) 2024/1689), whose application to high-risk systems embedded in a product has been postponed by Regulation (EU) 2026/1744. This report does not classify your system.","info"],
-  multi_pays:["Several investigation countries.","The Regulation is common to the Member States, but each retains some latitude on health data and research (Article 9(4)): the legal basis chosen for the study, the role of ethics committees, formalities with the national authority. Each country is checked against its own law, with a local correspondent. This report does not do so.","info"],
+  ia:["Artificial intelligence and health data.","Training or running an algorithm on health data is processing in its own right: it needs a legal basis, information for the people concerned and, in most cases, an impact assessment (Article 35). Reusing data collected for another purpose, in your organisation or at a partner's, requires checking compatibility (Article 6(4)) and the rules specific to health data (Article 9). For a medical device, the AI Regulation adds its own data governance requirements (Article 10 of Regulation (EU) 2024/1689), whose application to high-risk systems embedded in a product has been postponed by Regulation (EU) 2026/1744. This result does not classify your system.","info"],
+  multi_pays:["Several investigation countries.","The Regulation is common to the Member States, but each retains some latitude on health data and research (Article 9(4)): the legal basis chosen for the study, the role of ethics committees, formalities with the national authority. Each country is checked against its own law, with a local correspondent. This result does not do so.","info"],
   hds:["Certification of the host.","Hosting personal health data on digital media requires a host holding a certificate of conformity (Article L. 1111-8, II, of the French Public Health Code), and the service is the subject of a contract. Checking your provider's certification and including it in the contract is your diligence, not theirs.",""],
   hds_interne:["Hosting on your own infrastructure.","The certification requirement covers hosting carried out on behalf of a third party. Depending on how your data flows are organised, and as soon as a provider is involved in the chain, the question arises again. It is worth settling in writing once and for all.","info"],
   transferts:["Transfers outside the EU.","Standard contractual clauses are not enough on their own: the safeguards actually offered by the destination country must also have been examined. And hosting health data carries its own requirements on location and on protection against access by third-country authorities (Article L. 1111-8, IV, of the French Public Health Code). The difficulty rarely comes from your direct provider: it comes from theirs.",""],
@@ -1127,7 +1127,7 @@ var VIG = {
   int_externe:["An external deadline applies to you.","Fundraising, tender, partner audit: whoever is asking expects documents, not intentions: an appointment notified to the CNIL, an up-to-date record, a breach procedure. The good news is that the list is finite and the timetable is yours, provided you start now.","info"],
   int_remplacer:["Continuity of the role.","The officer's departure does not suspend the obligation. The vacancy period is a classic blind spot: the appointment remains published, the role is no longer performed, and the organisation is answerable for it.","info"],
   maitrise:["No gap declared, but one point of attention remains.","Your answers, which have not been checked, show no gap in the organisation of your data protection function. They cannot attest to it: compliance is demonstrated by documents, not by statements. The useful exercise is to check that these documents can be produced as they stand.","good"],
-  reserve:["What this report does not do.","It does not determine the legal regime applicable to your processing, nor whether you must appoint an officer, nor under which legal basis your research falls. These qualifications depend on the exact nature of your activities, the actual scale of processing and the documents that support them, which closed answers cannot assess. It sets out the questions your situation raises, not answers.","info"]
+  reserve:["What this result does not do.","It does not determine the legal regime applicable to your processing, nor whether you must appoint an officer, nor under which legal basis your research falls. These qualifications depend on the exact nature of your activities, the actual scale of processing and the documents that support them, which closed answers cannot assess. It sets out the questions your situation raises, not answers.","info"]
 };
 
 var NIV = {eleve:"high", modere:"moderate", limite:"limited"};
@@ -1245,12 +1245,12 @@ function verdict(s){
 }
 
 /* Orientation: each item states why, the entry price and its assumptions. */
+var RESERVE_PRIX = "Your scope exceeds the assumptions underlying the entry price: the fee will be set after scoping, by quotation.";
 function plan(r, f){
   var P = [], tf = TF;
   if(r.prioritaire) P.push({k:"prioritaire", titre:"A priority conversation about the matter under way", prix:"On quotation, after an initial conversation",
     pourquoi: f.urgent ? "A procedure is under way (inspection, complaint or request): it is best handled early, before positions harden." : "A breach without documented analysis calls for a prompt decision on how to qualify it and, where appropriate, notify it.",
     hyp:"The budget is agreed with you, in stages if need be. The rest of the orientation below comes afterwards.", a:"offre-controle"});
-  if(r.surMesure) { P.push({k:"sur_mesure", titre:"Tailored engagement", prix:"Budget after scoping, on quotation", pourquoi:"Your scope is extensive, complex or still needs defining. Entry fees and standard subscriptions cannot be used to estimate its budget.", hyp:"Scoping identifies entities, activities, processing operations, studies, countries, deliverables and internal resources, then the appropriate ongoing support. No overall amount is calculated automatically.", a:"offre-sur-mesure"}); return P; }
   if(r.consultation==="principale") P.push({k:"consultation", titre:"Orientation consultation", prix:eur(tf.consultation.prix)+" excl. VAT",
     pourquoi: f.int_ponctuel ? "Your need is a one-off: forty-five minutes is often enough to situate the question and what to do next." : "Your answers do not point to an engagement that is clearly needed: a conversation makes it possible to check.",
     hyp:"Reading of your result and a few short documents, forty-five-minute call, summary by email. Deducted from a fixed-fee engagement taken up within thirty days.", a:"offre-consultation"});
@@ -1264,8 +1264,8 @@ function plan(r, f){
   if(r.initial==="etendue") P.push({k:"etendue", titre:"The foundation: extended", prix:"From "+eur(tf.miseEnPlace.etendue)+" excl. VAT",
     pourquoi:"Essential documents are missing on a more developed but limited and defined scope; complex organisations require a tailored engagement.",
     hyp:"The fee is set before work begins, according to the work planned."+presta, a:"offre-etendue"});
-  if(r.initial==="devis") P.push({k:"mes_devis", titre:"Building the set-up, on quotation", prix:"On quotation",
-    pourquoi:"A group or a large scope cannot be priced on simple assumptions.", hyp:"The quotation is agreed before any work begins.", a:"offre-etendue"});
+  if(r.initial==="devis") P.push({k:"mes_devis", titre:r.etat==="a_construire" ? "The foundation: extended" : "Assessment of the existing set-up", prix:"From "+eur(r.etat==="a_construire" ? tf.miseEnPlace.etendue : tf.diagnostic)+" excl. VAT",
+    pourquoi:"The scope requires specific scoping before the initial work can be defined.", hyp:"The quotation will specify the entities, processing operations, documents and discussions included.", a:"offre-sur-mesure"});
   if(r.outil) P.push({k:"outil", titre:"Compliance management tool", prix:eur(tf.outil.prix)+" excl. VAT per year, invoiced by the publisher",
     pourquoi:"I prefer to work in a dedicated tool: record, impact assessments and requests in one place, up to date and shared between you and me. It makes everyone's work simpler. The one I suggest is "+tf.outil.editeur+", at a preferential rate.",
     hyp:"Optional: I also work with the tool or documents you already use. French publisher, hosting in the European Union; direct subscription with the publisher, no remuneration for the firm. Not included in the order of magnitude.", a:"outil"});
@@ -1285,27 +1285,34 @@ function plan(r, f){
     hyp:"Simple situation, defined set of documents; implementing the corrections is separate. If you prefer to outsource the role, the data protection officer subscription takes over.", a:"offre-revue"});
   if(r.etudes){
     var e = r.etudes, px;
-    if(e.niveau==="devis") px = "On quotation";
+    if(e.niveau==="devis") px = "From "+eur(tf.etude.approfondie)+" excl. VAT per study";
     else px = "From "+eur(tf.etude[e.niveau])+" excl. VAT per study";
-    if(e.pays && e.niveau!=="devis") px += ", + "+eur(tf.etude.paysSupp)+" excl. VAT per additional country ("+(e.paysAuMoins?"at least ":"")+e.pays+" "+(e.pays>1?"countries":"country")+")";
+    if(e.pays) px += ", + "+eur(tf.etude.paysSupp)+" excl. VAT per additional country ("+(e.paysAuMoins?"at least ":"")+e.pays+" "+(e.pays>1?"countries":"country")+")";
     P.push({k:"etude", titre:(e.niveau==="simple"?"Compliance of a simple study":(e.niveau==="approfondie"?"In-depth study compliance":"Compliance of your studies, on quotation"))+(e.plusieurs?", one engagement per study":""), prix:px,
       pourquoi: e.niveau==="simple" ? "Your study follows a simple design, its documents are available and its legal basis is identified." :
         (e.niveau==="approfondie" ? "The documents need adapting or building, the legal basis remains to be established, or the processing involves several higher-risk situations." : "A complex design, across several countries or many studies, calls for a quotation."),
       hyp:(e.pays||e.horsUE ? "Local counsel's fees in addition, agreed or estimated before launch"+(e.horsUE?"; countries outside the EU are quoted separately":"")+". " : "")+"With or without a subscription. Entry in the record is part of the engagement.", a: e.pays?"offre-pays":"offre-etude"});
   }
-  if(r.ia) P.push({k:"ia", titre:"Data of a device incorporating AI"+(r.ia.niveau==="devis"?", on quotation":""), prix: r.ia.niveau==="devis" ? "On quotation" : "From "+eur(TF.dispositifIA)+" excl. VAT",
+  if(r.ia) P.push({k:"ia", titre:"Data of a device incorporating AI"+(r.ia.niveau==="devis"?", on quotation":""), prix: "From "+eur(TF.dispositifIA)+" excl. VAT",
     pourquoi: f.ia_entrainement ? "Your algorithm is trained on patient data: the legal basis, reuse of data, impact assessment and contracts with data sources arise now, under the GDPR." : (f.ia_inconnu ? "You do not know what data your algorithm is trained on: that is the first point to establish, before CE marking as before any inspection." : "Your device incorporates an algorithm: its data flows must be documented under the GDPR, independently of CE marking."),
     hyp:(r.ia.niveau==="devis" ? "Several sources or countries, or transfers outside the EU: scope set in the quotation. " : "One model and one data source. ")+"With or without a subscription."+(r.ia.fabricant ? " CE marking and the AI Regulation fall under Concordance, the same lawyer: work done on one side is carried over to the other." : ""), a:"offre-ia"});
   if(r.dpo){
     var d = r.dpo, pl = d.palier==="devis" ? "renforce" : d.palier, pp = D.palier(pl), L = PAL[pl];
     var src = d.charge.sources.slice(0,3).map(function(s){ return CHARGE[s.cle]; }).filter(Boolean);
     P.push({k:"dpo", titre:"Data protection officer subscription: "+L[0].toLowerCase()+(d.palier==="devis"?", sized on proposal":""),
-      prix:d.palier==="devis" ? "On quotation after scoping" : (pp.aPartirDe?"From ":"")+eur(pp.prix)+" excl. VAT per month for "+L[1],
+      prix:(pp.aPartirDe||d.palier==="devis"||r.surMesure?"From ":"")+eur(pp.prix)+" excl. VAT per month for "+L[1],
       pourquoi:(d.priseDeFonction ? "Your set-up appears workable: the role can start with no assessment and no new foundation. " : "The data protection officer role starts once the initial work is under way; the subscription does not include it. ")+
         (src.length ? "This level takes account of "+src.join(", ")+"." : "Your answers describe a light workload.")+
         (d.designationAExaminer ? " If an appointment is decided: whether it is mandatory is checked first." : ""),
       hyp:L[2].charAt(0).toUpperCase()+L[2].slice(1)+", up to "+NB_H[pp.report]+" carried over to the next month, overruns at "+eur(tf.tauxDepassement)+" excl. VAT per hour after your agreement. Proposed initial term of six months, then one month's notice.", a:"tarifs-delegue"});
   }
+  P.forEach(function(p){
+    if(p.k!=="prioritaire" && (r.surMesure || r.initial==="devis" || r.devis.length)) {
+      if(!/^From /.test(p.prix)) p.prix = "From "+p.prix;
+      p.hyp += " "+RESERVE_PRIX;
+      if(p.k==="etude" && r.etudes.plusieurs) p.hyp += " The minimum includes one study only; each additional study is priced separately.";
+    }
+  });
   return P;
 }
 
@@ -1345,22 +1352,15 @@ function report(){
   if(r.consultation!=="principale") html += '<p class="compl">'+esc("If you would rather start by talking it through: orientation consultation, "+eur(TF.consultation.prix)+" excl. VAT, deducted from a fixed-fee engagement taken up within thirty days. It remains optional.")+'</p>';
 
   /* Indicative budget: entry prices only, excluding items on quotation. */
-  var init = 0, hasDevis = r.devis.length>0 || r.prioritaire, nPays = 0;
-  if(r.initial==="diagnostic") init += TF.diagnostic;
-  if(r.initial==="simple"||r.initial==="etendue") init += TF.miseEnPlace[r.initial];
-  if(r.revue) init += TF.revueDesignation;
-  (r.briques||[]).forEach(function(b){ init += TF.briques[b]; });
-  if(r.ia && r.ia.niveau!=="devis") init += TF.dispositifIA;
-  if(r.etudes && r.etudes.niveau!=="devis"){ nPays = r.etudes.pays; init += TF.etude[r.etudes.niveau] + nPays*TF.etude.paysSupp; }
-  if(r.consultation==="principale" && !init) init += TF.consultation.prix;
-  var mens = r.dpo && r.dpo.palier!=="devis" ? D.palier(r.dpo.palier).prix : 0;
-  html += r.surMesure ? '<div class="budget"><h5>Budget on quotation</h5><p>Scope and workload must be established before pricing.</p></div>' : '<div class="budget"><h5>'+esc("Order of magnitude, to be confirmed")+'</h5><dl>'+
+  var B = budgetOf(r), init = B.init, mens = B.mens, hasDevis = r.devis.length>0 || r.prioritaire,
+      nPays = r.etudes ? r.etudes.pays : 0;
+  html += '<div class="budget"><h5>'+esc("Order of magnitude, to be confirmed")+'</h5><dl>'+
     (init ? '<div><dt>'+esc(r.dpo?"One-off engagements and initial fees, from":"Engagement, from")+'</dt><dd>'+esc(eur(init))+' excl. VAT</dd></div>' : '')+
-    (mens ? '<div><dt>'+esc("Subscription, per month"+(r.dpo.palier==="devis"||r.dpo.palier==="renforce"?", from":""))+'</dt><dd>'+esc(eur(mens))+' excl. VAT</dd></div>' : '')+
-    (mens ? '<div><dt>'+esc("Twelve-month illustration")+'</dt><dd>'+esc(eur(init+12*mens))+' excl. VAT</dd></div>' : '')+
+    (mens ? '<div><dt>'+esc("Subscription, per month"+(r.surMesure||r.dpo.palier==="devis"||r.dpo.palier==="renforce"?", from":""))+'</dt><dd>'+esc(eur(mens))+' excl. VAT</dd></div>' : '')+
+    (mens ? '<div><dt>'+esc("Twelve-month illustration, from")+'</dt><dd>'+esc(eur(init+12*mens))+' excl. VAT</dd></div>' : '')+
     '</dl><p>'+esc((mens?"Twelve full months, entry prices: this is neither a commitment period nor a sum due on signature. ":"Entry prices, on the assumptions stated. ")+
       (r.initial==="diagnostic"?"If the assessment leads to the simple foundation, only the balance of "+eur(D.complementMiseEnPlace(true))+" excl. VAT is added. ":"")+
-      "Not included"+(nPays||(r.etudes&&r.etudes.horsUE)?": local counsel's fees, ":": ")+"items on quotation"+(hasDevis?" (flagged above)":"")+", exceptional mobilisation in the event of an inspection or incident.")+'</p></div>';
+      "Not included"+(nPays||(r.etudes&&r.etudes.horsUE)?": local counsel's fees, ":": ")+"items on quotation"+(hasDevis?" (flagged above)":"")+", exceptional mobilisation in the event of an inspection or incident."+(r.etudes && r.etudes.plusieurs ? " The minimum includes one study with the stated country supplements; other studies require separate pricing." : "")+(r.surMesure||r.devis.length ? " "+RESERVE_PRIX : ""))+'</p></div>';
   html += '<p class="compl">'+esc("This orientation is an automatic estimate: the scope, follow-up level and price are confirmed in a conversation, then in a signed fee agreement.")+' <a class="linkbtn" href="#parcours">'+esc("How the engagements fit together")+'</a></p></div>';
 
   html += '<div class="rsec no-print"><h4>Keep this result</h4><div class="keep"><p class="compare">'+esc("Save it as a PDF, or send it to your own mailbox. It is not stored on this site or by the firm.")+'</p>'+
@@ -1384,62 +1384,32 @@ function report(){
 }
 function budgetOf(r){
   var init = 0;
-  if(r.initial==="diagnostic") init += TF.diagnostic;
-  if(r.initial==="simple"||r.initial==="etendue") init += TF.miseEnPlace[r.initial];
+  if(r.initial==="diagnostic" || (r.initial==="devis" && r.etat!=="a_construire")) init += TF.diagnostic;
+  if(r.initial==="simple"||r.initial==="etendue"|| (r.initial==="devis" && r.etat==="a_construire")) init += TF.miseEnPlace[r.initial==="devis"?"etendue":r.initial];
   if(r.revue) init += TF.revueDesignation;
   (r.briques||[]).forEach(function(b){ init += TF.briques[b]; });
-  if(r.ia && r.ia.niveau!=="devis") init += TF.dispositifIA;
-  if(r.etudes && r.etudes.niveau!=="devis") init += TF.etude[r.etudes.niveau] + r.etudes.pays*TF.etude.paysSupp;
+  if(r.ia) init += TF.dispositifIA;
+  if(r.etudes) init += TF.etude[r.etudes.niveau==="devis"?"approfondie":r.etudes.niveau] + r.etudes.pays*TF.etude.paysSupp;
   if(r.consultation==="principale" && !init) init += TF.consultation.prix;
-  var mens = r.dpo && r.dpo.palier!=="devis" ? D.palier(r.dpo.palier).prix : 0;
-  return {init:init, mens:mens, aPartir: !!(r.dpo && (r.dpo.palier==="devis"||r.dpo.palier==="renforce"))};
+  var mens = r.dpo ? D.palier(r.dpo.palier==="devis"?"renforce":r.dpo.palier).prix : 0;
+  return {init:init, mens:mens, aPartir: !!(r.surMesure || (r.dpo && (r.dpo.palier==="devis"||r.dpo.palier==="renforce")))};
 }
+
 function summary(s, keys, P, pourMoi){
-  var L = [], today = new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"}), V = verdict(s);
-  L.push("Diapason, by Hémistiches");
-  L.push("GDPR compliance for health data · diapason.hemistiches.com/en/");
-  L.push("");
-  L.push("Result of "+today+(profilLabel()?"\nProfile: "+profilLabel():""));
-  L.push("");
-  L.push(V[0]+".");
-  L.push(V[1]);
-  L.push("");
-  L.push("Situation indicators");
-  L.push("– Fragility of the set-up: "+NIV[D.niveau(s.frag)]);
-  L.push("– Exposure: "+NIV[D.niveau(s.expo)]);
-  L.push("– Obligation: "+NIV[D.niveau(s.obl)]);
-  var v = keys.filter(function(k){ return k!=="reserve" && k!=="maitrise"; }).map(function(k){ return VIG[k][0].replace(/\.$/,""); });
-  if(v.length){ L.push(""); L.push("Points of attention"); v.forEach(function(x){ L.push("– "+x); }); }
-  L.push("");
-  L.push("Proposed orientation (separate engagements, each with its own price)");
-  P.forEach(function(p, i){ L.push((i+1)+". "+p.titre); L.push("   "+p.prix); });
-  L.push("");
-  var B = budgetOf(RESULT.ori);
-  if(B.init || B.mens){
-    L.push("Order of magnitude, to be confirmed");
-    if(B.init) L.push("– "+(B.mens?"One-off engagements and initial fees":"Engagement")+", from "+eur(B.init)+" excl. VAT");
-    if(B.mens) L.push("– Data protection officer subscription: "+(B.aPartir?"from ":"")+eur(B.mens)+" excl. VAT per month");
-    if(B.mens) L.push("– Twelve-month illustration: "+eur(B.init+12*B.mens)+" excl. VAT (neither a commitment period nor a sum due on signature)");
+  var B = budgetOf(RESULT.ori), V = verdict(s), L = ["Diapason | Hémistiches", V[0],
+    "Fragility / exposure / obligation: "+[s.frag,s.expo,s.obl].map(function(v){return NIV[D.niveau(v)];}).join(" / "), ""];
+  P.forEach(function(p){ L.push(p.titre+" : "+p.prix); });
+  if(B.init || B.mens) {
+    L.push("", "Order of magnitude, to be confirmed:");
+    if(B.init) L.push("Engagements, from "+eur(B.init)+" excl. VAT");
+    if(B.mens) L.push("Subscription, from "+eur(B.mens)+" excl. VAT/month");
   }
-  L.push("");
-  L.push("The full report (detailed points of attention, assumptions behind each price, what is not included) can be saved as a PDF from the result page, using the \"Save as PDF\" button. It can be attached to this message before sending.");
-  L.push("");
-  L.push("Indicative orientation, based solely on the answers to the test, without review of documents. Entry prices excluding VAT, local counsel's fees and items on quotation, confirmed in a conversation and then in a fee agreement.");
-  if(!pourMoi){
-    L.push("");
-    L.push("————————————");
-    L.push("Your contact");
-    L.push("");
-    L.push("Maître François Césure");
-    L.push("Avocat, Paris Bar · certified data protection officer");
-    L.push("Hémistiches · 33, avenue Mac-Mahon, 75017 Paris, France");
-    L.push("");
-    L.push(CONTACT);
-    L.push("+33 6 47 88 80 25 · +33 1 45 03 20 20");
-    L.push("www.hemistiches.com");
-  }
+  if(RESULT.ori.surMesure || RESULT.ori.devis.length) L.push(RESERVE_PRIX);
+  L.push("", "Indicative estimate, without document review. Scope and fees confirmed in an agreement. The full result and assumptions are available as a PDF on the result page.");
+  if(!pourMoi) L.push("", "Mᵉ François Césure | Hémistiches", CONTACT, "+33 6 47 88 80 25", "www.hemistiches.com");
   return fr(L.join("\n"));
 }
+
 function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
 function selectMail(){ var r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); document.getElementById("copied").textContent = "Address selected"; }
 
