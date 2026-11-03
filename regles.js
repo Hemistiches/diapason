@@ -8,7 +8,7 @@
      1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026 ; socle et briques révisés le 28 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-10-29b",
+    version: "2026-11-03",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
     miseEnPlace: { simple: 2750, etendue: 4500 },      // le socle ; « simple » : diagnostic compris, prix global (2 750 € depuis le 28 octobre 2026)
@@ -28,8 +28,8 @@
     /* Outil de gestion de la conformité (Provacy) : facturé au client par l'éditeur, par an ; aucune rémunération du cabinet (29 octobre 2026). */
     outil: { prix: 1500, editeur: "Provacy" },
     dpo: [
-      { cle: "limite",   prix: 490,  heures: 3,  report: 1, point: "trimestriel", aPartirDe: false },
-      { cle: "regulier", prix: 990,  heures: 6,  report: 2, point: "mensuel",     aPartirDe: false },
+      { cle: "limite",   prix: 490,  heures: 3,  report: 1.5, point: "trimestriel", aPartirDe: false },
+      { cle: "regulier", prix: 990,  heures: 6,  report: 3, point: "mensuel",     aPartirDe: false },
       { cle: "renforce", prix: 1490, heures: 10, report: 3, point: "adapte",      aPartirDe: true }
     ],
     tauxDepassement: 180,
