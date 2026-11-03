@@ -1287,7 +1287,7 @@ function plan(r, f){
   return P;
 }
 
-function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Maître François Césure</div><div class="rl">'+esc("Avocat, Paris Bar · certified data protection officer")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div>'+(cls?'<div class=\"rl\">SIREN 833 468 358</div>':'')+'</div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br>www.hemistiches.com</div></div>'; }
+function carte(cls, titre){ return '<div class="print-only print-card'+cls+'"><div><div class="who">'+esc(titre)+'</div><div class="nm">Mᵉ François Césure</div><div class="rl">'+esc("Avocat at the Paris Bar · certified data protection officer")+'</div><div class="rl">'+esc("Hémistiches, 33, avenue Mac-Mahon, 75017 Paris, France")+'</div>'+(cls?'<div class=\"rl\">SIREN 833 468 358</div>':'')+'</div><div class="co">francois.cesure@hemistiches.com<br>+33 6 47 88 80 25<br>+33 1 45 03 20 20<br>www.hemistiches.com</div></div>'; }
 var LOGO = "";
 (function(){ var img = document.querySelector(".brand img"); if(!img) return;
   function noir(){ try{ var c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight; var x = c.getContext("2d");
