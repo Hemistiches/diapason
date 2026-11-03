@@ -8,7 +8,7 @@
      1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026 ; socle et briques révisés le 28 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-11-03.1",
+    version: "2026-11-03.2",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
     miseEnPlace: { simple: 2750, etendue: 4500 },      // le socle ; « simple » : diagnostic compris, prix global (2 750 € depuis le 28 octobre 2026)
@@ -406,7 +406,7 @@
     /* 4. Mission par étude, indépendante de l'abonnement. */
     if (f.rech && (!f.et_lancee || f.int_etude)) {
       var niv;
-      if (f.et_complexe && (f.p_hors_ue || f.n4)) niv = "devis";
+      if (f.et_complexe || a.regime === "autorisation") niv = "devis";
       else if (f.et_adapter || f.et_construire || f.et_complexe || f.regime || f.flux_n >= 2) niv = "approfondie";
       else niv = "simple";
       var pays = f.p1 ? 1 : (f.p2 ? 2 : (f.p4 ? 4 : 0));
@@ -444,17 +444,19 @@
       /* Une seule étude lourde, ou l'absence de relais interne, rend le suivi limité inadapté. */
       var plancher = f.sans_relais || f.et_complexe || (f.rech && (f.p2 || f.p4 || f.p_hors_ue) && (f.et_adapter || f.et_construire || f.et_complexe));
       if (p === "limite" && plancher) p = "regulier";
-      if (f.e_groupe) p = "devis";
+      if (f.e_groupe || f.perimetre_important || f.perimetre_inconnu) p = "devis";
       r.dpo = { palier: p, charge: ch, priseDeFonction: r.etat === "exploitable", designationAExaminer: !!(f.pas_designe && !f.int_designer && !f.int_remplacer) };
       if (p === "devis") r.devis.push("dpo");
     }
 
-    /* Commercial scope safeguards, independent from legal risk indicators. */
-    r.surMesure = !!(f.e_groupe || f.pas_etab || f.perimetre_important || f.perimetre_inconnu || f.n4 ||
-      (f.e_multi && (f.flux_n >= 2 || f.et_complexe)));
+    /* Scope and capacity are assessed per mission, not from country or study count alone. */
+    r.surMesure = !!(f.e_groupe || f.pas_etab || f.perimetre_important || f.perimetre_inconnu);
     if (f.perimetre_developpe && r.initial === "simple") r.initial = "etendue";
-    /* A complex scope qualifies the entry prices; it never removes the missions. */
+    if (r.initial && (f.perimetre_important || f.perimetre_inconnu)) r.initial = "devis";
     if (r.surMesure) r.devis.push("perimetre");
+    if (r.etudes && r.etudes.horsUE) r.devis.push("pays");
+    r.cadrage = !r.prioritaire && !!(r.initial === "devis" || (r.etudes && r.etudes.niveau === "devis") ||
+      (r.ia && r.ia.niveau === "devis") || (r.dpo && r.dpo.palier === "devis") || (r.etudes && r.etudes.horsUE));
 
     /* 6. Consultation : orientation principale seulement si rien d'autre ne s'impose, ou si la question est ponctuelle. */
     var rien = !r.prioritaire && !r.initial && !r.revue && !r.etudes && !r.dpo && !r.ia && !r.briques.length;
@@ -479,8 +481,25 @@
     return k;
   }
 
+  function budgetResultat(r) {
+    var t = TARIFS, init = 0;
+    if (r.initial === "diagnostic") init += t.diagnostic;
+    if (r.initial === "simple" || r.initial === "etendue") init += t.miseEnPlace[r.initial];
+    if (r.revue) init += t.revueDesignation;
+    (r.briques || []).forEach(function(b){ init += t.briques[b]; });
+    if (r.ia && r.ia.niveau !== "devis") init += t.dispositifIA;
+    if (r.etudes && r.etudes.niveau !== "devis") init += t.etude[r.etudes.niveau] + r.etudes.pays * t.etude.paysSupp;
+    var mens = r.dpo && r.dpo.palier !== "devis" ? palier(r.dpo.palier).prix : 0;
+    var orientationSeule = !init && !mens && (r.consultation === "principale" || r.cadrage);
+    if (orientationSeule) init = t.consultation.prix;
+    return { init: init, mens: mens, orientationSeule: orientationSeule,
+      partiel: !!(r.prioritaire || r.initial === "devis" || (r.etudes && (r.etudes.niveau === "devis" || r.etudes.plusieurs || r.etudes.horsUE)) ||
+        (r.ia && r.ia.niveau === "devis") || (r.dpo && r.dpo.palier === "devis")),
+      aPartir: !!(r.dpo && r.dpo.palier === "renforce") };
+  }
+
   g.DIAPASON = {
-    TARIFS: TARIFS, Q: Q, BASE: BASE, palier: palier, complementMiseEnPlace: complementMiseEnPlace,
+    TARIFS: TARIFS, budgetResultat: budgetResultat, Q: Q, BASE: BASE, palier: palier, complementMiseEnPlace: complementMiseEnPlace,
     apresConsultation: apresConsultation, budget12: budget12, moisSuivant: moisSuivant,
     parcours: parcours, drapeaux: drapeaux, indicateurs: indicateurs, niveau: niveau, vigilance: vigilance,
     charge: charge, orienter: orienter, cles: cles, SEUILS_CHARGE: SEUILS_CHARGE, POIDS_CHARGE: POIDS_CHARGE
