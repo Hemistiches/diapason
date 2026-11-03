@@ -93,6 +93,10 @@
       O("milliers", { obl: 3 }, ["echelle_forte"]),
       O("nsp", { obl: 2, frag: 2 }, ["echelle_inconnue"])
     ]},
+    perimetre: { bloc: "situation", opts: [
+      O("limite", {}), O("developpe", {}, ["perimetre_developpe"]),
+      O("important", {}, ["perimetre_important"]), O("nsp", {}, ["perimetre_inconnu"])
+    ]},
     entites: { bloc: "situation", opts: [
       O("fr", {}),
       O("ue", {}),
@@ -232,7 +236,7 @@
   };
   Object.keys(Q).forEach(function (id) { Q[id].id = id; });
 
-  var BASE = ["activite", "echelle", "entites", "flux", "designation", "registre", "outil", "aipd", "hebergement", "transferts", "violations", "projets", "demandes", "relais", "declencheur"];
+  var BASE = ["activite", "echelle", "entites", "perimetre", "flux", "designation", "registre", "outil", "aipd", "hebergement", "transferts", "violations", "projets", "demandes", "relais", "declencheur"];
 
   function optionsChoisies(id, a) {
     var q = Q[id], v = a[id];
@@ -445,16 +449,31 @@
       if (p === "devis") r.devis.push("dpo");
     }
 
+    /* Commercial scope safeguards, independent from legal risk indicators. */
+    r.surMesure = !!(f.e_groupe || f.pas_etab || f.perimetre_important || f.perimetre_inconnu || f.n4 ||
+      (f.e_multi && (f.flux_n >= 2 || f.et_complexe)));
+    if (f.perimetre_developpe && r.initial === "simple") r.initial = "etendue";
+    if (r.surMesure) {
+      if (r.initial) r.initial = "devis";
+      if (r.etudes) r.etudes.niveau = "devis";
+      if (r.ia) r.ia.niveau = "devis";
+      if (r.dpo) r.dpo.palier = "devis";
+      r.revue = false; r.briques = []; r.outil = false;
+      r.devis.push("perimetre");
+    }
+
     /* 6. Consultation : orientation principale seulement si rien d'autre ne s'impose, ou si la question est ponctuelle. */
     var rien = !r.prioritaire && !r.initial && !r.revue && !r.etudes && !r.dpo && !r.ia && !r.briques.length;
     if (f.int_ponctuel || rien) { r.consultation = "principale"; r.ponctuel = true; }
     if (!r.dpo && (r.initial || r.etudes || r.revue || r.ia || r.briques.length)) r.ponctuel = true;   // mission ponctuelle sans abonnement
+    if (r.surMesure) r.consultation = "option";
     return r;
   }
 
   /* Clés transmises dans le résumé du formulaire (champ offres_suggerees), sans aucune réponse détaillée. */
   function cles(r) {
     var k = [];
+    if (r.surMesure) k.push("perimetre:sur_mesure");
     if (r.prioritaire) k.push("prioritaire");
     if (r.initial) k.push("initial:" + r.initial);
     if (r.revue) k.push("revue");
