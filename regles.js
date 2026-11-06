@@ -8,7 +8,7 @@
      1. Tarifs (HT). Choix commerciaux du cabinet, arrêtés le 26 octobre 2026 ; socle et briques révisés le 28 octobre 2026.
      ============================================================ */
   var TARIFS = {
-    version: "2026-11-03.2",
+    version: "2026-11-06",
     consultation: { prix: 350, minutes: 45, deductionJours: 30 },
     diagnostic: 1200,
     miseEnPlace: { simple: 2750, etendue: 4500 },      // le socle ; « simple » : diagnostic compris, prix global (2 750 € depuis le 28 octobre 2026)
@@ -23,7 +23,8 @@
       mentionsSupp: 250,    // chaque public supplémentaire
       transfert: 1200,      // transfert hors de l'Union, un flux vers un destinataire
       formation: 600,       // une session d'une heure trente et son support
-      secondRegistre: 500   // second registre lorsque l'organisme est à la fois responsable et sous-traitant
+      secondRegistre: 500,  // second registre lorsque l'organisme est à la fois responsable et sous-traitant
+      dataact: null         // Data Act : cartographie des données d'un produit ou d'une gamme et clauses (6 novembre 2026). PRIX À FIXER par le cabinet ; tant qu'il vaut null, la page affiche « prix à préciser » et le budget ne le compte pas.
     },
     /* Outil de gestion de la conformité (Provacy) : facturé au client par l'éditeur, par an ; aucune rémunération du cabinet (29 octobre 2026). */
     outil: { prix: 1500, editeur: "Provacy" },
@@ -82,8 +83,9 @@
       O("dm", { obl: 2 }, ["rech_possible", "fabricant"]),
       O("labo", { obl: 3 }, ["rech_possible"]),
       O("promoteur", { obl: 3 }, ["rech_possible"]),
-      O("soins", { obl: 3 }, ["rech_possible"]),
+      O("soins", { obl: 3 }, ["rech_possible", "soins"]),
       O("presta", { obl: 3 }, ["rech_possible", "presta"]),
+      O("distrib", { obl: 2 }, ["distrib"]),                // distributeur, loueur ou prestataire de maintenance de dispositifs (6 novembre 2026)
       O("autre", { obl: 2 }, [])
     ]},
     /* L'échelle du traitement est le critère même de l'article 37, paragraphe 1, sous c. */
@@ -185,6 +187,22 @@
       O("sans_analyse", { frag: 2, expo: 3 }, ["violation"]),
       O("pas_proc", { frag: 2, expo: 3 }, ["procedure"])
     ]},
+    /* Produits connectés et règlement (UE) 2023/2854 sur les données (6 novembre 2026).
+       Intitulé et options identiques dans Concordance. Conditionnelle : fabricant, distributeur ou loueur, établissement de soins,
+       prestataire, ou « dispositif connecté » coché dans les situations à risque. */
+    connecte: { bloc: "situation", opts: [
+      O("oui_patient", { obl: 1, expo: 1 }, ["connecte", "connecte_patient"]),
+      O("oui_tech", { obl: 1 }, ["connecte"]),
+      O("non", {}),
+      O("nsp", { frag: 1 }, ["connecte", "connecte_nsp"])
+    ]},
+    /* Conditionnelle : fabricant ou prestataire dont les dispositifs sont (ou peuvent être) connectés.
+       Seuils de la petite entreprise (recommandation 2003/361/CE) ; l'exemption tombe pour une entreprise liée ou partenaire plus grande, ou sous-traitante. */
+    taille: { bloc: "situation", opts: [
+      O("indep", {}, ["da_exempt"]),
+      O("lie", { obl: 2 }, ["da_detenteur"]),
+      O("non", { obl: 2 }, ["da_detenteur"])
+    ]},
     /* Conditionnelle : seulement si « algorithme ou IA » est coché dans les traitements à risque. */
     ia_donnees: { bloc: "situation", opts: [
       O("nos_donnees", { obl: 1 }, ["ia_entrainement", "ia_mission"]),
@@ -259,6 +277,10 @@
     BASE.forEach(function (id) {
       list.push(id);
       if (id === "flux" && (a.flux || []).indexOf("ia") > -1) list.push("ia_donnees");
+      if (id === "flux" && (["dm", "distrib", "soins", "presta"].indexOf(a.activite) > -1 || (a.flux || []).indexOf("distance") > -1)) {
+        list.push("connecte");
+        if ((a.activite === "dm" || a.activite === "presta") && ["oui_patient", "oui_tech", "nsp"].indexOf(a.connecte) > -1) list.push("taille");
+      }
       if (id === "designation") {
         if (f.cumul) list.push("fonctions");
         if (f.designe) list.push("notif");
@@ -316,6 +338,15 @@
     if (f.registre) k.push("registre");
     if (f.aipd) k.push("aipd");
     if (f.ia_mission) k.push("ia");
+    /* Produits connectés : un seul point de rôle, puis le cumul avec les données de santé. */
+    if (f.connecte_nsp) k.push("connecte_nsp");
+    else if (f.connecte) {
+      if (f.da_detenteur) k.push("da_detenteur");
+      else if (f.da_exempt) k.push("da_exempt");
+      else if (f.distrib) k.push("da_distrib");
+      else if (f.soins) k.push("da_utilisateur");
+    }
+    if (f.connecte_patient) k.push("cumul_sante");
     if (f.regime) k.push("regime");
     if (f.multi_pays) k.push("multi_pays");
     if (f.hds) k.push("hds"); else if (f.hds_interne) k.push("hds_interne");
@@ -429,6 +460,7 @@
       if (f.aipd_absent || f.aipd_partiel) r.briques.push("aipd");
       if (f.hds) r.briques.push("hebergeur");
       if (f.transf_grave || f.transf_partiel) r.briques.push("transfert");
+      if (f.connecte && f.da_detenteur) r.briques.push("dataact");   // détenteur des données non exempté (Data Act)
     }
 
     /* 5. Suivi récurrent : besoin d'un délégué, puis intensité. */
@@ -455,6 +487,8 @@
     if (r.initial && (f.perimetre_important || f.perimetre_inconnu)) r.initial = "devis";
     if (r.surMesure) r.devis.push("perimetre");
     if (r.etudes && r.etudes.horsUE) r.devis.push("pays");
+    /* Renvoi vers Concordance pour le produit lui-même : fabricant, distributeur ou loueur d'un dispositif connecté. */
+    r.concordance = !!(f.connecte && (a.activite === "dm" || a.activite === "distrib"));
     r.cadrage = !r.prioritaire && !!(r.initial === "devis" || (r.etudes && r.etudes.niveau === "devis") ||
       (r.ia && r.ia.niveau === "devis") || (r.dpo && r.dpo.palier === "devis") || (r.etudes && r.etudes.horsUE));
 
@@ -486,14 +520,15 @@
     if (r.initial === "diagnostic") init += t.diagnostic;
     if (r.initial === "simple" || r.initial === "etendue") init += t.miseEnPlace[r.initial];
     if (r.revue) init += t.revueDesignation;
-    (r.briques || []).forEach(function(b){ init += t.briques[b]; });
+    var briqueSansPrix = false;
+    (r.briques || []).forEach(function(b){ if (typeof t.briques[b] === "number") init += t.briques[b]; else briqueSansPrix = true; });
     if (r.ia && r.ia.niveau !== "devis") init += t.dispositifIA;
     if (r.etudes && r.etudes.niveau !== "devis") init += t.etude[r.etudes.niveau] + r.etudes.pays * t.etude.paysSupp;
     var mens = r.dpo && r.dpo.palier !== "devis" ? palier(r.dpo.palier).prix : 0;
-    var orientationSeule = !init && !mens && (r.consultation === "principale" || r.cadrage);
+    var orientationSeule = !init && !mens && (r.consultation === "principale" || r.cadrage || briqueSansPrix);
     if (orientationSeule) init = t.consultation.prix;
     return { init: init, mens: mens, orientationSeule: orientationSeule,
-      partiel: !!(r.prioritaire || r.initial === "devis" || (r.etudes && (r.etudes.niveau === "devis" || r.etudes.plusieurs || r.etudes.horsUE)) ||
+      partiel: !!(briqueSansPrix || r.prioritaire || r.initial === "devis" || (r.etudes && (r.etudes.niveau === "devis" || r.etudes.plusieurs || r.etudes.horsUE)) ||
         (r.ia && r.ia.niveau === "devis") || (r.dpo && r.dpo.palier === "devis")),
       aPartir: !!(r.dpo && r.dpo.palier === "renforce") };
   }

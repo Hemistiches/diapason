@@ -554,7 +554,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <p class="verse">A diapason, or tuning fork, gives the A: a fixed note, the same for everyone, to which every instrument tunes.</p>
       </div>
       <div class="prose">
-        <p>For health data, that note is written down: the General Data Protection Regulation, the French Public Health Code, the reference methodologies of the CNIL, the French data protection authority. It is the same for a pharmaceutical company, a digital health start-up or a clinic.</p>
+        <p>For health data, that note is written down: the General Data Protection Regulation, the French Public Health Code, the reference methodologies of the CNIL, the French data protection authority. It is the same for a pharmaceutical company, a digital health start-up, a manufacturer of connected devices or a clinic.</p>
         <p>The test measures the gap. It does not ask whether you are compliant. It looks at what a supervisory authority asks to see, and at what, in your organisation, nobody is in charge of.</p>
       </div>
     </div>
@@ -574,6 +574,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <li><b>Certified hosting</b><span>A host holding a certificate of conformity (Article L. 1111-8 of the French Public Health Code).</span></li>
         <li><b>Processors and transfers</b><span>Data processing agreements, safeguards outside the European Union.</span></li>
         <li><b>Algorithms and AI</b><span>A model trained on health data calls for a legal basis, an impact assessment and contracts with its data sources.</span></li>
+        <li><b>Connected products</b><span>User access to data and sharing with third parties (Regulation (EU) 2023/2854); never any sale of directly or indirectly identifying health data (Art. L. 1111-8, VII, of the French Public Health Code).</span></li>
         <li><b>Personal data breaches</b><span>A procedure that makes it possible to notify without undue delay and, where feasible, within seventy-two hours (Art. 33).</span></li>
       </ul>
     </div>
@@ -582,7 +583,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
       <h2 class="sec-h2" id="t-test">Is your set-up in tune?</h2>
-      <p class="intro">Questions about facts you know: your organisation, what you have in place, your studies, the pace of your projects. The path adapts to your answers and asks for no documents or file details.</p>
+      <p class="intro">Questions about facts you know: your organisation, your connected devices, what you have in place, your studies, the pace of your projects. The path adapts to your answers and asks for no documents or file details.</p>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">The test runs in your browser and requires JavaScript. You can also write directly to francois.cesure@hemistiches.com.</p></noscript></div>
     </div>
   </section>
@@ -686,6 +687,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <li id="brique-hebergeur"><b>Health data hosting · from <span data-p="br:hebergeur">€850</span> excl. VAT</b><span>Checking your host's certificate and its scope, review of the hosting agreement (article L. 1111-8 of the French Public Health Code).</span></li>
         <li id="brique-mentions"><b>Privacy notices · from <span data-p="br:mentions">€450</span> excl. VAT</b><span>For one audience: patients, users, employees or visitors to your website. <span data-p="br:mentionsSupp">€250</span> excl. VAT per additional audience.</span></li>
         <li id="brique-transfert"><b>Transfer outside the Union · from <span data-p="br:transfert">€1,200</span> excl. VAT</b><span>One flow to one recipient: choice of mechanism, standard contractual clauses and annexes, assessment of safeguards based on the recipient's information. An opinion on the law of the destination country is a matter for counsel qualified in that law.</span></li>
+        <li id="brique-dataact"><b>Connected product data (Data Act) · <span data-p="brx:dataact">price to be confirmed</span></b><span>For a manufacturer of connected devices: mapping of the data of one product or product range, information to your customers before the sale, clauses on the manufacturer's use of the data, template data-sharing agreement with third parties, separation of technical data from patient data. Several product ranges: on quotation.</span></li>
         <li id="outil"><b>Compliance management tool · <span data-p="outil">€1,500</span> excl. VAT per year, invoiced by the publisher</b><span>I prefer to work in a dedicated tool, which makes everyone's work simpler. For an organisation without one, I suggest <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, a French publisher: record, impact assessments, requests and breaches kept in a single tool, which I use on your behalf.</span><span><i class="lab">Subscription.</i> You subscribe directly with the publisher, at this preferential rate, renewed each year. Your data remains yours: it can be exported to PDF or Excel, and you keep it if we stop working together.</span><span><i class="lab">Hosting.</i> According to the publisher, the tool is hosted in Germany with IONOS (ISO 27001 and C5 certified), with secondary hosting in France with OVH. As this hosting is not certified for health data, the tool only holds compliance documentation: no health data, nor any named details that would reveal it, which stay in your own systems.</span><span><i class="lab">Support.</i> I help you get started with the tool and fill it in. This assistance is part of my engagement: it is included in the fixed fee, then counted against the subscription volume. Technical questions (access, incidents) are for the publisher.</span><span><i class="lab">Independence.</i> The firm receives no remuneration from the publisher. You remain free to choose another tool, and I also work with the one you already use.</span></li>
         <li id="brique-formation"><b>Training · from <span data-p="br:formation">€600</span> excl. VAT</b><span>One ninety-minute video session for your teams, with its materials.</span></li>
       </ul>
@@ -887,7 +889,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
     <div class="wrap">
       <button class="backlink" type="button" data-view="home">Back to the site</button>
       <h1 style="margin-top:28px">Legal notice and privacy</h1>
-      <p class="label" style="margin-top:12px">Last updated: 3 November 2026 (revision 2)</p>
+      <p class="label" style="margin-top:12px">Last updated: 6 November 2026</p>
       <div class="doc">
         <section>
           <p>This English version is provided for convenience. In the event of any discrepancy, the <a href="/#mentions" hreflang="fr" lang="fr">French version</a> prevails.</p>
@@ -1018,6 +1020,7 @@ function prixAttr(k){
     case "taux": return eur(TF.tauxDepassement);
     case "revue": return eur(TF.revueDesignation);
     case "br": return eur(TF.briques[p[1]]);
+    case "brx": return typeof TF.briques[p[1]]==="number" ? "from "+eur(TF.briques[p[1]])+" excl. VAT" : null;
     case "outil": return eur(TF.outil.prix);
     case "b": return eur(D.budget12(EX[p[1]]).total);
   }
@@ -1031,6 +1034,7 @@ var T = {
     dm:["Medical device manufacturer or health software publisher"], labo:["Pharmaceutical or biotechnology company"],
     promoteur:["Clinical study sponsor"], soins:["Healthcare establishment or care provider"],
     presta:["Healthcare service provider","Contract research, remote monitoring, e-health: you often process data on behalf of clients"],
+    distrib:["Distributor, lessor or maintenance provider of medical devices"],
     autre:["Other organisation processing health data"]}},
   echelle:{kicker:"Your organisation", title:"How many people are concerned by your processing of health data?", o:{
     dizaines:["A few dozen"], centaines:["A few hundred"], milliers:["Several thousand or more"], nsp:["We are unable to put a figure on it"]}},
@@ -1048,6 +1052,13 @@ var T = {
   ia_donnees:{kicker:"Your processing", title:"Is the algorithm trained or retrained on patient data?", o:{
     nos_donnees:["Yes, on our own data"], partenaires:["Yes, on partners' data","Healthcare establishments, data warehouses, other sponsors"],
     fournisseur:["No, we use a provider's model"], nsp:["We do not know"]}},
+  connecte:{kicker:"Connected devices", title:"Do your devices record data about their use and can they transmit it?", hint:"Measurements, operating logs, alerts: what the device records and can communicate, through a connection or an export.", o:{
+    oui_patient:["Yes, including data that can be linked to a patient"], oui_tech:["Yes, technical data only"],
+    non:["No"], nsp:["I don't know"]}},
+  taille:{kicker:"Connected devices", title:"Does your company have fewer than 50 employees, with a turnover or balance-sheet total of €10 million or less?", hint:"Small independent companies may be exempt from the data-sharing obligations.", o:{
+    indep:["Yes, independent, and we do not manufacture on behalf of another company"],
+    lie:["Yes, but part of a larger group, or we manufacture on behalf of another company"],
+    non:["No"]}},
   designation:{kicker:"Data protection officer", title:"Have you appointed a data protection officer?", o:{
     salarie:["Yes, an employee whose sole role this is"], cumul:["Yes, an employee who also has other duties"],
     externe:["Yes, an external provider"], groupe:["Yes, a single officer shared across our group"],
@@ -1119,6 +1130,12 @@ var VIG = {
   aipd:["Impact assessments.","An assessment is required where processing is likely to result in a high risk, which is common with health data (Article 35). Not knowing which of your processing operations require one is an honest answer, and it is a bounded task: the list is built from the record.","info"],
   regime:["Legal basis of your research processing.","Depending on the nature of your work, it falls either under a declaration of conformity with a reference methodology approved by the CNIL, or under an authorisation. Determining which of these regimes applies requires qualifying the research itself: this report does not do so, and no questionnaire can. It is the first thing to settle, because it governs the formalities and the timetable.","info"],
   ia:["Artificial intelligence and health data.","Training or running an algorithm on health data is processing in its own right: it needs a legal basis, information for the people concerned and, in most cases, an impact assessment (Article 35). Reusing data collected for another purpose, in your organisation or at a partner's, requires checking compatibility (Article 6(4)) and the rules specific to health data (Article 9). For a medical device, the AI Regulation adds its own data governance requirements (Article 10 of Regulation (EU) 2024/1689), whose application to high-risk systems embedded in a product has been postponed by Regulation (EU) 2026/1744. This result does not classify your system.","info"],
+  da_detenteur:["Data from your connected products.","Regulation (EU) 2023/2854 on data (the Data Act) has applied since 12 September 2025. As the manufacturer of a connected product, or the provider of a service that accompanies it, you are in principle the holder of the data its use generates: you inform your customer before the contract, give them access to that data and, at their request, make it available to a third party they designate, on fair terms. Your own use of non-personal data requires a contract with them. Products placed on the market since 12 September 2026 must, in addition, allow that access by design.","info"],
+  da_exempt:["Possible exemption for small companies.","Based on your answers, your company may fall within the exemption for micro and small enterprises (Article 7 of Regulation (EU) 2023/2854): the access and sharing obligations would not apply to the data from your products. It ends if you are linked to a larger company, if you manufacture on behalf of another, or if you exceed the thresholds. It must be checked against your exact situation.","info"],
+  da_distrib:["You sell, lease or maintain connected devices.","Regulation (EU) 2023/2854 on data allocates roles around the data of a connected product: the data holder, often the manufacturer; the user, who owns or leases the product; the third party to whom the user asks for the data to be made available, such as a maintenance provider. The seller or lessor must also inform its customer, before the contract, of the data the product generates. Your role is assessed case by case: it determines your obligations and what you can obtain from the manufacturer.","info"],
+  da_utilisateur:["Your rights over the data of the equipment you use.","As the user of a connected product, you can obtain from the data holder, often the manufacturer, access to the data generated by its use, and ask it to make that data available to a third party of your choice, such as a maintenance provider (Regulation (EU) 2023/2854). These rights are best anticipated in your purchasing and contracts.","info"],
+  cumul_sante:["Device data that can be linked to patients.","The Data Act takes nothing away from the GDPR: each use and each transmission of this data needs a legal basis (Articles 6 and 9). If the data is hosted by a provider, that provider must be certified (Article L. 1111-8, II, of the French Public Health Code). And any sale of directly or indirectly identifying health data is prohibited, even with the patient's consent (same article, VII): any compensation sought for transmitting such data must be examined in that light.","info"],
+  connecte_nsp:["You do not know whether your devices transmit data.","That is the first question to settle: Regulation (EU) 2023/2854 only covers products that obtain data about their use and can communicate it. The answer lies in the device's technical documentation.","info"],
   multi_pays:["Several investigation countries.","The Regulation is common to the Member States, but each retains some latitude on health data and research (Article 9(4)): the legal basis chosen for the study, the role of ethics committees, formalities with the national authority. National questions are checked within the agreed scope; local counsel may be engaged where necessary. This result does not do so.","info"],
   hds:["Certification of the host.","Hosting personal health data on digital media requires a host holding a certificate of conformity (Article L. 1111-8, II, of the French Public Health Code), and the service is the subject of a contract. Checking your provider's certification and including it in the contract is your diligence, not theirs.",""],
   hds_interne:["Hosting on your own infrastructure.","The certification requirement covers hosting carried out on behalf of a third party. Depending on how your data flows are organised, and as soon as a provider is involved in the chain, the question arises again. It is worth settling in writing once and for all.","info"],
@@ -1281,6 +1298,9 @@ function plan(r, f){
     if(b==="transfert") P.push({k:"brique-transfert", titre:"Transfer outside the Union", prix:"From "+eur(tf.briques.transfert)+" excl. VAT per flow",
       pourquoi: f.transf_grave ? "Data leaves the Union without documented safeguards." : "Your standard contractual clauses are not accompanied by an assessment of the destination country's safeguards.",
       hyp:"One flow to one recipient; an opinion on the law of the destination country is a matter for counsel qualified in that law.", a:"brique-transfert"});
+    if(b==="dataact") P.push({k:"brique-dataact", titre:"Connected product data (Data Act)", prix:typeof tf.briques.dataact==="number" ? "From "+eur(tf.briques.dataact)+" excl. VAT" : "Price to be confirmed",
+      pourquoi:"Your connected devices generate data of which you are in principle the holder: map it, inform your customers before the sale, frame your own use and sharing with third parties.",
+      hyp:"One product or product range: data mapping, pre-sale information, use clauses, template sharing agreement, separation of technical data from patient data. Several product ranges: on quotation.", a:"brique-dataact"});
   });
   if(r.revue) P.push({k:"revue", titre:"Review of the appointment", prix:"From "+eur(tf.revueDesignation)+" excl. VAT",
     pourquoi:"Your in-house officer is in place, but the appointment has a weak point: combined duties, notification to the CNIL or resources.",
@@ -1297,7 +1317,7 @@ function plan(r, f){
   }
   if(r.ia) P.push({k:"ia", titre:"Data of a device incorporating AI"+(r.ia.niveau==="devis"?", on quotation":""), prix:r.ia.niveau==="devis" ? "On quotation after scoping" : "From "+eur(TF.dispositifIA)+" excl. VAT",
     pourquoi: f.ia_entrainement ? "Your algorithm is trained on patient data: the legal basis, reuse of data, impact assessment and contracts with data sources arise now, under the GDPR." : (f.ia_inconnu ? "You do not know what data your algorithm is trained on: that is the first point to establish, before CE marking as before any inspection." : "Your device incorporates an algorithm: its data flows must be documented under the GDPR, independently of CE marking."),
-    hyp:(r.ia.niveau==="devis" ? "Several sources or countries, or transfers outside the EU: scope set in the quotation. " : "One model and one data source. ")+"With or without a subscription."+(r.ia.fabricant ? " CE marking and the AI Regulation fall under Concordance, the same lawyer: work done on one side is carried over to the other." : ""), a:"offre-ia"});
+    hyp:(r.ia.niveau==="devis" ? "Several sources or countries, or transfers outside the EU: scope set in the quotation. " : "One model and one data source. ")+"With or without a subscription."+(r.ia.fabricant && !r.concordance ? " CE marking and the AI Regulation fall under Concordance, the same lawyer: work done on one side is carried over to the other." : ""), a:"offre-ia"});
   if(r.dpo){
     var d = r.dpo, pl = d.palier==="devis" ? "renforce" : d.palier, pp = D.palier(pl), L = PAL[pl];
     var src = d.charge.sources.slice(0,3).map(function(s){ return CHARGE[s.cle]; }).filter(Boolean);
@@ -1359,6 +1379,7 @@ function report(){
       (mens?"Twelve full months: neither a commitment period nor a sum due on signature. ":"")+
       (!init && !mens?"The situation requires a priority conversation; no overall budget can be inferred from the test. ":"")+
       "Publisher's tool, any local counsel and exceptional work excluded. The optional consultation is not added to engagements already priced.")+'</p></div>';
+  if(r.concordance) html += '<p class="compl">'+esc("Your device itself: check its MDR/IVDR compliance with the Concordance test.")+' <a class="linkbtn" href="https://concordance.hemistiches.com/en/" target="_blank" rel="noopener">Concordance</a></p>';
   html += '<p class="compl">'+esc("This orientation is an automatic estimate: the scope, follow-up level and price are confirmed in a conversation, then in a signed fee agreement.")+' <a class="linkbtn" href="#parcours">'+esc("How the engagements fit together")+'</a></p></div>';
 
   html += '<div class="rsec no-print"><h4>Keep this result</h4><div class="keep"><p class="compare">'+esc("Save it as a PDF, or send it to your own mailbox. It is not stored on this site or by the firm.")+'</p>'+
@@ -1368,7 +1389,7 @@ function report(){
     '<div class="contactbox"><code id="mail">'+CONTACT+'</code><button type="button" class="btn btn-line" id="copy">'+esc("Copy the address")+'</button><a class="btn btn-ink" href="mailto:'+CONTACT+'?subject='+encodeURIComponent(fr("Diapason: "+subj))+'&body='+encodeURIComponent(fr("Hello,\n\nI would like to discuss my Diapason result.\n\n")+summary(s, keys, P, true))+'">Write</a><span class="copied" id="copied" aria-live="polite"></span></div></div>';
 
   html += '<p class="notice">'+esc("This result is generated automatically from your answers alone, without verification or review of documents, and is stated as at the date it was generated. It is indicative information and constitutes neither legal advice nor an opinion. Amounts are entry prices excluding VAT, on the assumptions stated; any engagement is subject to a fee agreement setting out the scope and how the price is determined, and to a prior conflict-of-interest check.")+'</p>'+
-    '<p class="sources">'+esc("Sources of the obligations cited: Regulation (EU) 2016/679, Articles 6, 9, 27, 30, 33, 35, 37 and 38; Regulation (EU) 2024/1689 on artificial intelligence, Article 10, as amended by Regulation (EU) 2026/1744; Article L. 1111-8 of the French Public Health Code, as in force since 1 July 2025. The regimes applicable to research processing in the health sector derive from French Law No. 78-17 of 6 January 1978, as amended, and from the reference methodologies approved by the CNIL.")+'</p>'+
+    '<p class="sources">'+esc("Sources of the obligations cited: Regulation (EU) 2016/679, Articles 6, 9, 27, 30, 33, 35, 37 and 38; Regulation (EU) 2024/1689 on artificial intelligence, Article 10, as amended by Regulation (EU) 2026/1744; Article L. 1111-8 of the French Public Health Code, as in force since 1 July 2025"+(f.connecte ? "; Regulation (EU) 2023/2854 on data" : "")+". The regimes applicable to research processing in the health sector derive from French Law No. 78-17 of 6 January 1978, as amended, and from the reference methodologies approved by the CNIL.")+'</p>'+
     '<div class="dnav" style="justify-content:flex-start"><button type="button" class="linkbtn" id="restart">Take the test again</button></div>';
   html = '<div class="print-only print-head"><span class="ph-logo">'+(LOGO?'<img src="'+LOGO+'" alt="Hémistiches.">':'<b>Hémistiches.</b>')+'<i aria-hidden="true"></i><span>Diapason</span></span><span>'+esc("Result issued on "+today)+'</span></div>'+carte('', "Your contact")+html+carte(' end', "To discuss this result");
   box.innerHTML = html;
@@ -1392,6 +1413,7 @@ function summary(s, keys, P, pourMoi){
     if(B.mens) L.push("Subscription, from "+eur(B.mens)+" excl. VAT/month");
   }
   if(B.partiel) L.push(RESERVE_PRIX);
+  if(RESULT.ori.concordance) L.push("", "Your device itself: check its MDR/IVDR compliance with the Concordance test, https://concordance.hemistiches.com/en/");
   L.push("", "Indicative estimate, without document review. Scope and fees confirmed in an agreement. The full result and assumptions are available as a PDF on the result page.");
   if(!pourMoi) L.push("", "Mᵉ François Césure | Hémistiches", CONTACT, "+33 6 47 88 80 25", "www.hemistiches.com");
   return fr(L.join("\n"));
