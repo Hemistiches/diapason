@@ -345,6 +345,7 @@
       else if (f.da_exempt) k.push("da_exempt");
       else if (f.distrib) k.push("da_distrib");
       else if (f.soins) k.push("da_utilisateur");
+      else if (!f.fabricant && !f.presta) k.push("da_autre");   // laboratoire, promoteur, autre : rôle à qualifier
     }
     if (f.connecte_patient) k.push("cumul_sante");
     if (f.regime) k.push("regime");
