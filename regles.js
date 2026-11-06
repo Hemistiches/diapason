@@ -24,7 +24,7 @@
       transfert: 1200,      // transfert hors de l'Union, un flux vers un destinataire
       formation: 600,       // une session d'une heure trente et son support
       secondRegistre: 500,  // second registre lorsque l'organisme est à la fois responsable et sous-traitant
-      dataact: null         // Data Act : cartographie des données d'un produit ou d'une gamme et clauses (6 novembre 2026). PRIX À FIXER par le cabinet ; tant qu'il vaut null, la page affiche « prix à préciser » et le budget ne le compte pas.
+      dataact: 1800         // Data Act, un produit ou une gamme : cartographie, information avant le contrat, clauses d'usage, modèle d'accord avec les tiers, note d'articulation (6 novembre 2026). null = « prix à préciser », hors budget.
     },
     /* Outil de gestion de la conformité (Provacy) : facturé au client par l'éditeur, par an ; aucune rémunération du cabinet (29 octobre 2026). */
     outil: { prix: 1500, editeur: "Provacy" },
