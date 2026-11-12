@@ -578,6 +578,15 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .sec-head.sub > .sec-text{padding-top:.15em}
   .wrap > .note > p{font-size:17px;color:var(--mute)}
 }
+/* Intitulés plus marqués et aération des notes (12 novembre 2026) */
+.rules > li > b,.fonctions b,.eng b,.three h3,.two h3,.steps3 h3,.note h4,.creds strong,.lab-row > .lab-l,.rules > li > span > b,.rules > li > span > .lab{font-weight:500}
+@media (min-width:1025px){
+  .lab-row .lab-p{display:none}
+  .wrap > .cadre,.wrap > .lab-row,.wrap > .note{margin-top:clamp(30px,2.8vw,44px)}
+  .wrap > .note > h4,.wrap > .lab-row > .lab-l{font-size:clamp(17px,1.4vw,19px);line-height:1.35}
+  .wrap > .lab-row > .lab-t,.wrap > .cadre{line-height:1.7}
+  .rules li{padding:24px 0}
+}
 </style>
 </head>
 <body>
@@ -805,7 +814,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <li id="brique-formation"><b>Formation · à partir de <span data-p="br:formation">600 €</span> HT</b><span>Une session d'une heure trente en visio pour vos équipes, et son support.</span></li>
         <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Je travaille de préférence dans un outil dédié, qui simplifie le travail de chacun. Pour un organisme qui n'en a pas, je propose <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, que j'utilise pour vous.</span><span><i class="lab">Souscription.</i> Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel, renouvelé chaque année. Vos données restent les vôtres : elles s'exportent en PDF ou en Excel, et vous les conservez si nous cessons de travailler ensemble.</span><span><i class="lab">Hébergement.</i> Selon l'éditeur, l'outil est hébergé en Allemagne chez IONOS (certifié ISO 27001 et C5), avec un hébergement secondaire en France chez OVH. Cet hébergement n'étant pas certifié pour les données de santé, l'outil ne reçoit que la documentation de conformité : aucune donnée de santé ni détail nominatif qui en révélerait, ces éléments restant dans vos propres systèmes.</span><span><i class="lab">Accompagnement.</i> Je vous aide à prendre en main l'outil et à le renseigner. Cette aide fait partie de ma mission : elle est comprise dans le forfait, puis décomptée du volume de l'abonnement. Les questions techniques (accès, incidents) relèvent de l'éditeur.</span><span><i class="lab">Indépendance.</i> Le cabinet ne perçoit aucune rémunération de l'éditeur. Vous restez libre de choisir un autre outil, et je travaille aussi avec celui que vous utilisez déjà.</span></li>
       </ul>
-      <p class="cadre">Au-delà de ces volumes, ou pour une pièce qui n'est pas listée, le prix est arrêté sur devis avant toute intervention.</p>
+      <p class="cadre lab-row"><b class="lab-l">Sur devis<span class="lab-p">.</span></b> <span class="lab-t">Au-delà de ces volumes, ou pour une pièce qui n'est pas listée, le prix est arrêté sur devis avant toute intervention.</span></p>
 
       <h3 class="sub-h3" id="tarifs-etudes">Vos études et vos dispositifs</h3>
       <div class="three">
@@ -852,9 +861,9 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           </div></details></div>
         </article>
       </div>
-      <p class="cadre">Une étude ou un dispositif peut être confié seul, sans abonnement ni socle. La mission porte sur le RGPD et le droit français, ainsi que sur les vérifications nationales étrangères expressément convenues. Elle ne couvre pas la conformité globale à toutes les législations des pays de l'étude. Un conseil local peut être sollicité si nécessaire, à des honoraires distincts.</p>
-      <p class="cadre">Les forfaits études couvrent une seule étude et des livrables définis ; ils ne couvrent pas un portefeuille d’études. Une étude complexe peut elle-même nécessiter un devis sur mesure. Le devis fixe le nombre de documents, d’interlocuteurs, de réunions, de retours et de négociations compris.</p>
-      <p class="cadre">Diapason traite le volet protection des données de vos études. Le protocole, les démarches auprès de l'ANSM et du comité de protection des personnes, les bonnes pratiques cliniques, la vigilance et les autres clauses des contrats de recherche n'en font pas partie.</p>
+      <p class="cadre lab-row"><b class="lab-l">Périmètre de la mission<span class="lab-p">.</span></b> <span class="lab-t">Une étude ou un dispositif peut être confié seul, sans abonnement ni socle. La mission porte sur le RGPD et le droit français, ainsi que sur les vérifications nationales étrangères expressément convenues. Elle ne couvre pas la conformité globale à toutes les législations des pays de l'étude. Un conseil local peut être sollicité si nécessaire, à des honoraires distincts.</span></p>
+      <p class="cadre lab-row"><b class="lab-l">Une étude par forfait<span class="lab-p">.</span></b> <span class="lab-t">Les forfaits études couvrent une seule étude et des livrables définis ; ils ne couvrent pas un portefeuille d’études. Une étude complexe peut elle-même nécessiter un devis sur mesure. Le devis fixe le nombre de documents, d’interlocuteurs, de réunions, de retours et de négociations compris.</span></p>
+      <p class="cadre lab-row"><b class="lab-l">Ce que Diapason ne comprend pas<span class="lab-p">.</span></b> <span class="lab-t">Diapason traite le volet protection des données de vos études. Le protocole, les démarches auprès de l'ANSM et du comité de protection des personnes, les bonnes pratiques cliniques, la vigilance et les autres clauses des contrats de recherche n'en font pas partie.</span></p>
 
       <h3 class="sub-h3" id="tarifs-delegue">Le délégué dans la durée</h3>
       <div class="three">
@@ -914,7 +923,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         </tbody>
       </table></div>
 
-      <p class="cadre lab-row"><b class="lab-l">Prix hors taxes.</b> <span class="lab-t">La taxe sur la valeur ajoutée au taux de 20 % s'y ajoute pour les clients établis en France ; pour un client professionnel établi dans un autre État membre, elle est autoliquidée par le preneur. En cas d'accord, la mission fait l'objet d'une convention d'honoraires signée avant toute intervention, qui fixe le périmètre, ses exclusions et les modalités de détermination du prix. Elle est précédée d'une vérification des conflits d'intérêts.</span></p>
+      <p class="cadre lab-row"><b class="lab-l">Prix hors taxes<span class="lab-p">.</span></b> <span class="lab-t">La taxe sur la valeur ajoutée au taux de 20 % s'y ajoute pour les clients établis en France ; pour un client professionnel établi dans un autre État membre, elle est autoliquidée par le preneur. En cas d'accord, la mission fait l'objet d'une convention d'honoraires signée avant toute intervention, qui fixe le périmètre, ses exclusions et les modalités de détermination du prix. Elle est précédée d'une vérification des conflits d'intérêts.</span></p>
       <p class="cadre lab-row"><b class="lab-l">Et pour le reste de votre fonction juridique ?</b> <span class="lab-t">Diapason couvre la protection des données de santé ; <a class="fort" href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a> la direction juridique externalisée ; <a class="fort" href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a> la conformité des dispositifs médicaux ; <a class="fort" href="https://unisson.hemistiches.com" target="_blank" rel="noopener">Unisson</a> les relations avec les professionnels de santé. C'est le même avocat : les écarts de prix tiennent au volume, à la durée et à l'organisation de chaque offre. Une désignation comme délégué n'est pas comprise dans Cadence, Concordance ou Unisson, et un travail déjà accompli pour vous dans l'une est réutilisé, jamais facturé deux fois.</span></p>
     </div>
   </section>
