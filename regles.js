@@ -458,7 +458,12 @@
     /* Outil de gestion proposé à l'organisme qui n'en a pas (tableurs ou rien de structuré) ; groupe : devis d'ensemble. */
     if (!f.e_groupe && f.outil_absent) r.outil = true;
     if (!f.e_groupe) {
-      if (f.aipd_absent || f.aipd_partiel) r.briques.push("aipd");
+      if (f.aipd_absent || f.aipd_partiel) {
+        r.briques.push("aipd");
+        // Les réponses ne distinguent pas les analyses du projet de celles des autres traitements.
+        // Un complément hors projet reste à confirmer, sans l'ajouter automatiquement au budget.
+        r.aipdAConfirmer = !!(r.etudes || r.ia);
+      }
       if (f.hds) r.briques.push("hebergeur");
       if (f.transf_grave || f.transf_partiel) r.briques.push("transfert");
       if (f.connecte && f.da_detenteur) r.briques.push("dataact");   // détenteur des données non exempté (Data Act)
@@ -508,7 +513,7 @@
     if (r.initial) k.push("initial:" + r.initial);
     if (r.revue) k.push("revue");
     if (r.ia) k.push("ia:" + r.ia.niveau);
-    r.briques.forEach(function (b) { k.push("brique:" + b); });
+    r.briques.forEach(function (b) { k.push("brique:" + b + (b === "aipd" && r.aipdAConfirmer ? ":a_confirmer" : "")); });
     if (r.outil) k.push("outil");
     if (r.etudes) k.push("etude:" + r.etudes.niveau + (r.etudes.pays ? "+" + r.etudes.pays + "pays" : "") + (r.etudes.horsUE ? "+horsUE" : ""));
     if (r.dpo) k.push("dpo:" + r.dpo.palier + (r.dpo.priseDeFonction ? ":prise" : ""));
@@ -522,7 +527,7 @@
     if (r.initial === "simple" || r.initial === "etendue") init += t.miseEnPlace[r.initial];
     if (r.revue) init += t.revueDesignation;
     var briqueSansPrix = false;
-    (r.briques || []).forEach(function(b){ if (typeof t.briques[b] === "number") init += t.briques[b]; else briqueSansPrix = true; });
+    (r.briques || []).forEach(function(b){ if (b === "aipd" && r.aipdAConfirmer) return; if (typeof t.briques[b] === "number") init += t.briques[b]; else briqueSansPrix = true; });
     if (r.ia && r.ia.niveau !== "devis") init += t.dispositifIA;
     if (r.etudes && r.etudes.niveau !== "devis") init += t.etude[r.etudes.niveau] + r.etudes.pays * t.etude.paysSupp;
     var mens = r.dpo && r.dpo.palier !== "devis" ? palier(r.dpo.palier).prix : 0;

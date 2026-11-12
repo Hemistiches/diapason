@@ -756,7 +756,6 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
       <div class="sec-head">
         <h2 class="sec-h2" id="t-form">Fees</h2>
         <div class="sec-text">
-          <p class="cadre"><strong>What you entrust to me.</strong> For a diagnostic, I identify gaps and priorities. For a compliance set-up, a study or a device, I prepare or adapt the documents specified in the service, with the agreed review rounds and handover. You receive the documents finalised within that scope and the points your teams still need to decide or implement. Subsequent updates are covered by a subscription or a further assignment.</p>
           <p class="cadre"><strong>A lawyer by your side at every stage of the engagement.</strong> I assess your situation, prepare or adapt your documents and support their implementation within the agreed scope. The tool helps keep track of the work; you have a dedicated contact who understands your business and works with your teams to lead the legal work.</p>
           <p class="intro">All prices exclude VAT. Each fixed fee rests on a scope agreed in writing, information provided in a usable format, a set number of meetings and drafts, and the reuse of proven tools. A matter that falls outside these assumptions is quoted separately, before any work begins.</p>
           <p class="cadre"><b>Prices designed for limited scopes.</b> The published fees primarily apply to small organisations and focused engagements. A large organisation, even a single entity, requires specific scoping and a quotation. Each subscription level is selected only where its hours are sufficient for the agreed engagement.</p>
@@ -1434,8 +1433,8 @@ function plan(r, f){
     pourquoi:"I prefer to work in a dedicated tool: record, impact assessments and requests in one place, up to date and shared between you and me. It makes everyone's work simpler. The one I suggest is "+tf.outil.editeur+", at a preferential rate.",
     hyp:"Optional: I also work with the tool or documents you already use. French publisher, hosting in the European Union; direct subscription with the publisher, no remuneration for the firm. Not included in the order of magnitude.", a:"outil"});
   (r.briques||[]).forEach(function(b){
-    if(b==="aipd") P.push({k:"brique-aipd", titre:"Impact assessment outside a study", prix:"From "+eur(tf.briques.aipd)+" excl. VAT per processing operation",
-      pourquoi: f.aipd_absent ? "No impact assessment has been carried out; for health data, one is often required." : "Some processing operations that require one do not yet have their impact assessment.",
+    if(b==="aipd") P.push({k:"brique-aipd", titre:r.aipdAConfirmer ? "Separate impact assessment: need to confirm" : "Impact assessment outside a study", prix:(r.aipdAConfirmer ? "If needed, from " : "From ")+eur(tf.briques.aipd)+" excl. VAT per processing operation",
+      pourquoi: r.aipdAConfirmer ? "The project’s impact assessment belongs within its own assignment. A separate assignment is only needed for other processing operations, after checking; this possible addition is excluded from the calculated amount." : (f.aipd_absent ? "No impact assessment has been carried out; for health data, one is often required." : "Some processing operations that require one do not yet have their impact assessment."),
       hyp:"One processing operation, a proven method, one meeting and one consolidated round of comments. The impact assessments of your studies are included in their fee.", a:"brique-aipd"});
     if(b==="hebergeur") P.push({k:"brique-hebergeur", titre:"Health data hosting", prix:"From "+eur(tf.briques.hebergeur)+" excl. VAT",
       pourquoi:"Your host's certification has not been checked.",
