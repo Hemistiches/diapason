@@ -602,6 +602,21 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .conviction .quote blockquote{font-size:clamp(19px,2.7vw,26px)}
   .conviction .creds{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+/* Tablette : colonne de gauche réduite, plus de place pour le texte à droite (12 novembre 2026) */
+@media (min-width:721px) and (max-width:1024px){
+  .hero .wrap{grid-template-columns:minmax(0,5fr) 1px minmax(0,7fr);column-gap:clamp(20px,3vw,32px)}
+  .hero h1{font-size:clamp(28px,4vw,40px)}
+  .sec-head,.faq-s .wrap,.wrap > .lab-row,.wrap > .note,.three.one > article{grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(20px,3vw,32px)}
+  .rules > li#outil,.rules > li#outil-ai{grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(20px,3vw,32px)}
+  .wrap > .cadre:not(.lab-row),.wrap > .warn,.test-s .diagbox{margin-left:calc((100% - clamp(20px,3vw,32px)) * 4 / 12 + clamp(20px,3vw,32px))}
+  .sec-head > .sec-text > .intro,.wrap > .lab-row > .lab-t,.wrap > .note > :not(h4){max-width:none}
+  .hero .facts{display:flex;flex-wrap:wrap;column-gap:20px;row-gap:6px}
+}
+@media (min-width:721px) and (max-width:1024px){
+  .halves{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .halves > :first-child{padding-right:clamp(20px,3vw,32px)}
+  .halves > :last-child{padding-left:clamp(20px,3vw,32px)}
+}
 </style>
 </head>
 <body>
