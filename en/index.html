@@ -371,7 +371,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   @page{margin:16mm 14mm}
   :root{background:#fff}
   body{background:#fff;color:#000;font-size:11pt}
-  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.delegue-s,.conviction,.cadre-s,#test > .wrap > h2,#test > .wrap > .intro,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
+  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.delegue-s,.conviction,.cadre-s,#test .sec-head,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
   .test-s{padding:0}
   .wrap{padding:0!important;max-width:none}
   .diagbox{border:0;margin:0;padding:0;max-width:none}
@@ -503,6 +503,19 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .hero .lede{max-width:44ch}
   .hero .facts{column-gap:18px}
 }
+/* En-têtes de section en deux colonnes sur ordinateur : titre à gauche, texte à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);align-items:start}
+  .sec-head > .label{grid-column:1 / -1}
+  .sec-head > .sec-h2,.sec-head > .rules-h,.sec-head > .sub-h3{grid-column:1;margin-bottom:0;text-wrap:balance}
+  .sec-head > .sec-text{grid-column:2;padding-top:.5em}
+  .sec-head > .sec-text > .intro:first-child{margin-top:0}
+  .sec-head > .sec-text > .intro{max-width:62ch}
+  .sec-head.sub{margin-top:clamp(48px,6vw,80px)}
+  .sec-head.sub > .rules-h,.sec-head.sub > .sub-h3{margin-top:0}
+  .sec-head > .sec-text > .cadre:first-child{margin-top:0}
+  .test-s .diagbox{max-width:none;margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
+}
 </style>
 </head>
 <body>
@@ -582,8 +595,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="fonction-s" id="fonction" aria-labelledby="t-fct">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-fct">What the test reviews</h2>
-      <p class="intro">Appointing a data protection officer is not enough. The officer must also be identifiable by the authority, free in the performance of their tasks and given the resources to perform them. This is where most set-ups give way: not in intention, but in structure.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-fct">What the test reviews</h2>
+        <div class="sec-text">
+          <p class="intro">Appointing a data protection officer is not enough. The officer must also be identifiable by the authority, free in the performance of their tasks and given the resources to perform them. This is where most set-ups give way: not in intention, but in structure.</p>
+        </div>
+      </div>
       <ul class="fonctions">
         <li><b>Appointment of the officer</b><span>Mandatory where the core activities involve large-scale processing of health data (Art. 37 GDPR).</span></li>
         <li><b>Independence and resources</b><span>No conflict of interests with other duties, and the time the role requires (Art. 38).</span></li>
@@ -602,17 +619,25 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-test">Is your set-up in tune?</h2>
-      <p class="intro">Questions about facts you know: your organisation, your connected devices, what you have in place, your studies, the pace of your projects. The path adapts to your answers and asks for no documents or file details.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-test">Is your set-up in tune?</h2>
+        <div class="sec-text">
+          <p class="intro">Questions about facts you know: your organisation, your connected devices, what you have in place, your studies, the pace of your projects. The path adapts to your answers and asks for no documents or file details.</p>
+        </div>
+      </div>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">The test runs in your browser and requires JavaScript. You can also write directly to francois.cesure@hemistiches.com.</p></noscript></div>
     </div>
   </section>
 
   <section class="delegue-s" id="parcours" aria-labelledby="t-parcours">
     <div class="wrap">
-      <p class="label">How we can work together</p>
-      <h2 class="sec-h2" id="t-parcours">Three distinct needs, each with its own price</h2>
-      <p class="intro">Depending on your situation, you may need only one of them. None is a compulsory step: a study or a device can be entrusted on its own, and a data protection officer subscription can start directly on a set-up that already holds.</p>
+      <div class="sec-head">
+        <p class="label">How we can work together</p>
+        <h2 class="sec-h2" id="t-parcours">Three distinct needs, each with its own price</h2>
+        <div class="sec-text">
+          <p class="intro">Depending on your situation, you may need only one of them. None is a compulsory step: a study or a device can be entrusted on its own, and a data protection officer subscription can start directly on a set-up that already holds.</p>
+        </div>
+      </div>
       <ol class="steps3">
         <li>
           <span class="when">If needed · once</span>
@@ -642,11 +667,14 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="formules-s" id="formules" aria-labelledby="t-form">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-form">Fees</h2>
-      <p class="cadre"><strong>A lawyer by your side at every stage of the engagement.</strong> I assess your situation, prepare or adapt your documents and support their implementation within the agreed scope. The tool helps keep track of the work; you have a dedicated contact who understands your business and works with your teams to lead the legal work.</p>
-      <p class="intro">All prices exclude VAT. Each fixed fee rests on a scope agreed in writing, information provided in a usable format, a set number of meetings and drafts, and the reuse of proven tools. A matter that falls outside these assumptions is quoted separately, before any work begins.</p>
-
-      <p class="cadre"><b>Prices designed for limited scopes.</b> The published fees primarily apply to small organisations and focused engagements. A large organisation, even a single entity, requires specific scoping and a quotation. Each subscription level is selected only where its hours are sufficient for the agreed engagement.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-form">Fees</h2>
+        <div class="sec-text">
+          <p class="cadre"><strong>A lawyer by your side at every stage of the engagement.</strong> I assess your situation, prepare or adapt your documents and support their implementation within the agreed scope. The tool helps keep track of the work; you have a dedicated contact who understands your business and works with your teams to lead the legal work.</p>
+          <p class="intro">All prices exclude VAT. Each fixed fee rests on a scope agreed in writing, information provided in a usable format, a set number of meetings and drafts, and the reuse of proven tools. A matter that falls outside these assumptions is quoted separately, before any work begins.</p>
+          <p class="cadre"><b>Prices designed for limited scopes.</b> The published fees primarily apply to small organisations and focused engagements. A large organisation, even a single entity, requires specific scoping and a quotation. Each subscription level is selected only where its hours are sufficient for the agreed engagement.</p>
+        </div>
+      </div>
       <h3 class="sub-h3" id="tarifs-debut">To get started</h3>
       <div class="three duo">
         <article id="offre-consultation">
@@ -699,8 +727,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
       <div class="three one"><article id="offre-sur-mesure"><h3>Groups and complex organisations</h3><p class="amount">On quotation</p><p>For a scope exceeding the fixed-fee assumptions: multi-level governance, very different activities, documentation to reconstruct or a substantial workload, even within a single company.</p><p>Country or study counts alone do not rule out a defined fixed fee. Scoping considers the work, negotiations, available information, deadlines and internal resources. Acceptance depends on the firm's capacity and availability; the engagement may be limited to a defined component or declined. A quotation does not imply automatic acceptance of the engagement.</p></article></div>
 
-      <h3 class="sub-h3" id="tarifs-briques">Completing the foundation</h3>
-      <p class="cadre">Each add-on is ordered on its own, at its own price, by an organisation building its foundation or already having one. It is never added to a study, whose fee already includes its impact assessment and contracts.</p>
+      <div class="sec-head sub">
+        <h3 class="sub-h3" id="tarifs-briques">Completing the foundation</h3>
+        <div class="sec-text">
+          <p class="cadre">Each add-on is ordered on its own, at its own price, by an organisation building its foundation or already having one. It is never added to a study, whose fee already includes its impact assessment and contracts.</p>
+        </div>
+      </div>
       <ul class="rules">
         <li id="brique-aipd"><b>Impact assessment outside a study · from <span data-p="br:aipd">€1,800</span> excl. VAT</b><span>For one processing operation of the organisation: platform, application, remote monitoring, data warehouse. Assisted drafting on a proven method, based on the information you provide, one meeting and one consolidated round of comments. You approve it; the data protection officer's opinion, if there is one, is given separately.</span></li>
         <li id="brique-contrat"><b>Processor agreement · from <span data-p="br:contrat">€650</span> excl. VAT</b><span>One agreement or amendment relating to data, drafted on my templates or reviewed against your provider's terms, one round of negotiation included.</span></li>

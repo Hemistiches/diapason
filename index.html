@@ -371,7 +371,7 @@ h1,h2,h3,h4{margin:0;font-weight:300;line-height:1.1;letter-spacing:-0.01em;text
   @page{margin:16mm 14mm}
   :root{background:#fff}
   body{background:#fff;color:#000;font-size:11pt}
-  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.delegue-s,.conviction,.cadre-s,#test > .wrap > h2,#test > .wrap > .intro,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
+  body::before,.skip,.top,.drawer,.contact,.hero,.cesure-s,.fonction-s,.formules-s,.delegue-s,.conviction,.cadre-s,#test .sec-head,.no-print,.dnav,.contactbox button,.contactbox a{display:none!important}
   .test-s{padding:0}
   .wrap{padding:0!important;max-width:none}
   .diagbox{border:0;margin:0;padding:0;max-width:none}
@@ -503,6 +503,19 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .hero .lede{max-width:44ch}
   .hero .facts{column-gap:18px}
 }
+/* En-têtes de section en deux colonnes sur ordinateur : titre à gauche, texte à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);align-items:start}
+  .sec-head > .label{grid-column:1 / -1}
+  .sec-head > .sec-h2,.sec-head > .rules-h,.sec-head > .sub-h3{grid-column:1;margin-bottom:0;text-wrap:balance}
+  .sec-head > .sec-text{grid-column:2;padding-top:.5em}
+  .sec-head > .sec-text > .intro:first-child{margin-top:0}
+  .sec-head > .sec-text > .intro{max-width:62ch}
+  .sec-head.sub{margin-top:clamp(48px,6vw,80px)}
+  .sec-head.sub > .rules-h,.sec-head.sub > .sub-h3{margin-top:0}
+  .sec-head > .sec-text > .cadre:first-child{margin-top:0}
+  .test-s .diagbox{max-width:none;margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
+}
 </style>
 </head>
 <body>
@@ -582,8 +595,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="fonction-s" id="fonction" aria-labelledby="t-fct">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-fct">Ce que le test passe en revue</h2>
-      <p class="intro">Désigner un délégué à la protection des données ne suffit pas. Encore faut-il qu'il soit identifiable par l'autorité, libre dans l'exercice de ses missions et doté des moyens de les exercer. C'est là que la plupart des organisations cèdent : non pas sur l'intention, mais sur la structure.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-fct">Ce que le test passe en revue</h2>
+        <div class="sec-text">
+          <p class="intro">Désigner un délégué à la protection des données ne suffit pas. Encore faut-il qu'il soit identifiable par l'autorité, libre dans l'exercice de ses missions et doté des moyens de les exercer. C'est là que la plupart des organisations cèdent : non pas sur l'intention, mais sur la structure.</p>
+        </div>
+      </div>
       <ul class="fonctions">
         <li><b>Désignation du délégué</b><span>Obligatoire lorsque l'activité de base implique un traitement à grande échelle de données de santé (art. 37 du RGPD).</span></li>
         <li><b>Indépendance et moyens</b><span>Aucun conflit d'intérêts avec ses autres fonctions, et le temps nécessaire à la mission (art. 38).</span></li>
@@ -602,17 +619,25 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="test-s" id="test" aria-labelledby="t-test">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-test">Votre conformité est-elle au diapason ?</h2>
-      <p class="intro">Des questions sur des faits que vous connaissez : votre organisation, vos dispositifs connectés, ce que vous avez en place, vos études, le rythme de vos projets. Le parcours s'adapte à vos réponses et ne vous demande ni document ni détail de dossier.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-test">Votre conformité est‑elle au diapason ?</h2>
+        <div class="sec-text">
+          <p class="intro">Des questions sur des faits que vous connaissez : votre organisation, vos dispositifs connectés, ce que vous avez en place, vos études, le rythme de vos projets. Le parcours s'adapte à vos réponses et ne vous demande ni document ni détail de dossier.</p>
+        </div>
+      </div>
       <div class="diagbox" id="diagbox" aria-live="polite"><noscript><p class="qhint">Le test fonctionne dans votre navigateur et nécessite JavaScript. Vous pouvez aussi écrire directement à francois.cesure@hemistiches.com.</p></noscript></div>
     </div>
   </section>
 
   <section class="delegue-s" id="parcours" aria-labelledby="t-parcours">
     <div class="wrap">
-      <p class="label">Comment travailler ensemble</p>
-      <h2 class="sec-h2" id="t-parcours">Trois besoins distincts, chacun à son prix</h2>
-      <p class="intro">Selon votre situation, vous n'aurez peut-être besoin que de l'un d'eux. Aucun n'est un passage obligé : une étude ou un dispositif peut être confié seul, et un abonnement de délégué peut démarrer directement sur une conformité qui tient déjà.</p>
+      <div class="sec-head">
+        <p class="label">Comment travailler ensemble</p>
+        <h2 class="sec-h2" id="t-parcours">Trois besoins distincts, chacun à son prix</h2>
+        <div class="sec-text">
+          <p class="intro">Selon votre situation, vous n'aurez peut-être besoin que de l'un d'eux. Aucun n'est un passage obligé : une étude ou un dispositif peut être confié seul, et un abonnement de délégué peut démarrer directement sur une conformité qui tient déjà.</p>
+        </div>
+      </div>
       <ol class="steps3">
         <li>
           <span class="when">Si nécessaire · une fois</span>
@@ -642,11 +667,14 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
   <section class="formules-s" id="formules" aria-labelledby="t-form">
     <div class="wrap">
-      <h2 class="sec-h2" id="t-form">Tarifs</h2>
-      <p class="cadre"><strong>Un avocat à vos côtés, à chaque étape de la mission.</strong> J'analyse votre situation, prépare ou adapte vos documents et vous accompagne dans leur mise en œuvre, selon le périmètre convenu. L'outil facilite le suivi ; vous bénéficiez d'un interlocuteur qui connaît votre activité et conduit le travail juridique avec vos équipes.</p>
-      <p class="intro">Tous les prix s'entendent hors taxes. Chaque forfait repose sur un périmètre convenu par écrit, des informations fournies dans un format exploitable, un nombre défini de réunions et de versions, et la réutilisation d'outils éprouvés. Un dossier qui sort de ces hypothèses fait l'objet d'un devis, arrêté avant toute intervention.</p>
-
-      <p class="cadre"><b>Des prix calibrés pour des périmètres limités.</b> Les montants affichés visent principalement les petites structures et les missions ciblées. Une organisation importante, même constituée d’une seule entité, fait l’objet d’un cadrage et d’un devis spécifiques. Chaque niveau de suivi est retenu seulement si ses heures permettent d’assurer la mission convenue.</p>
+      <div class="sec-head">
+        <h2 class="sec-h2" id="t-form">Tarifs</h2>
+        <div class="sec-text">
+          <p class="cadre"><strong>Un avocat à vos côtés, à chaque étape de la mission.</strong> J'analyse votre situation, prépare ou adapte vos documents et vous accompagne dans leur mise en œuvre, selon le périmètre convenu. L'outil facilite le suivi ; vous bénéficiez d'un interlocuteur qui connaît votre activité et conduit le travail juridique avec vos équipes.</p>
+          <p class="intro">Tous les prix s'entendent hors taxes. Chaque forfait repose sur un périmètre convenu par écrit, des informations fournies dans un format exploitable, un nombre défini de réunions et de versions, et la réutilisation d'outils éprouvés. Un dossier qui sort de ces hypothèses fait l'objet d'un devis, arrêté avant toute intervention.</p>
+          <p class="cadre"><b>Des prix calibrés pour des périmètres limités.</b> Les montants affichés visent principalement les petites structures et les missions ciblées. Une organisation importante, même constituée d’une seule entité, fait l’objet d’un cadrage et d’un devis spécifiques. Chaque niveau de suivi est retenu seulement si ses heures permettent d’assurer la mission convenue.</p>
+        </div>
+      </div>
       <h3 class="sub-h3" id="tarifs-debut">Pour commencer</h3>
       <div class="three duo">
         <article id="offre-consultation">
@@ -699,8 +727,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
 
       <div class="three one"><article id="offre-sur-mesure"><h3>Groupes et organisations complexes</h3><p class="amount">Sur devis</p><p>Pour un périmètre qui dépasse les forfaits : gouvernance à plusieurs niveaux, activités très différentes, documentation à reconstruire ou mobilisation importante, même au sein d'une seule société.</p><p>Le nombre de pays ou d'études ne suffit pas à lui seul à écarter un forfait. Le cadrage porte sur les travaux, négociations, informations disponibles, délais et ressources internes. La prise en charge dépend des capacités et disponibilités du cabinet ; elle peut être limitée à un volet défini ou ne pas être retenue. Un devis n'emporte aucune acceptation automatique de la mission.</p></article></div>
 
-      <h3 class="sub-h3" id="tarifs-briques">Compléter le socle</h3>
-      <p class="cadre">Chaque brique se commande seule, à son prix, pour un organisme qui construit son socle ou l'a déjà. Elle ne s'ajoute jamais à une étude, dont le forfait comprend déjà l'analyse d'impact et les contrats.</p>
+      <div class="sec-head sub">
+        <h3 class="sub-h3" id="tarifs-briques">Compléter le socle</h3>
+        <div class="sec-text">
+          <p class="cadre">Chaque brique se commande seule, à son prix, pour un organisme qui construit son socle ou l'a déjà. Elle ne s'ajoute jamais à une étude, dont le forfait comprend déjà l'analyse d'impact et les contrats.</p>
+        </div>
+      </div>
       <ul class="rules">
         <li id="brique-aipd"><b>Analyse d'impact hors étude · à partir de <span data-p="br:aipd">1 800 €</span> HT</b><span>Pour un traitement de l'organisme : plateforme, application, télésuivi, entrepôt de données. Rédaction assistée sur une méthode éprouvée, à partir des éléments que vous fournissez, une réunion et un retour consolidé. Vous la validez ; l'avis du délégué, s'il en existe un, est rendu à part.</span></li>
         <li id="brique-contrat"><b>Contrat de sous-traitance · à partir de <span data-p="br:contrat">650 €</span> HT</b><span>Un contrat ou un avenant relatif aux données, rédigé sur mes modèles ou revu sur les conditions de votre prestataire, un tour de négociation compris.</span></li>
