@@ -548,6 +548,36 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .three:not(.duo):not(.one) > article:nth-child(3n+1),.three.duo > article:nth-child(2n+1){padding-left:0;border-left:0}
   .three:not(.duo):not(.one) > article:nth-child(n+4),.three.duo > article:nth-child(n+3){border-top:1px solid var(--rule)}
 }
+/* Grille commune sur ordinateur (12 novembre 2026) : titres et intitulés à gauche, texte courant à droite sur un même axe, grilles et tableaux en pleine largeur ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head > .sec-text > .cadre:first-child{margin-top:0}
+  .sec-head > .sec-text > .cadre{max-width:62ch}
+  .wrap > .lab-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);margin-left:0;max-width:none}
+  .wrap > .lab-row > .lab-l{grid-column:1;color:var(--ink);font-weight:400;text-wrap:balance}
+  .wrap > .lab-row > .lab-t{grid-column:2;max-width:76ch}
+  .wrap > .note{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);border-left:0;padding:0;max-width:none}
+  .wrap > .note > h4{grid-column:1;margin:0}
+  .wrap > .note > :not(h4){grid-column:2;max-width:76ch}
+  .wrap > .warn{margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px));max-width:none}
+  .rules > li#outil,.rules > li#outil-ai{grid-template-columns:minmax(0,5fr) minmax(0,3.5fr) minmax(0,3.5fr);column-gap:clamp(28px,4vw,64px)}
+  .rules > li#outil > b,.rules > li#outil-ai > b{grid-column:1;grid-row:1 / span 3;text-wrap:balance}
+  .rules > li#outil > span:nth-of-type(1),.rules > li#outil-ai > span:nth-of-type(1){grid-column:2 / span 2;grid-row:1;padding-right:0}
+  .rules > li#outil > span:nth-of-type(2),.rules > li#outil-ai > span:nth-of-type(2){grid-column:2;grid-row:2}
+  .rules > li#outil > span:nth-of-type(3),.rules > li#outil-ai > span:nth-of-type(3){grid-column:3;grid-row:2}
+  .rules > li#outil > span:nth-of-type(4),.rules > li#outil-ai > span:nth-of-type(4){grid-column:2;grid-row:3}
+  .rules > li#outil > span:nth-of-type(5),.rules > li#outil-ai > span:nth-of-type(5){grid-column:3;grid-row:3}
+}
+/* Listes à deux colonnes : un dernier élément isolé occupe la rangée entière, intitulé à gauche, texte à droite */
+@media (min-width:861px){
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai),.rules > li#brique-formation{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px);row-gap:10px}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > b,.rules > li#brique-formation > b{grid-column:1}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > :not(b),.rules > li#brique-formation > :not(b){grid-column:2;margin-top:0}
+}
+@media (min-width:1025px){.sec-head > .sec-text > .cadre{max-width:none}}
+@media (min-width:1025px){
+  .sec-head.sub > .sec-text{padding-top:.15em}
+  .wrap > .note > p{font-size:17px;color:var(--mute)}
+}
 </style>
 </head>
 <body>
@@ -772,8 +802,8 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <li id="brique-mentions"><b>Privacy notices · from <span data-p="br:mentions">€450</span> excl. VAT</b><span>For one audience: patients, users, employees or visitors to your website. <span data-p="br:mentionsSupp">€250</span> excl. VAT per additional audience.</span></li>
         <li id="brique-transfert"><b>Transfer outside the Union · from <span data-p="br:transfert">€1,200</span> excl. VAT</b><span>One flow to one recipient: choice of mechanism, standard contractual clauses and annexes, assessment of safeguards based on the recipient's information. An opinion on the law of the destination country is a matter for counsel qualified in that law.</span></li>
         <li id="brique-dataact"><b>Connected product data (Data Act) · <span data-p="brx:dataact">from €1,800 excl. VAT</span></b><span>For a manufacturer of connected devices, one product or product range: mapping of the data it generates, information sheet for your customers before the sale or lease, clauses on the manufacturer's use of the data, template agreement for making data available to a third party, note on separating technical data from patient data, one debrief and one round of comments. Not included: technical implementation of access, negotiation with a third party, foreign law; several product ranges or distinct data flows: on quotation.</span></li>
-        <li id="outil"><b>Compliance management tool · <span data-p="outil">€1,500</span> excl. VAT per year, invoiced by the publisher</b><span>I prefer to work in a dedicated tool, which makes everyone's work simpler. For an organisation without one, I suggest <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, a French publisher: record, impact assessments, requests and breaches kept in a single tool, which I use on your behalf.</span><span><i class="lab">Subscription.</i> You subscribe directly with the publisher, at this preferential rate, renewed each year. Your data remains yours: it can be exported to PDF or Excel, and you keep it if we stop working together.</span><span><i class="lab">Hosting.</i> According to the publisher, the tool is hosted in Germany with IONOS (ISO 27001 and C5 certified), with secondary hosting in France with OVH. As this hosting is not certified for health data, the tool only holds compliance documentation: no health data, nor any named details that would reveal it, which stay in your own systems.</span><span><i class="lab">Support.</i> I help you get started with the tool and fill it in. This assistance is part of my engagement: it is included in the fixed fee, then counted against the subscription volume. Technical questions (access, incidents) are for the publisher.</span><span><i class="lab">Independence.</i> The firm receives no remuneration from the publisher. You remain free to choose another tool, and I also work with the one you already use.</span></li>
         <li id="brique-formation"><b>Training · from <span data-p="br:formation">€600</span> excl. VAT</b><span>One ninety-minute video session for your teams, with its materials.</span></li>
+        <li id="outil"><b>Compliance management tool · <span data-p="outil">€1,500</span> excl. VAT per year, invoiced by the publisher</b><span>I prefer to work in a dedicated tool, which makes everyone's work simpler. For an organisation without one, I suggest <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, a French publisher: record, impact assessments, requests and breaches kept in a single tool, which I use on your behalf.</span><span><i class="lab">Subscription.</i> You subscribe directly with the publisher, at this preferential rate, renewed each year. Your data remains yours: it can be exported to PDF or Excel, and you keep it if we stop working together.</span><span><i class="lab">Hosting.</i> According to the publisher, the tool is hosted in Germany with IONOS (ISO 27001 and C5 certified), with secondary hosting in France with OVH. As this hosting is not certified for health data, the tool only holds compliance documentation: no health data, nor any named details that would reveal it, which stay in your own systems.</span><span><i class="lab">Support.</i> I help you get started with the tool and fill it in. This assistance is part of my engagement: it is included in the fixed fee, then counted against the subscription volume. Technical questions (access, incidents) are for the publisher.</span><span><i class="lab">Independence.</i> The firm receives no remuneration from the publisher. You remain free to choose another tool, and I also work with the one you already use.</span></li>
       </ul>
       <p class="cadre">Beyond these volumes, or for a document not listed, the price is set by quotation before any work begins.</p>
 
@@ -866,7 +896,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <li id="offre-controle"><b>Inspection, major incident or proceedings · on quotation</b><span>An open matter is best handled early, before positions harden. The budget is agreed with you, in stages if need be. Any defence in sanction proceedings is a separate engagement, accepted after checking that it is compatible with the data protection officer role held for you.</span></li>
       </ul>
 
-      <h3 class="sub-h3" id="budgets">A few budgets, by way of illustration</h3>
+      <div class="sec-head sub">
+        <h3 class="sub-h3" id="budgets">A few budgets, by way of illustration</h3>
+        <div class="sec-text">
+          <p class="cadre">These budgets illustrate one year; they set neither a twelve-month commitment nor a sum due on signature. The follow-up level is confirmed according to your situation: a study conducted in several countries does not automatically fit the limited follow-up. If an assessment has already been paid, the simple foundation only calls for the balance; a deductible consultation is never added a second time; taking over a workable set-up gives rise to no new foundation.</p>
+        </div>
+      </div>
       <div class="tbl-wrap"><table class="tbl">
         <caption>Twelve full months, simple situations, no exceptional services. Amounts exclude VAT.</caption>
         <thead><tr><th scope="col">Situation</th><th scope="col">Calculation</th><th scope="col">Total</th></tr></thead>
@@ -878,10 +913,9 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <tr><th scope="row">Digital health publisher starting from scratch, no subscription: simple foundation, platform impact assessment, host, two agreements, notices for two audiences</th><td><span data-p="mes">€2,750</span> + <span data-p="br:aipd">€1,800</span> + <span data-p="br:hebergeur">€850</span> + 2 × <span data-p="br:contrat">€650</span> + <span data-p="br:mentions">€450</span> + <span data-p="br:mentionsSupp">€250</span></td><td><span data-p="b:6">€7,400</span></td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">These budgets illustrate one year; they set neither a twelve-month commitment nor a sum due on signature. The follow-up level is confirmed according to your situation: a study conducted in several countries does not automatically fit the limited follow-up. If an assessment has already been paid, the simple foundation only calls for the balance; a deductible consultation is never added a second time; taking over a workable set-up gives rise to no new foundation.</p>
 
-      <p class="cadre"><strong>Prices exclude VAT.</strong> French VAT at 20% is added for clients established in France; for a business client established in another Member State, VAT is self-accounted for by the client under the reverse-charge mechanism. If we agree to work together, the engagement is set out in a fee agreement signed before any work begins, which defines the scope, its exclusions and how the price is determined. It is preceded by a conflict-of-interest check.</p>
-      <p class="cadre"><strong>And for the rest of your legal function?</strong> Diapason covers the protection of health data; <a class="fort" href="https://cadence.hemistiches.com/en/" target="_blank" rel="noopener">Cadence</a> the outsourced legal department; <a class="fort" href="https://concordance.hemistiches.com/en/" target="_blank" rel="noopener">Concordance</a> medical device compliance; <a class="fort" href="https://unisson.hemistiches.com" target="_blank" rel="noopener">Unisson</a> interactions with healthcare professionals. It is the same lawyer: price differences reflect the volume, duration and organisation of each offer. An appointment as data protection officer is not included in Cadence, Concordance or Unisson, and work already done for you in one is reused, never invoiced twice.</p>
+      <p class="cadre lab-row"><b class="lab-l">Prices exclude VAT.</b> <span class="lab-t">French VAT at 20% is added for clients established in France; for a business client established in another Member State, VAT is self-accounted for by the client under the reverse-charge mechanism. If we agree to work together, the engagement is set out in a fee agreement signed before any work begins, which defines the scope, its exclusions and how the price is determined. It is preceded by a conflict-of-interest check.</span></p>
+      <p class="cadre lab-row"><b class="lab-l">And for the rest of your legal function?</b> <span class="lab-t">Diapason covers the protection of health data; <a class="fort" href="https://cadence.hemistiches.com/en/" target="_blank" rel="noopener">Cadence</a> the outsourced legal department; <a class="fort" href="https://concordance.hemistiches.com/en/" target="_blank" rel="noopener">Concordance</a> medical device compliance; <a class="fort" href="https://unisson.hemistiches.com" target="_blank" rel="noopener">Unisson</a> interactions with healthcare professionals. It is the same lawyer: price differences reflect the volume, duration and organisation of each offer. An appointment as data protection officer is not included in Cadence, Concordance or Unisson, and work already done for you in one is reused, never invoiced twice.</span></p>
     </div>
   </section>
 
