@@ -488,6 +488,21 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   h2{line-height:1.12}
   p,li{overflow-wrap:break-word;hyphens:manual}
 }
+/* Accroche en deux hémistiches sur ordinateur, comme l’accueil d’Hémistiches (12 novembre 2026) ; tablette et mobile inchangés */
+.hero h1 .hemi{display:inline}
+.hero-side{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(22px,3vw,40px)}
+@media (min-width:1025px){
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);column-gap:clamp(28px,4vw,64px);row-gap:clamp(28px,3.4vw,48px);align-content:end}
+  .hero .who{grid-column:1 / -1;margin-bottom:clamp(8px,2vw,32px)}
+  .hero h1{grid-column:1 / -1;max-width:none;display:grid;grid-template-columns:subgrid;font-size:clamp(46px,5.2vw,76px);line-height:1.05}
+  .hero h1 .hemi{display:block;text-wrap:balance}
+  .hero h1 .hemi-1{grid-column:1}
+  .hero h1 .hemi-2{grid-column:3;padding-top:.62em}
+  .hero h1 .cesure{grid-column:2;grid-row:1;display:block;width:1px;height:auto;margin:.12em 0 .06em;align-self:stretch}
+  .hero-side{grid-column:3}
+  .hero .lede{max-width:44ch}
+  .hero .facts{column-gap:18px}
+}
 </style>
 </head>
 <body>
@@ -540,13 +555,15 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   <section class="hero" id="top" aria-labelledby="titre">
     <div class="wrap">
       <p class="who"><strong>Diapason</strong><span>Conformité RGPD des données de santé, par Hémistiches</span></p>
-      <h1 id="titre">Vos données de santé<span class="cesure" aria-hidden="true"></span> sont-elles au diapason du RGPD ?</h1>
-      <p class="lede">Faites le test de votre conformité. Les questions s'ajustent à votre activité et à ce que vous avez déjà en place : vous ne répondez qu'à celles qui vous concernent. Le résultat vient en deux temps. D'abord trois indicateurs : ce que la règle vous impose, la solidité de ce que vous avez en place, votre exposition en cas de contrôle ou d'incident. Puis une orientation, avec les prix d'entrée et leurs hypothèses.</p>
-      <div class="actions">
-        <a class="btn btn-light" href="#test">Faire le test</a>
-        <a class="link-quiet" href="#formules">Voir les tarifs</a>
+      <h1 id="titre"><span class="hemi hemi-1">Vos données de santé</span><span class="cesure" aria-hidden="true"></span><span class="hemi hemi-2"> sont-elles au diapason du RGPD ?</span></h1>
+      <div class="hero-side">
+        <p class="lede">Faites le test de votre conformité. Les questions s'ajustent à votre activité et à ce que vous avez déjà en place : vous ne répondez qu'à celles qui vous concernent. Le résultat vient en deux temps. D'abord trois indicateurs : ce que la règle vous impose, la solidité de ce que vous avez en place, votre exposition en cas de contrôle ou d'incident. Puis une orientation, avec les prix d'entrée et leurs hypothèses.</p>
+        <div class="actions">
+          <a class="btn btn-light" href="#test">Faire le test</a>
+          <a class="link-quiet" href="#formules">Voir les tarifs</a>
+        </div>
+        <p class="facts"><span>Environ six minutes</span><span>Gratuit</span><span>Vos réponses détaillées restent dans votre navigateur</span><span>Prix hors taxes</span></p>
       </div>
-      <p class="facts"><span>Environ six minutes</span><span>Gratuit</span><span>Vos réponses détaillées restent dans votre navigateur</span><span>Prix hors taxes</span></p>
     </div>
   </section>
 
