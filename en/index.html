@@ -516,6 +516,38 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .sec-head > .sec-text > .cadre:first-child{margin-top:0}
   .test-s .diagbox{max-width:none;margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
 }
+/* Outil de conformité sur ordinateur : titre en tête, présentation à gauche, quatre points sur deux colonnes à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .rules > li#outil{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3.5fr) minmax(0,3.5fr);column-gap:clamp(24px,3vw,48px);row-gap:clamp(18px,2vw,28px);padding:clamp(24px,2.6vw,36px) 0 clamp(28px,3vw,44px)}
+  .rules > li#outil > b{grid-column:1 / -1;grid-row:1}
+  .rules > li#outil > span{margin-top:0}
+  .rules > li#outil > span:nth-of-type(1){grid-column:1;grid-row:2 / span 2;padding-right:clamp(0px,2vw,28px)}
+  .rules > li#outil > span:nth-of-type(2){grid-column:2;grid-row:2}
+  .rules > li#outil > span:nth-of-type(3){grid-column:3;grid-row:2}
+  .rules > li#outil > span:nth-of-type(4){grid-column:2;grid-row:3}
+  .rules > li#outil > span:nth-of-type(5){grid-column:3;grid-row:3}
+  .rules > li#outil > span > b,.rules > li#outil > span > .lab{display:block;color:var(--ink);font-style:normal;font-size:inherit;margin-bottom:4px}
+  .rules > li#outil{grid-column:1 / -1;order:1}
+}
+/* Offres en pleine largeur sur ordinateur : intitulé et prix à gauche, contenu à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .three.one > article{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-rows:auto 1fr;column-gap:clamp(28px,4vw,64px);row-gap:14px;padding-right:0}
+  .three.one > article > h3{grid-column:1;grid-row:1}
+  .three.one > article > .amount,.three.one > article > div:not(.one-body){grid-column:1;grid-row:2;align-self:start}
+  .three.one > article > .one-body{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;gap:14px;min-width:0}
+}
+/* Notes et questions fréquentes calées sur la colonne de droite sur ordinateur (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .wrap > .cadre{margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
+  .faq-s .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);align-items:start}
+  .faq-s .wrap > .sec-h2{grid-column:1;margin-bottom:0;text-wrap:balance}
+  .faq-s .faq{grid-column:2;margin-top:0;max-width:none}
+}
+/* Grilles d'offres : pas de filet vertical en début de rangée, filet horizontal entre les rangées (12 novembre 2026) */
+@media (min-width:721px){
+  .three:not(.duo):not(.one) > article:nth-child(3n+1),.three.duo > article:nth-child(2n+1){padding-left:0;border-left:0}
+  .three:not(.duo):not(.one) > article:nth-child(n+4),.three.duo > article:nth-child(n+3){border-top:1px solid var(--rule)}
+}
 </style>
 </head>
 <body>
@@ -725,7 +757,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         </article>
       </div>
 
-      <div class="three one"><article id="offre-sur-mesure"><h3>Groups and complex organisations</h3><p class="amount">On quotation</p><p>For a scope exceeding the fixed-fee assumptions: multi-level governance, very different activities, documentation to reconstruct or a substantial workload, even within a single company.</p><p>Country or study counts alone do not rule out a defined fixed fee. Scoping considers the work, negotiations, available information, deadlines and internal resources. Acceptance depends on the firm's capacity and availability; the engagement may be limited to a defined component or declined. A quotation does not imply automatic acceptance of the engagement.</p></article></div>
+      <div class="three one"><article id="offre-sur-mesure"><h3>Groups and complex organisations</h3><p class="amount">On quotation</p><div class="one-body"><p>For a scope exceeding the fixed-fee assumptions: multi-level governance, very different activities, documentation to reconstruct or a substantial workload, even within a single company.</p><p>Country or study counts alone do not rule out a defined fixed fee. Scoping considers the work, negotiations, available information, deadlines and internal resources. Acceptance depends on the firm's capacity and availability; the engagement may be limited to a defined component or declined. A quotation does not imply automatic acceptance of the engagement.</p></div></article></div>
 
       <div class="sec-head sub">
         <h3 class="sub-h3" id="tarifs-briques">Completing the foundation</h3>
@@ -781,13 +813,13 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
       <div class="three one">
         <article id="offre-ia">
           <h3>Data of a device incorporating AI</h3>
-          <div><p class="from">From</p><p class="amount"><span data-p="ia">€3,500</span> <small>excl. VAT</small></p></div>
+          <div><p class="from">From</p><p class="amount"><span data-p="ia">€3,500</span> <small>excl. VAT</small></p></div><div class="one-body">
           <p>For a device or software whose algorithm is trained or runs on health data: documenting now, under the GDPR, what feeds it.</p>
           <ul><li>Roles of the manufacturer, healthcare establishments and model provider</li><li>Legal basis for training and use, reuse of data</li><li>Impact assessment of the device and patient information</li><li>Review of one contract relating to training data or to the model</li><li>Alignment with the data governance requirements of the AI Regulation</li></ul>
           <details class="more"><summary>Details</summary><div>
             <p>The entry price covers one model and one data source. Several sources or countries, continuous retraining or transfers outside the EU: on quotation. A substantial change to the device or its data sources afterwards requires a supplementary agreement.</p>
             <p>CE marking and compliance with the AI Regulation fall under <a class="fort" href="https://concordance.hemistiches.com/en/" target="_blank" rel="noopener">Concordance</a>. It is the same lawyer: work done for one is carried over to the other, never invoiced twice.</p>
-          </div></details>
+          </div></details></div>
         </article>
       </div>
       <p class="cadre">A study or a device can be entrusted on its own, with no subscription or foundation. The engagement covers the GDPR, French law and expressly agreed checks of foreign national requirements. It does not cover overall compliance with every law in each study country. Local counsel may be engaged where needed, at separate fees.</p>
