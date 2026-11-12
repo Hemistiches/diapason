@@ -516,6 +516,38 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .sec-head > .sec-text > .cadre:first-child{margin-top:0}
   .test-s .diagbox{max-width:none;margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
 }
+/* Outil de conformité sur ordinateur : titre en tête, présentation à gauche, quatre points sur deux colonnes à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .rules > li#outil{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3.5fr) minmax(0,3.5fr);column-gap:clamp(24px,3vw,48px);row-gap:clamp(18px,2vw,28px);padding:clamp(24px,2.6vw,36px) 0 clamp(28px,3vw,44px)}
+  .rules > li#outil > b{grid-column:1 / -1;grid-row:1}
+  .rules > li#outil > span{margin-top:0}
+  .rules > li#outil > span:nth-of-type(1){grid-column:1;grid-row:2 / span 2;padding-right:clamp(0px,2vw,28px)}
+  .rules > li#outil > span:nth-of-type(2){grid-column:2;grid-row:2}
+  .rules > li#outil > span:nth-of-type(3){grid-column:3;grid-row:2}
+  .rules > li#outil > span:nth-of-type(4){grid-column:2;grid-row:3}
+  .rules > li#outil > span:nth-of-type(5){grid-column:3;grid-row:3}
+  .rules > li#outil > span > b,.rules > li#outil > span > .lab{display:block;color:var(--ink);font-style:normal;font-size:inherit;margin-bottom:4px}
+  .rules > li#outil{grid-column:1 / -1;order:1}
+}
+/* Offres en pleine largeur sur ordinateur : intitulé et prix à gauche, contenu à droite (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .three.one > article{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-rows:auto 1fr;column-gap:clamp(28px,4vw,64px);row-gap:14px;padding-right:0}
+  .three.one > article > h3{grid-column:1;grid-row:1}
+  .three.one > article > .amount,.three.one > article > div:not(.one-body){grid-column:1;grid-row:2;align-self:start}
+  .three.one > article > .one-body{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;gap:14px;min-width:0}
+}
+/* Notes et questions fréquentes calées sur la colonne de droite sur ordinateur (12 novembre 2026) ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .wrap > .cadre{margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px))}
+  .faq-s .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);align-items:start}
+  .faq-s .wrap > .sec-h2{grid-column:1;margin-bottom:0;text-wrap:balance}
+  .faq-s .faq{grid-column:2;margin-top:0;max-width:none}
+}
+/* Grilles d'offres : pas de filet vertical en début de rangée, filet horizontal entre les rangées (12 novembre 2026) */
+@media (min-width:721px){
+  .three:not(.duo):not(.one) > article:nth-child(3n+1),.three.duo > article:nth-child(2n+1){padding-left:0;border-left:0}
+  .three:not(.duo):not(.one) > article:nth-child(n+4),.three.duo > article:nth-child(n+3){border-top:1px solid var(--rule)}
+}
 </style>
 </head>
 <body>
@@ -725,7 +757,7 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         </article>
       </div>
 
-      <div class="three one"><article id="offre-sur-mesure"><h3>Groupes et organisations complexes</h3><p class="amount">Sur devis</p><p>Pour un périmètre qui dépasse les forfaits : gouvernance à plusieurs niveaux, activités très différentes, documentation à reconstruire ou mobilisation importante, même au sein d'une seule société.</p><p>Le nombre de pays ou d'études ne suffit pas à lui seul à écarter un forfait. Le cadrage porte sur les travaux, négociations, informations disponibles, délais et ressources internes. La prise en charge dépend des capacités et disponibilités du cabinet ; elle peut être limitée à un volet défini ou ne pas être retenue. Un devis n'emporte aucune acceptation automatique de la mission.</p></article></div>
+      <div class="three one"><article id="offre-sur-mesure"><h3>Groupes et organisations complexes</h3><p class="amount">Sur devis</p><div class="one-body"><p>Pour un périmètre qui dépasse les forfaits : gouvernance à plusieurs niveaux, activités très différentes, documentation à reconstruire ou mobilisation importante, même au sein d'une seule société.</p><p>Le nombre de pays ou d'études ne suffit pas à lui seul à écarter un forfait. Le cadrage porte sur les travaux, négociations, informations disponibles, délais et ressources internes. La prise en charge dépend des capacités et disponibilités du cabinet ; elle peut être limitée à un volet défini ou ne pas être retenue. Un devis n'emporte aucune acceptation automatique de la mission.</p></div></article></div>
 
       <div class="sec-head sub">
         <h3 class="sub-h3" id="tarifs-briques">Compléter le socle</h3>
@@ -781,13 +813,13 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
       <div class="three one">
         <article id="offre-ia">
           <h3>Données d'un dispositif intégrant de l'IA</h3>
-          <div><p class="from">À partir de</p><p class="amount"><span data-p="ia">3 500 €</span> <small>HT</small></p></div>
+          <div><p class="from">À partir de</p><p class="amount"><span data-p="ia">3 500 €</span> <small>HT</small></p></div><div class="one-body">
           <p>Pour un dispositif ou un logiciel dont l'algorithme est entraîné ou fonctionne sur des données de santé : documenter dès maintenant, au titre du RGPD, ce qui le nourrit.</p>
           <ul><li>Rôles du fabricant, des établissements et du fournisseur du modèle</li><li>Fondement de l'entraînement et de l'usage, réutilisation des données</li><li>Analyse d'impact du dispositif et information des patients</li><li>Revue d'un contrat relatif aux données d'entraînement ou au modèle</li><li>Articulation avec la gouvernance des données du règlement sur l'IA</li></ul>
           <details class="more"><summary>Le détail</summary><div>
             <p>Le prix d'entrée vise un modèle et une source de données. Plusieurs sources ou pays, un réentraînement continu ou des transferts hors de l'Union : sur devis. Si le dispositif ou ses sources de données sont ensuite modifiés de façon substantielle, un accord complémentaire est conclu.</p>
             <p>Le marquage CE et la conformité au règlement sur l'intelligence artificielle relèvent de <a class="fort" href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a>. C'est le même avocat : le travail fait pour l'une est repris dans l'autre, jamais facturé deux fois.</p>
-          </div></details>
+          </div></details></div>
         </article>
       </div>
       <p class="cadre">Une étude ou un dispositif peut être confié seul, sans abonnement ni socle. La mission porte sur le RGPD et le droit français, ainsi que sur les vérifications nationales étrangères expressément convenues. Elle ne couvre pas la conformité globale à toutes les législations des pays de l'étude. Un conseil local peut être sollicité si nécessaire, à des honoraires distincts.</p>
