@@ -548,6 +548,36 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
   .three:not(.duo):not(.one) > article:nth-child(3n+1),.three.duo > article:nth-child(2n+1){padding-left:0;border-left:0}
   .three:not(.duo):not(.one) > article:nth-child(n+4),.three.duo > article:nth-child(n+3){border-top:1px solid var(--rule)}
 }
+/* Grille commune sur ordinateur (12 novembre 2026) : titres et intitulés à gauche, texte courant à droite sur un même axe, grilles et tableaux en pleine largeur ; tablette et mobile inchangés */
+@media (min-width:1025px){
+  .sec-head > .sec-text > .cadre:first-child{margin-top:0}
+  .sec-head > .sec-text > .cadre{max-width:62ch}
+  .wrap > .lab-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);margin-left:0;max-width:none}
+  .wrap > .lab-row > .lab-l{grid-column:1;color:var(--ink);font-weight:400;text-wrap:balance}
+  .wrap > .lab-row > .lab-t{grid-column:2;max-width:76ch}
+  .wrap > .note{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(28px,4vw,64px);border-left:0;padding:0;max-width:none}
+  .wrap > .note > h4{grid-column:1;margin:0}
+  .wrap > .note > :not(h4){grid-column:2;max-width:76ch}
+  .wrap > .warn{margin-left:calc((100% - clamp(28px,4vw,64px)) * 5 / 12 + clamp(28px,4vw,64px));max-width:none}
+  .rules > li#outil,.rules > li#outil-ai{grid-template-columns:minmax(0,5fr) minmax(0,3.5fr) minmax(0,3.5fr);column-gap:clamp(28px,4vw,64px)}
+  .rules > li#outil > b,.rules > li#outil-ai > b{grid-column:1;grid-row:1 / span 3;text-wrap:balance}
+  .rules > li#outil > span:nth-of-type(1),.rules > li#outil-ai > span:nth-of-type(1){grid-column:2 / span 2;grid-row:1;padding-right:0}
+  .rules > li#outil > span:nth-of-type(2),.rules > li#outil-ai > span:nth-of-type(2){grid-column:2;grid-row:2}
+  .rules > li#outil > span:nth-of-type(3),.rules > li#outil-ai > span:nth-of-type(3){grid-column:3;grid-row:2}
+  .rules > li#outil > span:nth-of-type(4),.rules > li#outil-ai > span:nth-of-type(4){grid-column:2;grid-row:3}
+  .rules > li#outil > span:nth-of-type(5),.rules > li#outil-ai > span:nth-of-type(5){grid-column:3;grid-row:3}
+}
+/* Listes à deux colonnes : un dernier élément isolé occupe la rangée entière, intitulé à gauche, texte à droite */
+@media (min-width:861px){
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai),.rules > li#brique-formation{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,48px);row-gap:10px}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > b,.rules > li#brique-formation > b{grid-column:1}
+  .rules > li:last-child:nth-child(odd):not(#outil):not(#outil-ai) > :not(b),.rules > li#brique-formation > :not(b){grid-column:2;margin-top:0}
+}
+@media (min-width:1025px){.sec-head > .sec-text > .cadre{max-width:none}}
+@media (min-width:1025px){
+  .sec-head.sub > .sec-text{padding-top:.15em}
+  .wrap > .note > p{font-size:17px;color:var(--mute)}
+}
 </style>
 </head>
 <body>
@@ -772,8 +802,8 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <li id="brique-mentions"><b>Mentions d'information · à partir de <span data-p="br:mentions">450 €</span> HT</b><span>Pour un public : patients, utilisateurs, salariés ou visiteurs de votre site. <span data-p="br:mentionsSupp">250 €</span> HT par public supplémentaire.</span></li>
         <li id="brique-transfert"><b>Transfert hors de l'Union · à partir de <span data-p="br:transfert">1 200 €</span> HT</b><span>Un flux vers un destinataire : choix du mécanisme, clauses contractuelles types et annexes, analyse des garanties établie à partir des informations du destinataire. Un avis sur le droit du pays de destination relève d'un conseil qualifié dans ce droit.</span></li>
         <li id="brique-dataact"><b>Données des produits connectés (Data Act) · <span data-p="brx:dataact">à partir de 1 800 € HT</span></b><span>Pour un fabricant de dispositifs connectés, un produit ou une gamme : cartographie des données qu'il génère, fiche d'information de vos clients avant la vente ou la location, clauses d'usage des données par le fabricant, modèle d'accord de mise à disposition à un tiers, note sur la séparation des données techniques et des données de patients, une restitution et un tour de commentaires. Non compris : la mise en œuvre technique de l'accès, la négociation avec un tiers, le droit étranger ; plusieurs gammes ou flux distincts : sur devis.</span></li>
-        <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Je travaille de préférence dans un outil dédié, qui simplifie le travail de chacun. Pour un organisme qui n'en a pas, je propose <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, que j'utilise pour vous.</span><span><i class="lab">Souscription.</i> Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel, renouvelé chaque année. Vos données restent les vôtres : elles s'exportent en PDF ou en Excel, et vous les conservez si nous cessons de travailler ensemble.</span><span><i class="lab">Hébergement.</i> Selon l'éditeur, l'outil est hébergé en Allemagne chez IONOS (certifié ISO 27001 et C5), avec un hébergement secondaire en France chez OVH. Cet hébergement n'étant pas certifié pour les données de santé, l'outil ne reçoit que la documentation de conformité : aucune donnée de santé ni détail nominatif qui en révélerait, ces éléments restant dans vos propres systèmes.</span><span><i class="lab">Accompagnement.</i> Je vous aide à prendre en main l'outil et à le renseigner. Cette aide fait partie de ma mission : elle est comprise dans le forfait, puis décomptée du volume de l'abonnement. Les questions techniques (accès, incidents) relèvent de l'éditeur.</span><span><i class="lab">Indépendance.</i> Le cabinet ne perçoit aucune rémunération de l'éditeur. Vous restez libre de choisir un autre outil, et je travaille aussi avec celui que vous utilisez déjà.</span></li>
         <li id="brique-formation"><b>Formation · à partir de <span data-p="br:formation">600 €</span> HT</b><span>Une session d'une heure trente en visio pour vos équipes, et son support.</span></li>
+        <li id="outil"><b>Outil de gestion de la conformité · <span data-p="outil">1 500 €</span> HT par an, facturé par l'éditeur</b><span>Je travaille de préférence dans un outil dédié, qui simplifie le travail de chacun. Pour un organisme qui n'en a pas, je propose <a href="https://www.provacy.com/" target="_blank" rel="noopener">Provacy</a>, éditeur français : registre, analyses d'impact, demandes et violations tenus dans un même outil, que j'utilise pour vous.</span><span><i class="lab">Souscription.</i> Vous souscrivez directement auprès de l'éditeur, à ce tarif préférentiel, renouvelé chaque année. Vos données restent les vôtres : elles s'exportent en PDF ou en Excel, et vous les conservez si nous cessons de travailler ensemble.</span><span><i class="lab">Hébergement.</i> Selon l'éditeur, l'outil est hébergé en Allemagne chez IONOS (certifié ISO 27001 et C5), avec un hébergement secondaire en France chez OVH. Cet hébergement n'étant pas certifié pour les données de santé, l'outil ne reçoit que la documentation de conformité : aucune donnée de santé ni détail nominatif qui en révélerait, ces éléments restant dans vos propres systèmes.</span><span><i class="lab">Accompagnement.</i> Je vous aide à prendre en main l'outil et à le renseigner. Cette aide fait partie de ma mission : elle est comprise dans le forfait, puis décomptée du volume de l'abonnement. Les questions techniques (accès, incidents) relèvent de l'éditeur.</span><span><i class="lab">Indépendance.</i> Le cabinet ne perçoit aucune rémunération de l'éditeur. Vous restez libre de choisir un autre outil, et je travaille aussi avec celui que vous utilisez déjà.</span></li>
       </ul>
       <p class="cadre">Au-delà de ces volumes, ou pour une pièce qui n'est pas listée, le prix est arrêté sur devis avant toute intervention.</p>
 
@@ -866,7 +896,12 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
         <li id="offre-controle"><b>Contrôle, incident important ou procédure · sur devis</b><span>Une situation ouverte se traite tôt, avant que les positions ne se figent. Le budget est arrêté avec vous, au besoin par étapes. Une éventuelle défense dans une procédure de sanction est une mission distincte, acceptée après vérification de sa compatibilité avec la fonction de délégué exercée pour vous.</span></li>
       </ul>
 
-      <h3 class="sub-h3" id="budgets">Quelques budgets, à titre d'illustration</h3>
+      <div class="sec-head sub">
+        <h3 class="sub-h3" id="budgets">Quelques budgets, à titre d'illustration</h3>
+        <div class="sec-text">
+          <p class="cadre">Ces budgets illustrent une année ; ils ne fixent ni une durée d'engagement de douze mois, ni une somme due à la signature. Le niveau de suivi se confirme selon votre situation : une étude menée dans plusieurs pays n'entre pas d'office dans le suivi limité. Si un diagnostic a déjà été réglé, le socle simple n'appelle que son complément ; une consultation imputable n'est jamais ajoutée une seconde fois ; la reprise d'un existant exploitable ne donne lieu à aucun nouveau socle.</p>
+        </div>
+      </div>
       <div class="tbl-wrap"><table class="tbl">
         <caption>Douze mois complets, situations simples, sans prestation exceptionnelle. Montants HT.</caption>
         <thead><tr><th scope="col">Situation</th><th scope="col">Calcul</th><th scope="col">Total</th></tr></thead>
@@ -878,10 +913,9 @@ h1,h2,.hero .slogan,.drawer nav a,.axes .num{font-weight:200}
           <tr><th scope="row">Éditeur e-santé qui part de zéro, sans abonnement : socle simple, analyse d'impact de la plateforme, hébergeur, deux contrats, mentions pour deux publics</th><td><span data-p="mes">2 750 €</span> + <span data-p="br:aipd">1 800 €</span> + <span data-p="br:hebergeur">850 €</span> + 2 × <span data-p="br:contrat">650 €</span> + <span data-p="br:mentions">450 €</span> + <span data-p="br:mentionsSupp">250 €</span></td><td><span data-p="b:6">7 400 €</span></td></tr>
         </tbody>
       </table></div>
-      <p class="cadre">Ces budgets illustrent une année ; ils ne fixent ni une durée d'engagement de douze mois, ni une somme due à la signature. Le niveau de suivi se confirme selon votre situation : une étude menée dans plusieurs pays n'entre pas d'office dans le suivi limité. Si un diagnostic a déjà été réglé, le socle simple n'appelle que son complément ; une consultation imputable n'est jamais ajoutée une seconde fois ; la reprise d'un existant exploitable ne donne lieu à aucun nouveau socle.</p>
 
-      <p class="cadre"><strong>Prix hors taxes.</strong> La taxe sur la valeur ajoutée au taux de 20 % s'y ajoute pour les clients établis en France ; pour un client professionnel établi dans un autre État membre, elle est autoliquidée par le preneur. En cas d'accord, la mission fait l'objet d'une convention d'honoraires signée avant toute intervention, qui fixe le périmètre, ses exclusions et les modalités de détermination du prix. Elle est précédée d'une vérification des conflits d'intérêts.</p>
-      <p class="cadre"><strong>Et pour le reste de votre fonction juridique ?</strong> Diapason couvre la protection des données de santé ; <a class="fort" href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a> la direction juridique externalisée ; <a class="fort" href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a> la conformité des dispositifs médicaux ; <a class="fort" href="https://unisson.hemistiches.com" target="_blank" rel="noopener">Unisson</a> les relations avec les professionnels de santé. C'est le même avocat : les écarts de prix tiennent au volume, à la durée et à l'organisation de chaque offre. Une désignation comme délégué n'est pas comprise dans Cadence, Concordance ou Unisson, et un travail déjà accompli pour vous dans l'une est réutilisé, jamais facturé deux fois.</p>
+      <p class="cadre lab-row"><b class="lab-l">Prix hors taxes.</b> <span class="lab-t">La taxe sur la valeur ajoutée au taux de 20 % s'y ajoute pour les clients établis en France ; pour un client professionnel établi dans un autre État membre, elle est autoliquidée par le preneur. En cas d'accord, la mission fait l'objet d'une convention d'honoraires signée avant toute intervention, qui fixe le périmètre, ses exclusions et les modalités de détermination du prix. Elle est précédée d'une vérification des conflits d'intérêts.</span></p>
+      <p class="cadre lab-row"><b class="lab-l">Et pour le reste de votre fonction juridique ?</b> <span class="lab-t">Diapason couvre la protection des données de santé ; <a class="fort" href="https://cadence.hemistiches.com" target="_blank" rel="noopener">Cadence</a> la direction juridique externalisée ; <a class="fort" href="https://concordance.hemistiches.com" target="_blank" rel="noopener">Concordance</a> la conformité des dispositifs médicaux ; <a class="fort" href="https://unisson.hemistiches.com" target="_blank" rel="noopener">Unisson</a> les relations avec les professionnels de santé. C'est le même avocat : les écarts de prix tiennent au volume, à la durée et à l'organisation de chaque offre. Une désignation comme délégué n'est pas comprise dans Cadence, Concordance ou Unisson, et un travail déjà accompli pour vous dans l'une est réutilisé, jamais facturé deux fois.</span></p>
     </div>
   </section>
 
