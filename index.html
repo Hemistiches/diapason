@@ -1448,8 +1448,8 @@ function plan(r, f){
     pourquoi:"Je travaille de préférence dans un outil dédié : registre, analyses d'impact et demandes au même endroit, à jour et partagés entre vous et moi. Cela simplifie le travail de chacun. Celui que je propose est "+tf.outil.editeur+", à un tarif préférentiel.",
     hyp:"Facultatif : je travaille aussi avec l'outil ou les documents que vous utilisez déjà. Éditeur français, hébergement dans l'Union européenne ; souscription directe auprès de l'éditeur, aucune rémunération du cabinet. Non compris dans l'ordre de grandeur.", a:"outil"});
   (r.briques||[]).forEach(function(b){
-    if(b==="aipd") P.push({k:"brique-aipd", titre:"Analyse d'impact hors étude", prix:"À partir de "+eur(tf.briques.aipd)+" HT par traitement",
-      pourquoi: f.aipd_absent ? "Aucune analyse d'impact n'est réalisée ; sur des données de santé, elle est souvent requise." : "Certains traitements qui la requièrent n'ont pas encore leur analyse d'impact.",
+    if(b==="aipd") P.push({k:"brique-aipd", titre:r.aipdAConfirmer ? "Analyse d’impact distincte : besoin à confirmer" : "Analyse d'impact hors étude", prix:(r.aipdAConfirmer ? "Si nécessaire, à partir de " : "À partir de ")+eur(tf.briques.aipd)+" HT par traitement",
+      pourquoi: r.aipdAConfirmer ? "L’analyse d’impact du projet relève de sa mission. Une prestation distincte n’est à prévoir que pour d’autres traitements, après vérification ; ce complément n’est pas ajouté au montant calculé." : (f.aipd_absent ? "Aucune analyse d'impact n'est réalisée ; sur des données de santé, elle est souvent requise." : "Certains traitements qui la requièrent n'ont pas encore leur analyse d'impact."),
       hyp:"Un traitement, une méthode éprouvée, une réunion et un retour consolidé. Les analyses d'impact de vos études sont comprises dans leur forfait.", a:"brique-aipd"});
     if(b==="hebergeur") P.push({k:"brique-hebergeur", titre:"Hébergement de données de santé", prix:"À partir de "+eur(tf.briques.hebergeur)+" HT",
       pourquoi:"La certification de votre hébergeur n'a pas été vérifiée.",
